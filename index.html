@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Stocktimus · Paper book</title>
+  <meta name="color-scheme" content="dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <div class="brand-text">
+          <h1>Stocktimus</h1>
+          <span class="sub">Paper book</span>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="source-pill" id="source-pill">loading</span>
+        <div class="asof">
+          <span class="asof-label">As of</span>
+          <time id="asof" datetime="">—</time>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" id="hero" aria-label="Paper book snapshot">
+      <article class="stat" data-stat="pnl">
+        <div class="stat-k">Paper P&amp;L</div>
+        <div class="stat-v mono" id="stat-pnl">—</div>
+        <div class="stat-s" id="stat-pnl-sub">Waiting for marks</div>
+      </article>
+      <article class="stat" data-stat="roc">
+        <div class="stat-k">Paper ROC</div>
+        <div class="stat-v mono" id="stat-roc">—</div>
+        <div class="stat-s" id="stat-roc-sub">On deployed capital</div>
+      </article>
+      <article class="stat stat-wide" data-stat="target">
+        <div class="stat-k">Account vs $250 / week</div>
+        <div class="stat-v mono" id="stat-acct">—</div>
+        <div class="bar" aria-hidden="true"><i id="target-bar"></i></div>
+        <div class="stat-s" id="stat-target-sub">$25k book · 1% weekly target</div>
+      </article>
+      <article class="stat" data-stat="book">
+        <div class="stat-k">Book</div>
+        <div class="stat-v book-split" id="stat-book">
+          <span><b id="n-open">0</b><em>open</em></span>
+          <span><b id="n-inv">0</b><em>inv</em></span>
+          <span><b id="n-out">0</b><em>out</em></span>
+        </div>
+        <div class="stat-s" id="stat-book-sub">No tickets loaded</div>
+      </article>
+      <article class="stat" data-stat="hit">
+        <div class="stat-k">Hit rate</div>
+        <div class="stat-v mono" id="stat-hit">—</div>
+        <div class="stat-s" id="stat-hit-sub">Resolved paper tickets</div>
+      </article>
+    </section>
+
+    <section class="breaks" aria-label="Breakdowns">
+      <article class="panel">
+        <header class="panel-h">
+          <h2>By structure</h2>
+          <span class="panel-k">CSP · stock+CC · long call</span>
+        </header>
+        <div id="by-structure" class="rows"></div>
+      </article>
+      <article class="panel">
+        <header class="panel-h">
+          <h2>By creator</h2>
+          <span class="panel-k">Who ticketed it</span>
+        </header>
+        <div id="by-creator" class="rows"></div>
+      </article>
+      <article class="panel">
+        <header class="panel-h">
+          <h2>By confidence</h2>
+          <span class="panel-k">Thesis grade · not P&amp;L</span>
+        </header>
+        <div id="by-confidence" class="rows"></div>
+      </article>
+    </section>
+
+    <section class="book" aria-label="Trades">
+      <header class="book-h">
+        <div>
+          <h2>Trades</h2>
+          <p class="book-sub" id="table-sub">Paper marks only — no demo book.</p>
+        </div>
+        <div class="chips" role="tablist" aria-label="Filter">
+          <button class="chip on" data-filter="all" type="button">All</button>
+          <button class="chip" data-filter="open" type="button">Open</button>
+          <button class="chip" data-filter="invalidated" type="button">Invalidated</button>
+          <button class="chip" data-filter="out" type="button">Out</button>
+          <button class="chip" data-filter="week" type="button">This week</button>
+          <button class="chip" data-filter="High" type="button">High</button>
+          <button class="chip" data-filter="Medium" type="button">Medium</button>
+          <button class="chip" data-filter="Low" type="button">Low</button>
+        </div>
+      </header>
+      <div class="table-wrap">
+        <table class="trades">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Ticker</th>
+              <th>Conf</th>
+              <th>Structure</th>
+              <th>Strike / exp</th>
+              <th class="num">Credit / debit</th>
+              <th class="num">Capital</th>
+              <th class="num">Live mark</th>
+              <th class="num">Paper P&amp;L</th>
+              <th class="num">Paper %</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr class="empty-row"><td colspan="11">Loading book…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="foot">
+      Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.
+    </footer>
+  </div>
+
+  <div class="shade" id="shade" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <header class="drawer-h">
+      <div>
+        <div class="drawer-k" id="d-kicker">Ticket</div>
+        <h2 id="d-title">—</h2>
+      </div>
+      <button type="button" class="x" id="drawer-close" aria-label="Close">×</button>
+    </header>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
