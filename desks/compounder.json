@@ -1,19 +1,54 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-01T09:24:20.394031-07:00",
+  "as_of": "2026-09-01T09:50:01-07:00",
   "account": 25000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder sleeve. Empty until Compounder appends tickets. weekly_target 0 until Jesse sizes it.",
+  "note": "Compounder sleeve. Long-term quality paper book. Not live. Not advice. Separate from Stocktimus data.json.",
   "summary": {
     "paper_pnl": 0,
-    "open": 0,
+    "open": 1,
     "invalidated": 0,
     "out": 0,
     "hit_rate": null,
     "wins": 0,
     "resolved": 0
   },
-  "trades": []
+  "trades": [
+    {
+      "id": "2026-09-01-compounder-V",
+      "csv_id": 1,
+      "source_group": "compounder",
+      "date_proposed": "2026-09-01",
+      "session": "am",
+      "date_opened": "2026-09-01",
+      "date_closed": null,
+      "taken": "proposed",
+      "ticker": "V",
+      "creator": "Compounder",
+      "structure": "stock",
+      "strike": null,
+      "expiry": null,
+      "right": null,
+      "dte": null,
+      "contracts": 13,
+      "shares": 13,
+      "spot_at_idea": 377.05,
+      "premium_per_share": null,
+      "credit_or_debit": -4901.65,
+      "credit_or_debit_side": "debit",
+      "capital_at_risk": 4901.65,
+      "invalidation": "Thesis dies if Visa structurally loses network take-rate (A2A/stablecoins/banks routing around at scale) or a multi-year volume collapse; size-out if daily close under $320 (~15% below idea) on a thesis break, not noise.",
+      "notes": "Quality compounder. Fair vs ~31x 5y avg P/E. Horizon 7-10 years. Research-only paper log. 13 shares ~$4902 (~19.6% of $25k placeholder).",
+      "new_vs_carry": "new",
+      "live_stock": 377.05,
+      "live_stock_source": "finviz/cnbc Sep 1 2026 ~11:37 ET",
+      "paper_status": "open",
+      "paper_pnl": 0,
+      "paper_roc_pct": 0,
+      "paper_acct_pct": 0,
+      "daily_closes_completed": [],
+      "flags": []
+    }
+  ]
 }
-
