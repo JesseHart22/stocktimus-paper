@@ -4,11 +4,34 @@
   const WEEKLY = 375;
   const TZ = "America/Los_Angeles";
 
-  const PAPER_JSON = [
-    "./data.json",
-    "./trade-tracker-paper.json",
-    "../trade-tracker-paper.json",
-  ];
+  const DESKS = {
+    stocktimus: {
+      name: "Stocktimus",
+      sub: "Paper book",
+      files: ["./data.json", "./trade-tracker-paper.json", "../trade-tracker-paper.json"],
+      csv: true,
+      defaultAccount: 25000,
+      defaultWeekly: 375,
+    },
+    moonshot: {
+      name: "Moonshot",
+      sub: "10x sleeve",
+      files: ["./desks/moonshot.json"],
+      csv: false,
+      defaultAccount: 5000,
+      defaultWeekly: 0,
+    },
+    compounder: {
+      name: "Compounder",
+      sub: "Long-term book",
+      files: ["./desks/compounder.json"],
+      csv: false,
+      defaultAccount: 25000,
+      defaultWeekly: 0,
+    },
+  };
+
+  const PAPER_JSON = DESKS.stocktimus.files;
   const SUMMARY_JSON = [
     "./trade-tracker-summary.json",
     "../trade-tracker-summary.json",
@@ -27,11 +50,18 @@
     summary: null,
     asOf: null,
     source: "stub",
+    desk: "stocktimus",
     filter: "all",
     selected: null,
     account: ACCOUNT,
     weekly: WEEKLY,
   };
+
+  function deskFromHash() {
+    const h = (location.hash || "").replace(/^#/, "").toLowerCase();
+    return DESKS[h] ? h : "stocktimus";
+  }
+
 
   const $ = (id) => document.getElementById(id);
 
@@ -556,23 +586,27 @@
   }
 
   async function load() {
-    const paper = await fetchFirst(PAPER_JSON, "json");
-    const summaryHit = await fetchFirst(SUMMARY_JSON, "json");
+    const deskId = state.desk || deskFromHash();
+    const desk = DESKS[deskId] || DESKS.stocktimus;
+    const paper = await fetchFirst(desk.files, "json");
+    const summaryHit = deskId === "stocktimus" ? await fetchFirst(SUMMARY_JSON, "json") : null;
 
     let trades = [];
     let source = "stub";
     let asOf = null;
     let incomingSummary = null;
-    let account = ACCOUNT;
-    let weekly = WEEKLY;
+    let account = desk.defaultAccount;
+    let weekly = desk.defaultWeekly;
 
     if (paper && paper.data) {
       const payload = paper.data;
       trades = asList(payload).map(normalizeTrade).filter(Boolean);
       asOf = pick(payload, ["as_of", "asOf", "updated", "generated_at", "timestamp"]) || null;
       incomingSummary = payload.summary || null;
-      account = num(pick(payload, ["account_size", "account", "equity"])) || ACCOUNT;
-      weekly = num(pick(payload, ["weekly_target", "target"])) || WEEKLY;
+      account = num(pick(payload, ["account_size", "account", "equity"]));
+      if (account == null) account = desk.defaultAccount;
+      const w = num(pick(payload, ["weekly_target", "target"]));
+      weekly = w == null ? desk.defaultWeekly : w;
       if (paper.url.endsWith("trade-tracker-paper.json")) source = "paper";
       else if (trades.length) source = pick(payload, ["source"]) || "data.json";
       else source = pick(payload, ["source"]) || "stub";
@@ -582,13 +616,14 @@
       const s = summaryHit.data;
       incomingSummary = incomingSummary ? { ...incomingSummary, ...s } : s;
       asOf = asOf || pick(s, ["as_of", "asOf", "updated", "generated_at"]);
-      account = num(pick(s, ["account_size", "account"])) || account;
-      weekly = num(pick(s, ["weekly_target", "target"])) || weekly;
+      account = num(pick(s, ["account_size", "account"])) ?? account;
+      const sw = num(pick(s, ["weekly_target", "target"]));
+      if (sw != null) weekly = sw;
       if (source === "stub") source = "summary";
     }
 
-    // Only fall back to CSV when the paper/data book is empty.
-    if (!trades.length) {
+    // Only fall back to CSV when the Stocktimus paper/data book is empty.
+    if (!trades.length && desk.csv) {
       const csv = await fetchFirst(CSV_PATHS, "text");
       if (csv) {
         const rows = parseCsv(csv.data).map(normalizeTrade).filter(Boolean);
@@ -655,14 +690,24 @@
     const acctEl = $("stat-acct");
     acctEl.textContent = pct(acct, "0.00%");
     acctEl.className = "stat-v mono " + clsPnL(s.paper_pnl);
-    const vs = (s.paper_pnl || 0) / (state.weekly || WEEKLY);
+    const kEl = $("stat-target-k");
     const bar = $("target-bar");
-    const w = Math.max(0, Math.min(100, vs * 100));
-    bar.style.width = w + "%";
-    bar.classList.toggle("over", vs >= 1);
-    $("stat-target-sub").textContent =
-      money(s.paper_pnl, "$0.00") + " / " + money(state.weekly, "$375.00") +
-      " · $25k book";
+    if (!state.weekly) {
+      if (kEl) kEl.textContent = "Account return";
+      bar.style.width = "0%";
+      bar.classList.remove("over");
+      $("stat-target-sub").textContent =
+        money(s.paper_pnl, "$0.00") + " · " + money(state.account, "$0.00") + " book · no weekly target";
+    } else {
+      if (kEl) kEl.textContent = "Account vs " + money(state.weekly, "$375.00") + " / week";
+      const vs = (s.paper_pnl || 0) / state.weekly;
+      const w = Math.max(0, Math.min(100, vs * 100));
+      bar.style.width = w + "%";
+      bar.classList.toggle("over", vs >= 1);
+      $("stat-target-sub").textContent =
+        money(s.paper_pnl, "$0.00") + " / " + money(state.weekly, "$375.00") +
+        " · " + money(state.account, "$25,000.00") + " book";
+    }
 
     $("n-open").textContent = s.open || 0;
     $("n-inv").textContent = s.invalidated || 0;
@@ -901,7 +946,31 @@
     renderTable();
   }
 
+  function syncDeskTabs() {
+    const name = $("desk-name");
+    const sub = $("desk-sub");
+    const desk = DESKS[state.desk] || DESKS.stocktimus;
+    if (name) name.textContent = desk.name;
+    if (sub) sub.textContent = desk.sub;
+    document.title = desk.name + " · Paper book";
+    document.querySelectorAll(".desk-tab").forEach((a) => {
+      a.classList.toggle("on", a.getAttribute("data-desk") === state.desk);
+    });
+  }
+
   function bind() {
+    window.addEventListener("hashchange", () => {
+      const next = deskFromHash();
+      if (next === state.desk) return;
+      state.desk = next;
+      state.filter = "all";
+      document.querySelectorAll(".chip").forEach((b) => b.classList.toggle("on", b.getAttribute("data-filter") === "all"));
+      syncDeskTabs();
+      load().then(render).catch((err) => {
+        console.warn("desk load failed", err);
+        render();
+      });
+    });
     document.querySelectorAll(".chip").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.filter = btn.getAttribute("data-filter") || "all";
@@ -931,7 +1000,9 @@
   }
 
   async function init() {
+    state.desk = deskFromHash();
     bind();
+    syncDeskTabs();
     try {
       await load();
     } catch (err) {

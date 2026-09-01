@@ -16,10 +16,15 @@
       <div class="brand">
         <span class="mark" aria-hidden="true"></span>
         <div class="brand-text">
-          <h1>Stocktimus</h1>
-          <span class="sub">Paper book</span>
+          <h1 id="desk-name">Stocktimus</h1>
+          <span class="sub" id="desk-sub">Paper book</span>
         </div>
       </div>
+      <nav class="desk-tabs" aria-label="Desk">
+        <a class="desk-tab on" href="#stocktimus" data-desk="stocktimus">Stocktimus</a>
+        <a class="desk-tab" href="#moonshot" data-desk="moonshot">Moonshot</a>
+        <a class="desk-tab" href="#compounder" data-desk="compounder">Compounder</a>
+      </nav>
       <div class="top-meta">
         <span class="source-pill" id="source-pill">loading</span>
         <div class="asof">
@@ -42,7 +47,7 @@
         <div class="roc-spark" id="roc-spark" aria-hidden="true"></div>
       </article>
       <article class="stat stat-wide" data-stat="target">
-        <div class="stat-k">Account vs $375 / week</div>
+        <div class="stat-k" id="stat-target-k">Account vs $375 / week</div>
         <div class="stat-v mono" id="stat-acct">—</div>
         <div class="bar" aria-hidden="true"><i id="target-bar"></i></div>
         <div class="stat-s" id="stat-target-sub">$25k book · 1.5% weekly target</div>
