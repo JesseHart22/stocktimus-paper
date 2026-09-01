@@ -1,7 +1,7 @@
 /* Stocktimus paper book. Numbers come from files only — never invented. */
 (() => {
   const ACCOUNT = 25000;
-  const WEEKLY = 250;
+  const WEEKLY = 375;
   const TZ = "America/Los_Angeles";
 
   const PAPER_JSON = [
@@ -661,7 +661,7 @@
     bar.style.width = w + "%";
     bar.classList.toggle("over", vs >= 1);
     $("stat-target-sub").textContent =
-      money(s.paper_pnl, "$0.00") + " / " + money(state.weekly, "$250.00") +
+      money(s.paper_pnl, "$0.00") + " / " + money(state.weekly, "$375.00") +
       " · $25k book";
 
     $("n-open").textContent = s.open || 0;
