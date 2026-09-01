@@ -99,6 +99,165 @@
     const d = new Date(s);
     return Number.isNaN(d.getTime()) ? null : d;
   }
+
+  function dateKey(v) {
+    if (!v) return null;
+    const s = String(v).trim();
+    const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
+    return m ? m[1] : null;
+  }
+  function nextDateKey(key) {
+    const d = parseDate(key);
+    if (!d) return null;
+    return new Date(d.getTime() + 86400000).toISOString().slice(0, 10);
+  }
+  function isSessionDay(key) {
+    const d = parseDate(key);
+    if (!d) return false;
+    const wd = d.getUTCDay();
+    return wd !== 0 && wd !== 6;
+  }
+  function sessionKeys(from, to) {
+    const out = [];
+    if (!from || !to || from > to) return out;
+    for (let k = from; k <= to; k = nextDateKey(k)) {
+      if (isSessionDay(k)) out.push(k);
+    }
+    return out;
+  }
+  function moneyShort(v) {
+    if (v == null || Number.isNaN(v)) return "—";
+    const n = Number(v);
+    const abs = Math.abs(n);
+    if (abs >= 1000) {
+      const k = abs / 1000;
+      const t = k >= 10 ? k.toFixed(0) : k.toFixed(1);
+      return (n < 0 ? "−$" : "$") + t + "k";
+    }
+    return money(n);
+  }
+
+  function lotOpened(t) {
+    return dateKey(t.date_opened || t.date);
+  }
+  function lotClosed(t) {
+    // Live inclusive through the earlier of date_closed and first_invalidation_date.
+    const a = dateKey(t.date_closed);
+    const b = dateKey(t.first_invalidation_date);
+    if (a && b) return a < b ? a : b;
+    return a || b || null;
+  }
+
+  function pathSessionDates(t, openK, closeK) {
+    const raw = t.daily_closes_completed;
+    const path = (raw && raw.length) ? raw : t.stock_path;
+    const dates = [];
+    if (!Array.isArray(path)) return dates;
+    for (const p of path) {
+      if (p == null) continue;
+      let k = null;
+      if (typeof p === "string" || typeof p === "number") k = dateKey(p);
+      else if (Array.isArray(p)) k = dateKey(p[0]);
+      else k = dateKey(pick(p, ["date", "t", "ts", "time", "label"]));
+      if (!k) continue;
+      if (openK && k < openK) continue;
+      if (closeK && k > closeK) continue;
+      dates.push(k);
+    }
+    return [...new Set(dates)];
+  }
+
+  /*
+   * Daily P&L rule (no invented marks):
+   * - A ticket contributes only its file paper_pnl. Nothing is priced here.
+   * - If daily_closes_completed (or path) lists session dates, spread that paper_pnl
+   *   equally across those dates inside the lot's live window. The path is a calendar,
+   *   not a source of extra P&L.
+   * - If there is only a terminal paper_pnl, assign it to date_closed /
+   *   first_invalidation_date, or the as-of session day if the lot is still open.
+   */
+  function allocateTicketPnl(t, asOfKey) {
+    const pnl = t.paper_pnl;
+    if (pnl == null) return [];
+    const openK = lotOpened(t);
+    const closedK = lotClosed(t);
+    const endK = closedK || asOfKey;
+    const pathDays = pathSessionDates(t, openK, endK);
+    if (pathDays.length) {
+      const share = pnl / pathDays.length;
+      return pathDays.map((k) => [k, share]);
+    }
+    const lump = closedK || asOfKey;
+    return lump ? [[lump, pnl]] : [];
+  }
+
+  function computeDeployedRoc(trades, account, asOfRaw) {
+    const acct = account || ACCOUNT;
+    const asOfKey = dateKey(asOfRaw) || dateKey(new Date().toISOString());
+    let first = null;
+    let last = asOfKey;
+    for (const t of trades) {
+      const o = lotOpened(t);
+      if (o && (!first || o < first)) first = o;
+      if (o && o > last) last = o;
+      const c = lotClosed(t);
+      if (c && c > last) last = c;
+    }
+    if (!first) {
+      return {
+        roc: null, avgDeployed: 0, currentDeployed: 0, currentRaw: 0,
+        idle: acct, curve: [], days: [],
+      };
+    }
+    const days = sessionKeys(first, last);
+    const rawByDay = {};
+    const pnlByDay = {};
+    for (const k of days) {
+      rawByDay[k] = 0;
+      pnlByDay[k] = 0;
+    }
+    for (const t of trades) {
+      const cap = t.capital;
+      const o = lotOpened(t);
+      const c = lotClosed(t);
+      if (cap != null && o) {
+        for (const k of days) {
+          if (k < o) continue;
+          if (c && k > c) continue;
+          rawByDay[k] += cap;
+        }
+      }
+      for (const [k, v] of allocateTicketPnl(t, asOfKey)) {
+        if (pnlByDay[k] == null) pnlByDay[k] = 0;
+        pnlByDay[k] += v;
+      }
+    }
+    const deployedOf = (k) => Math.min(acct, rawByDay[k] || 0);
+    let cum = 1;
+    const curve = [];
+    let sumDep = 0;
+    for (const k of days) {
+      const deployed = deployedOf(k);
+      sumDep += deployed;
+      const dp = pnlByDay[k] || 0;
+      const r = deployed ? dp / deployed : 0;
+      cum *= 1 + r;
+      curve.push({ date: k, deployed, dailyPnl: dp, r, cum: cum - 1 });
+    }
+    const lastK = days[days.length - 1];
+    const currentRaw = rawByDay[lastK] || 0;
+    const currentDeployed = Math.min(acct, currentRaw);
+    return {
+      roc: days.length ? cum - 1 : null,
+      avgDeployed: days.length ? sumDep / days.length : 0,
+      currentDeployed,
+      currentRaw,
+      idle: Math.max(0, acct - currentRaw),
+      curve,
+      days,
+    };
+  }
+
   function fmtWhen(v) {
     if (!v) return "—";
     const d = parseDate(v);
@@ -220,6 +379,10 @@
       invalidation: str(pick(raw, ["invalidation", "kill", "invalid"])),
       notes: str(pick(raw, ["notes", "note", "thesis", "why"])),
       stock_path: pick(raw, ["stock_path", "path", "price_path", "spot_path"]) || [],
+      daily_closes_completed: pick(raw, ["daily_closes_completed"]) || [],
+      date_opened: pick(raw, ["date_opened", "date", "date_proposed", "proposed"]),
+      date_closed: pick(raw, ["date_closed", "closed", "exit_date"]),
+      first_invalidation_date: pick(raw, ["first_invalidation_date"]),
       flags: pick(raw, ["flags", "tags", "labels"]) || [],
       spot: num(pick(raw, ["spot", "spot_at_idea", "spot_entry"])),
       contracts: num(pick(raw, ["contracts", "qty", "lots"])),
@@ -334,7 +497,7 @@
 
     const over = {
       paper_pnl: num(pick(incoming, ["paper_pnl", "pnl", "total_pnl", "paper_pl"])),
-      paper_roc: num(pick(incoming, ["paper_roc", "roc", "paper_roc_pct"])),
+      // paper_roc from files is SUM(pnl)/SUM(every lot's capital) — not used for the hero.
       account_pct: num(pick(incoming, ["account_pct", "acct_pct", "account_return"])),
       open: num(pick(incoming, ["open", "n_open"])),
       invalidated: num(pick(incoming, ["invalidated", "n_invalidated", "killed"])),
@@ -448,6 +611,7 @@
     state.asOf = asOf;
     state.source = source;
     state.summary = computeSummary(trades, incomingSummary);
+    state.deployed = computeDeployedRoc(trades, account, asOf);
   }
 
   function filtered() {
@@ -472,10 +636,20 @@
       ? s.marked + " ticket" + (s.marked === 1 ? "" : "s") + " with paper marks"
       : "No paper marks yet";
 
+    const roc = state.deployed || computeDeployedRoc([], state.account, state.asOf);
     const rocEl = $("stat-roc");
-    rocEl.textContent = pct(s.paper_roc);
-    rocEl.className = "stat-v mono " + clsPnL(s.paper_roc);
-    $("stat-roc-sub").textContent = "On deployed capital";
+    rocEl.textContent = pct(roc.roc);
+    rocEl.className = "stat-v mono " + clsPnL(roc.roc);
+    const idle = roc.idle;
+    $("stat-roc-sub").textContent =
+      "Avg deployed " + moneyShort(roc.avgDeployed) +
+      " · now " + moneyShort(roc.currentDeployed) +
+      " · idle " + moneyShort(idle);
+    const sparkHost = $("roc-spark");
+    if (sparkHost) {
+      const pts = (roc.curve || []).map((p, i) => ({ x: i, y: p.cum, label: p.date }));
+      sparkHost.innerHTML = pts.length >= 2 ? sparkSvg(pts) : "";
+    }
 
     const acct = s.account_pct;
     const acctEl = $("stat-acct");
@@ -764,6 +938,7 @@
       console.warn("load failed", err);
       state.trades = [];
       state.summary = computeSummary([]);
+      state.deployed = computeDeployedRoc([], state.account, state.asOf);
       state.source = "stub";
     }
     render();
