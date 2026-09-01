@@ -1,0 +1,55 @@
+{
+  "as_of": "2026-09-01T09:29:27.870420-07:00",
+  "account": 5000,
+  "weekly_target": 0,
+  "source": "paper",
+  "note": "Moonshot $5k paper sleeve. $250 cash. Not live fills. Not advice.",
+  "cash": 250,
+  "trades": [
+    {
+      "id": "2026-09-01-moonshot-NTLA",
+      "date_proposed": "2026-09-01",
+      "date_opened": "2026-09-01",
+      "taken": "yes",
+      "ticker": "NTLA",
+      "creator": "Moonshot",
+      "structure": "stock",
+      "strike": null,
+      "expiry": null,
+      "right": null,
+      "contracts": 217,
+      "spot_at_idea": 12.67,
+      "capital_at_risk": 2750,
+      "paper_status": "open",
+      "paper_pnl": 0,
+      "daily_closes_completed": [],
+      "invalidation": "FDA refuses to file or CRLs lonvo-z, or a clinical hold on in-vivo liver editing",
+      "notes": "Paper sleeve. Entry zone 12.30-13.00. 55% of $5k. HAE lonvo-z 2H26 BLA / 1H27 launch.",
+      "confidence": "Medium",
+      "confidence_reason": "Pivotal HAE data and cash runway; BLA not yet complete."
+    },
+    {
+      "id": "2026-09-01-moonshot-RXRX",
+      "date_proposed": "2026-09-01",
+      "date_opened": "2026-09-01",
+      "taken": "yes",
+      "ticker": "RXRX",
+      "creator": "Moonshot",
+      "structure": "stock",
+      "strike": null,
+      "expiry": null,
+      "right": null,
+      "contracts": 597,
+      "spot_at_idea": 3.35,
+      "capital_at_risk": 2000,
+      "paper_status": "open",
+      "paper_pnl": 0,
+      "daily_closes_completed": [],
+      "invalidation": "FDA no path for REC-4881 and no partner milestone for two quarters, or distressed raise before 2028",
+      "notes": "Paper sleeve. Entry zone 3.20-3.50. 40% of $5k.",
+      "confidence": "Medium",
+      "confidence_reason": "Named Ph2 signal and partners; no registrational path yet."
+    }
+  ]
+}
+
