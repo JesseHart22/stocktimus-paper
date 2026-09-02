@@ -124,8 +124,12 @@
       const n = Number(s);
       return new Date(s.length === 10 ? n * 1000 : n);
     }
-    const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-    if (m) return new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    // Bare YYYY-MM-DD → calendar date in PT (not UTC midnight, which shows as prior evening PT).
+    const bare = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (bare) {
+      return new Date(Date.UTC(+bare[1], +bare[2] - 1, +bare[3], 12, 0, 0));
+    }
+    // Full ISO with time/offset: trust the native parser.
     const d = new Date(s);
     return Number.isNaN(d.getTime()) ? null : d;
   }
