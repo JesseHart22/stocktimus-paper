@@ -1,11 +1,11 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-08T13:00:51-07:00",
-  "account": 10000.0,
+  "as_of": "2026-09-08T13:11:33-07:00",
+  "account": 25000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder $10k sleeve. Paper only. Not live. Not advice. Separate from Stocktimus data.json.",
-  "cash": 1539.5,
+  "note": "Compounder $25k paper account (vs Stocktimus). GOOGL 25 sh open; remainder cash until more compounders. Not live. Not advice. Separate from Stocktimus data.json.",
+  "cash": 16539.5,
   "summary": {
     "paper_pnl": -107.25,
     "open": 1,
@@ -48,7 +48,7 @@
       "paper_status": "out",
       "paper_pnl": -107.25,
       "paper_roc_pct": -0.02188,
-      "paper_acct_pct": -0.010725,
+      "paper_acct_pct": -0.00429,
       "daily_closes_completed": [],
       "flags": [
         "replaced by GOOGL for $10k sleeve"
