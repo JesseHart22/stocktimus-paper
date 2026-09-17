@@ -114,7 +114,6 @@
                   "paper_status": "open",
                   "paper_pnl": 143.0,
                   "daily_closes_completed": [],
-                  "daily_closes_completed": [],
                   "invalidation": "Daily close under $6.80 (hard size-out). Also: CRL that blocks 2027 launch, or cash with no funded path after a fail.",
                   "notes": "Replace RXRX. PDUFA Nov 22, 2026. Entry backfilled Massive 1m @ decision publish. Hard stop $6.80.",
                   "confidence": "Medium",
