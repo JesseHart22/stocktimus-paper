@@ -5,6 +5,9 @@
 **Branch:** main  
 **Message:** Paper UI: all return % use deployed capital (never / $25k book)
 
+> **Follow-on (same day):** Paper book raised to **$50,000** / weekly target **$750**. See `ACCOUNT_50K.md`. Return % still use deployed capital (not idle). Current deployed ~**$13,070** · idle ~**$36,930** of $50k.
+
+
 ## Bug / requirement
 Return percentages on the paper site must use **capital actually deployed** (capital at risk), not the full **$25,000** book. Idle cash must be visible so Jesse sees ~$12k working vs idle.
 

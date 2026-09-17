@@ -1,0 +1,1488 @@
+{
+  "asof_pt": "2026-09-16T14:54:21.693882-07:00",
+  "account": 50000.0,
+  "max_per_trade": 6250.0,
+  "weekly_target": 750.0,
+  "elapsed_days_from_first_email": 34,
+  "elapsed_weeks": 4.857142857142857,
+  "paper_fill_rules": "PAPER backtest of Stocktimus recommendations, not Jesse's actual fills. Assume each emailed ticket filled at the inventory stock_price and premium_per_share on the email date, sized as printed (CC with no size => 100 sh / 1 call). taken stays proposed except LULU (taken=no, status=out). Invalidation uses completed Yahoo daily CLOSE only (session 2026-09-16 is CLOSED after 1pm PT; today's close MAY be used for invalidation). A. Invalidated stock+CC: stock P&L=(close-entry)*100*contracts; call credit KEPT; no invented buy-to-close (no same-day option print) \u2014 FLAG. A. Invalidated CSP: paper P&L = credit - max(0,strike-close)*100*contracts; time value unknown. A. Invalidated long call: P&L = max(0,close-strike)*100*contracts - debit; time value unknown. B. Still open: CBOE mid=(bid+ask)/2 if both>0 else last if>0 else blank. stock+CC unrealized=(live-entry)*100*n + credit - live_call_mark*100*n. CSP unrealized=credit - live_put_mark*100*n. long call unrealized=live_call_mark*100*n - debit. C. Aug 21 expiries settle at today's close, intrinsic only (no time value). stock+CC expired: (expiry_close-entry)*100*n + credit - max(0,close-strike)*100*n. If close<=strike, call expires 0 and credit is kept. CSP expired: credit - max(0,strike-close)*100*n. Long call expired: max(0,close-strike)*100*n - debit. D. LULU already OUT midday 8/17: paper_status=out. If CBOE still lists Aug 21 120c, MTM at live mid. If CBOE no longer lists the expired Aug 21 120c, CARRY Friday 8/21 last real mark: paper_pnl=-298, live_option_mid=1.16, paper_status=out, flag carried Friday 8/21 CBOE mid 1.16 (last real print). Do not leave LULU unscored and do not invent a new premium. E. IREN/NVO/ZETA distinct tickets scored independently. IREN 42.50c 8/19 noon + 8/20 AM are reprints of 8/19 AM \u2014 scored once; credit note 1.17\u21921.42. IREN 8/20 noon 42c is a different strike from 42.50c \u2014 scored independently. IREN 8/21 noon 43c Aug 28 is a NEW overlay \u2014 scored independently. PFE 8/20 28c is an unused-alternative to 8/19 28.50c \u2014 both scored, not both assumed filled. PFE 8/21 noon 28c Aug 28 is a new week overlay \u2014 scored independently of 8/20 AM 28c. CSV ids 1-4 were not in any Stocktimus briefing email \u2014 tracker-only group. Aug 13 noon HIMS 30c / JD 30c / IREN 45c / ASTS 70p are emailed and were missing from the CSV.",
+  "source_of_truth": "/workspace/tracker-inventory.json",
+  "yahoo_quote_v7": "all tickers HTTP 401 \u2014 live last from Yahoo chart 1m regularMarketPrice / last 1m close",
+  "session_note": "Wed Sep 16 2026 regular session is CLOSED after 1pm PT. Yahoo 1d close for 9/16 is a completed close and MAY be used for invalidation. Aug 21 / Aug 28 / Sep 4 / Sep 11 already settled. Sep 18 (CLMT/ZVRA/NVO noon/HIMS noon) still open, marked with post-close Yahoo last + CBOE delayed mid. LULU still carries Fri 8/21 CBOE mid 1.16. Sep 16 AM: 0 new tickets. Sep 16 noon: midday routine did not run (0 tickets). Weekly goal 1.5\u20134% of equity; weekly_target 750 is the 1.5% floor on $50k.",
+  "paper_totals": {
+    "emailed_all_ideas_independent": {
+      "label": "emailed_all_ideas",
+      "n_rows": 58,
+      "n_scored": 58,
+      "n_unscored": 0,
+      "sum_pnl": 1899.0,
+      "sum_capital": 152050.5,
+      "wins": 35,
+      "losses": 23,
+      "hit_rate": 0.603448275862069,
+      "avg_pnl": 32.74,
+      "sum_acct_pct": 0.07596,
+      "vs_weekly_target": {
+        "elapsed_weeks": 4.857142857142857,
+        "target_dollars": 1821.43,
+        "sum_pnl": 1899.0,
+        "vs_target": 77.57,
+        "note": "Includes both PFE alternatives independently. Not a simultaneous book."
+      }
+    },
+    "emailed_if_PFE_28_50c_taken": {
+      "label": "emailed_if_PFE_28_50c_taken",
+      "n_rows": 57,
+      "n_scored": 57,
+      "n_unscored": 0,
+      "sum_pnl": 1845.0,
+      "sum_capital": 149253.5,
+      "wins": 34,
+      "losses": 23,
+      "hit_rate": 0.5964912280701754,
+      "avg_pnl": 32.37,
+      "sum_acct_pct": 0.0738,
+      "vs_weekly_target": {
+        "elapsed_weeks": 4.857142857142857,
+        "target_dollars": 1821.43,
+        "sum_pnl": 1845.0,
+        "vs_target": 23.57
+      }
+    },
+    "emailed_if_PFE_28c_taken": {
+      "label": "emailed_if_PFE_28c_taken",
+      "n_rows": 57,
+      "n_scored": 57,
+      "n_unscored": 0,
+      "sum_pnl": 1901.0,
+      "sum_capital": 149220.5,
+      "wins": 35,
+      "losses": 22,
+      "hit_rate": 0.6140350877192983,
+      "avg_pnl": 33.35,
+      "sum_acct_pct": 0.07604,
+      "vs_weekly_target": {
+        "elapsed_weeks": 4.857142857142857,
+        "target_dollars": 1821.43,
+        "sum_pnl": 1901.0,
+        "vs_target": 79.57
+      }
+    },
+    "tracker_only_not_emailed": {
+      "label": "tracker-only",
+      "n_rows": 4,
+      "n_scored": 2,
+      "n_unscored": 2,
+      "sum_pnl": -356.0,
+      "sum_capital": 10600.0,
+      "wins": 0,
+      "losses": 2,
+      "hit_rate": 0.0,
+      "avg_pnl": -178.0,
+      "sum_acct_pct": -0.01424
+    }
+  },
+  "by_structure": {
+    "CSP": {
+      "label": "CSP",
+      "n_rows": 5,
+      "n_scored": 5,
+      "n_unscored": 0,
+      "sum_pnl": 331.0,
+      "sum_capital": 21250.0,
+      "wins": 5,
+      "losses": 0,
+      "hit_rate": 1.0,
+      "avg_pnl": 66.2,
+      "sum_acct_pct": 0.01324
+    },
+    "stock+CC": {
+      "label": "stock+CC",
+      "n_rows": 48,
+      "n_scored": 48,
+      "n_unscored": 0,
+      "sum_pnl": 1306.0,
+      "sum_capital": 129088.5,
+      "wins": 29,
+      "losses": 19,
+      "hit_rate": 0.6041666666666666,
+      "avg_pnl": 27.21,
+      "sum_acct_pct": 0.05224
+    },
+    "long call": {
+      "label": "long call",
+      "n_rows": 5,
+      "n_scored": 5,
+      "n_unscored": 0,
+      "sum_pnl": 262.0,
+      "sum_capital": 1712.0,
+      "wins": 1,
+      "losses": 4,
+      "hit_rate": 0.2,
+      "avg_pnl": 52.4,
+      "sum_acct_pct": 0.01048
+    }
+  },
+  "by_creator": {
+    "Danny": {
+      "label": "Danny",
+      "n_rows": 7,
+      "n_scored": 7,
+      "n_unscored": 0,
+      "sum_pnl": 1191.0,
+      "sum_capital": 11651.5,
+      "wins": 5,
+      "losses": 2,
+      "hit_rate": 0.7142857142857143,
+      "avg_pnl": 170.14,
+      "sum_acct_pct": 0.04764
+    },
+    "Danny+TLI": {
+      "label": "Danny+TLI",
+      "n_rows": 2,
+      "n_scored": 2,
+      "n_unscored": 0,
+      "sum_pnl": -9.0,
+      "sum_capital": 5123.0,
+      "wins": 1,
+      "losses": 1,
+      "hit_rate": 0.5,
+      "avg_pnl": -4.5,
+      "sum_acct_pct": -0.00036
+    },
+    "Lucas": {
+      "label": "Lucas",
+      "n_rows": 1,
+      "n_scored": 1,
+      "n_unscored": 0,
+      "sum_pnl": 16.0,
+      "sum_capital": 1479.0,
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0,
+      "avg_pnl": 16.0,
+      "sum_acct_pct": 0.00064
+    },
+    "Stocktimus": {
+      "label": "Stocktimus",
+      "n_rows": 17,
+      "n_scored": 17,
+      "n_unscored": 0,
+      "sum_pnl": 733.0,
+      "sum_capital": 66421.0,
+      "wins": 12,
+      "losses": 5,
+      "hit_rate": 0.7058823529411765,
+      "avg_pnl": 43.12,
+      "sum_acct_pct": 0.02932
+    },
+    "TLI": {
+      "label": "TLI",
+      "n_rows": 23,
+      "n_scored": 23,
+      "n_unscored": 0,
+      "sum_pnl": -138.0,
+      "sum_capital": 45407.0,
+      "wins": 11,
+      "losses": 12,
+      "hit_rate": 0.4782608695652174,
+      "avg_pnl": -6.0,
+      "sum_acct_pct": -0.00552
+    },
+    "TLI+Danny": {
+      "label": "TLI+Danny",
+      "n_rows": 8,
+      "n_scored": 8,
+      "n_unscored": 0,
+      "sum_pnl": 106.0,
+      "sum_capital": 21969.0,
+      "wins": 5,
+      "losses": 3,
+      "hit_rate": 0.625,
+      "avg_pnl": 13.25,
+      "sum_acct_pct": 0.00424
+    }
+  },
+  "by_week": {
+    "2026-W33": {
+      "label": "2026-W33",
+      "n_rows": 8,
+      "n_scored": 8,
+      "n_unscored": 0,
+      "sum_pnl": 2.0,
+      "sum_capital": 28146.0,
+      "wins": 5,
+      "losses": 3,
+      "hit_rate": 0.625,
+      "avg_pnl": 0.25,
+      "sum_acct_pct": 8e-05
+    },
+    "2026-W34": {
+      "label": "2026-W34",
+      "n_rows": 23,
+      "n_scored": 23,
+      "n_unscored": 0,
+      "sum_pnl": 621.0,
+      "sum_capital": 72080.0,
+      "wins": 17,
+      "losses": 6,
+      "hit_rate": 0.7391304347826086,
+      "avg_pnl": 27.0,
+      "sum_acct_pct": 0.02484
+    },
+    "2026-W35": {
+      "label": "2026-W35",
+      "n_rows": 15,
+      "n_scored": 15,
+      "n_unscored": 0,
+      "sum_pnl": 312.5,
+      "sum_capital": 29215.0,
+      "wins": 7,
+      "losses": 8,
+      "hit_rate": 0.4666666666666667,
+      "avg_pnl": 20.83,
+      "sum_acct_pct": 0.0125
+    },
+    "2026-W36": {
+      "label": "2026-W36",
+      "n_rows": 8,
+      "n_scored": 8,
+      "n_unscored": 0,
+      "sum_pnl": 942.0,
+      "sum_capital": 10023.0,
+      "wins": 4,
+      "losses": 4,
+      "hit_rate": 0.5,
+      "avg_pnl": 117.75,
+      "sum_acct_pct": 0.03768
+    },
+    "2026-W37": {
+      "label": "2026-W37",
+      "n_rows": 4,
+      "n_scored": 4,
+      "n_unscored": 0,
+      "sum_pnl": 21.5,
+      "sum_capital": 12586.5,
+      "wins": 2,
+      "losses": 2,
+      "hit_rate": 0.5,
+      "avg_pnl": 5.38,
+      "sum_acct_pct": 0.00086
+    }
+  },
+  "by_paper_status": {
+    "open": {
+      "n": 4,
+      "ids": [
+        "2026-08-21-AM-CLMT",
+        "2026-08-26-AM-ZVRA",
+        "2026-09-11-noon-NVO",
+        "2026-09-11-noon-HIMS"
+      ],
+      "sum_pnl": 296.0
+    },
+    "invalidated": {
+      "n": 7,
+      "ids": [
+        "2026-08-13-noon-HIMS",
+        "2026-08-21-noon-IREN",
+        "2026-08-25-AM-HIMS",
+        "2026-08-25-AM-ADUR",
+        "2026-08-27-AM-HIMS",
+        "2026-09-02-AM-BABA",
+        "2026-09-02-AM-UPS"
+      ],
+      "sum_pnl": -362.0
+    },
+    "out": {
+      "n": 1,
+      "ids": [
+        "2026-08-17-AM-LULU"
+      ],
+      "sum_pnl": -298.0
+    },
+    "expired": {
+      "n": 46,
+      "ids": [
+        "2026-08-13-noon-JD",
+        "2026-08-13-noon-IREN",
+        "2026-08-13-noon-ASTS",
+        "2026-08-14-noon-OPEN",
+        "2026-08-14-noon-GRAB",
+        "2026-08-14-noon-ZETA",
+        "2026-08-14-noon-IREN",
+        "2026-08-17-AM-NFLX",
+        "2026-08-17-AM-OSCR",
+        "2026-08-17-noon-NVO",
+        "2026-08-17-noon-GRRR",
+        "2026-08-17-noon-CSIQ",
+        "2026-08-18-AM-DRAM",
+        "2026-08-18-AM-NKE",
+        "2026-08-18-AM-ZETA",
+        "2026-08-18-AM-IREN",
+        "2026-08-18-noon-ADUR",
+        "2026-08-18-noon-OWL",
+        "2026-08-19-AM-IREN-4250c",
+        "2026-08-19-AM-NVO-CSP",
+        "2026-08-19-noon-PFE",
+        "2026-08-20-AM-PFE",
+        "2026-08-20-noon-IREN-42c",
+        "2026-08-21-AM-OSCR",
+        "2026-08-21-AM-JD",
+        "2026-08-21-AM-NVO",
+        "2026-08-21-noon-PFE",
+        "2026-08-24-AM-CELH",
+        "2026-08-24-AM-OPEN",
+        "2026-08-24-AM-SOFI",
+        "2026-08-25-noon-RR",
+        "2026-08-25-noon-ONDS",
+        "2026-08-25-noon-GRRR",
+        "2026-08-26-AM-IBRX",
+        "2026-08-27-noon-KHC",
+        "2026-08-28-AM-ZETA",
+        "2026-08-28-AM-NVO",
+        "2026-08-28-noon-GRRR",
+        "2026-08-31-AM-SOFI",
+        "2026-08-31-AM-OSCR",
+        "2026-08-31-AM-PFE",
+        "2026-09-01-AM-ONDS",
+        "2026-09-01-AM-NOK",
+        "2026-09-02-AM-QCOM",
+        "2026-09-09-AM-ZETA",
+        "2026-09-09-AM-KHC"
+      ],
+      "sum_pnl": 2263.0
+    },
+    "reprint": {
+      "n": 2,
+      "ids": [
+        "2026-08-19-noon-IREN-4250c",
+        "2026-08-20-AM-IREN-4250c"
+      ],
+      "sum_pnl": 0.0
+    }
+  },
+  "by_confidence": {
+    "High": {
+      "label": "High",
+      "n": 5,
+      "wins": 3,
+      "hit_rate": 0.6,
+      "sum_pnl": 100.0,
+      "avg_pnl": 20.0
+    },
+    "Medium": {
+      "label": "Medium",
+      "n": 50,
+      "wins": 30,
+      "hit_rate": 0.6,
+      "sum_pnl": 1995.0,
+      "avg_pnl": 39.9
+    },
+    "Low": {
+      "label": "Low",
+      "n": 3,
+      "wins": 2,
+      "hit_rate": 0.6666666666666666,
+      "sum_pnl": -196.0,
+      "avg_pnl": -65.33
+    }
+  },
+  "iren_overlays": {
+    "scored_independently": [
+      "2026-08-13-noon-IREN (45c)",
+      "2026-08-14-noon-IREN (45c)",
+      "2026-08-18-AM-IREN (44c)",
+      "2026-08-19-AM-IREN-4250c (42.50c, fill credit 1.17)",
+      "2026-08-20-noon-IREN-42c (42c)",
+      "2026-08-21-noon-IREN (43c Aug 28)"
+    ],
+    "reprints_not_scored_separately": [
+      "2026-08-19-noon-IREN-4250c",
+      "2026-08-20-AM-IREN-4250c (credit printed 1.42)"
+    ]
+  },
+  "pfe_alternatives": {
+    "note": "8/20 $28c only if 8/19 $28.50c not taken. Both scored; headline exclusive book uses 8/19 28.50c. 8/21 noon PFE 28c Aug 28 is a new week overlay, scored independently.",
+    "id_28_50": "2026-08-19-noon-PFE",
+    "id_28": "2026-08-20-AM-PFE",
+    "id_28_aug28_fri_noon": "2026-08-21-noon-PFE"
+  },
+  "missing_quotes": [
+    {
+      "id": "2026-08-13-noon-HIMS",
+      "ticker": "HIMS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-21 C30"
+    },
+    {
+      "id": "2026-08-13-noon-JD",
+      "ticker": "JD",
+      "flag": "missing CBOE contract: contract not in CBOE chain: JD 2026-08-21 C30"
+    },
+    {
+      "id": "2026-08-13-noon-IREN",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C45"
+    },
+    {
+      "id": "2026-08-13-noon-ASTS",
+      "ticker": "ASTS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ASTS 2026-08-21 P70"
+    },
+    {
+      "id": "2026-08-14-noon-OPEN",
+      "ticker": "OPEN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: OPEN 2026-08-21 C3.5"
+    },
+    {
+      "id": "2026-08-14-noon-GRAB",
+      "ticker": "GRAB",
+      "flag": "missing CBOE contract: contract not in CBOE chain: GRAB 2026-08-21 C3.5"
+    },
+    {
+      "id": "2026-08-14-noon-ZETA",
+      "ticker": "ZETA",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ZETA 2026-08-21 P28"
+    },
+    {
+      "id": "2026-08-14-noon-IREN",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C45"
+    },
+    {
+      "id": "2026-08-17-AM-LULU",
+      "ticker": "LULU",
+      "flag": "missing CBOE contract: contract not in CBOE chain: LULU 2026-08-21 C120"
+    },
+    {
+      "id": "2026-08-17-AM-NFLX",
+      "ticker": "NFLX",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NFLX 2026-08-21 C79"
+    },
+    {
+      "id": "2026-08-17-AM-OSCR",
+      "ticker": "OSCR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: OSCR 2026-08-21 C33"
+    },
+    {
+      "id": "2026-08-17-noon-NVO",
+      "ticker": "NVO",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NVO 2026-08-21 C45"
+    },
+    {
+      "id": "2026-08-17-noon-GRRR",
+      "ticker": "GRRR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: GRRR 2026-08-21 P14"
+    },
+    {
+      "id": "2026-08-17-noon-GRRR",
+      "ticker": "GRRR",
+      "flag": "GRRR noon email did not print a last \u2014 spot_at_idea left blank (not invented)"
+    },
+    {
+      "id": "2026-08-17-noon-CSIQ",
+      "ticker": "CSIQ",
+      "flag": "missing CBOE contract: contract not in CBOE chain: CSIQ 2026-08-21 C15"
+    },
+    {
+      "id": "2026-08-18-AM-DRAM",
+      "ticker": "DRAM",
+      "flag": "missing CBOE contract: contract not in CBOE chain: DRAM 2026-08-28 P55"
+    },
+    {
+      "id": "2026-08-18-AM-NKE",
+      "ticker": "NKE",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NKE 2026-08-21 C39.5"
+    },
+    {
+      "id": "2026-08-18-AM-ZETA",
+      "ticker": "ZETA",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ZETA 2026-08-21 C29"
+    },
+    {
+      "id": "2026-08-18-AM-IREN",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C44"
+    },
+    {
+      "id": "2026-08-18-noon-ADUR",
+      "ticker": "ADUR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ADUR 2026-08-21 C15"
+    },
+    {
+      "id": "2026-08-18-noon-OWL",
+      "ticker": "OWL",
+      "flag": "missing CBOE contract: contract not in CBOE chain: OWL 2026-08-21 C11.5"
+    },
+    {
+      "id": "2026-08-19-AM-IREN-4250c",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5"
+    },
+    {
+      "id": "2026-08-19-AM-NVO-CSP",
+      "ticker": "NVO",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NVO 2026-08-28 P45.5"
+    },
+    {
+      "id": "2026-08-19-noon-IREN-4250c",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5"
+    },
+    {
+      "id": "2026-08-19-noon-PFE",
+      "ticker": "PFE",
+      "flag": "missing CBOE contract: contract not in CBOE chain: PFE 2026-08-28 C28.5"
+    },
+    {
+      "id": "2026-08-20-AM-IREN-4250c",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5"
+    },
+    {
+      "id": "2026-08-20-AM-PFE",
+      "ticker": "PFE",
+      "flag": "missing CBOE contract: contract not in CBOE chain: PFE 2026-08-28 C28.0"
+    },
+    {
+      "id": "2026-08-20-noon-IREN-42c",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42"
+    },
+    {
+      "id": "2026-08-21-AM-OSCR",
+      "ticker": "OSCR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: OSCR 2026-08-28 C32"
+    },
+    {
+      "id": "2026-08-21-AM-JD",
+      "ticker": "JD",
+      "flag": "missing CBOE contract: contract not in CBOE chain: JD 2026-08-28 C30"
+    },
+    {
+      "id": "2026-08-21-AM-NVO",
+      "ticker": "NVO",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NVO 2026-08-28 C47"
+    },
+    {
+      "id": "2026-08-21-noon-IREN",
+      "ticker": "IREN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-28 C43"
+    },
+    {
+      "id": "2026-08-21-noon-PFE",
+      "ticker": "PFE",
+      "flag": "missing CBOE contract: contract not in CBOE chain: PFE 2026-08-28 C28"
+    },
+    {
+      "id": "2026-08-24-AM-CELH",
+      "ticker": "CELH",
+      "flag": "missing CBOE contract: contract not in CBOE chain: CELH 2026-08-28 C34"
+    },
+    {
+      "id": "2026-08-24-AM-OPEN",
+      "ticker": "OPEN",
+      "flag": "missing CBOE contract: contract not in CBOE chain: OPEN 2026-08-28 C3.5"
+    },
+    {
+      "id": "2026-08-24-AM-SOFI",
+      "ticker": "SOFI",
+      "flag": "missing CBOE contract: contract not in CBOE chain: SOFI 2026-08-28 C19"
+    },
+    {
+      "id": "2026-08-25-AM-HIMS",
+      "ticker": "HIMS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-28 C32"
+    },
+    {
+      "id": "2026-08-25-noon-RR",
+      "ticker": "RR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: RR 2026-08-28 C2"
+    },
+    {
+      "id": "2026-08-25-noon-ONDS",
+      "ticker": "ONDS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ONDS 2026-08-28 C8.5"
+    },
+    {
+      "id": "2026-08-25-noon-GRRR",
+      "ticker": "GRRR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: GRRR 2026-08-28 C14"
+    },
+    {
+      "id": "2026-08-26-AM-IBRX",
+      "ticker": "IBRX",
+      "flag": "missing CBOE contract: contract not in CBOE chain: IBRX 2026-09-04 C8.5"
+    },
+    {
+      "id": "2026-08-27-AM-HIMS",
+      "ticker": "HIMS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: HIMS 2026-09-04 C30.5"
+    },
+    {
+      "id": "2026-08-27-noon-KHC",
+      "ticker": "KHC",
+      "flag": "missing CBOE contract: contract not in CBOE chain: KHC 2026-09-04 C25.0"
+    },
+    {
+      "id": "2026-08-28-AM-ZETA",
+      "ticker": "ZETA",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ZETA 2026-09-04 C30.0"
+    },
+    {
+      "id": "2026-08-28-AM-NVO",
+      "ticker": "NVO",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NVO 2026-09-04 C46.0"
+    },
+    {
+      "id": "2026-08-28-noon-GRRR",
+      "ticker": "GRRR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: GRRR 2026-09-04 C15.0"
+    },
+    {
+      "id": "2026-08-31-AM-SOFI",
+      "ticker": "SOFI",
+      "flag": "missing CBOE contract: contract not in CBOE chain: SOFI 2026-09-11 C18.0"
+    },
+    {
+      "id": "2026-08-31-AM-OSCR",
+      "ticker": "OSCR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: OSCR 2026-09-11 C30.0"
+    },
+    {
+      "id": "2026-08-31-AM-PFE",
+      "ticker": "PFE",
+      "flag": "missing CBOE contract: contract not in CBOE chain: PFE 2026-09-11 C28.0"
+    },
+    {
+      "id": "2026-09-01-AM-ONDS",
+      "ticker": "ONDS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ONDS 2026-09-11 C7.5"
+    },
+    {
+      "id": "2026-09-01-AM-NOK",
+      "ticker": "NOK",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NOK 2026-09-11 C10.0"
+    },
+    {
+      "id": "2026-09-02-AM-BABA",
+      "ticker": "BABA",
+      "flag": "missing CBOE contract: contract not in CBOE chain: BABA 2026-09-11 C113.0"
+    },
+    {
+      "id": "2026-09-02-AM-UPS",
+      "ticker": "UPS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: UPS 2026-09-11 C104.0"
+    },
+    {
+      "id": "2026-09-02-AM-QCOM",
+      "ticker": "QCOM",
+      "flag": "missing CBOE contract: contract not in CBOE chain: QCOM 2026-09-11 C167.5"
+    },
+    {
+      "id": "2026-09-09-AM-ZETA",
+      "ticker": "ZETA",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ZETA 2026-09-11 C31.0"
+    },
+    {
+      "id": "2026-09-09-AM-KHC",
+      "ticker": "KHC",
+      "flag": "missing CBOE contract: contract not in CBOE chain: KHC 2026-09-11 C25.0"
+    },
+    {
+      "id": "tracker-only-1",
+      "ticker": "HIMS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-28 P29"
+    },
+    {
+      "id": "tracker-only-2",
+      "ticker": "IREN",
+      "flag": "premium TBD / missing \u2014 cannot keep a call credit that was never printed"
+    },
+    {
+      "id": "tracker-only-3",
+      "ticker": "NFLX",
+      "flag": "expired long call missing strike/premium/size \u2014 cannot settle"
+    },
+    {
+      "id": "tracker-only-4",
+      "ticker": "ABCL",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ABCL 2026-08-28 P10"
+    },
+    {
+      "id": "tracker-only-4",
+      "ticker": "ABCL",
+      "flag": "expired CSP missing strike/premium/size \u2014 cannot settle without inventing"
+    }
+  ],
+  "compact_table": [
+    {
+      "id": "2026-08-13-noon-HIMS",
+      "csv_id": 25,
+      "ticker": "HIMS",
+      "structure": "stock+CC",
+      "paper_pnl": -113.0,
+      "paper_roc_pct": -0.03850085178875639,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $27.50 zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-13-noon-JD",
+      "csv_id": 26,
+      "ticker": "JD",
+      "structure": "stock+CC",
+      "paper_pnl": 30.0,
+      "paper_roc_pct": 0.010221465076660987,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed Stocktimus CC under the cap at a printed idea."
+    },
+    {
+      "id": "2026-08-13-noon-IREN",
+      "csv_id": 27,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": -56.0,
+      "paper_roc_pct": -0.012589928057553957,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "First IREN CC is Stocktimus-only with no printed support, so not High; 100sh under the cap."
+    },
+    {
+      "id": "2026-08-13-noon-ASTS",
+      "csv_id": 28,
+      "ticker": "ASTS",
+      "structure": "CSP",
+      "paper_pnl": 96.0,
+      "paper_roc_pct": 0.013714285714285714,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Low",
+      "confidence_reason": "Conflicted name and $7,000 cash over the $6,250 cap."
+    },
+    {
+      "id": "2026-08-14-noon-OPEN",
+      "csv_id": 5,
+      "ticker": "OPEN",
+      "structure": "stock+CC",
+      "paper_pnl": 40.0,
+      "paper_roc_pct": 0.02203856749311295,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CC at the printed 200 WMA / $2.68 zone, sized under the cap."
+    },
+    {
+      "id": "2026-08-14-noon-GRAB",
+      "csv_id": 6,
+      "ticker": "GRAB",
+      "structure": "stock+CC",
+      "paper_pnl": 15.0,
+      "paper_roc_pct": 0.008287292817679558,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CC at the reclaim / bottom-trendline zone, sized under the cap."
+    },
+    {
+      "id": "2026-08-14-noon-ZETA",
+      "csv_id": 7,
+      "ticker": "ZETA",
+      "structure": "CSP",
+      "paper_pnl": 33.0,
+      "paper_roc_pct": 0.011785714285714287,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI+Danny overlap but not at the TLI $26 add zone \u2014 put sold above, do not buy shares."
+    },
+    {
+      "id": "2026-08-14-noon-IREN",
+      "csv_id": 8,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": -43.0,
+      "paper_roc_pct": -0.009766068589598002,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI and Danny overlap but extended vs the $41 support, so not High."
+    },
+    {
+      "id": "2026-08-17-AM-LULU",
+      "csv_id": 9,
+      "ticker": "LULU",
+      "structure": "long call",
+      "paper_pnl": -298.0,
+      "paper_roc_pct": -0.5622641509433962,
+      "paper_status": "out",
+      "source_group": "emailed",
+      "confidence": "Low",
+      "confidence_reason": "Long call with only 4 days to expiry."
+    },
+    {
+      "id": "2026-08-17-AM-NFLX",
+      "csv_id": 10,
+      "ticker": "NFLX",
+      "structure": "long call",
+      "paper_pnl": -170.0,
+      "paper_roc_pct": -0.3655913978494624,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Cap-correct long-call structure at the Danny 75\u201378 zone (CSP does not fit $6,250)."
+    },
+    {
+      "id": "2026-08-17-AM-OSCR",
+      "csv_id": 11,
+      "ticker": "OSCR",
+      "structure": "stock+CC",
+      "paper_pnl": 29.0,
+      "paper_roc_pct": 0.00891484783276975,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "High",
+      "confidence_reason": "TLI and Danny overlap at a stated zone, 100sh under the $6,250 cap."
+    },
+    {
+      "id": "2026-08-17-noon-NVO",
+      "csv_id": 12,
+      "ticker": "NVO",
+      "structure": "stock+CC",
+      "paper_pnl": 80.0,
+      "paper_roc_pct": 0.017861129716454566,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $41.53 zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-17-noon-GRRR",
+      "csv_id": 13,
+      "ticker": "GRRR",
+      "structure": "CSP",
+      "paper_pnl": 40.0,
+      "paper_roc_pct": 0.02857142857142857,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CSP at the printed $13.50 buy zone, under the cap."
+    },
+    {
+      "id": "2026-08-17-noon-CSIQ",
+      "csv_id": 14,
+      "ticker": "CSIQ",
+      "structure": "stock+CC",
+      "paper_pnl": 16.0,
+      "paper_roc_pct": 0.010818120351588911,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed Lucas CC at the printed $14 zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-18-AM-DRAM",
+      "csv_id": 15,
+      "ticker": "DRAM",
+      "structure": "CSP",
+      "paper_pnl": 89.0,
+      "paper_roc_pct": 0.016181818181818183,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed CSP at the stated Danny $50\u201356 zone, one lot under the cap."
+    },
+    {
+      "id": "2026-08-18-AM-NKE",
+      "csv_id": 16,
+      "ticker": "NKE",
+      "structure": "stock+CC",
+      "paper_pnl": 34.0,
+      "paper_roc_pct": 0.00859236795552186,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $38 zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-18-AM-ZETA",
+      "csv_id": 17,
+      "ticker": "ZETA",
+      "structure": "stock+CC",
+      "paper_pnl": 82.0,
+      "paper_roc_pct": 0.02844259451959764,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $26.50 zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-18-AM-IREN",
+      "csv_id": 18,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": 80.0,
+      "paper_roc_pct": 0.018484288354898338,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-18-noon-ADUR",
+      "csv_id": 19,
+      "ticker": "ADUR",
+      "structure": "stock+CC",
+      "paper_pnl": 30.0,
+      "paper_roc_pct": 0.019417475728155338,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CC at the printed $15 hold, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-18-noon-OWL",
+      "csv_id": 20,
+      "ticker": "OWL",
+      "structure": "stock+CC",
+      "paper_pnl": 6.0,
+      "paper_roc_pct": 0.0051325919589392645,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Low",
+      "confidence_reason": "No real buy/support zone \u2014 only a loose $10 kill far under spot."
+    },
+    {
+      "id": "2026-08-19-AM-IREN-4250c",
+      "csv_id": 21,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": 57.0,
+      "paper_roc_pct": 0.013418079096045197,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "IREN overlay at the $41.70 support, single feed, under the cap."
+    },
+    {
+      "id": "2026-08-19-AM-NVO-CSP",
+      "csv_id": 22,
+      "ticker": "NVO",
+      "structure": "CSP",
+      "paper_pnl": 73.0,
+      "paper_roc_pct": 0.016043956043956045,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CSP at the printed buy zone below $45.46, under the cap."
+    },
+    {
+      "id": "2026-08-19-noon-IREN-4250c",
+      "csv_id": null,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": null,
+      "paper_roc_pct": null,
+      "paper_status": "reprint",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Reprint of the 8/19 AM IREN overlay thesis; not scored separately."
+    },
+    {
+      "id": "2026-08-19-noon-PFE",
+      "csv_id": 23,
+      "ticker": "PFE",
+      "structure": "stock+CC",
+      "paper_pnl": -2.0,
+      "paper_roc_pct": -0.0007067137809187279,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CC at the safe-haven zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-20-AM-IREN-4250c",
+      "csv_id": null,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": null,
+      "paper_roc_pct": null,
+      "paper_status": "reprint",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Reprint of the 8/19 AM IREN overlay thesis; not scored separately."
+    },
+    {
+      "id": "2026-08-20-AM-PFE",
+      "csv_id": 24,
+      "ticker": "PFE",
+      "structure": "stock+CC",
+      "paper_pnl": 54.0,
+      "paper_roc_pct": 0.019306399713979263,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Single-feed TLI CC alternative at the same $27 zone, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-20-noon-IREN-42c",
+      "csv_id": 29,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": 77.0,
+      "paper_roc_pct": 0.018465227817745802,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
+    },
+    {
+      "id": "2026-08-21-AM-OSCR",
+      "csv_id": 30,
+      "ticker": "OSCR",
+      "structure": "stock+CC",
+      "paper_pnl": -1.0,
+      "paper_roc_pct": -0.0003170577045022194,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny ribbon + TLI still likes OSCR; stock under $32-33 resistance, not in $28-30 zone."
+    },
+    {
+      "id": "2026-08-21-AM-JD",
+      "csv_id": 31,
+      "ticker": "JD",
+      "structure": "stock+CC",
+      "paper_pnl": -35.0,
+      "paper_roc_pct": -0.011900714042842571,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI buy zone at the 0.618. Single feed."
+    },
+    {
+      "id": "2026-08-21-AM-CLMT",
+      "csv_id": 32,
+      "ticker": "CLMT",
+      "structure": "stock+CC",
+      "paper_pnl": 287.0,
+      "paper_roc_pct": 0.05918746133223345,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Zero Sum hold. Next monthly, no weekly. Under cap."
+    },
+    {
+      "id": "2026-08-21-AM-NVO",
+      "csv_id": 33,
+      "ticker": "NVO",
+      "structure": "stock+CC",
+      "paper_pnl": -10.0,
+      "paper_roc_pct": -0.002161227577263886,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI Top 10 in the $46-47 dip. Next add $48."
+    },
+    {
+      "id": "2026-08-21-noon-IREN",
+      "csv_id": 34,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": 73.0,
+      "paper_roc_pct": 0.017684108527131783,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI at the $40.77 0.5 Fib retest. Single feed. Under the cap."
+    },
+    {
+      "id": "2026-08-21-noon-PFE",
+      "csv_id": 35,
+      "ticker": "PFE",
+      "structure": "stock+CC",
+      "paper_pnl": 30.0,
+      "paper_roc_pct": 0.010721944245889922,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI safe haven at $28 / $28.80 Wave 3 line. Single feed."
+    },
+    {
+      "id": "2026-08-24-AM-CELH",
+      "csv_id": 36,
+      "ticker": "CELH",
+      "structure": "stock+CC",
+      "paper_pnl": 39.0,
+      "paper_roc_pct": 0.011690647482014389,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny weekly red candle + TLI Wave 3. Under the cap. Not a fresh dual add zone."
+    },
+    {
+      "id": "2026-08-24-AM-OPEN",
+      "csv_id": 37,
+      "ticker": "OPEN",
+      "structure": "stock+CC",
+      "paper_pnl": -11.0,
+      "paper_roc_pct": -0.031161473087818695,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI 200 WMA / buy under $5. Single feed."
+    },
+    {
+      "id": "2026-08-24-AM-SOFI",
+      "csv_id": 38,
+      "ticker": "SOFI",
+      "structure": "stock+CC",
+      "paper_pnl": -39.0,
+      "paper_roc_pct": -0.020624008461131677,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny red ribbon at the top of $15.9\u201318.8 support. Single feed."
+    },
+    {
+      "id": "2026-08-25-AM-HIMS",
+      "csv_id": 39,
+      "ticker": "HIMS",
+      "structure": "stock+CC",
+      "paper_pnl": -80.0,
+      "paper_roc_pct": -0.02557544757033248,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "High",
+      "confidence_reason": "TLI $30\u201331 and Danny $30 support, both at the zone, under the cap."
+    },
+    {
+      "id": "2026-08-25-AM-ADUR",
+      "csv_id": 40,
+      "ticker": "ADUR",
+      "structure": "stock+CC",
+      "paper_pnl": 135.0,
+      "paper_roc_pct": 0.08858267716535433,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI 0.38 tests and Chemelot visit. Next monthly, no weekly. Single feed."
+    },
+    {
+      "id": "2026-08-25-noon-RR",
+      "csv_id": 41,
+      "ticker": "RR",
+      "structure": "stock+CC",
+      "paper_pnl": -6.0,
+      "paper_roc_pct": -0.030456852791878174,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI wedge-break entry at $2. Single feed. Under the cap."
+    },
+    {
+      "id": "2026-08-25-noon-ONDS",
+      "csv_id": 42,
+      "ticker": "ONDS",
+      "structure": "stock+CC",
+      "paper_pnl": -19.0,
+      "paper_roc_pct": -0.023086269744835967,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI third buy zone at $8. Single feed."
+    },
+    {
+      "id": "2026-08-25-noon-GRRR",
+      "csv_id": 43,
+      "ticker": "GRRR",
+      "structure": "stock+CC",
+      "paper_pnl": 80.0,
+      "paper_roc_pct": 0.05805515239477504,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI hold / Wave 3 sitting on the $13.55 add. Single feed. Skip if already four live."
+    },
+    {
+      "id": "2026-08-26-AM-IBRX",
+      "csv_id": 44,
+      "ticker": "IBRX",
+      "structure": "stock+CC",
+      "paper_pnl": 18.0,
+      "paper_roc_pct": 0.02197802197802198,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny daily at the $8.23 resume line. Single feed. Under the cap."
+    },
+    {
+      "id": "2026-08-26-AM-ZVRA",
+      "csv_id": 45,
+      "ticker": "ZVRA",
+      "structure": "stock+CC",
+      "paper_pnl": -5.5,
+      "paper_roc_pct": -0.004568106312292359,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI triangle under the $12.15 50-DMA. Next monthly. Single feed."
+    },
+    {
+      "id": "2026-08-27-AM-HIMS",
+      "csv_id": 46,
+      "ticker": "HIMS",
+      "structure": "stock+CC",
+      "paper_pnl": -28.0,
+      "paper_roc_pct": -0.009280742459396751,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "High",
+      "confidence_reason": "TLI $30 and Danny yellow, both at the zone, under the cap."
+    },
+    {
+      "id": "2026-08-27-noon-KHC",
+      "csv_id": 48,
+      "ticker": "KHC",
+      "structure": "stock+CC",
+      "paper_pnl": 12.0,
+      "paper_roc_pct": 0.00477516912057302,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI safe-haven at the $24 0.5 Fib / 50-WMA. Single feed. Under the cap."
+    },
+    {
+      "id": "2026-08-28-AM-ZETA",
+      "csv_id": 49,
+      "ticker": "ZETA",
+      "structure": "stock+CC",
+      "paper_pnl": 145.0,
+      "paper_roc_pct": 0.04870675176352032,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "High",
+      "confidence_reason": "TLI hold/flip $30 and Danny red candle at $30 / invalid $28.80, both at the zone, under the cap."
+    },
+    {
+      "id": "2026-08-28-AM-NVO",
+      "csv_id": 50,
+      "ticker": "NVO",
+      "structure": "stock+CC",
+      "paper_pnl": 85.0,
+      "paper_roc_pct": 0.018394286950876432,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI BUY ALERT @ $46. Single feed. Under the cap."
+    },
+    {
+      "id": "2026-08-28-noon-GRRR",
+      "csv_id": 51,
+      "ticker": "GRRR",
+      "structure": "stock+CC",
+      "paper_pnl": -13.0,
+      "paper_roc_pct": -0.00906555090655509,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI support-range hold (200-DMA / 0.5 Fib to amber $16.25). Single feed. Under the cap."
+    },
+    {
+      "id": "2026-08-31-AM-SOFI",
+      "csv_id": 52,
+      "ticker": "SOFI",
+      "structure": "stock+CC",
+      "paper_pnl": -4.0,
+      "paper_roc_pct": -0.002238388360380526,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny Stage 1 base $14\u2013$18, stock inside the base, under the cap. TLI still wants $25 \u2014 not overlap. One lot."
+    },
+    {
+      "id": "2026-08-31-AM-OSCR",
+      "csv_id": 53,
+      "ticker": "OSCR",
+      "structure": "stock+CC",
+      "paper_pnl": 138.0,
+      "paper_roc_pct": 0.04610758436351487,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny nearby support $28\u2013$30 and TLI $28\u2013$30 healthy pullback, both at the hold range, under the cap. TLI's actual buy zone is still $21\u2013$25, so this is not High. One lot."
+    },
+    {
+      "id": "2026-08-31-AM-PFE",
+      "csv_id": 54,
+      "ticker": "PFE",
+      "structure": "stock+CC",
+      "paper_pnl": -11.0,
+      "paper_roc_pct": -0.0038965639390719092,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI safe-haven retest of the bull-case line $27.45, +6.1% div, under the cap. Single feed. One lot."
+    },
+    {
+      "id": "2026-09-01-AM-ONDS",
+      "csv_id": 55,
+      "ticker": "ONDS",
+      "structure": "stock+CC",
+      "paper_pnl": 34.0,
+      "paper_roc_pct": 0.04722222222222222,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "High",
+      "confidence_reason": "TLI in the buy zone and wants $7 to hold; Danny support $6 / $6.60 / $7.20; under the cap. One lot."
+    },
+    {
+      "id": "2026-09-01-AM-NOK",
+      "csv_id": 56,
+      "ticker": "NOK",
+      "structure": "stock+CC",
+      "paper_pnl": 55.0,
+      "paper_roc_pct": 0.05595116988809766,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny $9.80 support (day low $9.82). Single feed. Under the cap. One lot."
+    },
+    {
+      "id": "2026-09-02-AM-BABA",
+      "csv_id": 57,
+      "ticker": "BABA",
+      "structure": "long call",
+      "paper_pnl": -243.0,
+      "paper_roc_pct": -1.0,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI rotate-INTO + add zone $112\u2013117; stock in the zone. Over the share cap so long call. One lot."
+    },
+    {
+      "id": "2026-09-02-AM-UPS",
+      "csv_id": 58,
+      "ticker": "UPS",
+      "structure": "long call",
+      "paper_pnl": -106.0,
+      "paper_roc_pct": -1.0,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI holding 50 WMA $102 ~3 weeks; open/add; 6.2% div. Over the share cap so long call. One lot."
+    },
+    {
+      "id": "2026-09-02-AM-QCOM",
+      "csv_id": 59,
+      "ticker": "QCOM",
+      "structure": "long call",
+      "paper_pnl": 1079.0,
+      "paper_roc_pct": 2.932065217391304,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny vol hole marked the low; bullish red ribbon; stock in the $162 support area. Over the share cap so long call. One lot."
+    },
+    {
+      "id": "2026-09-09-AM-ZETA",
+      "csv_id": 60,
+      "ticker": "ZETA",
+      "structure": "stock+CC",
+      "paper_pnl": 9.0,
+      "paper_roc_pct": 0.002923026956804157,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny consolidating $30-$32 sitting on $30 support; single feed; under the cap. One lot."
+    },
+    {
+      "id": "2026-09-09-AM-KHC",
+      "csv_id": 61,
+      "ticker": "KHC",
+      "structure": "stock+CC",
+      "paper_pnl": -2.0,
+      "paper_roc_pct": -0.0008032128514056225,
+      "paper_status": "expired",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI Buy Zone / 50 WMA at $24.22; stock tested the zone; single feed; under the cap. One lot."
+    },
+    {
+      "id": "2026-09-11-noon-NVO",
+      "csv_id": 62,
+      "ticker": "NVO",
+      "structure": "stock+CC",
+      "paper_pnl": -58.5,
+      "paper_roc_pct": -0.013626834381551363,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI Buy Zone ~$43.48 (0.5 Fib); stock now in/under zone; single feed; under the cap. One lot."
+    },
+    {
+      "id": "2026-09-11-noon-HIMS",
+      "csv_id": 63,
+      "ticker": "HIMS",
+      "structure": "stock+CC",
+      "paper_pnl": 73.0,
+      "paper_roc_pct": 0.026793907138924572,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny $27 support / $27\u201332 range; stock at support; single feed; under the cap. One lot."
+    },
+    {
+      "id": "tracker-only-1",
+      "csv_id": 1,
+      "ticker": "HIMS",
+      "structure": "CSP",
+      "paper_pnl": -32.0,
+      "paper_roc_pct": -0.005517241379310344,
+      "paper_status": "invalidated",
+      "source_group": "tracker-only",
+      "confidence": null,
+      "confidence_reason": null
+    },
+    {
+      "id": "tracker-only-2",
+      "csv_id": 2,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": -324.0,
+      "paper_roc_pct": -0.0675,
+      "paper_status": "invalidated",
+      "source_group": "tracker-only",
+      "confidence": null,
+      "confidence_reason": null
+    },
+    {
+      "id": "tracker-only-3",
+      "csv_id": 3,
+      "ticker": "NFLX",
+      "structure": "long call",
+      "paper_pnl": null,
+      "paper_roc_pct": null,
+      "paper_status": "expired",
+      "source_group": "tracker-only",
+      "confidence": null,
+      "confidence_reason": null
+    },
+    {
+      "id": "tracker-only-4",
+      "csv_id": 4,
+      "ticker": "ABCL",
+      "structure": "CSP",
+      "paper_pnl": null,
+      "paper_roc_pct": null,
+      "paper_status": "expired",
+      "source_group": "tracker-only",
+      "confidence": null,
+      "confidence_reason": null
+    }
+  ]
+}
