@@ -190,6 +190,80 @@
     return a || b || null;
   }
 
+  /** Earliest paper trade calendar day (date_opened / date_proposed / date). */
+  function firstTradeKey(trades) {
+    let first = null;
+    for (const t of trades || []) {
+      const k = dateKey(t.date_opened || t.date_proposed || t.date);
+      if (k && (!first || k < first)) first = k;
+    }
+    return first;
+  }
+
+  /**
+   * Weeks running = max(1, ceil(calendar_days / 7)) from first trade date → as_of.
+   * Calendar days use YYYY-MM-DD keys (PT book dates), not session days.
+   * Documented in METRICS_FIX.md.
+   */
+  function weeksRunning(firstKey, asOfRaw) {
+    const asOf = dateKey(asOfRaw) || dateKey(new Date().toISOString());
+    if (!firstKey || !asOf) {
+      return { weeks: null, first: firstKey || null, asOf: asOf || null, days: null };
+    }
+    const a = parseDate(firstKey);
+    const b = parseDate(asOf);
+    if (!a || !b) {
+      return { weeks: null, first: firstKey, asOf, days: null };
+    }
+    const days = Math.max(0, Math.round((b.getTime() - a.getTime()) / 86400000));
+    const weeks = Math.max(1, Math.ceil(days / 7) || 1);
+    return { weeks, first: firstKey, asOf, days };
+  }
+
+  function fmtRangeShort(fromKey, toKey) {
+    if (!fromKey && !toKey) return "—";
+    if (!fromKey) return fmtDate(toKey);
+    if (!toKey) return fmtDate(fromKey);
+    return fmtDate(fromKey) + " – " + fmtDate(toKey);
+  }
+
+  /** Roll daily deployed ROC curve into calendar ISO weeks ($/week + %/week). */
+  function weeklyDeployedBreakdown(curve) {
+    if (!curve || !curve.length) return [];
+    const map = new Map();
+    for (const p of curve) {
+      const d = parseDate(p.date);
+      if (!d) continue;
+      const iso = d.toISOString().slice(0, 10);
+      // ISO week: Monday start via UTC date from dateKey noon
+      const tmp = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+      const day = tmp.getUTCDay() || 7; // Mon=1..Sun=7
+      if (day !== 1) tmp.setUTCDate(tmp.getUTCDate() - (day - 1));
+      const weekKey = tmp.toISOString().slice(0, 10);
+      let w = map.get(weekKey);
+      if (!w) {
+        w = { weekStart: weekKey, weekEnd: iso, days: 0, sumPnl: 0, sumDep: 0 };
+        map.set(weekKey, w);
+      }
+      w.weekEnd = iso;
+      w.days += 1;
+      w.sumPnl += p.dailyPnl || 0;
+      w.sumDep += p.deployed || 0;
+    }
+    const out = [];
+    for (const w of map.values()) {
+      const avgDep = w.days ? w.sumDep / w.days : 0;
+      out.push({
+        weekStart: w.weekStart,
+        weekEnd: w.weekEnd,
+        pnl: w.sumPnl,
+        avgDeployed: avgDep,
+        pct: avgDep ? w.sumPnl / avgDep : null,
+      });
+    }
+    return out;
+  }
+
   function pathSessionDates(t, openK, closeK) {
     const raw = t.daily_closes_completed;
     const path = (raw && raw.length) ? raw : t.stock_path;
@@ -966,17 +1040,28 @@
   function renderHero() {
     const s = state.summary || computeSummary([]);
     const marked = s.marked > 0 || (s.paper_pnl != null && state.source === "paper");
+    const totalPnl = s.paper_pnl;
+    const wr = weeksRunning(firstTradeKey(state.trades), state.asOf);
+    const weeks = wr.weeks;
+    const avgPerWeek = (weeks && totalPnl != null) ? totalPnl / weeks : null;
+
     const pnlEl = $("stat-pnl");
-    pnlEl.textContent = marked || s.paper_pnl ? money(s.paper_pnl, "$0.00") : "—";
-    pnlEl.className = "stat-v mono " + clsPnL(s.paper_pnl);
+    pnlEl.textContent = marked || totalPnl != null ? money(totalPnl, "$0.00") : "—";
+    pnlEl.className = "stat-v mono " + clsPnL(totalPnl);
     const pnlSub = $("stat-pnl-sub");
     if (state.cash != null) {
       pnlSub.textContent = "Cash " + money(state.cash, "$0.00") + (state.liveOk ? " · delayed MTM" : "");
     } else {
-      pnlSub.textContent = s.marked
-        ? s.marked + " ticket" + (s.marked === 1 ? "" : "s") + " with paper marks"
-        : "No paper marks yet";
-      if (state.liveOk) pnlSub.textContent += " · delayed MTM";
+      const bits = [];
+      if (s.open_pnl != null || s.closed_pnl != null) {
+        bits.push("Open " + money(s.open_pnl, "$0.00") + " · Closed " + money(s.closed_pnl, "$0.00"));
+      } else if (s.marked) {
+        bits.push(s.marked + " ticket" + (s.marked === 1 ? "" : "s") + " with paper marks");
+      } else {
+        bits.push("No paper marks yet");
+      }
+      if (state.liveOk) bits.push("delayed MTM");
+      pnlSub.textContent = bits.join(" · ");
     }
 
     const openPnlEl = $("stat-open-pnl");
@@ -1004,13 +1089,26 @@
       }
     }
 
+    const weeksEl = $("stat-weeks");
+    if (weeksEl) {
+      weeksEl.textContent = weeks != null ? String(weeks) : "—";
+      const weeksSub = $("stat-weeks-sub");
+      if (weeksSub) {
+        weeksSub.textContent = wr.first
+          ? fmtRangeShort(wr.first, wr.asOf) + (wr.days != null ? " · " + wr.days + "d" : "")
+          : "No first trade date";
+      }
+    }
+
     const roc = state.deployed || computeDeployedRoc([], state.account, state.asOf);
     const rocEl = $("stat-roc");
     rocEl.textContent = pct(roc.roc);
     rocEl.className = "stat-v mono " + clsPnL(roc.roc);
     const idle = roc.idle;
+    const rocK = $("stat-roc-k");
+    if (rocK) rocK.textContent = "Cumul. return on avg deployed";
     $("stat-roc-sub").textContent =
-      "Avg deployed " + moneyShort(roc.avgDeployed) +
+      "Not a weekly % · avg dep " + moneyShort(roc.avgDeployed) +
       " · now " + moneyShort(roc.currentDeployed) +
       " · idle " + moneyShort(idle);
     const sparkHost = $("roc-spark");
@@ -1018,27 +1116,58 @@
       const pts = (roc.curve || []).map((p, i) => ({ x: i, y: p.cum, label: p.date }));
       sparkHost.innerHTML = pts.length >= 2 ? sparkSvg(pts) : "";
     }
+    const weekHost = $("roc-weeks");
+    if (weekHost) {
+      const weeksRoc = weeklyDeployedBreakdown(roc.curve || []);
+      if (!weeksRoc.length) {
+        weekHost.innerHTML = "";
+      } else {
+        const rows = weeksRoc.map((w) => {
+          return "<tr>" +
+            '<td class="mono">' + escapeHtml(fmtDate(w.weekStart)) + "</td>" +
+            '<td class="num mono ' + clsPnL(w.pnl) + '">' + money(w.pnl) + "</td>" +
+            '<td class="num mono ' + clsPnL(w.pct) + '">' + pct(w.pct) + "</td>" +
+            "</tr>";
+        }).join("");
+        weekHost.innerHTML =
+          '<table class="roc-week-table" aria-label="Weekly deployed return">' +
+          "<thead><tr><th>Week</th><th>$/wk</th><th>%/wk</th></tr></thead>" +
+          "<tbody>" + rows + "</tbody></table>";
+      }
+    }
 
-    const acct = s.account_pct;
     const acctEl = $("stat-acct");
-    acctEl.textContent = pct(acct, "0.00%");
-    acctEl.className = "stat-v mono " + clsPnL(s.paper_pnl);
     const kEl = $("stat-target-k");
     const bar = $("target-bar");
+    const avgDep = roc.avgDeployed || 0;
+    const weeklyVsDep = (avgPerWeek != null && avgDep > 0) ? avgPerWeek / avgDep : null;
+    const weeklyVsAcct = (avgPerWeek != null && state.account) ? avgPerWeek / state.account : null;
+
     if (!state.weekly) {
+      // Moonshot / Compounder: no $375 goal — show lifetime account return only.
       if (kEl) kEl.textContent = "Account return";
+      const acct = s.account_pct;
+      acctEl.textContent = pct(acct, "0.00%");
+      acctEl.className = "stat-v mono " + clsPnL(totalPnl);
       bar.style.width = "0%";
       bar.classList.remove("over");
       $("stat-target-sub").textContent =
-        money(s.paper_pnl, "$0.00") + " · " + money(state.account, "$0.00") + " book · no weekly target";
+        money(totalPnl, "$0.00") + " · " + money(state.account, "$0.00") + " book · no weekly target";
     } else {
-      if (kEl) kEl.textContent = "Account vs " + money(state.weekly, "$375.00") + " / week";
-      const vs = (s.paper_pnl || 0) / state.weekly;
-      const w = Math.max(0, Math.min(100, vs * 100));
+      if (kEl) kEl.textContent = "Avg $/week vs " + money(state.weekly, "$375.00") + " goal";
+      acctEl.textContent = avgPerWeek != null ? money(avgPerWeek) + "/wk" : "—";
+      acctEl.className = "stat-v mono " + clsPnL(avgPerWeek);
+      const vsGoal = avgPerWeek != null ? avgPerWeek / state.weekly : 0;
+      const w = Math.max(0, Math.min(100, vsGoal * 100));
       bar.style.width = w + "%";
-      bar.classList.toggle("over", vs >= 1);
+      bar.classList.toggle("over", vsGoal >= 1);
+      const depBit = weeklyVsDep != null
+        ? pct(weeklyVsDep) + "/wk of avg deployed"
+        : (weeklyVsAcct != null ? pct(weeklyVsAcct) + "/wk of account" : null);
       $("stat-target-sub").textContent =
-        money(s.paper_pnl, "$0.00") + " / " + money(state.weekly, "$375.00") +
+        money(avgPerWeek, "$0.00") + "/week vs " + money(state.weekly, "$375.00") + " goal" +
+        (weeks != null ? " · " + weeks + " wk" : "") +
+        (depBit ? " · " + depBit : "") +
         " · " + money(state.account, "$25,000.00") + " book";
     }
 

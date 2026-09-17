@@ -145,7 +145,7 @@ button { font: inherit; color: inherit; }
 /* —— hero —— */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 0.85fr 0.85fr 0.85fr 1.35fr 1.05fr 0.8fr;
+  grid-template-columns: 1fr 0.8fr 0.8fr 0.7fr 1.25fr 1.45fr 0.95fr 0.75fr;
   gap: 10px;
   margin: 16px 0 14px;
 }
@@ -480,7 +480,7 @@ table.trades tbody tr.active td { background: #1c2433; }
 }
 
 /* deployed ROC tile */
-.stat-roc { min-height: 132px; }
+.stat-roc { min-height: 168px; }
 .stat-roc .stat-s { line-height: 1.35; }
 .roc-spark {
   margin-top: 8px;
@@ -494,3 +494,35 @@ table.trades tbody tr.active td { background: #1c2433; }
   display: block;
 }
 .roc-spark:empty { display: none; }
+.roc-weeks {
+  margin-top: 8px;
+  max-height: 118px;
+  overflow: auto;
+}
+.roc-week-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+  font-family: var(--mono);
+}
+.roc-week-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 9.5px;
+  font-family: var(--sans);
+  padding: 0 4px 4px 0;
+}
+.roc-week-table th:nth-child(2),
+.roc-week-table th:nth-child(3),
+.roc-week-table td.num {
+  text-align: right;
+}
+.roc-week-table td {
+  padding: 2px 4px 2px 0;
+  color: var(--dim);
+  border-top: 1px solid #1a2030;
+}
+.roc-weeks:empty { display: none; }
