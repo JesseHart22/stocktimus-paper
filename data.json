@@ -1,30 +1,30 @@
 {
-  "as_of": "2026-09-16T14:54:21.693882-07:00",
+  "as_of": "2026-09-17T08:14:39-07:00",
   "account": 25000.0,
   "weekly_target": 375.0,
   "source": "paper",
-  "note": "Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice.",
+  "note": "Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice. | OTM stock+CC stock exits = next RTH open (Jesse 2026-09-17); fill_source massive_*",
   "summary": {
-    "paper_pnl": 1899.0,
-    "paper_roc": 0.012489271656456243,
-    "account_pct": 0.07596,
+    "paper_pnl": 1183.54,
+    "paper_roc": 0.0473416,
+    "account_pct": 0.0473416,
     "open": 4,
     "invalidated": 7,
     "out": 1,
     "expired": 46,
-    "hit_rate": 0.603448275862069,
-    "wins": 35,
-    "resolved": 58,
+    "hit_rate": 0.5370370370370371,
+    "wins": 29,
+    "resolved": 54,
     "by_structure": {
+      "stock+CC": {
+        "n": 48,
+        "pnl": 590.54,
+        "cap": 129088.5
+      },
       "CSP": {
         "n": 5,
         "pnl": 331.0,
         "cap": 21250.0
-      },
-      "stock+CC": {
-        "n": 48,
-        "pnl": 1306.0,
-        "cap": 129088.5
       },
       "long call": {
         "n": 5,
@@ -33,35 +33,35 @@
       }
     },
     "by_creator": {
-      "Danny": {
-        "n": 7,
-        "pnl": 1191.0,
-        "cap": 11651.5
-      },
-      "Danny+TLI": {
-        "n": 2,
-        "pnl": -9.0,
-        "cap": 5123.0
-      },
-      "Lucas": {
-        "n": 1,
-        "pnl": 16.0,
-        "cap": 1479.0
-      },
       "Stocktimus": {
         "n": 17,
-        "pnl": 733.0,
+        "pnl": 312.14,
         "cap": 66421.0
       },
       "TLI": {
         "n": 23,
-        "pnl": -138.0,
+        "pnl": -137.6,
         "cap": 45407.0
       },
       "TLI+Danny": {
         "n": 8,
-        "pnl": 106.0,
+        "pnl": 37.5,
         "cap": 21969.0
+      },
+      "Danny+TLI": {
+        "n": 2,
+        "pnl": -191.0,
+        "cap": 5123.0
+      },
+      "Lucas": {
+        "n": 1,
+        "pnl": 4.0,
+        "cap": 1479.0
+      },
+      "Danny": {
+        "n": 7,
+        "pnl": 1158.5,
+        "cap": 11651.5
       }
     },
     "by_confidence": {
@@ -250,7 +250,17 @@
       "cboe_stock": 28.0,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed Stocktimus CC at the printed $27.50 zone, 100sh under the cap."
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $27.50 zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 29.14,
+      "entry_at": "2026-08-13T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 29.14,
+      "exit": 33.82,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 33.82,
+      "paper_pnl_stock_leg": 468.0
     },
     {
       "id": "2026-08-13-noon-JD",
@@ -288,15 +298,16 @@
       "min_close_since": 26.899999618530273,
       "max_close_since": 29.40999984741211,
       "paper_status": "expired",
-      "paper_pnl": 30.0,
+      "paper_pnl": 8.5,
       "paper_roc_pct": 0.010221465076660987,
       "paper_acct_pct": 0.0012,
-      "stock_path_pnl": 2.0,
+      "stock_path_pnl": -19.5,
       "option_path_pnl": 28.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: JD 2026-08-21 C30",
         "settled at expiry-close intrinsic (no time value); close=29.3700008392334 strike=30",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=29.06 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:27:00 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -407,7 +418,19 @@
       "cboe_stock": 26.92,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed Stocktimus CC under the cap at a printed idea."
+      "confidence_reason": "Single-feed Stocktimus CC under the cap at a printed idea.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 29.255,
+      "entry_at": "2026-08-13T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 29.255,
+      "exit": 29.06,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 29.06,
+      "paper_pnl_stock_leg": -19.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-13-noon-IREN",
@@ -445,15 +468,16 @@
       "min_close_since": 35.45000076293945,
       "max_close_since": 46.93000030517578,
       "paper_status": "expired",
-      "paper_pnl": -56.0,
+      "paper_pnl": -158.0,
       "paper_roc_pct": -0.012589928057553957,
       "paper_acct_pct": -0.00224,
-      "stock_path_pnl": -260.0,
+      "stock_path_pnl": -362.0,
       "option_path_pnl": 204.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C45",
         "settled at expiry-close intrinsic (no time value); close=41.880001068115234 strike=45",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=40.85 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:59 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -564,7 +588,19 @@
       "cboe_stock": 43.5,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "First IREN CC is Stocktimus-only with no printed support, so not High; 100sh under the cap."
+      "confidence_reason": "First IREN CC is Stocktimus-only with no printed support, so not High; 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 44.47,
+      "entry_at": "2026-08-13T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 44.47,
+      "exit": 40.85,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 40.85,
+      "paper_pnl_stock_leg": -362.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-13-noon-ASTS",
@@ -874,7 +910,17 @@
       "cboe_stock": 2.5991,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed TLI CC at the printed 200 WMA / $2.68 zone, sized under the cap."
+      "confidence_reason": "Single-feed TLI CC at the printed 200 WMA / $2.68 zone, sized under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 3.635,
+      "entry_at": "2026-08-14T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 3.635,
+      "exit": 3.51,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 3.51,
+      "paper_pnl_stock_leg": -62.5
     },
     {
       "id": "2026-08-14-noon-GRAB",
@@ -912,16 +958,17 @@
       "min_close_since": 2.869999885559082,
       "max_close_since": 3.640000104904175,
       "paper_status": "expired",
-      "paper_pnl": 15.0,
+      "paper_pnl": 0.0,
       "paper_roc_pct": 0.008287292817679558,
       "paper_acct_pct": 0.0006,
-      "stock_path_pnl": -70.0,
+      "stock_path_pnl": -85.0,
       "option_path_pnl": 85.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: GRAB 2026-08-21 C3.5",
         "invalidation not numeric \u2014 cannot auto-check: lose the reclaim / bottom trendline",
         "settled at expiry-close intrinsic (no time value); close=3.4800000190734863 strike=3.5",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=3.46 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:56 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -1028,7 +1075,19 @@
       "cboe_stock": 2.89,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed TLI CC at the reclaim / bottom-trendline zone, sized under the cap."
+      "confidence_reason": "Single-feed TLI CC at the reclaim / bottom-trendline zone, sized under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 3.63,
+      "entry_at": "2026-08-14T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 3.63,
+      "exit": 3.46,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 3.46,
+      "paper_pnl_stock_leg": -85.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-14-noon-ZETA",
@@ -1218,15 +1277,16 @@
       "min_close_since": 35.45000076293945,
       "max_close_since": 46.93000030517578,
       "paper_status": "expired",
-      "paper_pnl": -43.0,
+      "paper_pnl": -178.0,
       "paper_roc_pct": -0.009766068589598002,
       "paper_acct_pct": -0.00172,
-      "stock_path_pnl": -215.0,
+      "stock_path_pnl": -350.0,
       "option_path_pnl": 172.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C45",
         "settled at expiry-close intrinsic (no time value); close=41.880001068115234 strike=45",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=40.85 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:59 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -1333,7 +1393,19 @@
       "cboe_stock": 43.5,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI and Danny overlap but extended vs the $41 support, so not High."
+      "confidence_reason": "TLI and Danny overlap but extended vs the $41 support, so not High.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 44.35,
+      "entry_at": "2026-08-14T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 44.35,
+      "exit": 40.85,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 40.85,
+      "paper_pnl_stock_leg": -350.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-17-AM-LULU",
@@ -1668,15 +1740,16 @@
       "min_close_since": 29.829999923706055,
       "max_close_since": 33.810001373291016,
       "paper_status": "expired",
-      "paper_pnl": 29.0,
+      "paper_pnl": 73.0,
       "paper_roc_pct": 0.00891484783276975,
       "paper_acct_pct": 0.00116,
-      "stock_path_pnl": -49.0,
+      "stock_path_pnl": -5.0,
       "option_path_pnl": 78.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: OSCR 2026-08-21 C33",
         "settled at expiry-close intrinsic (no time value); close=32.040000915527344 strike=33",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=32.17 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 13:51:55 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -1779,7 +1852,19 @@
       "cboe_stock": 32.29,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "High",
-      "confidence_reason": "TLI and Danny overlap at a stated zone, 100sh under the $6,250 cap."
+      "confidence_reason": "TLI and Danny overlap at a stated zone, 100sh under the $6,250 cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 32.22,
+      "entry_at": "2026-08-17T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 32.22,
+      "exit": 32.17,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 32.17,
+      "paper_pnl_stock_leg": -5.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-17-noon-NVO",
@@ -1927,7 +2012,17 @@
       "cboe_stock": 41.798,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed Stocktimus CC at the printed $41.53 zone, 100sh under the cap."
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $41.53 zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 44.765,
+      "entry_at": "2026-08-17T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 44.765,
+      "exit": 46.73,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 46.73,
+      "paper_pnl_stock_leg": 196.5
     },
     {
       "id": "2026-08-17-noon-GRRR",
@@ -2114,15 +2209,16 @@
       "min_close_since": 11.34000015258789,
       "max_close_since": 15.779999732971191,
       "paper_status": "expired",
-      "paper_pnl": 16.0,
+      "paper_pnl": 4.0,
       "paper_roc_pct": 0.010818120351588911,
       "paper_acct_pct": 0.00064,
-      "stock_path_pnl": -24.0,
+      "stock_path_pnl": -36.0,
       "option_path_pnl": 40.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: CSIQ 2026-08-21 C15",
         "settled at expiry-close intrinsic (no time value); close=14.550000190734863 strike=15",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=14.45 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:49:51 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -2225,7 +2321,19 @@
       "cboe_stock": 12.185,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed Lucas CC at the printed $14 zone, 100sh under the cap."
+      "confidence_reason": "Single-feed Lucas CC at the printed $14 zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 14.81,
+      "entry_at": "2026-08-17T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 14.81,
+      "exit": 14.45,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 14.45,
+      "paper_pnl_stock_leg": -36.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-18-AM-DRAM",
@@ -2513,7 +2621,17 @@
       "cboe_stock": 35.92,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed Stocktimus CC at the printed $38 zone, 100sh under the cap."
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $38 zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 39.65,
+      "entry_at": "2026-08-18T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 39.65,
+      "exit": 40.76,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 40.76,
+      "paper_pnl_stock_leg": 111.0
     },
     {
       "id": "2026-08-18-AM-ZETA",
@@ -2657,7 +2775,17 @@
       "cboe_stock": 30.85,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed Stocktimus CC at the printed $26.50 zone, 100sh under the cap."
+      "confidence_reason": "Single-feed Stocktimus CC at the printed $26.50 zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 28.56,
+      "entry_at": "2026-08-18T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 28.56,
+      "exit": 29.08,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 29.08,
+      "paper_pnl_stock_leg": 52.0
     },
     {
       "id": "2026-08-18-AM-IREN",
@@ -2695,15 +2823,16 @@
       "min_close_since": 35.45000076293945,
       "max_close_since": 46.93000030517578,
       "paper_status": "expired",
-      "paper_pnl": 80.0,
+      "paper_pnl": -51.0,
       "paper_roc_pct": 0.018484288354898338,
       "paper_acct_pct": 0.0032,
-      "stock_path_pnl": -140.0,
+      "stock_path_pnl": -271.0,
       "option_path_pnl": 220.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C44",
         "settled at expiry-close intrinsic (no time value); close=41.880001068115234 strike=44",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=40.85 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:59 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -2802,7 +2931,19 @@
       "cboe_stock": 43.5,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
+      "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 43.56,
+      "entry_at": "2026-08-18T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 43.56,
+      "exit": 40.85,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 40.85,
+      "paper_pnl_stock_leg": -271.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-18-noon-ADUR",
@@ -2946,7 +3087,17 @@
       "cboe_stock": 12.48,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed TLI CC at the printed $15 hold, 100sh under the cap."
+      "confidence_reason": "Single-feed TLI CC at the printed $15 hold, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 15.475,
+      "entry_at": "2026-08-18T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 15.475,
+      "exit": 15.97,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 15.97,
+      "paper_pnl_stock_leg": 49.5
     },
     {
       "id": "2026-08-18-noon-OWL",
@@ -3090,7 +3241,17 @@
       "cboe_stock": 10.09,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Low",
-      "confidence_reason": "No real buy/support zone \u2014 only a loose $10 kill far under spot."
+      "confidence_reason": "No real buy/support zone \u2014 only a loose $10 kill far under spot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 11.65,
+      "entry_at": "2026-08-18T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 11.65,
+      "exit": 11.67,
+      "exit_at": "2026-08-21T16:00:00-04:00",
+      "exit_stock": 11.67,
+      "paper_pnl_stock_leg": 2.0
     },
     {
       "id": "2026-08-19-AM-IREN-4250c",
@@ -3128,16 +3289,17 @@
       "min_close_since": 35.45000076293945,
       "max_close_since": 46.93000030517578,
       "paper_status": "expired",
-      "paper_pnl": 57.0,
+      "paper_pnl": 60.5,
       "paper_roc_pct": 0.013418079096045197,
       "paper_acct_pct": 0.00228,
-      "stock_path_pnl": -60.0,
+      "stock_path_pnl": -56.5,
       "option_path_pnl": 117.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5",
         "settled at expiry-close intrinsic (no time value); close=41.880001068115234 strike=42.5",
         "close<=strike: call expires worthless, credit kept",
-        "overlay on existing IREN shares (not a new 100sh buy). Reprints 8/19 noon and 8/20 AM not scored separately. Paper fill credit $1.17 (first print); later quote $1.42"
+        "overlay on existing IREN shares (not a new 100sh buy). Reprints 8/19 noon and 8/20 AM not scored separately. Paper fill credit $1.17 (first print); later quote $1.42",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=40.85 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:59 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -3232,7 +3394,19 @@
       "cboe_stock": 43.5,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "IREN overlay at the $41.70 support, single feed, under the cap."
+      "confidence_reason": "IREN overlay at the $41.70 support, single feed, under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 41.415,
+      "entry_at": "2026-08-19T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 41.415,
+      "exit": 40.85,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 40.85,
+      "paper_pnl_stock_leg": -56.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-19-AM-NVO-CSP",
@@ -3411,16 +3585,17 @@
       "min_close_since": 27.459999084472656,
       "max_close_since": 29.020000457763672,
       "paper_status": "expired",
-      "paper_pnl": -2.0,
+      "paper_pnl": -16.0,
       "paper_roc_pct": -0.0007067137809187279,
       "paper_acct_pct": -8e-05,
-      "stock_path_pnl": -34.0,
+      "stock_path_pnl": -48.0,
       "option_path_pnl": 32.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: PFE 2026-08-28 C28.5",
         "settled at expiry-close intrinsic (no time value); close=27.959999084472656 strike=28.5",
         "close<=strike: call expires worthless, credit kept",
-        "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled"
+        "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=27.85 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:49:32 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -3515,7 +3690,19 @@
       "cboe_stock": 27.4455,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed TLI CC at the safe-haven zone, 100sh under the cap."
+      "confidence_reason": "Single-feed TLI CC at the safe-haven zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 28.33,
+      "entry_at": "2026-08-19T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 28.33,
+      "exit": 27.85,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 27.85,
+      "paper_pnl_stock_leg": -48.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-20-AM-PFE",
@@ -3553,16 +3740,17 @@
       "min_close_since": 27.459999084472656,
       "max_close_since": 29.020000457763672,
       "paper_status": "expired",
-      "paper_pnl": 54.0,
+      "paper_pnl": 39.5,
       "paper_roc_pct": 0.019306399713979263,
       "paper_acct_pct": 0.00216,
-      "stock_path_pnl": -1.0,
+      "stock_path_pnl": -15.5,
       "option_path_pnl": 55.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: PFE 2026-08-28 C28.0",
         "settled at expiry-close intrinsic (no time value); close=27.959999084472656 strike=28.0",
         "close<=strike: call expires worthless, credit kept",
-        "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled"
+        "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=27.85 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:49:32 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -3653,7 +3841,19 @@
       "cboe_stock": 27.4455,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Single-feed TLI CC alternative at the same $27 zone, 100sh under the cap."
+      "confidence_reason": "Single-feed TLI CC alternative at the same $27 zone, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 28.005,
+      "entry_at": "2026-08-20T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 28.005,
+      "exit": 27.85,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 27.85,
+      "paper_pnl_stock_leg": -15.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-20-noon-IREN-42c",
@@ -3691,16 +3891,17 @@
       "min_close_since": 35.45000076293945,
       "max_close_since": 46.93000030517578,
       "paper_status": "expired",
-      "paper_pnl": 77.0,
+      "paper_pnl": -0.96,
       "paper_roc_pct": 0.018465227817745802,
       "paper_acct_pct": 0.00308,
-      "stock_path_pnl": 18.0,
+      "stock_path_pnl": -59.96,
       "option_path_pnl": 59.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42",
         "settled at expiry-close intrinsic (no time value); close=41.880001068115234 strike=42",
         "close<=strike: call expires worthless, credit kept",
-        "IREN 8/20 noon $42c is a different strike from $42.50c \u2014 scored independently; not a reprint"
+        "IREN 8/20 noon $42c is a different strike from $42.50c \u2014 scored independently; not a reprint",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=40.85 @ 2026-08-24T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:59 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -3791,7 +3992,19 @@
       "cboe_stock": 43.5,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
+      "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-24 (first_rth_1m_open); call credit kept",
+      "entry": 41.4496,
+      "entry_at": "2026-08-20T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 41.4496,
+      "exit": 40.85,
+      "exit_at": "2026-08-24T09:30:00-04:00",
+      "exit_stock": 40.85,
+      "paper_pnl_stock_leg": -59.96,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-21-AM-OSCR",
@@ -3829,15 +4042,16 @@
       "min_close_since": 29.829999923706055,
       "max_close_since": 33.810001373291016,
       "paper_status": "expired",
-      "paper_pnl": -1.0,
+      "paper_pnl": -7.0,
       "paper_roc_pct": -0.0003170577045022194,
       "paper_acct_pct": -4e-05,
-      "stock_path_pnl": -107.0,
+      "stock_path_pnl": -113.0,
       "option_path_pnl": 106.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: OSCR 2026-08-28 C32",
         "settled at expiry-close intrinsic (no time value); close=30.469999313354492 strike=32",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=30.3 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 13:51:55 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -3924,7 +4138,19 @@
       "cboe_stock": 32.29,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny ribbon + TLI still likes OSCR; stock under $32-33 resistance, not in $28-30 zone."
+      "confidence_reason": "Danny ribbon + TLI still likes OSCR; stock under $32-33 resistance, not in $28-30 zone.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 31.43,
+      "entry_at": "2026-08-21T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 31.43,
+      "exit": 30.3,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 30.3,
+      "paper_pnl_stock_leg": -113.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-21-AM-JD",
@@ -3962,15 +4188,16 @@
       "min_close_since": 26.899999618530273,
       "max_close_since": 29.3700008392334,
       "paper_status": "expired",
-      "paper_pnl": -35.0,
+      "paper_pnl": -69.4,
       "paper_roc_pct": -0.011900714042842571,
       "paper_acct_pct": -0.0014,
-      "stock_path_pnl": -67.0,
+      "stock_path_pnl": -101.4,
       "option_path_pnl": 32.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: JD 2026-08-28 C30",
         "settled at expiry-close intrinsic (no time value); close=28.739999771118164 strike=30",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=28.57 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:27:00 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -4057,7 +4284,19 @@
       "cboe_stock": 26.92,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI buy zone at the 0.618. Single feed."
+      "confidence_reason": "TLI buy zone at the 0.618. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 29.584,
+      "entry_at": "2026-08-21T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 29.584,
+      "exit": 28.57,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 28.57,
+      "paper_pnl_stock_leg": -101.4,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-21-AM-CLMT",
@@ -4186,7 +4425,13 @@
       "cboe_stock": 58.48,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Zero Sum hold. Next monthly, no weekly. Under cap."
+      "confidence_reason": "Zero Sum hold. Next monthly, no weekly. Under cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 48.75,
+      "entry_at": "2026-08-21T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 48.75
     },
     {
       "id": "2026-08-21-AM-NVO",
@@ -4224,15 +4469,16 @@
       "min_close_since": 41.709999084472656,
       "max_close_since": 48.65999984741211,
       "paper_status": "expired",
-      "paper_pnl": -10.0,
+      "paper_pnl": -51.0,
       "paper_roc_pct": -0.002161227577263886,
       "paper_acct_pct": -0.0004,
-      "stock_path_pnl": -66.0,
+      "stock_path_pnl": -107.0,
       "option_path_pnl": 56.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: NVO 2026-08-28 C47",
         "settled at expiry-close intrinsic (no time value); close=45.61000061035156 strike=47",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=45.28 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:52:59 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -4319,7 +4565,19 @@
       "cboe_stock": 41.798,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI Top 10 in the $46-47 dip. Next add $48."
+      "confidence_reason": "TLI Top 10 in the $46-47 dip. Next add $48.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 46.35,
+      "entry_at": "2026-08-21T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 46.35,
+      "exit": 45.28,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 45.28,
+      "paper_pnl_stock_leg": -107.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-21-noon-IREN",
@@ -4453,7 +4711,17 @@
       "cboe_stock": 43.5,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI at the $40.77 0.5 Fib retest. Single feed. Under the cap."
+      "confidence_reason": "TLI at the $40.77 0.5 Fib retest. Single feed. Under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 41.235,
+      "entry_at": "2026-08-21T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 41.235,
+      "exit": 35.49,
+      "exit_at": "2026-08-28T16:00:00-04:00",
+      "exit_stock": 35.49,
+      "paper_pnl_stock_leg": -574.5
     },
     {
       "id": "2026-08-21-noon-PFE",
@@ -4491,16 +4759,17 @@
       "min_close_since": 27.459999084472656,
       "max_close_since": 29.020000457763672,
       "paper_status": "expired",
-      "paper_pnl": 30.0,
+      "paper_pnl": 19.5,
       "paper_roc_pct": 0.010721944245889922,
       "paper_acct_pct": 0.0012,
-      "stock_path_pnl": -2.0,
+      "stock_path_pnl": -12.5,
       "option_path_pnl": 32.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: PFE 2026-08-28 C28",
         "settled at expiry-close intrinsic (no time value); close=27.959999084472656 strike=28",
         "close<=strike: call expires worthless, credit kept",
-        "8/21 noon PFE $28c Aug 28 is a new week overlay, scored independently of 8/20 AM PFE 28c (unused alt to 8/19 28.50c)"
+        "8/21 noon PFE $28c Aug 28 is a new week overlay, scored independently of 8/20 AM PFE 28c (unused alt to 8/19 28.50c)",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=27.85 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:49:32 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -4587,7 +4856,19 @@
       "cboe_stock": 27.4455,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI safe haven at $28 / $28.80 Wave 3 line. Single feed."
+      "confidence_reason": "TLI safe haven at $28 / $28.80 Wave 3 line. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 27.975,
+      "entry_at": "2026-08-21T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 27.975,
+      "exit": 27.85,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 27.85,
+      "paper_pnl_stock_leg": -12.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-24-AM-CELH",
@@ -4625,15 +4906,16 @@
       "min_close_since": 26.6299991607666,
       "max_close_since": 35.34000015258789,
       "paper_status": "expired",
-      "paper_pnl": 39.0,
+      "paper_pnl": -73.5,
       "paper_roc_pct": 0.011690647482014389,
       "paper_acct_pct": 0.00156,
-      "stock_path_pnl": -38.0,
+      "stock_path_pnl": -150.5,
       "option_path_pnl": 77.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: CELH 2026-08-28 C34",
         "settled at expiry-close intrinsic (no time value); close=32.97999954223633 strike=34",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=32.3 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:52:14 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -4716,7 +4998,19 @@
       "cboe_stock": 28.34,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny weekly red candle + TLI Wave 3. Under the cap. Not a fresh dual add zone."
+      "confidence_reason": "Danny weekly red candle + TLI Wave 3. Under the cap. Not a fresh dual add zone.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 33.805,
+      "entry_at": "2026-08-24T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 33.805,
+      "exit": 32.3,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 32.3,
+      "paper_pnl_stock_leg": -150.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-24-AM-OPEN",
@@ -4754,15 +5048,16 @@
       "min_close_since": 2.5899999141693115,
       "max_close_since": 3.5999999046325684,
       "paper_status": "expired",
-      "paper_pnl": -11.0,
+      "paper_pnl": -8.6,
       "paper_roc_pct": -0.031161473087818695,
       "paper_acct_pct": -0.00044,
-      "stock_path_pnl": -24.0,
+      "stock_path_pnl": -21.6,
       "option_path_pnl": 13.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: OPEN 2026-08-28 C3.5",
         "settled at expiry-close intrinsic (no time value); close=3.2899999618530273 strike=3.5",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=3.27 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:52:28 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -4845,7 +5140,19 @@
       "cboe_stock": 2.5991,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI 200 WMA / buy under $5. Single feed."
+      "confidence_reason": "TLI 200 WMA / buy under $5. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 3.486,
+      "entry_at": "2026-08-24T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 3.486,
+      "exit": 3.27,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 3.27,
+      "paper_pnl_stock_leg": -21.6,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-24-AM-SOFI",
@@ -4883,15 +5190,16 @@
       "min_close_since": 16.84000015258789,
       "max_close_since": 19.18000030517578,
       "paper_status": "expired",
-      "paper_pnl": -39.0,
+      "paper_pnl": -52.0,
       "paper_roc_pct": -0.020624008461131677,
       "paper_acct_pct": -0.00156,
-      "stock_path_pnl": -85.0,
+      "stock_path_pnl": -98.0,
       "option_path_pnl": 46.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: SOFI 2026-08-28 C19",
         "settled at expiry-close intrinsic (no time value); close=18.059999465942383 strike=19",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=17.75 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:54:07 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -4974,7 +5282,19 @@
       "cboe_stock": 16.88,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny red ribbon at the top of $15.9\u201318.8 support. Single feed."
+      "confidence_reason": "Danny red ribbon at the top of $15.9\u201318.8 support. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 18.73,
+      "entry_at": "2026-08-24T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 18.73,
+      "exit": 17.75,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 17.75,
+      "paper_pnl_stock_leg": -98.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-25-AM-HIMS",
@@ -5099,7 +5419,17 @@
       "cboe_stock": 28.0,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "High",
-      "confidence_reason": "TLI $30\u201331 and Danny $30 support, both at the zone, under the cap."
+      "confidence_reason": "TLI $30\u201331 and Danny $30 support, both at the zone, under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 31.29,
+      "entry_at": "2026-08-25T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 31.29,
+      "exit": 28.9,
+      "exit_at": "2026-08-28T16:00:00-04:00",
+      "exit_stock": 28.9,
+      "paper_pnl_stock_leg": -239.0
     },
     {
       "id": "2026-08-25-AM-ADUR",
@@ -5223,7 +5553,13 @@
       "cboe_stock": 12.48,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI 0.38 tests and Chemelot visit. Next monthly, no weekly. Single feed."
+      "confidence_reason": "TLI 0.38 tests and Chemelot visit. Next monthly, no weekly. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 15.25,
+      "entry_at": "2026-08-25T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 15.25
     },
     {
       "id": "2026-08-25-noon-RR",
@@ -5261,15 +5597,16 @@
       "min_close_since": 1.6100000143051147,
       "max_close_since": 1.9700000286102295,
       "paper_status": "expired",
-      "paper_pnl": -6.0,
+      "paper_pnl": -8.0,
       "paper_roc_pct": -0.030456852791878174,
       "paper_acct_pct": -0.00024,
-      "stock_path_pnl": -14.0,
+      "stock_path_pnl": -16.0,
       "option_path_pnl": 8.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: RR 2026-08-28 C2",
         "settled at expiry-close intrinsic (no time value); close=1.8300000429153442 strike=2",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=1.81 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:53:32 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -5348,7 +5685,19 @@
       "cboe_stock": 1.6168,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI wedge-break entry at $2. Single feed. Under the cap."
+      "confidence_reason": "TLI wedge-break entry at $2. Single feed. Under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 1.97,
+      "entry_at": "2026-08-25T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 1.97,
+      "exit": 1.81,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 1.81,
+      "paper_pnl_stock_leg": -16.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-25-noon-ONDS",
@@ -5386,15 +5735,16 @@
       "min_close_since": 7.039999961853027,
       "max_close_since": 8.75,
       "paper_status": "expired",
-      "paper_pnl": -19.0,
+      "paper_pnl": -22.0,
       "paper_roc_pct": -0.023086269744835967,
       "paper_acct_pct": -0.00076,
-      "stock_path_pnl": -33.0,
+      "stock_path_pnl": -36.0,
       "option_path_pnl": 14.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: ONDS 2026-08-28 C8.5",
         "settled at expiry-close intrinsic (no time value); close=7.900000095367432 strike=8.5",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=7.89 @ 2026-08-31T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:51:52 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -5473,7 +5823,19 @@
       "cboe_stock": 7.2103,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI third buy zone at $8. Single feed."
+      "confidence_reason": "TLI third buy zone at $8. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-08-31 (first_rth_1m_open); call credit kept",
+      "entry": 8.25,
+      "entry_at": "2026-08-25T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 8.25,
+      "exit": 7.89,
+      "exit_at": "2026-08-31T09:30:00-04:00",
+      "exit_stock": 7.89,
+      "paper_pnl_stock_leg": -36.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-25-noon-GRRR",
@@ -5597,7 +5959,17 @@
       "cboe_stock": 12.9301,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI hold / Wave 3 sitting on the $13.55 add. Single feed. Skip if already four live."
+      "confidence_reason": "TLI hold / Wave 3 sitting on the $13.55 add. Single feed. Skip if already four live.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 13.76,
+      "entry_at": "2026-08-25T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 13.76,
+      "exit": 14.45,
+      "exit_at": "2026-08-28T16:00:00-04:00",
+      "exit_stock": 14.45,
+      "paper_pnl_stock_leg": 69.0
     },
     {
       "id": "2026-08-26-AM-IBRX",
@@ -5635,15 +6007,16 @@
       "min_close_since": 7.71999979019165,
       "max_close_since": 8.399999618530273,
       "paper_status": "expired",
-      "paper_pnl": 18.0,
+      "paper_pnl": 12.0,
       "paper_roc_pct": 0.02197802197802198,
       "paper_acct_pct": 0.00072,
-      "stock_path_pnl": -11.0,
+      "stock_path_pnl": -17.0,
       "option_path_pnl": 29.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: IBRX 2026-09-04 C8.5",
         "settled at expiry-close intrinsic (no time value); close=8.079999923706055 strike=8.5",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=8.0 @ 2026-09-08T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:50:43 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -5718,7 +6091,19 @@
       "cboe_stock": 7.8999,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny daily at the $8.23 resume line. Single feed. Under the cap."
+      "confidence_reason": "Danny daily at the $8.23 resume line. Single feed. Under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-08 (first_rth_1m_open); call credit kept",
+      "entry": 8.17,
+      "entry_at": "2026-08-26T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 8.17,
+      "exit": 8.0,
+      "exit_at": "2026-09-08T09:30:00-04:00",
+      "exit_stock": 8.0,
+      "paper_pnl_stock_leg": -17.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-26-AM-ZVRA",
@@ -5835,7 +6220,13 @@
       "cboe_stock": 11.65,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI triangle under the $12.15 50-DMA. Next monthly. Single feed."
+      "confidence_reason": "TLI triangle under the $12.15 50-DMA. Next monthly. Single feed.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 12.0,
+      "entry_at": "2026-08-26T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 12.0
     },
     {
       "id": "2026-08-27-AM-HIMS",
@@ -5952,7 +6343,17 @@
       "cboe_stock": 28.0,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "High",
-      "confidence_reason": "TLI $30 and Danny yellow, both at the zone, under the cap."
+      "confidence_reason": "TLI $30 and Danny yellow, both at the zone, under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 30.4,
+      "entry_at": "2026-08-27T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 30.4,
+      "exit": 27.69,
+      "exit_at": "2026-09-04T16:00:00-04:00",
+      "exit_stock": 27.69,
+      "paper_pnl_stock_leg": -271.0
     },
     {
       "id": "2026-08-27-noon-KHC",
@@ -5990,15 +6391,16 @@
       "min_close_since": 24.270000457763672,
       "max_close_since": 26.260000228881836,
       "paper_status": "expired",
-      "paper_pnl": 12.0,
+      "paper_pnl": 5.5,
       "paper_roc_pct": 0.00477516912057302,
       "paper_acct_pct": 0.00048,
-      "stock_path_pnl": -28.0,
+      "stock_path_pnl": -34.5,
       "option_path_pnl": 40.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: KHC 2026-09-04 C25.0",
         "settled at expiry-close intrinsic (no time value); close=24.850000381469727 strike=25.0",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=24.78 @ 2026-09-08T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:12:08 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -6069,7 +6471,19 @@
       "cboe_stock": 24.6796,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI safe-haven at the $24 0.5 Fib / 50-WMA. Single feed. Under the cap."
+      "confidence_reason": "TLI safe-haven at the $24 0.5 Fib / 50-WMA. Single feed. Under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-08 (first_rth_1m_open); call credit kept",
+      "entry": 25.125,
+      "entry_at": "2026-08-27T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 25.125,
+      "exit": 24.78,
+      "exit_at": "2026-09-08T09:30:00-04:00",
+      "exit_stock": 24.78,
+      "paper_pnl_stock_leg": -34.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-28-AM-ZETA",
@@ -6181,7 +6595,17 @@
       "cboe_stock": 30.85,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "High",
-      "confidence_reason": "TLI hold/flip $30 and Danny red candle at $30 / invalid $28.80, both at the zone, under the cap."
+      "confidence_reason": "TLI hold/flip $30 and Danny red candle at $30 / invalid $28.80, both at the zone, under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 29.8,
+      "entry_at": "2026-08-28T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 29.8,
+      "exit": 31.3648,
+      "exit_at": "2026-09-04T16:00:00-04:00",
+      "exit_stock": 31.3648,
+      "paper_pnl_stock_leg": 156.48
     },
     {
       "id": "2026-08-28-AM-NVO",
@@ -6293,7 +6717,17 @@
       "cboe_stock": 41.798,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI BUY ALERT @ $46. Single feed. Under the cap."
+      "confidence_reason": "TLI BUY ALERT @ $46. Single feed. Under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 46.17,
+      "entry_at": "2026-08-28T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 46.17,
+      "exit": 46.6,
+      "exit_at": "2026-09-04T16:00:00-04:00",
+      "exit_stock": 46.6,
+      "paper_pnl_stock_leg": 43.0
     },
     {
       "id": "2026-08-28-noon-GRRR",
@@ -6331,15 +6765,16 @@
       "min_close_since": 12.720000267028809,
       "max_close_since": 15.039999961853027,
       "paper_status": "expired",
-      "paper_pnl": -13.0,
+      "paper_pnl": -26.0,
       "paper_roc_pct": -0.00906555090655509,
       "paper_acct_pct": -0.00052,
-      "stock_path_pnl": -55.0,
+      "stock_path_pnl": -68.0,
       "option_path_pnl": 42.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: GRRR 2026-09-04 C15.0",
         "settled at expiry-close intrinsic (no time value); close=13.789999961853027 strike=15.0",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=13.66 @ 2026-09-08T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:44:36 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -6406,7 +6841,19 @@
       "cboe_stock": 12.9301,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI support-range hold (200-DMA / 0.5 Fib to amber $16.25). Single feed. Under the cap."
+      "confidence_reason": "TLI support-range hold (200-DMA / 0.5 Fib to amber $16.25). Single feed. Under the cap.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-08 (first_rth_1m_open); call credit kept",
+      "entry": 14.34,
+      "entry_at": "2026-08-28T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 14.34,
+      "exit": 13.66,
+      "exit_at": "2026-09-08T09:30:00-04:00",
+      "exit_stock": 13.66,
+      "paper_pnl_stock_leg": -68.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-31-AM-SOFI",
@@ -6444,15 +6891,16 @@
       "min_close_since": 16.84000015258789,
       "max_close_since": 18.510000228881836,
       "paper_status": "expired",
-      "paper_pnl": -4.0,
+      "paper_pnl": -23.5,
       "paper_roc_pct": -0.002238388360380526,
       "paper_acct_pct": -0.00016,
-      "stock_path_pnl": -55.0,
+      "stock_path_pnl": -74.5,
       "option_path_pnl": 51.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: SOFI 2026-09-11 C18.0",
         "settled at expiry-close intrinsic (no time value); close=17.31999969482422 strike=18.0",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=17.005 @ 2026-09-14T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:54:07 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -6515,7 +6963,19 @@
       "cboe_stock": 16.88,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny Stage 1 base $14\u2013$18, stock inside the base, under the cap. TLI still wants $25 \u2014 not overlap. One lot."
+      "confidence_reason": "Danny Stage 1 base $14\u2013$18, stock inside the base, under the cap. TLI still wants $25 \u2014 not overlap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-14 (first_rth_1m_open); call credit kept",
+      "entry": 17.75,
+      "entry_at": "2026-08-31T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 17.75,
+      "exit": 17.005,
+      "exit_at": "2026-09-14T09:30:00-04:00",
+      "exit_stock": 17.005,
+      "paper_pnl_stock_leg": -74.5,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-08-31-AM-OSCR",
@@ -6623,7 +7083,17 @@
       "cboe_stock": 32.29,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny nearby support $28\u2013$30 and TLI $28\u2013$30 healthy pullback, both at the hold range, under the cap. TLI's actual buy zone is still $21\u2013$25, so this is not High. One lot."
+      "confidence_reason": "Danny nearby support $28\u2013$30 and TLI $28\u2013$30 healthy pullback, both at the hold range, under the cap. TLI's actual buy zone is still $21\u2013$25, so this is not High. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 30.3,
+      "entry_at": "2026-08-31T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 30.3,
+      "exit": 32.77,
+      "exit_at": "2026-09-11T16:00:00-04:00",
+      "exit_stock": 32.77,
+      "paper_pnl_stock_leg": 247.0
     },
     {
       "id": "2026-08-31-AM-PFE",
@@ -6661,16 +7131,17 @@
       "min_close_since": 27.459999084472656,
       "max_close_since": 29.020000457763672,
       "paper_status": "expired",
-      "paper_pnl": -11.0,
+      "paper_pnl": 63.0,
       "paper_roc_pct": -0.0038965639390719092,
       "paper_acct_pct": -0.00044,
-      "stock_path_pnl": -51.0,
+      "stock_path_pnl": 23.0,
       "option_path_pnl": 40.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: PFE 2026-09-11 C28.0",
         "settled at expiry-close intrinsic (no time value); close=27.719999313354492 strike=28.0",
         "close<=strike: call expires worthless, credit kept",
-        "PFE Sep11 is a NEW week overlay, scored independently of 8/19 28.50c and 8/20/8/21 Aug28 28c"
+        "PFE Sep11 is a NEW week overlay, scored independently of 8/19 28.50c and 8/20/8/21 Aug28 28c",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=28.08 @ 2026-09-14T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:49:32 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -6733,7 +7204,19 @@
       "cboe_stock": 27.4455,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI safe-haven retest of the bull-case line $27.45, +6.1% div, under the cap. Single feed. One lot."
+      "confidence_reason": "TLI safe-haven retest of the bull-case line $27.45, +6.1% div, under the cap. Single feed. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-14 (first_rth_1m_open); call credit kept",
+      "entry": 27.85,
+      "entry_at": "2026-08-31T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 27.85,
+      "exit": 28.08,
+      "exit_at": "2026-09-14T09:30:00-04:00",
+      "exit_stock": 28.08,
+      "paper_pnl_stock_leg": 23.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-09-01-AM-ONDS",
@@ -6771,15 +7254,16 @@
       "min_close_since": 7.039999961853027,
       "max_close_since": 7.630000114440918,
       "paper_status": "expired",
-      "paper_pnl": 34.0,
+      "paper_pnl": -13.0,
       "paper_roc_pct": 0.04722222222222222,
       "paper_acct_pct": 0.00136,
-      "stock_path_pnl": 3.0,
+      "stock_path_pnl": -44.0,
       "option_path_pnl": 31.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: ONDS 2026-09-11 C7.5",
         "settled at expiry-close intrinsic (no time value); close=7.230000019073486 strike=7.5",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=6.995 @ 2026-09-14T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:51:52 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -6838,7 +7322,19 @@
       "cboe_stock": 7.2103,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "High",
-      "confidence_reason": "TLI in the buy zone and wants $7 to hold; Danny support $6 / $6.60 / $7.20; under the cap. One lot."
+      "confidence_reason": "TLI in the buy zone and wants $7 to hold; Danny support $6 / $6.60 / $7.20; under the cap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-14 (first_rth_1m_open); call credit kept",
+      "entry": 7.435,
+      "entry_at": "2026-09-01T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 7.435,
+      "exit": 6.995,
+      "exit_at": "2026-09-14T09:30:00-04:00",
+      "exit_stock": 6.995,
+      "paper_pnl_stock_leg": -44.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-09-01-AM-NOK",
@@ -6942,7 +7438,17 @@
       "cboe_stock": 10.1701,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny $9.80 support (day low $9.82). Single feed. Under the cap. One lot."
+      "confidence_reason": "Danny $9.80 support (day low $9.82). Single feed. Under the cap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 10.06,
+      "entry_at": "2026-09-01T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 10.06,
+      "exit": 11.15,
+      "exit_at": "2026-09-11T16:00:00-04:00",
+      "exit_stock": 11.15,
+      "paper_pnl_stock_leg": 109.0
     },
     {
       "id": "2026-09-02-AM-BABA",
@@ -7282,15 +7788,16 @@
       "min_close_since": 30.18000030517578,
       "max_close_since": 31.040000915527344,
       "paper_status": "expired",
-      "paper_pnl": 9.0,
+      "paper_pnl": 15.0,
       "paper_roc_pct": 0.002923026956804157,
       "paper_acct_pct": 0.00036,
-      "stock_path_pnl": -61.0,
+      "stock_path_pnl": -55.0,
       "option_path_pnl": 70.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: ZETA 2026-09-11 C31.0",
         "settled at expiry-close intrinsic (no time value); close=30.18000030517578 strike=31.0",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=30.57 @ 2026-09-14T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:27:29 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -7329,7 +7836,19 @@
       "cboe_stock": 30.85,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny consolidating $30-$32 sitting on $30 support; single feed; under the cap. One lot."
+      "confidence_reason": "Danny consolidating $30-$32 sitting on $30 support; single feed; under the cap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-14 (first_rth_1m_open); call credit kept",
+      "entry": 31.12,
+      "entry_at": "2026-09-09T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 31.12,
+      "exit": 30.57,
+      "exit_at": "2026-09-14T09:30:00-04:00",
+      "exit_stock": 30.57,
+      "paper_pnl_stock_leg": -55.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-09-09-AM-KHC",
@@ -7367,15 +7886,16 @@
       "min_close_since": 24.270000457763672,
       "max_close_since": 24.729999542236328,
       "paper_status": "expired",
-      "paper_pnl": -2.0,
+      "paper_pnl": -10.0,
       "paper_roc_pct": -0.0008032128514056225,
       "paper_acct_pct": -8e-05,
-      "stock_path_pnl": -30.0,
+      "stock_path_pnl": -38.0,
       "option_path_pnl": 28.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: KHC 2026-09-11 C25.0",
         "settled at expiry-close intrinsic (no time value); close=24.600000381469727 strike=25.0",
-        "close<=strike: call expires worthless, credit kept"
+        "close<=strike: call expires worthless, credit kept",
+        "stock_exit_rule=next_rth_open_after_otm_cc_expiry; next_open=24.41 @ 2026-09-14T09:30:00-04:00"
       ],
       "price_asof": "2026-09-16 14:12:08 PT",
       "mtm_asof": "2026-09-16T14:54:21.693882-07:00",
@@ -7414,7 +7934,19 @@
       "cboe_stock": 24.6796,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI Buy Zone / 50 WMA at $24.22; stock tested the zone; single feed; under the cap. One lot."
+      "confidence_reason": "TLI Buy Zone / 50 WMA at $24.22; stock tested the zone; single feed; under the cap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "OTM CC stock exit = next RTH open 2026-09-14 (first_rth_1m_open); call credit kept",
+      "entry": 24.79,
+      "entry_at": "2026-09-09T09:30:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 24.79,
+      "exit": 24.41,
+      "exit_at": "2026-09-14T09:30:00-04:00",
+      "exit_stock": 24.41,
+      "paper_pnl_stock_leg": -38.0,
+      "call_exit": 0,
+      "stock_exit_rule": "next_rth_open_after_otm_cc_expiry"
     },
     {
       "id": "2026-09-11-noon-NVO",
@@ -7487,7 +8019,13 @@
       "cboe_stock": 41.798,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "TLI Buy Zone ~$43.48 (0.5 Fib); stock now in/under zone; single feed; under the cap. One lot."
+      "confidence_reason": "TLI Buy Zone ~$43.48 (0.5 Fib); stock now in/under zone; single feed; under the cap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 42.915,
+      "entry_at": "2026-09-11T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 42.915
     },
     {
       "id": "2026-09-11-noon-HIMS",
@@ -7560,7 +8098,13 @@
       "cboe_stock": 28.0,
       "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
       "confidence": "Medium",
-      "confidence_reason": "Danny $27 support / $27\u201332 range; stock at support; single feed; under the cap. One lot."
+      "confidence_reason": "Danny $27 support / $27\u201332 range; stock at support; single feed; under the cap. One lot.",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "RTH 1m via stock-prices-proxy mode=aggs",
+      "entry": 27.21,
+      "entry_at": "2026-09-11T15:00:00-04:00",
+      "time_inferred": true,
+      "entry_stock": 27.21
     }
   ]
 }
