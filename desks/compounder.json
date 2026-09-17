@@ -1,10 +1,10 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-17T07:07:59-07:00",
+  "as_of": "2026-09-17T07:15:13-07:00",
   "account": 25000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder $25k paper. Marks from Jesse Polygon proxy. GOOGL 25 sh open; remainder cash. Not live. Not advice.",
+  "note": "Compounder $25k paper. Marks from Jesse Polygon proxy (~15-min delayed, not Fidelity RT). GOOGL 25 sh open; remainder cash. Not live. Not advice.",
   "cash": 16539.5,
   "summary": {
     "paper_pnl": 38.62,
@@ -80,10 +80,10 @@
       "capital_at_risk": 8460.5,
       "hard_exit": 280.0,
       "invalidation": "Thesis-break daily close under $280; or durable Search monetization break / Cloud failing to earn AI spend.",
-      "notes": "Search/YouTube cash + Cloud/Gemini reinvestment. ~17x trailing, ~17% off $408 high. Horizon 7-10y. $10k sleeve ~85% deployed; cash ~$1.5k.",
+      "notes": "Search/YouTube cash + Cloud/Gemini reinvestment. ~17x trailing, ~17% off $408 high. Horizon 7-10y. $10k sleeve ~85% deployed; cash ~$1.5k. Mark from Polygon proxy (~15-min delayed vs Fidelity RT).",
       "new_vs_carry": "new",
       "live_stock": 344.255,
-      "live_stock_source": "polygon-proxy",
+      "live_stock_source": "polygon-proxy-delayed-15m",
       "paper_status": "open",
       "paper_pnl": 145.87,
       "paper_roc_pct": 0.017241,
@@ -91,7 +91,9 @@
       "daily_closes_completed": [],
       "flags": [],
       "live_stock_asOf": "2026-09-17T07:07:44-07:00",
-      "price_asof": "2026-09-17T07:07:44-07:00"
+      "price_asof": "2026-09-17T07:07:44-07:00",
+      "quote_quality": "delayed_15m"
     }
-  ]
+  ],
+  "quote_quality": "delayed_15m_polygon"
 }
