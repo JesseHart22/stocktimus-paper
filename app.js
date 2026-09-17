@@ -45,6 +45,9 @@
   const INV = new Set(["invalidated", "invalid", "killed"]);
   const OUT = new Set(["out", "closed", "expired", "skipped", "no"]);
 
+  const PRICE_PROXY_URL = "https://stock-prices-proxy.jessehartung.workers.dev";
+  // Polygon Starter/Developer quotes via this worker are DELAYED — never label as real-time.
+
   const state = {
     trades: [],
     summary: null,
@@ -55,6 +58,11 @@
     selected: null,
     account: ACCOUNT,
     weekly: WEEKLY,
+    cash: null,
+    incomingSummary: null,
+    liveOk: false,
+    liveAsOf: null,
+    mtmTimer: null,
   };
 
   function deskFromHash() {
@@ -388,25 +396,67 @@
     return [];
   }
 
+  function preferLiveMark(t) {
+    const struct = str(t.structure);
+    if (/stock/i.test(struct)) {
+      if (t.live_stock != null) return t.live_stock;
+      if (t.spot != null) return t.spot;
+      return null;
+    }
+    if (t.live_option_mid != null) return t.live_option_mid;
+    if (t.live_option_last != null) return t.live_option_last;
+    if (t.live_stock != null) return t.live_stock;
+    return null;
+  }
+
+  function normalizeShares(raw, structure, contracts) {
+    const sh = num(pick(raw, ["shares", "share_count", "qty_shares"]));
+    if (sh != null) return sh;
+    const struct = str(structure).toLowerCase();
+    const n = contracts == null ? null : Number(contracts);
+    // Pure equity: Moonshot/Compounder store share count in `contracts`.
+    if (struct === "stock" || struct === "equity" || struct === "shares") {
+      return n;
+    }
+    // stock+CC / CSP: contracts are option contracts → 100 shares each.
+    if (/stock\s*\+\s*cc/.test(struct) || struct === "csp" || /\bcc\b/.test(struct)) {
+      return (n == null ? 1 : n) * 100;
+    }
+    return null;
+  }
+
   function normalizeTrade(raw, i) {
     if (!raw || typeof raw !== "object") return null;
     const status = str(pick(raw, ["status", "state", "paper_status"])) || "open";
     const paperPnl = num(pick(raw, ["paper_pnl", "paper_pl", "paperPnl", "pnl", "p_and_l"]));
     const paperPct = num(pick(raw, ["paper_pct", "paper_roc", "paper_roc_pct", "paperPct", "roc"]));
-    const live = num(pick(raw, ["live_mark", "live_option_mid", "live_option_last", "mark", "live", "last", "live_premium", "mark_premium", "live_stock"]));
     const credit = num(pick(raw, ["credit_or_debit", "credit", "debit", "premium", "premium_total"]));
     const capital = num(pick(raw, ["capital", "capital_at_risk", "cap", "notional"]));
-    return {
+    const structure = str(pick(raw, ["structure", "type", "kind"])) || "—";
+    const contracts = num(pick(raw, ["contracts", "qty", "lots"]));
+    const spot = num(pick(raw, ["entry", "spot", "spot_at_idea", "spot_entry"]));
+    const liveStock = num(pick(raw, ["live_stock"]));
+    const liveOptMid = num(pick(raw, ["live_option_mid"]));
+    const liveOptLast = num(pick(raw, ["live_option_last"]));
+    const liveOptSym = str(pick(raw, ["live_option_symbol", "option_symbol", "occ"]));
+    const shares = normalizeShares(raw, structure, contracts);
+    const t = {
       id: pick(raw, ["id", "ticket_id"]) ?? i + 1,
       date: pick(raw, ["date", "date_proposed", "date_opened", "proposed"]),
       ticker: str(pick(raw, ["ticker", "symbol", "und"])).toUpperCase(),
-      structure: str(pick(raw, ["structure", "type", "kind"])) || "—",
+      structure,
       strike: pick(raw, ["strike", "k"]),
       expiry: pick(raw, ["expiry", "expiration", "exp"]),
       credit_or_debit: credit,
+      credit_or_debit_side: str(pick(raw, ["credit_or_debit_side", "side"])),
       capital,
-      live_mark: live,
+      live_stock: liveStock,
+      live_option_mid: liveOptMid,
+      live_option_last: liveOptLast,
+      live_option_symbol: liveOptSym || null,
+      live_mark: null,
       paper_pnl: paperPnl,
+      file_paper_pnl: paperPnl,
       paper_pct: paperPct,
       status,
       creator: str(pick(raw, ["creator", "source", "from", "author"])),
@@ -418,14 +468,24 @@
       date_closed: pick(raw, ["date_closed", "closed", "exit_date"]),
       first_invalidation_date: pick(raw, ["first_invalidation_date"]),
       flags: pick(raw, ["flags", "tags", "labels"]) || [],
-      spot: num(pick(raw, ["spot", "spot_at_idea", "spot_entry"])),
-      contracts: num(pick(raw, ["contracts", "qty", "lots"])),
+      spot,
+      entry: spot,
+      shares,
+      contracts,
       dte: num(pick(raw, ["dte"])),
       taken: str(pick(raw, ["taken"])),
       confidence: str(pick(raw, ["confidence", "conf"])),
       confidence_reason: str(pick(raw, ["confidence_reason", "conf_reason"])),
+      exit: num(pick(raw, ["exit", "exit_price"])),
+      exit_price: num(pick(raw, ["exit_price", "exit"])),
+      premium_per_share: num(pick(raw, ["premium_per_share"])),
       raw,
     };
+    // Display mark: stock / stock+CC prefer live_stock; options prefer mid/last.
+    const fileMark = num(pick(raw, ["live_mark", "mark", "live", "last", "live_premium", "mark_premium"]));
+    t.live_mark = preferLiveMark(t);
+    if (t.live_mark == null) t.live_mark = fileMark;
+    return t;
   }
 
   function parseCsv(text) {
@@ -540,16 +600,24 @@
       wins: num(pick(incoming, ["wins", "hit_wins"])),
       resolved: num(pick(incoming, ["resolved", "hit_n", "n_resolved"])),
     };
+    // Soft-fix schema drift: expired lots hidden as out=1; resolved counting opens.
+    const resolvedLooksWrong = over.resolved != null && over.resolved === trades.length;
     for (const [k, v] of Object.entries(over)) {
-      if (v != null) computed[k] = v;
+      if (v == null) continue;
+      if (k === "out" && computed.out > v) continue;
+      if ((k === "hit_rate" || k === "wins" || k === "resolved") && resolvedLooksWrong) continue;
+      // After live MTM, always keep P&L summed from (re)marked trades.
+      if (k === "paper_pnl" && state.liveOk) continue;
+      if (k === "account_pct" && state.liveOk) continue;
+      computed[k] = v;
     }
-    if (incoming.by_structure && typeof incoming.by_structure === "object") {
+    if (!state.liveOk && incoming.by_structure && typeof incoming.by_structure === "object") {
       computed.by_structure = mergeBreak(computed.by_structure, incoming.by_structure);
     }
-    if (incoming.by_creator && typeof incoming.by_creator === "object") {
+    if (!state.liveOk && incoming.by_creator && typeof incoming.by_creator === "object") {
       computed.by_creator = mergeBreak(computed.by_creator, incoming.by_creator);
     }
-    if (incoming.by_confidence && typeof incoming.by_confidence === "object") {
+    if (!state.liveOk && incoming.by_confidence && typeof incoming.by_confidence === "object") {
       computed.by_confidence = mergeConf(computed.by_confidence, incoming.by_confidence);
     }
     return computed;
@@ -589,6 +657,187 @@
     return out;
   }
 
+  function isOpenLot(t) {
+    return OPEN.has(str(t.status).toLowerCase());
+  }
+
+  function optionQuerySymbol(t) {
+    const rawSym = str(t.live_option_symbol || (t.raw && t.raw.live_option_symbol));
+    if (rawSym) return rawSym.startsWith("O:") ? rawSym : "O:" + rawSym;
+    const struct = str(t.structure).toLowerCase();
+    // Pure stock has no option leg.
+    if (struct === "stock" || struct === "equity" || struct === "shares") return null;
+    const ticker = str(t.ticker).toUpperCase();
+    const expKey = dateKey(t.expiry);
+    const strike = num(t.strike);
+    if (!ticker || !expKey || strike == null) return null;
+    const yymmdd = expKey.slice(2).replace(/-/g, "");
+    let right = str(pick(t.raw || {}, ["right", "option_right", "call_put"])).toUpperCase();
+    if (right === "CALL") right = "C";
+    if (right === "PUT") right = "P";
+    if (right !== "C" && right !== "P") {
+      right = rightLetter(t.structure).toUpperCase() === "P" ? "P" : "C";
+    }
+    const k = String(Math.round(strike * 1000)).padStart(8, "0");
+    return "O:" + ticker + yymmdd + right + k;
+  }
+
+  function entryPremiumPerShare(t) {
+    if (t.premium_per_share != null) return t.premium_per_share;
+    const fromRaw = num(pick(t.raw || {}, ["premium_per_share"]));
+    if (fromRaw != null) return fromRaw;
+    const c = t.credit_or_debit;
+    if (c == null) return null;
+    const n = Math.max(1, t.contracts == null ? 1 : t.contracts);
+    // Stocktimus stores credit_or_debit as total $ premium; convert to per-share.
+    if (Math.abs(c) > 5) return c / (100 * n);
+    return c;
+  }
+
+  function collectLiveSymbols(trades) {
+    const stocks = new Set();
+    const opts = new Set();
+    for (const t of trades) {
+      if (!isOpenLot(t)) continue;
+      if (t.ticker) stocks.add(t.ticker);
+      const o = optionQuerySymbol(t);
+      if (o) opts.add(o);
+    }
+    return [...stocks, ...opts];
+  }
+
+  async function fetchLiveQuotes(symbols) {
+    if (!symbols.length) return null;
+    const q = encodeURIComponent(symbols.join(","));
+    const url = PRICE_PROXY_URL + "?symbols=" + q;
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error("proxy HTTP " + res.status);
+    return res.json();
+  }
+
+  function recomputeOpenPaperPnl(t, quotes) {
+    const struct = str(t.structure).toLowerCase();
+    const liveStock = t.live_stock;
+    const entryPx = t.spot != null ? t.spot : t.entry;
+    const shares = t.shares;
+
+    if (struct === "stock" || struct === "equity" || struct === "shares") {
+      if (liveStock == null || entryPx == null || shares == null) return;
+      t.paper_pnl = (liveStock - entryPx) * shares;
+      return;
+    }
+
+    if (/stock\s*\+\s*cc/.test(struct)) {
+      if (liveStock == null || entryPx == null || shares == null) return;
+      const stockLeg = (liveStock - entryPx) * shares;
+      const occ = optionQuerySymbol(t);
+      const oq = occ && quotes ? quotes[occ] : null;
+      const liveOpt = oq && num(oq.price);
+      if (liveOpt == null) {
+        t.paper_pnl = stockLeg;
+        return;
+      }
+      let entryCredit = entryPremiumPerShare(t);
+      if (entryCredit == null) {
+        t.paper_pnl = stockLeg;
+        return;
+      }
+      const side = str(t.credit_or_debit_side).toLowerCase();
+      // Short call: credit received. Debit side flips to long-option style.
+      const n = Math.max(1, t.contracts == null ? 1 : t.contracts);
+      let shortCallPnl;
+      if (side === "debit") {
+        shortCallPnl = (liveOpt - Math.abs(entryCredit)) * 100 * n;
+      } else {
+        shortCallPnl = (Math.abs(entryCredit) - liveOpt) * 100 * n;
+      }
+      t.paper_pnl = stockLeg + shortCallPnl;
+      t.live_option_mid = liveOpt;
+      return;
+    }
+
+    // Other structures: mark safely when we have an option quote + entry premium.
+    const occ = optionQuerySymbol(t);
+    const oq = occ && quotes ? quotes[occ] : null;
+    const liveOpt = oq && num(oq.price);
+    let entryCredit = entryPremiumPerShare(t);
+    if (liveOpt == null || entryCredit == null) return;
+    const n = Math.max(1, t.contracts == null ? 1 : t.contracts);
+    const side = str(t.credit_or_debit_side).toLowerCase();
+    if (struct === "csp" || side === "credit") {
+      t.paper_pnl = (Math.abs(entryCredit) - liveOpt) * 100 * n;
+      t.live_option_mid = liveOpt;
+    } else if (struct.includes("call") || side === "debit") {
+      t.paper_pnl = (liveOpt - Math.abs(entryCredit)) * 100 * n;
+      t.live_option_mid = liveOpt;
+    }
+  }
+
+  function applyLiveMarks(quotes) {
+    if (!quotes || typeof quotes !== "object") return false;
+    let any = false;
+    let maxAsOf = null;
+    for (const t of state.trades) {
+      if (!isOpenLot(t)) {
+        // Closed lots keep file paper_pnl forever.
+        if (t.file_paper_pnl != null) t.paper_pnl = t.file_paper_pnl;
+        continue;
+      }
+      const q = t.ticker ? quotes[t.ticker] : null;
+      if (q && num(q.price) != null) {
+        t.live_stock = num(q.price);
+        any = true;
+        if (q.asOf != null && (maxAsOf == null || q.asOf > maxAsOf)) maxAsOf = q.asOf;
+      }
+      const occ = optionQuerySymbol(t);
+      if (occ && quotes[occ] && num(quotes[occ].price) != null) {
+        const op = num(quotes[occ].price);
+        // Keep mid-ish field for display preference on option structures.
+        if (t.live_option_mid == null) t.live_option_mid = op;
+        else t.live_option_mid = op;
+        any = true;
+        if (quotes[occ].asOf != null && (maxAsOf == null || quotes[occ].asOf > maxAsOf)) {
+          maxAsOf = quotes[occ].asOf;
+        }
+      }
+      t.live_mark = preferLiveMark(t);
+      recomputeOpenPaperPnl(t, quotes);
+    }
+    if (any) {
+      state.liveOk = true;
+      if (maxAsOf != null) state.liveAsOf = maxAsOf;
+      state.summary = computeSummary(state.trades, state.incomingSummary);
+    }
+    return any;
+  }
+
+  async function refreshLiveMarks() {
+    const symbols = collectLiveSymbols(state.trades);
+    if (!symbols.length) return false;
+    try {
+      const quotes = await fetchLiveQuotes(symbols);
+      return applyLiveMarks(quotes);
+    } catch (err) {
+      console.warn("live marks failed", err);
+      // Do not invent prices — leave prior values.
+      return false;
+    }
+  }
+
+  function stopLiveMtm() {
+    if (state.mtmTimer != null) {
+      clearInterval(state.mtmTimer);
+      state.mtmTimer = null;
+    }
+  }
+
+  function startLiveMtm() {
+    stopLiveMtm();
+    state.mtmTimer = setInterval(() => {
+      refreshLiveMarks().then((ok) => { if (ok) render(); }).catch(() => {});
+    }, 30000);
+  }
+
   async function load() {
     const deskId = state.desk || deskFromHash();
     const desk = DESKS[deskId] || DESKS.stocktimus;
@@ -602,6 +851,7 @@
     let account = desk.defaultAccount;
     let weekly = desk.defaultWeekly;
 
+    let cash = null;
     if (paper && paper.data) {
       const payload = paper.data;
       trades = asList(payload).map(normalizeTrade).filter(Boolean);
@@ -611,6 +861,7 @@
       if (account == null) account = desk.defaultAccount;
       const w = num(pick(payload, ["weekly_target", "target"]));
       weekly = w == null ? desk.defaultWeekly : w;
+      cash = num(pick(payload, ["cash", "cash_balance", "buying_power"]));
       if (paper.url.endsWith("trade-tracker-paper.json")) source = "paper";
       else if (trades.length) source = pick(payload, ["source"]) || "data.json";
       else source = pick(payload, ["source"]) || "stub";
@@ -647,8 +898,12 @@
     state.trades = trades;
     state.account = account;
     state.weekly = weekly;
+    state.cash = cash;
     state.asOf = asOf;
     state.source = source;
+    state.incomingSummary = incomingSummary;
+    state.liveOk = false;
+    state.liveAsOf = null;
     state.summary = computeSummary(trades, incomingSummary);
     state.deployed = computeDeployedRoc(trades, account, asOf);
   }
@@ -671,9 +926,15 @@
     const pnlEl = $("stat-pnl");
     pnlEl.textContent = marked || s.paper_pnl ? money(s.paper_pnl, "$0.00") : "—";
     pnlEl.className = "stat-v mono " + clsPnL(s.paper_pnl);
-    $("stat-pnl-sub").textContent = s.marked
-      ? s.marked + " ticket" + (s.marked === 1 ? "" : "s") + " with paper marks"
-      : "No paper marks yet";
+    const pnlSub = $("stat-pnl-sub");
+    if (state.cash != null) {
+      pnlSub.textContent = "Cash " + money(state.cash, "$0.00") + (state.liveOk ? " · delayed MTM" : "");
+    } else {
+      pnlSub.textContent = s.marked
+        ? s.marked + " ticket" + (s.marked === 1 ? "" : "s") + " with paper marks"
+        : "No paper marks yet";
+      if (state.liveOk) pnlSub.textContent += " · delayed MTM";
+    }
 
     const roc = state.deployed || computeDeployedRoc([], state.account, state.asOf);
     const rocEl = $("stat-roc");
@@ -725,8 +986,9 @@
       ? (s.wins || 0) + " / " + s.resolved + " resolved"
       : "Resolved paper tickets";
 
-    $("asof").textContent = state.asOf ? fmtWhen(state.asOf) : "—";
-    $("asof").dateTime = state.asOf ? String(state.asOf) : "";
+    const asofShow = state.liveAsOf != null ? state.liveAsOf : state.asOf;
+    $("asof").textContent = asofShow != null ? fmtWhen(asofShow) : "—";
+    $("asof").dateTime = asofShow != null ? String(asofShow) : "";
     const pill = $("source-pill");
     const labels = {
       paper: "paper json",
@@ -734,8 +996,11 @@
       csv: "csv fallback",
       stub: "empty stub",
       summary: "summary json",
+      compounder: "compounder",
     };
-    pill.textContent = labels[state.source] || state.source;
+    let src = labels[state.source] || state.source;
+    if (state.liveOk) src += " · delayed";
+    pill.textContent = src;
   }
 
   function confPill(c, reason) {
@@ -970,10 +1235,18 @@
       state.filter = "all";
       document.querySelectorAll(".chip").forEach((b) => b.classList.toggle("on", b.getAttribute("data-filter") === "all"));
       syncDeskTabs();
-      load().then(render).catch((err) => {
-        console.warn("desk load failed", err);
-        render();
-      });
+      stopLiveMtm();
+      load()
+        .then(async () => {
+          render();
+          await refreshLiveMarks();
+          render();
+          startLiveMtm();
+        })
+        .catch((err) => {
+          console.warn("desk load failed", err);
+          render();
+        });
     });
     document.querySelectorAll(".chip").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -1017,6 +1290,13 @@
       state.source = "stub";
     }
     render();
+    try {
+      await refreshLiveMarks();
+      render();
+    } catch (err) {
+      console.warn("initial live marks failed", err);
+    }
+    startLiveMtm();
   }
 
   init();
