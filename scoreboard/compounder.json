@@ -1,0 +1,43 @@
+{
+  "desk": "compounder",
+  "as_of": "2026-09-17T16:00:00-07:00",
+  "calls": [
+    {
+      "id": "cp-ex-1",
+      "handle": "sample_delta",
+      "ticker": "HOLDX",
+      "kind": "trade",
+      "status": "closed",
+      "direction": "long",
+      "stars": 0,
+      "signed_return": -0.02,
+      "called_at": "2026-08-20",
+      "note": "Example row only",
+      "example": true
+    },
+    {
+      "id": "cp-ex-2",
+      "handle": "sample_epsilon",
+      "ticker": "COMPQ",
+      "kind": "trade",
+      "status": "no_fill",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-09-05",
+      "note": "Example no-fill \u2014 stars are not a second call",
+      "example": true
+    },
+    {
+      "id": "cp-ex-3",
+      "handle": "sample_zeta",
+      "ticker": "YIELD",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-09-15",
+      "note": "Example open theme",
+      "example": true
+    }
+  ]
+}

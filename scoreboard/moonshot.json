@@ -1,0 +1,43 @@
+{
+  "desk": "moonshot",
+  "as_of": "2026-09-17T16:00:00-07:00",
+  "calls": [
+    {
+      "id": "ms-ex-1",
+      "handle": "sample_eta",
+      "ticker": "MOON",
+      "kind": "trade",
+      "status": "closed",
+      "direction": "long",
+      "stars": 4,
+      "signed_return": 0.4,
+      "called_at": "2026-09-02",
+      "note": "Example row only",
+      "example": true
+    },
+    {
+      "id": "ms-ex-2",
+      "handle": "sample_theta",
+      "ticker": "ORBIT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-14",
+      "note": "Example open trade",
+      "example": true
+    },
+    {
+      "id": "ms-ex-3",
+      "handle": "sample_iota",
+      "ticker": "ZONEQ",
+      "kind": "zone",
+      "status": "no_fill",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-09-11",
+      "note": "Example no-fill zone",
+      "example": true
+    }
+  ]
+}

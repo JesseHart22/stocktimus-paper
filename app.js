@@ -67,6 +67,8 @@
 
   function deskFromHash() {
     const h = (location.hash || "").replace(/^#/, "").toLowerCase();
+    // #scoreboard is the X call tab, not a paper book. Do not add it to DESKS.
+    if (h === "scoreboard") return "scoreboard";
     return DESKS[h] ? h : "stocktimus";
   }
 
@@ -1470,6 +1472,15 @@
   function syncDeskTabs() {
     const name = $("desk-name");
     const sub = $("desk-sub");
+    if (state.desk === "scoreboard") {
+      if (name) name.textContent = "Scoreboard";
+      if (sub) sub.textContent = "X calls";
+      document.title = "Scoreboard · X calls";
+      document.querySelectorAll(".desk-tab").forEach((a) => {
+        a.classList.toggle("on", a.getAttribute("data-desk") === "scoreboard");
+      });
+      return;
+    }
     const desk = DESKS[state.desk] || DESKS.stocktimus;
     if (name) name.textContent = desk.name;
     if (sub) sub.textContent = desk.sub;
@@ -1482,7 +1493,16 @@
   function bind() {
     window.addEventListener("hashchange", () => {
       const next = deskFromHash();
-      if (next === state.desk) return;
+      if (next === "scoreboard") {
+        if (state.desk !== "scoreboard") stopLiveMtm();
+        state.desk = "scoreboard";
+        syncDeskTabs();
+        if (window.StocktimusScoreboard) window.StocktimusScoreboard.show();
+        return;
+      }
+      const leavingScoreboard = state.desk === "scoreboard";
+      if (leavingScoreboard && window.StocktimusScoreboard) window.StocktimusScoreboard.hide();
+      if (next === state.desk && !leavingScoreboard) return;
       state.desk = next;
       state.filter = "all";
       document.querySelectorAll(".chip").forEach((b) => b.classList.toggle("on", b.getAttribute("data-filter") === "all"));
@@ -1533,6 +1553,7 @@
     state.desk = deskFromHash();
     bind();
     syncDeskTabs();
+    if (state.desk === "scoreboard") return;
     try {
       await load();
     } catch (err) {
