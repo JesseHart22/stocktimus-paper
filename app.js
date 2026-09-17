@@ -1089,7 +1089,7 @@
       const msg = state.trades.length
         ? "No tickets match this filter."
         : "Empty book. Waiting for trade-tracker-paper.json (or CSV fallback).";
-      tb.innerHTML = '<tr class="empty-row"><td colspan="11">' + msg + "</td></tr>";
+      tb.innerHTML = '<tr class="empty-row"><td colspan="12">' + msg + "</td></tr>";
       return;
     }
     tb.innerHTML = rows.map((t) => {
@@ -1104,6 +1104,7 @@
           "<td>" + escapeHtml(strikeExp(t)) + "</td>" +
           '<td class="num mono">' + money(t.credit_or_debit) + "</td>" +
           '<td class="num mono">' + money(t.capital) + "</td>" +
+          '<td class="num mono">' + money(t.entry != null ? t.entry : t.spot) + "</td>" +
           '<td class="num mono">' + money(t.live_mark) + "</td>" +
           '<td class="num mono ' + clsPnL(t.paper_pnl) + '">' + money(t.paper_pnl) + "</td>" +
           '<td class="num mono ' + clsPnL(t.paper_pct != null ? t.paper_pct : t.paper_pnl) + '">' +
@@ -1182,6 +1183,8 @@
         cell("Strike / exp", strikeExp(t)) +
         cell("Credit / debit", money(t.credit_or_debit)) +
         cell("Capital", money(t.capital)) +
+        cell("Entry", money(t.entry != null ? t.entry : t.spot)) +
+        cell("Exit", money(t.exit || t.exit_price)) +
         cell("Live mark", money(t.live_mark)) +
         cell("Paper P&L", money(t.paper_pnl)) +
         cell("Paper %", pct(t.paper_pct)) +
