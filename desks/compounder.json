@@ -1,13 +1,13 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-17T08:54:19-07:00",
+  "as_of": "2026-09-17T15:05:54-07:00",
   "account": 50000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder $50k paper. Max 25%/name. Fully deploy by default. GOOGL trimmed to core lot; MSFT/ASML/V/MA filled. \u226510%/yr floor; LEAPs \u226512mo on pullbacks only (none open). Marks delayed Massive proxy. Not live. Not advice.",
+  "note": "Compounder $50k paper. Max 25%/name. Confidence High|Medium|Low on every ticket. \u226510%/yr floor; LEAPs \u226512mo on pullbacks only (none open). Marks delayed Massive proxy. Not live.",
   "cash": 406.17,
   "summary": {
-    "paper_pnl": 114.34,
+    "paper_pnl": 128.58,
     "open": 5,
     "invalidated": 0,
     "out": 2,
@@ -59,7 +59,9 @@
       "entry_asof": "2026-09-01T11:37:00-04:00",
       "exit_at": "2026-09-08T13:00:00-07:00",
       "exit_asof": "2026-09-08T13:00:00-07:00",
-      "fill_source": "massive_minute_agg"
+      "fill_source": "massive_minute_agg",
+      "confidence": "High",
+      "confidence_reason": "Quality network + fair multiple + clear hard exit; size was under 25% of then-book."
     },
     {
       "id": "2026-09-08-compounder-GOOGL",
@@ -88,21 +90,23 @@
       "invalidation": "Thesis-break daily close under $280; or durable Search monetization break / Cloud failing to earn AI spend.",
       "notes": "Core GOOGL lot kept under 25% book rule. Hard exit close under $280. Massive 1m entry.",
       "new_vs_carry": "new",
-      "live_stock": 347.394656,
+      "live_stock": 347.33,
       "live_stock_source": "polygon-proxy-delayed-15m",
       "paper_status": "open",
-      "paper_pnl": 225.87,
-      "paper_roc_pct": 0.026702,
-      "paper_acct_pct": 0.004517,
+      "paper_pnl": 224.25,
+      "paper_roc_pct": 0.02651,
+      "paper_acct_pct": 0.004485,
       "daily_closes_completed": [],
       "flags": [],
-      "live_stock_asOf": "2026-09-17T08:53:40-07:00",
+      "live_stock_asOf": "2026-09-17T15:05:38-07:00",
       "price_asof": "2026-09-17T07:07:44-07:00",
       "quote_quality": "delayed_15m",
       "entry": 338.36,
       "entry_at": "2026-09-08T13:00:00-07:00",
       "entry_asof": "2026-09-08T13:00:00-07:00",
-      "fill_source": "massive_minute_agg"
+      "fill_source": "massive_minute_agg",
+      "confidence": "High",
+      "confidence_reason": "Quality Search/Cloud compounder at attractive trailing multiple; hard exit $280; size 16.9% \u226425%."
     },
     {
       "id": "2026-09-17-compounder-GOOGL-add",
@@ -151,7 +155,9 @@
       "exit": 347.394656,
       "exit_price": 347.394656,
       "exit_at": "2026-09-17T08:54:19-07:00",
-      "exit_asof": "2026-09-17T08:53:40-07:00"
+      "exit_asof": "2026-09-17T08:53:40-07:00",
+      "confidence": "Low",
+      "confidence_reason": "Over 25% book concentration after $50k raise \u2014 chase/size violation; trimmed under new rule."
     },
     {
       "id": "2026-09-17-compounder-MSFT",
@@ -184,18 +190,20 @@
       "invalidation": "Sustained Azure growth collapse or AI spend crushing FCF without profit; size-out thesis-break close under $422.33.",
       "notes": "Azure + M365/Copilot platform compounder. Fair fwd multiple. Horizon 5\u201310y. Entered on 25% rebalance.",
       "new_vs_carry": "new",
-      "live_stock": 496.86,
+      "live_stock": 497.75,
       "live_stock_source": "polygon-proxy-delayed-15m",
-      "live_stock_asOf": "2026-09-17T08:53:40-07:00",
+      "live_stock_asOf": "2026-09-17T15:05:38-07:00",
       "quote_quality": "delayed_15m",
       "paper_status": "open",
-      "paper_pnl": 0.0,
-      "paper_roc_pct": 0.0,
-      "paper_acct_pct": 0.0,
+      "paper_pnl": 22.25,
+      "paper_roc_pct": 0.001791,
+      "paper_acct_pct": 0.000445,
       "daily_closes_completed": [],
       "flags": [
         "rebalance-25pct"
-      ]
+      ],
+      "confidence": "Medium",
+      "confidence_reason": "Quality Azure/M365 stack + clear hard exit + \u226425%, but valuation fair-to-full not a derating."
     },
     {
       "id": "2026-09-17-compounder-ASML",
@@ -228,18 +236,20 @@
       "invalidation": "Credible non-ASML EUV or multi-year foundry capex winter; size-out thesis-break close under $1299.6.",
       "notes": "EUV monopoly / High-NA pick-and-shovel. Cycle-aware 5\u201310y. Sized under 25% after derating from highs.",
       "new_vs_carry": "new",
-      "live_stock": 1624.505,
+      "live_stock": 1629.67,
       "live_stock_source": "polygon-proxy-delayed-15m",
-      "live_stock_asOf": "2026-09-17T08:53:40-07:00",
+      "live_stock_asOf": "2026-09-17T15:05:38-07:00",
       "quote_quality": "delayed_15m",
       "paper_status": "open",
-      "paper_pnl": 0.0,
-      "paper_roc_pct": 0.0,
-      "paper_acct_pct": 0.0,
+      "paper_pnl": 36.15,
+      "paper_roc_pct": 0.003179,
+      "paper_acct_pct": 0.000723,
       "daily_closes_completed": [],
       "flags": [
         "rebalance-25pct"
-      ]
+      ],
+      "confidence": "Medium",
+      "confidence_reason": "EUV monopoly + sized \u226425% with hard exit, but trailing multiple still rich / cycle risk."
     },
     {
       "id": "2026-09-17-compounder-V",
@@ -272,18 +282,20 @@
       "invalidation": "Structural take-rate compression or network routing-around; size-out thesis-break close under $315.24.",
       "notes": "Payments network duopoly, high incremental ROIC. Re-opened under 25% rule after GOOGL trim. Horizon 7\u201310y.",
       "new_vs_carry": "new",
-      "live_stock": 370.87,
+      "live_stock": 369.93,
       "live_stock_source": "polygon-proxy-delayed-15m",
-      "live_stock_asOf": "2026-09-17T08:53:40-07:00",
+      "live_stock_asOf": "2026-09-17T15:05:38-07:00",
       "quote_quality": "delayed_15m",
       "paper_status": "open",
-      "paper_pnl": 0.0,
-      "paper_roc_pct": 0.0,
-      "paper_acct_pct": 0.0,
+      "paper_pnl": -31.02,
+      "paper_roc_pct": -0.002535,
+      "paper_acct_pct": -0.00062,
       "daily_closes_completed": [],
       "flags": [
         "rebalance-25pct"
-      ]
+      ],
+      "confidence": "High",
+      "confidence_reason": "Quality payments network + fair multiple + hard exit; reopened at 24.5% \u226425%."
     },
     {
       "id": "2026-09-17-compounder-MA",
@@ -316,18 +328,20 @@
       "invalidation": "Structural take-rate/network break; size-out thesis-break close under $481.96.",
       "notes": "Mastercard network compounder alongside V. Sized to finish deploy under 25% cap. Horizon 7\u201310y.",
       "new_vs_carry": "new",
-      "live_stock": 567.01,
+      "live_stock": 565.73,
       "live_stock_source": "polygon-proxy-delayed-15m",
-      "live_stock_asOf": "2026-09-17T08:53:40-07:00",
+      "live_stock_asOf": "2026-09-17T15:05:38-07:00",
       "quote_quality": "delayed_15m",
       "paper_status": "open",
-      "paper_pnl": 0.0,
-      "paper_roc_pct": 0.0,
-      "paper_acct_pct": 0.0,
+      "paper_pnl": -11.52,
+      "paper_roc_pct": -0.002257,
+      "paper_acct_pct": -0.00023,
       "daily_closes_completed": [],
       "flags": [
         "rebalance-25pct"
-      ]
+      ],
+      "confidence": "Medium",
+      "confidence_reason": "Quality network peer to V + \u226425%, but thinner Compounder diligence vs V at entry."
     }
   ],
   "quote_quality": "delayed_15m_polygon"
