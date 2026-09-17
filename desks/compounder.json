@@ -1,13 +1,13 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-08T13:11:33-07:00",
+  "as_of": "2026-09-17T07:07:59-07:00",
   "account": 25000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder $25k paper account (vs Stocktimus). GOOGL 25 sh open; remainder cash until more compounders. Not live. Not advice. Separate from Stocktimus data.json.",
+  "note": "Compounder $25k paper. Marks from Jesse Polygon proxy. GOOGL 25 sh open; remainder cash. Not live. Not advice.",
   "cash": 16539.5,
   "summary": {
-    "paper_pnl": -107.25,
+    "paper_pnl": 38.62,
     "open": 1,
     "invalidated": 0,
     "out": 1,
@@ -82,14 +82,16 @@
       "invalidation": "Thesis-break daily close under $280; or durable Search monetization break / Cloud failing to earn AI spend.",
       "notes": "Search/YouTube cash + Cloud/Gemini reinvestment. ~17x trailing, ~17% off $408 high. Horizon 7-10y. $10k sleeve ~85% deployed; cash ~$1.5k.",
       "new_vs_carry": "new",
-      "live_stock": 338.42,
-      "live_stock_source": "yahoo Sep 8 2026",
+      "live_stock": 344.255,
+      "live_stock_source": "polygon-proxy",
       "paper_status": "open",
-      "paper_pnl": 0,
-      "paper_roc_pct": 0,
-      "paper_acct_pct": 0,
+      "paper_pnl": 145.87,
+      "paper_roc_pct": 0.017241,
+      "paper_acct_pct": 0.005835,
       "daily_closes_completed": [],
-      "flags": []
+      "flags": [],
+      "live_stock_asOf": "2026-09-17T07:07:44-07:00",
+      "price_asof": "2026-09-17T07:07:44-07:00"
     }
   ]
 }
