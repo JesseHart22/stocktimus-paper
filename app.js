@@ -227,7 +227,7 @@
     return fmtDate(fromKey) + " – " + fmtDate(toKey);
   }
 
-  /** Roll daily deployed ROC curve into calendar ISO weeks ($/week + %/week). */
+  /** Roll daily deployed ROC curve into ISO weeks. % = week_PnL / week_avg_deployed (never / book). */
   function weeklyDeployedBreakdown(curve) {
     if (!curve || !curve.length) return [];
     const map = new Map();
@@ -1108,9 +1108,22 @@
     const rocK = $("stat-roc-k");
     if (rocK) rocK.textContent = "Cumul. return on avg deployed";
     $("stat-roc-sub").textContent =
-      "Not a weekly % · avg dep " + moneyShort(roc.avgDeployed) +
-      " · now " + moneyShort(roc.currentDeployed) +
-      " · idle " + moneyShort(idle);
+      "Compounded daily · denom = capital at risk · avg dep " + moneyShort(roc.avgDeployed) +
+      " · never / " + moneyShort(state.account);
+
+    // Prominence: current capital actually deployed vs idle cash of the book.
+    const depEl = $("stat-deployed");
+    if (depEl) {
+      depEl.textContent = money(roc.currentDeployed, "$0");
+      depEl.className = "stat-v mono";
+      const depSub = $("stat-deployed-sub");
+      if (depSub) {
+        depSub.textContent =
+          "Idle " + money(idle, "$0") + " of " + money(state.account, "$0") + " book" +
+          (roc.avgDeployed ? " · avg " + moneyShort(roc.avgDeployed) : "");
+      }
+    }
+
     const sparkHost = $("roc-spark");
     if (sparkHost) {
       const pts = (roc.curve || []).map((p, i) => ({ x: i, y: p.cum, label: p.date }));
@@ -1122,16 +1135,18 @@
       if (!weeksRoc.length) {
         weekHost.innerHTML = "";
       } else {
+        // weekly_return_% = week_PnL / week_avg_deployed — NEVER / account book.
         const rows = weeksRoc.map((w) => {
           return "<tr>" +
             '<td class="mono">' + escapeHtml(fmtDate(w.weekStart)) + "</td>" +
             '<td class="num mono ' + clsPnL(w.pnl) + '">' + money(w.pnl) + "</td>" +
+            '<td class="num mono">' + moneyShort(w.avgDeployed) + "</td>" +
             '<td class="num mono ' + clsPnL(w.pct) + '">' + pct(w.pct) + "</td>" +
             "</tr>";
         }).join("");
         weekHost.innerHTML =
-          '<table class="roc-week-table" aria-label="Weekly deployed return">' +
-          "<thead><tr><th>Week</th><th>$/wk</th><th>%/wk</th></tr></thead>" +
+          '<table class="roc-week-table" aria-label="Weekly return on deployed capital">' +
+          "<thead><tr><th>Week</th><th>$ PnL</th><th>Avg dep</th><th>% dep</th></tr></thead>" +
           "<tbody>" + rows + "</tbody></table>";
       }
     }
@@ -1141,18 +1156,19 @@
     const bar = $("target-bar");
     const avgDep = roc.avgDeployed || 0;
     const weeklyVsDep = (avgPerWeek != null && avgDep > 0) ? avgPerWeek / avgDep : null;
-    const weeklyVsAcct = (avgPerWeek != null && state.account) ? avgPerWeek / state.account : null;
+    // Simple lifetime return on avg deployed (not / full book).
+    const lifeOnDep = (totalPnl != null && avgDep > 0) ? totalPnl / avgDep : null;
 
     if (!state.weekly) {
-      // Moonshot / Compounder: no $375 goal — show lifetime account return only.
-      if (kEl) kEl.textContent = "Account return";
-      const acct = s.account_pct;
-      acctEl.textContent = pct(acct, "0.00%");
+      // Moonshot / Compounder: no $375 goal — % of capital uses avg deployed, never full book.
+      if (kEl) kEl.textContent = "Return on avg deployed";
+      acctEl.textContent = pct(lifeOnDep != null ? lifeOnDep : roc.roc, "0.00%");
       acctEl.className = "stat-v mono " + clsPnL(totalPnl);
       bar.style.width = "0%";
       bar.classList.remove("over");
       $("stat-target-sub").textContent =
-        money(totalPnl, "$0.00") + " · " + money(state.account, "$0.00") + " book · no weekly target";
+        money(totalPnl, "$0.00") + " / avg dep " + money(avgDep, "$0") +
+        " · book " + money(state.account, "$0.00") + " (idle not in denom)";
     } else {
       if (kEl) kEl.textContent = "Avg $/week vs " + money(state.weekly, "$375.00") + " goal";
       acctEl.textContent = avgPerWeek != null ? money(avgPerWeek) + "/wk" : "—";
@@ -1163,12 +1179,12 @@
       bar.classList.toggle("over", vsGoal >= 1);
       const depBit = weeklyVsDep != null
         ? pct(weeklyVsDep) + "/wk of avg deployed"
-        : (weeklyVsAcct != null ? pct(weeklyVsAcct) + "/wk of account" : null);
+        : null;
       $("stat-target-sub").textContent =
         money(avgPerWeek, "$0.00") + "/week vs " + money(state.weekly, "$375.00") + " goal" +
         (weeks != null ? " · " + weeks + " wk" : "") +
         (depBit ? " · " + depBit : "") +
-        " · " + money(state.account, "$25,000.00") + " book";
+        " · deployed denom (not " + moneyShort(state.account) + " book)";
     }
 
     $("n-open").textContent = s.open || 0;

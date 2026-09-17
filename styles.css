@@ -145,7 +145,7 @@ button { font: inherit; color: inherit; }
 /* —— hero —— */
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr 0.85fr 0.85fr 0.7fr 1.35fr 0.9fr 0.7fr;
+  grid-template-columns: 1.0fr 0.8fr 0.8fr 0.65fr 0.95fr 1.25fr 0.85fr 0.65fr;
   gap: 8px;
   margin: 16px 0 10px;
 }
@@ -208,6 +208,11 @@ button { font: inherit; color: inherit; }
 #n-open { color: var(--green); }
 #n-inv { color: var(--amber); }
 #n-out { color: var(--dim); }
+.stat[data-stat="deployed"] {
+  border-color: #2a3a55;
+  background: linear-gradient(180deg, #121826 0%, var(--card) 100%);
+}
+.stat[data-stat="deployed"] .stat-v { color: var(--chart); }
 
 /* —— breakdowns —— */
 .breaks {
@@ -518,7 +523,7 @@ table.trades tbody tr.active td { background: #1c2433; }
 .roc-spark:empty { display: none; }
 .roc-weeks {
   margin-top: 0;
-  max-height: 72px;
+  max-height: 88px;
   overflow: auto;
   min-width: 0;
 }
@@ -538,8 +543,7 @@ table.trades tbody tr.active td { background: #1c2433; }
   font-family: var(--sans);
   padding: 0 4px 4px 0;
 }
-.roc-week-table th:nth-child(2),
-.roc-week-table th:nth-child(3),
+.roc-week-table th:nth-child(n+2),
 .roc-week-table td.num {
   text-align: right;
 }
