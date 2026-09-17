@@ -145,17 +145,17 @@ button { font: inherit; color: inherit; }
 /* —— hero —— */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 0.8fr 0.8fr 0.7fr 1.25fr 1.45fr 0.95fr 0.75fr;
-  gap: 10px;
-  margin: 16px 0 14px;
+  grid-template-columns: 1.05fr 0.85fr 0.85fr 0.7fr 1.35fr 0.9fr 0.7fr;
+  gap: 8px;
+  margin: 16px 0 10px;
 }
-.hero .stat-v { font-size: 22px; }
+.hero .stat-v { font-size: 20px; }
 .stat {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--r);
-  padding: 13px 14px 12px;
-  min-height: 104px;
+  padding: 10px 12px 9px;
+  min-height: 86px;
 }
 .stat-k {
   font-size: 11px;
@@ -165,13 +165,13 @@ button { font: inherit; color: inherit; }
   font-weight: 500;
 }
 .stat-v {
-  margin-top: 8px;
-  font-size: 26px;
+  margin-top: 6px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
-.stat-s { margin-top: 8px; font-size: 12px; color: var(--mute); }
+.stat-s { margin-top: 6px; font-size: 11.5px; color: var(--mute); }
 .up { color: var(--green); }
 .dn { color: var(--red); }
 .flat { color: var(--dim); }
@@ -192,7 +192,7 @@ button { font: inherit; color: inherit; }
 }
 .bar i.over { background: linear-gradient(90deg, var(--green), #9ff0c4); }
 .book-split {
-  display: flex; gap: 12px; font-size: 22px;
+  display: flex; gap: 10px; font-size: 18px;
 }
 .book-split span { display: flex; flex-direction: column; gap: 2px; }
 .book-split b { font-weight: 600; letter-spacing: -0.03em; }
@@ -479,15 +479,37 @@ table.trades tbody tr.active td { background: #1c2433; }
   .topbar { align-items: flex-start; }
 }
 
-/* deployed ROC tile */
-.stat-roc { min-height: 168px; }
-.stat-roc .stat-s { line-height: 1.35; }
+/* deployed ROC — own full-width row under hero */
+.roc-row {
+  margin: 0 0 14px;
+}
+.stat-roc {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.15fr) minmax(180px, 1.2fr) minmax(240px, 1.35fr);
+  gap: 14px 18px;
+  align-items: center;
+  min-height: 0;
+  padding: 12px 16px;
+}
+.roc-main {
+  min-width: 0;
+}
+.stat-roc .stat-v {
+  margin-top: 4px;
+  font-size: 26px;
+}
+.stat-roc .stat-s {
+  margin-top: 4px;
+  line-height: 1.35;
+}
 .roc-spark {
-  margin-top: 8px;
-  height: 36px;
+  margin-top: 0;
+  height: 52px;
+  min-width: 0;
 }
 .roc-spark .spark {
-  height: 36px;
+  width: 100%;
+  height: 52px;
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -495,9 +517,10 @@ table.trades tbody tr.active td { background: #1c2433; }
 }
 .roc-spark:empty { display: none; }
 .roc-weeks {
-  margin-top: 8px;
-  max-height: 118px;
+  margin-top: 0;
+  max-height: 72px;
   overflow: auto;
+  min-width: 0;
 }
 .roc-week-table {
   width: 100%;
@@ -526,3 +549,17 @@ table.trades tbody tr.active td { background: #1c2433; }
   border-top: 1px solid #1a2030;
 }
 .roc-weeks:empty { display: none; }
+
+@media (max-width: 1080px) {
+  .stat-roc {
+    grid-template-columns: 1fr 1fr;
+  }
+  .roc-weeks { grid-column: 1 / -1; max-height: 88px; }
+}
+@media (max-width: 760px) {
+  .stat-roc {
+    grid-template-columns: 1fr;
+  }
+  .roc-spark { height: 44px; }
+  .roc-spark .spark { height: 44px; }
+}

@@ -61,13 +61,6 @@
         <div class="bar" aria-hidden="true"><i id="target-bar"></i></div>
         <div class="stat-s" id="stat-target-sub">Avg weekly $ vs $375 · % of avg deployed</div>
       </article>
-      <article class="stat stat-roc" data-stat="roc">
-        <div class="stat-k" id="stat-roc-k">Cumul. return on avg deployed</div>
-        <div class="stat-v mono" id="stat-roc">—</div>
-        <div class="stat-s" id="stat-roc-sub">Not a weekly % · avg deployed · current vs idle</div>
-        <div class="roc-spark" id="roc-spark" aria-hidden="true"></div>
-        <div class="roc-weeks" id="roc-weeks"></div>
-      </article>
       <article class="stat" data-stat="book">
         <div class="stat-k">Book</div>
         <div class="stat-v book-split" id="stat-book">
@@ -81,6 +74,18 @@
         <div class="stat-k">Hit rate</div>
         <div class="stat-v mono" id="stat-hit">—</div>
         <div class="stat-s" id="stat-hit-sub">Resolved paper tickets</div>
+      </article>
+    </section>
+
+    <section class="roc-row" aria-label="Cumul return on avg deployed">
+      <article class="stat stat-roc" data-stat="roc">
+        <div class="roc-main">
+          <div class="stat-k" id="stat-roc-k">Cumul. return on avg deployed</div>
+          <div class="stat-v mono" id="stat-roc">—</div>
+          <div class="stat-s" id="stat-roc-sub">Not a weekly % · avg deployed · current vs idle</div>
+        </div>
+        <div class="roc-spark" id="roc-spark" aria-hidden="true"></div>
+        <div class="roc-weeks" id="roc-weeks"></div>
       </article>
     </section>
 
