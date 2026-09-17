@@ -40,6 +40,16 @@
         <div class="stat-v mono" id="stat-pnl">—</div>
         <div class="stat-s" id="stat-pnl-sub">Waiting for marks</div>
       </article>
+      <article class="stat" data-stat="open-pnl">
+        <div class="stat-k">Open P&amp;L</div>
+        <div class="stat-v mono" id="stat-open-pnl">—</div>
+        <div class="stat-s" id="stat-open-pnl-sub">Open / live tickets</div>
+      </article>
+      <article class="stat" data-stat="closed-pnl">
+        <div class="stat-k">Closed P&amp;L</div>
+        <div class="stat-v mono" id="stat-closed-pnl">—</div>
+        <div class="stat-s" id="stat-closed-pnl-sub">Closed / out / expired</div>
+      </article>
       <article class="stat stat-roc" data-stat="roc">
         <div class="stat-k">Deployed ROC</div>
         <div class="stat-v mono" id="stat-roc">—</div>
@@ -92,26 +102,31 @@
       </article>
     </section>
 
-    <section class="book" aria-label="Trades">
-      <header class="book-h">
+    <section class="books" aria-label="Trades">
+      <header class="books-h">
         <div>
           <h2>Trades</h2>
           <p class="book-sub" id="table-sub">Paper marks only — no demo book.</p>
         </div>
         <div class="chips" role="tablist" aria-label="Filter">
           <button class="chip on" data-filter="all" type="button">All</button>
-          <button class="chip" data-filter="open" type="button">Open</button>
-          <button class="chip" data-filter="invalidated" type="button">Invalidated</button>
-          <button class="chip" data-filter="out" type="button">Out</button>
           <button class="chip" data-filter="week" type="button">This week</button>
           <button class="chip" data-filter="High" type="button">High</button>
           <button class="chip" data-filter="Medium" type="button">Medium</button>
           <button class="chip" data-filter="Low" type="button">Low</button>
         </div>
       </header>
-      <div class="table-wrap">
-        <table class="trades">
-          <thead>
+
+      <section class="book book-open" aria-label="Open trades">
+        <header class="book-h">
+          <div>
+            <h2>Open trades</h2>
+            <p class="book-sub" id="open-sub">Live / proposed / taken</p>
+          </div>
+        </header>
+        <div class="table-wrap">
+          <table class="trades">
+            <thead>
             <tr>
               <th>Date</th>
               <th>Ticker</th>
@@ -121,17 +136,54 @@
               <th class="num">Credit / debit</th>
               <th class="num">Capital</th>
               <th class="num">Entry</th>
+              <th class="num">Qty</th>
+              <th class="num">Exit</th>
               <th class="num">Live mark</th>
               <th class="num">Paper P&amp;L</th>
               <th class="num">Paper %</th>
               <th>Status</th>
             </tr>
-          </thead>
-          <tbody id="tbody">
-            <tr class="empty-row"><td colspan="12">Loading book…</td></tr>
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody id="tbody-open">
+              <tr class="empty-row"><td colspan="14">Loading book…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="book book-closed" aria-label="Closed trades">
+        <header class="book-h">
+          <div>
+            <h2>Closed trades</h2>
+            <p class="book-sub" id="closed-sub">Out / expired / invalidated</p>
+          </div>
+        </header>
+        <div class="table-wrap">
+          <table class="trades">
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Ticker</th>
+              <th>Conf</th>
+              <th>Structure</th>
+              <th>Strike / exp</th>
+              <th class="num">Credit / debit</th>
+              <th class="num">Capital</th>
+              <th class="num">Entry</th>
+              <th class="num">Qty</th>
+              <th class="num">Exit</th>
+              <th class="num">Live mark</th>
+              <th class="num">Paper P&amp;L</th>
+              <th class="num">Paper %</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-closed">
+              <tr class="empty-row"><td colspan="14">Loading book…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </section>
 
     <footer class="foot">

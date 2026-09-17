@@ -43,7 +43,7 @@
 
   const OPEN = new Set(["open", "proposed", "live", "taken", "yes"]);
   const INV = new Set(["invalidated", "invalid", "killed"]);
-  const OUT = new Set(["out", "closed", "expired", "skipped", "no"]);
+  const OUT = new Set(["out", "closed", "expired", "skipped", "no", "resolved"]);
 
   const PRICE_PROXY_URL = "https://stock-prices-proxy.jessehartung.workers.dev";
   // Polygon Starter/Developer quotes via this worker are DELAYED — never label as real-time.
@@ -322,6 +322,36 @@
     return s;
   }
 
+
+  function isClosedBucket(status) {
+    const b = bucket(status);
+    return b === "out" || b === "invalidated";
+  }
+
+  function qtyDisplay(t) {
+    if (!t) return "—";
+    if (t.shares != null) {
+      const n = Number(t.shares);
+      if (!Number.isFinite(n)) return "—";
+      return Number.isInteger(n) ? String(n) : String(n);
+    }
+    if (t.contracts != null) {
+      const n = Number(t.contracts);
+      if (!Number.isFinite(n)) return "—";
+      return Number.isInteger(n) ? String(n) : String(n);
+    }
+    const q = num(pick(t.raw || {}, ["qty"]));
+    if (q != null) return Number.isInteger(q) ? String(q) : String(q);
+    return "—";
+  }
+
+  function exitDisplay(t) {
+    if (!t) return "—";
+    // Open tickets: always "—". Closed: money(exit || exit_price) or "—".
+    if (bucket(t.status) === "open") return "—";
+    return money(t.exit != null ? t.exit : t.exit_price);
+  }
+
   function rightLetter(structure) {
     const s = str(structure).toLowerCase();
     if (s === "csp" || s.includes("put")) return "p";
@@ -529,6 +559,10 @@
       Low: { n: 0, pnl: 0, cap: 0, wins: 0 },
     };
     let pnl = 0;
+    let openPnl = 0;
+    let closedPnl = 0;
+    let openMarked = 0;
+    let closedMarked = 0;
     let cap = 0;
     let marked = 0;
     let open = 0, invalidated = 0, out = 0;
@@ -559,8 +593,13 @@
           if (t.paper_pnl > 0) byConf[conf].wins += 1;
         }
         if (b === "out" || b === "invalidated") {
+          closedPnl += t.paper_pnl;
+          closedMarked += 1;
           resolved += 1;
           if (t.paper_pnl > 0) wins += 1;
+        } else {
+          openPnl += t.paper_pnl;
+          openMarked += 1;
         }
       }
       if (t.capital != null) {
@@ -573,6 +612,10 @@
 
     const computed = {
       paper_pnl: marked ? pnl : 0,
+      open_pnl: openMarked ? openPnl : 0,
+      closed_pnl: closedMarked ? closedPnl : 0,
+      open_marked: openMarked,
+      closed_marked: closedMarked,
       paper_roc: cap ? pnl / cap : null,
       account_pct: pnl / (state.account || ACCOUNT),
       open, invalidated, out,
@@ -936,6 +979,31 @@
       if (state.liveOk) pnlSub.textContent += " · delayed MTM";
     }
 
+    const openPnlEl = $("stat-open-pnl");
+    if (openPnlEl) {
+      const op = s.open_pnl;
+      openPnlEl.textContent = (s.open_marked || op) ? money(op, "$0.00") : "—";
+      openPnlEl.className = "stat-v mono " + clsPnL(op);
+      const opSub = $("stat-open-pnl-sub");
+      if (opSub) {
+        opSub.textContent = s.open_marked
+          ? s.open_marked + " open marked"
+          : ((s.open || 0) + " open");
+      }
+    }
+    const closedPnlEl = $("stat-closed-pnl");
+    if (closedPnlEl) {
+      const cp = s.closed_pnl;
+      closedPnlEl.textContent = (s.closed_marked || cp) ? money(cp, "$0.00") : "—";
+      closedPnlEl.className = "stat-v mono " + clsPnL(cp);
+      const cpSub = $("stat-closed-pnl-sub");
+      if (cpSub) {
+        cpSub.textContent = s.closed_marked
+          ? s.closed_marked + " closed marked"
+          : (((s.out || 0) + (s.invalidated || 0)) + " closed");
+      }
+    }
+
     const roc = state.deployed || computeDeployedRoc([], state.account, state.asOf);
     const rocEl = $("stat-roc");
     rocEl.textContent = pct(roc.roc);
@@ -1076,44 +1144,79 @@
       .replace(/"/g, "&quot;");
   }
 
+  function tradeRowHtml(t) {
+    const st = str(t.status) || "open";
+    const active = state.selected != null && String(state.selected) === String(t.id) ? " active" : "";
+    return (
+      '<tr data-id="' + escapeHtml(t.id) + '" class="' + active + '">' +
+        "<td>" + escapeHtml(fmtDate(t.date)) + "</td>" +
+        '<td class="tk">' + escapeHtml(t.ticker || "—") + "</td>" +
+        "<td>" + confPill(t.confidence, t.confidence_reason) + "</td>" +
+        "<td><span class=\"struct\">" + escapeHtml(t.structure) + "</span></td>" +
+        "<td>" + escapeHtml(strikeExp(t)) + "</td>" +
+        '<td class="num mono">' + money(t.credit_or_debit) + "</td>" +
+        '<td class="num mono">' + money(t.capital) + "</td>" +
+        '<td class="num mono">' + money(t.entry != null ? t.entry : t.spot) + "</td>" +
+        '<td class="num mono">' + escapeHtml(qtyDisplay(t)) + "</td>" +
+        '<td class="num mono">' + exitDisplay(t) + "</td>" +
+        '<td class="num mono">' + money(t.live_mark) + "</td>" +
+        '<td class="num mono ' + clsPnL(t.paper_pnl) + '">' + money(t.paper_pnl) + "</td>" +
+        '<td class="num mono ' + clsPnL(t.paper_pct != null ? t.paper_pct : t.paper_pnl) + '">' +
+          pct(t.paper_pct) + "</td>" +
+        "<td><span class=\"pill " + escapeHtml(st.toLowerCase()) + "\">" +
+          escapeHtml(st) + "</span></td>" +
+      "</tr>"
+    );
+  }
+
+  function fillTradeBody(tb, rows, emptyMsg) {
+    if (!tb) return;
+    if (!rows.length) {
+      tb.innerHTML = '<tr class="empty-row"><td colspan="14">' + emptyMsg + "</td></tr>";
+      return;
+    }
+    tb.innerHTML = rows.map(tradeRowHtml).join("");
+  }
+
   function renderTable() {
     const rows = filtered();
-    const tb = $("tbody");
+    const openRows = rows.filter((t) => !isClosedBucket(t.status));
+    const closedRows = rows.filter((t) => isClosedBucket(t.status));
+
     $("table-sub").textContent = state.source === "csv"
       ? "CSV book — live mark and paper P&L stay blank until paper JSON exists."
       : state.trades.length
-        ? rows.length + " of " + state.trades.length + " · click a row"
+        ? openRows.length + " open · " + closedRows.length + " closed · " +
+          rows.length + " of " + state.trades.length + " · click a row"
         : "Paper marks only — no demo book.";
 
-    if (!rows.length) {
-      const msg = state.trades.length
-        ? "No tickets match this filter."
-        : "Empty book. Waiting for trade-tracker-paper.json (or CSV fallback).";
-      tb.innerHTML = '<tr class="empty-row"><td colspan="12">' + msg + "</td></tr>";
-      return;
+    const emptyBook = state.trades.length
+      ? "No tickets match this filter."
+      : "Empty book. Waiting for trade-tracker-paper.json (or CSV fallback).";
+
+    const openSub = $("open-sub");
+    if (openSub) {
+      openSub.textContent = openRows.length
+        ? openRows.length + " open ticket" + (openRows.length === 1 ? "" : "s")
+        : "No open tickets";
     }
-    tb.innerHTML = rows.map((t) => {
-      const st = str(t.status) || "open";
-      const active = state.selected != null && String(state.selected) === String(t.id) ? " active" : "";
-      return (
-        '<tr data-id="' + escapeHtml(t.id) + '" class="' + active + '">' +
-          "<td>" + escapeHtml(fmtDate(t.date)) + "</td>" +
-          '<td class="tk">' + escapeHtml(t.ticker || "—") + "</td>" +
-          "<td>" + confPill(t.confidence, t.confidence_reason) + "</td>" +
-          "<td><span class=\"struct\">" + escapeHtml(t.structure) + "</span></td>" +
-          "<td>" + escapeHtml(strikeExp(t)) + "</td>" +
-          '<td class="num mono">' + money(t.credit_or_debit) + "</td>" +
-          '<td class="num mono">' + money(t.capital) + "</td>" +
-          '<td class="num mono">' + money(t.entry != null ? t.entry : t.spot) + "</td>" +
-          '<td class="num mono">' + money(t.live_mark) + "</td>" +
-          '<td class="num mono ' + clsPnL(t.paper_pnl) + '">' + money(t.paper_pnl) + "</td>" +
-          '<td class="num mono ' + clsPnL(t.paper_pct != null ? t.paper_pct : t.paper_pnl) + '">' +
-            pct(t.paper_pct) + "</td>" +
-          "<td><span class=\"pill " + escapeHtml(st.toLowerCase()) + "\">" +
-            escapeHtml(st) + "</span></td>" +
-        "</tr>"
-      );
-    }).join("");
+    const closedSub = $("closed-sub");
+    if (closedSub) {
+      closedSub.textContent = closedRows.length
+        ? closedRows.length + " closed ticket" + (closedRows.length === 1 ? "" : "s")
+        : "No closed tickets";
+    }
+
+    fillTradeBody(
+      $("tbody-open"),
+      openRows,
+      state.trades.length ? "No open tickets match this filter." : emptyBook
+    );
+    fillTradeBody(
+      $("tbody-closed"),
+      closedRows,
+      state.trades.length ? "No closed tickets match this filter." : emptyBook
+    );
   }
 
   function pathPoints(path) {
@@ -1183,8 +1286,9 @@
         cell("Strike / exp", strikeExp(t)) +
         cell("Credit / debit", money(t.credit_or_debit)) +
         cell("Capital", money(t.capital)) +
+        cell("Qty", qtyDisplay(t)) +
         cell("Entry", money(t.entry != null ? t.entry : t.spot)) +
-        cell("Exit", money(t.exit || t.exit_price)) +
+        cell("Exit", exitDisplay(t)) +
         cell("Live mark", money(t.live_mark)) +
         cell("Paper P&L", money(t.paper_pnl)) +
         cell("Paper %", pct(t.paper_pct)) +
@@ -1258,7 +1362,8 @@
         renderTable();
       });
     });
-    $("tbody").addEventListener("click", (e) => {
+    const books = document.querySelector(".books") || document;
+    books.addEventListener("click", (e) => {
       const tr = e.target.closest("tr[data-id]");
       if (!tr) return;
       openDrawer(tr.getAttribute("data-id"));

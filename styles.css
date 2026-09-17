@@ -145,10 +145,11 @@ button { font: inherit; color: inherit; }
 /* —— hero —— */
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr 1.5fr 1.15fr 0.85fr;
+  grid-template-columns: 1fr 0.85fr 0.85fr 0.85fr 1.35fr 1.05fr 0.8fr;
   gap: 10px;
   margin: 16px 0 14px;
 }
+.hero .stat-v { font-size: 22px; }
 .stat {
   background: var(--card);
   border: 1px solid var(--line);
@@ -257,6 +258,19 @@ button { font: inherit; color: inherit; }
 .empty-mini { color: var(--mute); font-size: 12px; padding: 8px 0 6px; }
 
 /* —— table —— */
+
+/* —— split open / closed trade books —— */
+.books { display: flex; flex-direction: column; gap: 12px; }
+.books-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.books-h h2 { margin: 0; font-size: 14px; font-weight: 600; }
+.book-open { border-color: rgba(61, 207, 142, 0.22); }
+.book-closed { border-color: rgba(109, 118, 136, 0.35); }
 .book {
   background: var(--elev);
   border: 1px solid var(--line);
@@ -460,7 +474,7 @@ table.trades tbody tr.active td { background: #1c2433; }
   .app { padding: 14px 12px 28px; }
   .hero { grid-template-columns: 1fr 1fr; }
   .breaks { grid-template-columns: 1fr; }
-  .book-h { flex-direction: column; align-items: flex-start; }
+  .book-h, .books-h { flex-direction: column; align-items: flex-start; }
   .stat-v { font-size: 22px; }
   .topbar { align-items: flex-start; }
 }
