@@ -1,6 +1,6 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-17T07:15:13-07:00",
+  "as_of": "2026-09-17T07:34:39-07:00",
   "account": 25000.0,
   "weekly_target": 0,
   "source": "compounder",
@@ -52,7 +52,10 @@
       "daily_closes_completed": [],
       "flags": [
         "replaced by GOOGL for $10k sleeve"
-      ]
+      ],
+      "entry": 377.05,
+      "entry_note": "interim: entry=spot_at_idea until Massive minute backfill",
+      "exit": 368.8
     },
     {
       "id": "2026-09-08-compounder-GOOGL",
@@ -92,7 +95,9 @@
       "flags": [],
       "live_stock_asOf": "2026-09-17T07:07:44-07:00",
       "price_asof": "2026-09-17T07:07:44-07:00",
-      "quote_quality": "delayed_15m"
+      "quote_quality": "delayed_15m",
+      "entry": 338.42,
+      "entry_note": "interim: entry=spot_at_idea until Massive minute backfill"
     }
   ],
   "quote_quality": "delayed_15m_polygon"
