@@ -4,7 +4,7 @@
   root.StocktimusScoreboard = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   if (root.document) api.mount();
-})(typeof window !== "undefined" ? window : globalThis, function () {
+})(typeof window !== "undefined" ? window : globalThis, function (root) {
   const DESKS = [
     { id: "stocktimus", name: "Stocktimus", file: "./scoreboard/stocktimus.json" },
     { id: "compounder", name: "Compounder", file: "./scoreboard/compounder.json" },
