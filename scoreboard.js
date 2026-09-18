@@ -1,6 +1,6 @@
 /* X call scoreboard. Separate from the paper book. Renders on #scoreboard. */
 (function (root, factory) {
-  const api = factory();
+  const api = factory(root);
   root.StocktimusScoreboard = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   if (root.document) api.mount();
