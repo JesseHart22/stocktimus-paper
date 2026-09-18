@@ -3,7 +3,7 @@
   "account": 50000.0,
   "weekly_target": 750.0,
   "source": "paper",
-  "note": "Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice. | Sep 18 AM: +4 Medium stock+CC (TOST/SE/BABA/HOOD). Account 50000 weekly_target 750.",
+  "note": "Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice. | Sep 18 AM: +4 Medium stock+CC (TOST/SE/BABA/HOOD). Account 50000 weekly_target 750. | Credits restated 2026-09-18 from Massive minute trades: SE 287 at 06:38 PT, BABA 490 at 07:00 PT, HOOD 579 volume-weighted 06:55-07:05 PT. TOST call had no trades, credit left at 112.",
   "summary": {
     "paper_pnl": 2085.5,
     "paper_roc": 0.013715837830194574,
@@ -7817,7 +7817,7 @@
       "credit_or_debit_side": "credit",
       "capital_at_risk": 3018.0,
       "invalidation": "daily close under $29",
-      "notes": "Credit mid 1.12 (CBOE 0.93x1.31). ~3.7%/wk on cash. Max lot ok.",
+      "notes": "Credit mid 1.12 left as the morning quote. Sep 25 $30 call had no trades on 2026-09-18 through this pull. ~3.7%/wk on cash.",
       "new_vs_carry": "new",
       "live_stock": 30.18,
       "live_stock_source": "stock-prices-proxy delayed 2026-09-18 ~6:55 AM PT",
@@ -7848,7 +7848,8 @@
       "daily_closes_completed": [],
       "confidence": "Medium",
       "confidence_reason": "TLI ~$30 support (200DMA/0.5 Fib); stock at the zone. One lot under cap.",
-      "stated_weekly_pct": 0.0371
+      "stated_weekly_pct": 0.0371,
+      "fill_source_note": "No minute trades for O:TOST260925C00030000 on 2026-09-18. Credit not restated."
     },
     {
       "id": "2026-09-18-AM-SE",
@@ -7867,16 +7868,16 @@
       "right": "C",
       "dte": 7,
       "contracts": 1,
-      "spot_at_idea": 100.25,
-      "premium_per_share": 3.275,
-      "credit_or_debit": 328,
+      "spot_at_idea": 100.48,
+      "premium_per_share": 2.87,
+      "credit_or_debit": 287,
       "credit_or_debit_side": "credit",
-      "capital_at_risk": 10025.0,
+      "capital_at_risk": 10048.0,
       "invalidation": "daily close under $97",
-      "notes": "Credit mid 3.275 (CBOE 2.50x4.05 wide). ~3.3%/wk on cash.",
+      "notes": "Credit 2.87 from the 06:38 PT trade (1 contract). No print at 7:00. ~2.9%/wk on cash.",
       "new_vs_carry": "new",
-      "live_stock": 100.25,
-      "live_stock_source": "stock-prices-proxy delayed 2026-09-18 ~6:55 AM PT",
+      "live_stock": 100.48,
+      "live_stock_source": "stock-prices-proxy minute agg 2026-09-18 06:38 PT",
       "live_option_bid": 2.5,
       "live_option_ask": 4.05,
       "live_option_mid": 3.275,
@@ -7894,7 +7895,7 @@
       "flags": [
         "emailed 2026-09-18 AM; paper_pnl 0 until 1:20 PT MTM"
       ],
-      "price_asof": "2026-09-18 ~06:55 PT",
+      "price_asof": "2026-09-18 06:38 PT",
       "mtm_asof": null,
       "sources": {
         "proxy": "/workspace/briefs/2026-09-18-am-quotes-stocks.json",
@@ -7904,7 +7905,11 @@
       "daily_closes_completed": [],
       "confidence": "Medium",
       "confidence_reason": "TLI BUY ALERT $106; stock ~$100 under alert. One lot under $12.5k cap.",
-      "stated_weekly_pct": 0.0327
+      "stated_weekly_pct": 0.0286,
+      "entry": 100.48,
+      "entry_at": "2026-09-18T06:38:00-07:00",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "SE Sep25 100C only printed at 06:38 PT (2.87, 1 contract) and 07:34 PT (3.65). No 7:00 bar. Credit is the 06:38 trade."
     },
     {
       "id": "2026-09-18-AM-BABA",
@@ -7923,16 +7928,16 @@
       "right": "C",
       "dte": 7,
       "contracts": 1,
-      "spot_at_idea": 112.08,
-      "premium_per_share": 4.275,
-      "credit_or_debit": 428,
+      "spot_at_idea": 112.96,
+      "premium_per_share": 4.9,
+      "credit_or_debit": 490,
       "credit_or_debit_side": "credit",
-      "capital_at_risk": 11208.0,
+      "capital_at_risk": 11296.0,
       "invalidation": "daily close under $107",
-      "notes": "Credit mid 4.275 (CBOE 4.10x4.45). ~3.8%/wk on cash.",
+      "notes": "Credit 4.90 from the 07:00 PT minute close. ~4.3%/wk on cash.",
       "new_vs_carry": "new",
-      "live_stock": 112.08,
-      "live_stock_source": "stock-prices-proxy delayed 2026-09-18 ~6:55 AM PT",
+      "live_stock": 112.96,
+      "live_stock_source": "stock-prices-proxy minute agg 2026-09-18 07:00 PT",
       "live_option_bid": 4.1,
       "live_option_ask": 4.45,
       "live_option_mid": 4.275,
@@ -7950,7 +7955,7 @@
       "flags": [
         "emailed 2026-09-18 AM; paper_pnl 0 until 1:20 PT MTM"
       ],
-      "price_asof": "2026-09-18 ~06:55 PT",
+      "price_asof": "2026-09-18 07:00 PT",
       "mtm_asof": null,
       "sources": {
         "proxy": "/workspace/briefs/2026-09-18-am-quotes-stocks.json",
@@ -7960,7 +7965,11 @@
       "daily_closes_completed": [],
       "confidence": "Medium",
       "confidence_reason": "TLI tradeable: still in buy zone after $107 Fib test; next $117. One lot under cap.",
-      "stated_weekly_pct": 0.0381
+      "stated_weekly_pct": 0.0434,
+      "entry": 112.96,
+      "entry_at": "2026-09-18T07:00:00-07:00",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "BABA Sep25 110C 07:00 PT minute close 4.90, volume 11. Stock 07:00 close 112.96."
     },
     {
       "id": "2026-09-18-AM-HOOD",
@@ -7979,16 +7988,16 @@
       "right": "C",
       "dte": 7,
       "contracts": 1,
-      "spot_at_idea": 113.07,
-      "premium_per_share": 4.525,
-      "credit_or_debit": 453,
+      "spot_at_idea": 115.8,
+      "premium_per_share": 5.79,
+      "credit_or_debit": 579,
       "credit_or_debit_side": "credit",
-      "capital_at_risk": 11307.0,
+      "capital_at_risk": 11580.0,
       "invalidation": "daily close under $108",
-      "notes": "Credit mid 4.525 (CBOE 4.45x4.60). ~4.0%/wk on cash.",
+      "notes": "Credit 5.79, volume-weighted 06:55-07:05 PT. The 07:00 minute was a 7-contract print at 6.20. ~5.0%/wk on cash.",
       "new_vs_carry": "new",
-      "live_stock": 113.07,
-      "live_stock_source": "stock-prices-proxy delayed 2026-09-18 ~6:55 AM PT",
+      "live_stock": 115.8,
+      "live_stock_source": "stock-prices-proxy minute agg 2026-09-18 07:00 PT",
       "live_option_bid": 4.45,
       "live_option_ask": 4.6,
       "live_option_mid": 4.525,
@@ -8006,7 +8015,7 @@
       "flags": [
         "emailed 2026-09-18 AM; paper_pnl 0 until 1:20 PT MTM"
       ],
-      "price_asof": "2026-09-18 ~06:55 PT",
+      "price_asof": "2026-09-18 07:00 PT",
       "mtm_asof": null,
       "sources": {
         "proxy": "/workspace/briefs/2026-09-18-am-quotes-stocks.json",
@@ -8016,7 +8025,11 @@
       "daily_closes_completed": [],
       "confidence": "Medium",
       "confidence_reason": "Danny reclaim $112.20; stock just above. Support $108/$100. One lot under cap.",
-      "stated_weekly_pct": 0.04
+      "stated_weekly_pct": 0.05,
+      "entry": 115.8,
+      "entry_at": "2026-09-18T07:00:00-07:00",
+      "fill_source": "massive_minute_agg",
+      "fill_source_note": "HOOD Sep25 112C volume-weighted trades 06:55-07:05 PT are 5.79 on 131 contracts. The 07:00 minute itself was 6.20 on 7 contracts, so the credit uses the window, not that thin print. Stock is the 07:00 close 115.80."
     }
   ]
 }
