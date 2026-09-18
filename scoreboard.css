@@ -11,7 +11,7 @@ body.view-scoreboard .breaks,
 body.view-scoreboard .books,
 body.view-scoreboard .foot { display: none !important; }
 html.view-scoreboard #scoreboard-view,
-body.view-scoreboard #scoreboard-view { display: block; }
+body.view-scoreboard #scoreboard-view { display: block !important; }
 
 .sb-banner {
   margin: 16px 0 8px;

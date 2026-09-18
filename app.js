@@ -1469,6 +1469,21 @@
     renderTable();
   }
 
+  function setScoreboardView(on) {
+    document.documentElement.classList.toggle("view-scoreboard", on);
+    if (document.body) document.body.classList.toggle("view-scoreboard", on);
+    const view = document.getElementById("scoreboard-view");
+    if (view) view.hidden = !on;
+    const api = window.StocktimusScoreboard;
+    if (!api) return;
+    try {
+      if (on) api.show();
+      else api.hide();
+    } catch (err) {
+      console.warn("scoreboard view", err);
+    }
+  }
+
   function syncDeskTabs() {
     const name = $("desk-name");
     const sub = $("desk-sub");
@@ -1497,11 +1512,11 @@
         if (state.desk !== "scoreboard") stopLiveMtm();
         state.desk = "scoreboard";
         syncDeskTabs();
-        if (window.StocktimusScoreboard) window.StocktimusScoreboard.show();
+        setScoreboardView(true);
         return;
       }
       const leavingScoreboard = state.desk === "scoreboard";
-      if (leavingScoreboard && window.StocktimusScoreboard) window.StocktimusScoreboard.hide();
+      if (leavingScoreboard) setScoreboardView(false);
       if (next === state.desk && !leavingScoreboard) return;
       state.desk = next;
       state.filter = "all";
@@ -1553,7 +1568,10 @@
     state.desk = deskFromHash();
     bind();
     syncDeskTabs();
-    if (state.desk === "scoreboard") return;
+    if (state.desk === "scoreboard") {
+      setScoreboardView(true);
+      return;
+    }
     try {
       await load();
     } catch (err) {

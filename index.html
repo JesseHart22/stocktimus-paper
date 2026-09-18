@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="scoreboard.css">
+  <link rel="stylesheet" href="scoreboard.css?v=20260918c">
   <script>
     if ((location.hash || "").replace(/^#/, "").toLowerCase() === "scoreboard") {
       document.documentElement.classList.add("view-scoreboard");
@@ -213,7 +213,7 @@
       Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.
     </footer>
 
-    <section id="scoreboard-view" class="scoreboard-view" hidden aria-label="X scoreboard">
+    <section id="scoreboard-view" class="scoreboard-view" aria-label="X scoreboard">
       <p class="sb-banner">Sample rows are example data, not scored.</p>
       <p class="sb-note">Call log refreshes weekly. Rank rerate is monthly, when Chief of Staff asks on the 1st.</p>
       <p class="sb-rule">First post is the call. A later post by the same handle, same ticker, same direction inside 7 days adds a star and is not a second graded call. Rank is the average signed return of closed graded calls. n &lt; 5 is Provisional. Open calls and no-fills stay on the log and stay out of the average.</p>
@@ -233,7 +233,7 @@
     <div class="drawer-body" id="drawer-body"></div>
   </aside>
 
-  <script src="app.js"></script>
-  <script src="scoreboard.js?v=20260918b"></script>
+  <script src="app.js?v=20260918c"></script>
+  <script src="scoreboard.js?v=20260918c"></script>
 </body>
 </html>
