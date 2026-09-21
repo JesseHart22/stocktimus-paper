@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-21T08:06:15-07:00",
-  "account": 50000.0,
-  "weekly_target": 750.0,
+  "as_of": "2026-09-21T08:58:10-07:00",
+  "account": 52674.5,
+  "weekly_target": 790.12,
   "source": "paper",
-  "note": "Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice. 2026-09-21 AM: ZVRA leftover exited at Mon open; HIMS rolled; IREN/NFLX proposed.",
+  "note": "Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice. 2026-09-21 AM: ZVRA leftover exited at Mon open; HIMS rolled; IREN/NFLX proposed. Book equity = $50k start + cumulative paper P&L (not static). CC rolls on leftovers use capital_at_risk=0.",
   "summary": {
     "paper_pnl": 2674.5,
     "paper_roc": 0.013644210623376757,
-    "account_pct": 0.05327,
+    "account_pct": 0.05077409372656599,
     "open": 8,
     "leftover_shares": 1,
     "invalidated": 8,
@@ -8550,9 +8550,9 @@
       "premium_per_share": 0.84,
       "credit_or_debit": 84,
       "credit_or_debit_side": "credit",
-      "capital_at_risk": 2841.0,
+      "capital_at_risk": 0.0,
       "invalidation": "daily close under $28",
-      "notes": "ROLL leftover shares from 2026-09-11-noon-HIMS. Credit mid 0.84. ~3.0%/wk. Do not double-count share capital.",
+      "notes": "ROLL leftover shares from 2026-09-11-noon-HIMS. Credit mid 0.84. ~3.0%/wk. Do not double-count share capital. capital_at_risk=0 (shares already on leftover parent 2026-09-11-noon-HIMS).",
       "new_vs_carry": "carry",
       "live_stock": 28.41,
       "live_stock_source": "stock-prices-proxy snapshot (delayed)",
@@ -8571,7 +8571,8 @@
       "option_path_pnl": 0.0,
       "flags": [
         "fill_source=proxy snapshot + CBOE mid at decision; delayed OK",
-        "covers leftover shares; share capital already in 2026-09-11-noon-HIMS"
+        "covers leftover shares; share capital already in 2026-09-11-noon-HIMS",
+        "roll CC: capital_at_risk=0 to avoid double-counting leftover share capital"
       ],
       "price_asof": "2026-09-21 08:06:15 PT",
       "mtm_asof": "2026-09-21T08:06:15-07:00",
@@ -8584,5 +8585,6 @@
       "confidence": "Medium",
       "confidence_reason": "TLI hold/flip $28 (200DMA); leftover thesis still valid \u2014 write next weekly vs sell."
     }
-  ]
+  ],
+  "starting_account": 50000.0
 }
