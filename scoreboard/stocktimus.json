@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-09-17T16:16:00-07:00",
+  "as_of": "2026-09-21T08:39:37-07:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -21,10 +21,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 5,
+      "stars": 11,
       "called_at": "2026-09-17",
       "example": false,
-      "note": "New 7-day window. $56 ATH break; chart chirp $115 by year-end 2027, labeled not advice. Not graded."
+      "note": "Sep 17 window. +6 CLMT posts Sep 18\u201321 (base oil / deleveraging) \u2192 stars 11. Not graded."
     },
     {
       "id": "zs-inv-2026-09-11",
@@ -36,7 +36,7 @@
       "stars": 0,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "Hard look $0.50\u2013$0.75. Sep 15 he said he sold the placeholder and expects more downside \u2014 different direction, not a star. Not graded."
+      "note": "Hard look $0.50\u2013$0.75. Prev close 2026-09-18 PT ~$0.60 touched zone; delayed mark ~$0.85 on 2026-09-21. No new same-direction posts this week. Not graded."
     },
     {
       "id": "sd-nbis-2026-09-11",
@@ -48,7 +48,19 @@
       "stars": 13,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "Bullish through Sep 17. No buy price of his own. Not graded."
+      "note": "Bullish through Sep 17. Window closed. Not graded."
+    },
+    {
+      "id": "sd-nbis-2026-09-21",
+      "handle": "Sandeman52",
+      "ticker": "NBIS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-21",
+      "example": false,
+      "note": "New 7-day window. Dismissed bearish NBIS analyst targets. Not graded."
     },
     {
       "id": "sd-hims-2026-09-16",
@@ -81,10 +93,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 1,
       "called_at": "2026-09-14",
       "example": false,
-      "note": "Pump thesis, no share price. Not graded."
+      "note": "Pump thesis. Sep 19 FLNC/BESS post also named CSIQ \u2192 +1 star. Not graded."
     },
     {
       "id": "ls-eose-2026-09-14",
@@ -93,10 +105,22 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 1,
       "called_at": "2026-09-14",
       "example": false,
-      "note": "Time to execute, no price. Not graded."
+      "note": "Time to execute. Sep 19 FLNC/BESS post also named EOSE \u2192 +1 star. Not graded."
+    },
+    {
+      "id": "ls-flnc-2026-09-19",
+      "handle": "LucasSacerdote_",
+      "ticker": "FLNC",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-19",
+      "example": false,
+      "note": "BESS cell manufacturing as long-term survivor filter; CSIQ/EOSE named as visitors context. Not graded."
     },
     {
       "id": "ct-cls-2026-09-12",
@@ -108,7 +132,7 @@
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Friday calls, no strike. Not graded."
+      "note": "Friday calls, no strike. No new posts this week. Not graded."
     },
     {
       "id": "ct-be-2026-09-12",
@@ -120,7 +144,7 @@
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Same post as CLS. No strike. Not graded."
+      "note": "Same post as CLS. No strike. No new posts this week. Not graded."
     },
     {
       "id": "ct-spx-2026-09-17",
@@ -132,7 +156,7 @@
       "stars": 0,
       "called_at": "2026-09-17",
       "example": false,
-      "note": "Tagged daily 100MA, stalled at daily 20MA and 21EMA. Not graded."
+      "note": "Tagged daily 100MA, stalled at daily 20MA and 21EMA. No new posts this week. Not graded."
     }
   ]
 }

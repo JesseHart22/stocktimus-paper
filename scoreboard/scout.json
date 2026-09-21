@@ -1,1 +1,30 @@
-{"desk":"scout","as_of":"2026-09-17T16:27:00-07:00","calls":[]}
+{
+  "desk": "scout",
+  "as_of": "2026-09-21T08:39:37-07:00",
+  "calls": [
+    {
+      "id": "cm-tlt-2026-09-08",
+      "handle": "ConvexityMaven",
+      "ticker": "TLT",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-09-08",
+      "example": false,
+      "note": "UST rates at ~20y highs from fiscal-trust (revenues vs expenses), not inflation. Sep 10 follow-up same thesis = 1 star. Proxies frozen TLT,IEF,TLH. No new posts this week. Not graded."
+    },
+    {
+      "id": "ds-tlt-2026-09-17",
+      "handle": "dampedspring",
+      "ticker": "TLT",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-09-17",
+      "example": false,
+      "note": "After Fed + BOE, covered tactical bond short; long-term bonds-in-portfolio case. Sep 19 First Principles pod (more positive on bonds) \u2192 +1 star. Proxies TLT,IEF,AGG. Not graded."
+    }
+  ]
+}
