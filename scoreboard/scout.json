@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-09-21T08:39:37-07:00",
+  "as_of": "2026-09-22T08:50:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -12,19 +12,44 @@
       "stars": 1,
       "called_at": "2026-09-08",
       "example": false,
-      "note": "UST rates at ~20y highs from fiscal-trust (revenues vs expenses), not inflation. Sep 10 follow-up same thesis = 1 star. Proxies frozen TLT,IEF,TLH. No new posts this week. Not graded."
+      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. No new posts since Sep 17. Proxies TLT,IEF,TLH. Not graded."
     },
     {
       "id": "ds-tlt-2026-09-17",
       "handle": "dampedspring",
       "ticker": "TLT",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 1,
       "called_at": "2026-09-17",
+      "closed_at": "2026-09-22",
       "example": false,
-      "note": "After Fed + BOE, covered tactical bond short; long-term bonds-in-portfolio case. Sep 19 First Principles pod (more positive on bonds) \u2192 +1 star. Proxies TLT,IEF,AGG. Not graded."
+      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Under 14d — not graded."
+    },
+    {
+      "id": "ds-tlt-2026-09-22",
+      "handle": "dampedspring",
+      "ticker": "TLT",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 0,
+      "called_at": "2026-09-22",
+      "example": false,
+      "note": "Major themes: higher-for-longer long yields (no V-top despite Bessent suppression); central case drift higher. Credit 1x2 in ZB. Proxies TLT,IEF,TLH. Under 14d."
+    },
+    {
+      "id": "ds-spy-2026-09-22",
+      "handle": "dampedspring",
+      "ticker": "SPY",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 0,
+      "called_at": "2026-09-22",
+      "example": false,
+      "note": "SPX earnings epic bubble / highish valuations; max short by 9/30 via Nov puts (~4% AUM risk). Slightly long into 9/30 first. Not crash-positioned. Beta still long at risk target. Proxies SPY,QQQ,IWM. Under 14d."
     }
   ]
 }
