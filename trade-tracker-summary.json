@@ -1,71 +1,71 @@
 {
-  "asof_pt": "2026-09-16T14:54:21.693882-07:00",
+  "asof_pt": "2026-09-22T13:43:28.820499-07:00",
   "account": 50000.0,
-  "max_per_trade": 6250.0,
+  "max_per_trade": 12500.0,
   "weekly_target": 750.0,
-  "elapsed_days_from_first_email": 34,
-  "elapsed_weeks": 4.857142857142857,
-  "paper_fill_rules": "PAPER backtest of Stocktimus recommendations, not Jesse's actual fills. Assume each emailed ticket filled at the inventory stock_price and premium_per_share on the email date, sized as printed (CC with no size => 100 sh / 1 call). taken stays proposed except LULU (taken=no, status=out). Invalidation uses completed Yahoo daily CLOSE only (session 2026-09-16 is CLOSED after 1pm PT; today's close MAY be used for invalidation). A. Invalidated stock+CC: stock P&L=(close-entry)*100*contracts; call credit KEPT; no invented buy-to-close (no same-day option print) \u2014 FLAG. A. Invalidated CSP: paper P&L = credit - max(0,strike-close)*100*contracts; time value unknown. A. Invalidated long call: P&L = max(0,close-strike)*100*contracts - debit; time value unknown. B. Still open: CBOE mid=(bid+ask)/2 if both>0 else last if>0 else blank. stock+CC unrealized=(live-entry)*100*n + credit - live_call_mark*100*n. CSP unrealized=credit - live_put_mark*100*n. long call unrealized=live_call_mark*100*n - debit. C. Aug 21 expiries settle at today's close, intrinsic only (no time value). stock+CC expired: (expiry_close-entry)*100*n + credit - max(0,close-strike)*100*n. If close<=strike, call expires 0 and credit is kept. CSP expired: credit - max(0,strike-close)*100*n. Long call expired: max(0,close-strike)*100*n - debit. D. LULU already OUT midday 8/17: paper_status=out. If CBOE still lists Aug 21 120c, MTM at live mid. If CBOE no longer lists the expired Aug 21 120c, CARRY Friday 8/21 last real mark: paper_pnl=-298, live_option_mid=1.16, paper_status=out, flag carried Friday 8/21 CBOE mid 1.16 (last real print). Do not leave LULU unscored and do not invent a new premium. E. IREN/NVO/ZETA distinct tickets scored independently. IREN 42.50c 8/19 noon + 8/20 AM are reprints of 8/19 AM \u2014 scored once; credit note 1.17\u21921.42. IREN 8/20 noon 42c is a different strike from 42.50c \u2014 scored independently. IREN 8/21 noon 43c Aug 28 is a NEW overlay \u2014 scored independently. PFE 8/20 28c is an unused-alternative to 8/19 28.50c \u2014 both scored, not both assumed filled. PFE 8/21 noon 28c Aug 28 is a new week overlay \u2014 scored independently of 8/20 AM 28c. CSV ids 1-4 were not in any Stocktimus briefing email \u2014 tracker-only group. Aug 13 noon HIMS 30c / JD 30c / IREN 45c / ASTS 70p are emailed and were missing from the CSV.",
+  "elapsed_days_from_first_email": 40,
+  "elapsed_weeks": 5.714285714285714,
+  "paper_fill_rules": "PAPER backtest of Stocktimus recommendations, not Jesse's actual fills. Assume each emailed ticket filled at the inventory stock_price and premium_per_share on the email date, sized as printed (CC with no size => 100 sh / 1 call). taken stays proposed except LULU (taken=no, status=out). Invalidation uses completed Yahoo daily CLOSE only (session 2026-09-22 is CLOSED after 1pm PT; today's close MAY be used for invalidation). A. Invalidated stock+CC: stock P&L=(close-entry)*100*contracts; call credit KEPT; no invented buy-to-close (no same-day option print) \u2014 FLAG. A. Invalidated CSP: paper P&L = credit - max(0,strike-close)*100*contracts; time value unknown. A. Invalidated long call: P&L = max(0,close-strike)*100*contracts - debit; time value unknown. B. Still open: CBOE mid=(bid+ask)/2 if both>0 else last if>0 else blank. stock+CC unrealized=(live-entry)*100*n + credit - live_call_mark*100*n. CSP unrealized=credit - live_put_mark*100*n. long call unrealized=live_call_mark*100*n - debit. C. Expiry-day contracts settle intrinsic-only at expiry close (no time value). stock+CC ITM (close>strike): (expiry_close-entry)*100*n + credit - max(0,close-strike)*100*n. If close<=strike (OTM): call expires 0 and credit kept; leftover shares stay OPEN (paper_status=leftover_shares) MTM at live mark \u2014 stock exit is NEXT RTH open (Fri weekly -> Monday open); do NOT use expiry close as final stock exit. CSP expired: credit - max(0,strike-close)*100*n. Long call expired: max(0,close-strike)*100*n - debit. D. LULU already OUT midday 8/17: paper_status=out. If CBOE still lists Aug 21 120c, MTM at live mid. If CBOE no longer lists the expired Aug 21 120c, CARRY Friday 8/21 last real mark: paper_pnl=-298, live_option_mid=1.16, paper_status=out, flag carried Friday 8/21 CBOE mid 1.16 (last real print). Do not leave LULU unscored and do not invent a new premium. E. IREN/NVO/ZETA distinct tickets scored independently. IREN 42.50c 8/19 noon + 8/20 AM are reprints of 8/19 AM \u2014 scored once; credit note 1.17\u21921.42. IREN 8/20 noon 42c is a different strike from 42.50c \u2014 scored independently. IREN 8/21 noon 43c Aug 28 is a NEW overlay \u2014 scored independently. PFE 8/20 28c is an unused-alternative to 8/19 28.50c \u2014 both scored, not both assumed filled. PFE 8/21 noon 28c Aug 28 is a new week overlay \u2014 scored independently of 8/20 AM 28c. CSV ids 1-4 were not in any Stocktimus briefing email \u2014 tracker-only group. Aug 13 noon HIMS 30c / JD 30c / IREN 45c / ASTS 70p are emailed and were missing from the CSV.",
   "source_of_truth": "/workspace/tracker-inventory.json",
   "yahoo_quote_v7": "all tickers HTTP 401 \u2014 live last from Yahoo chart 1m regularMarketPrice / last 1m close",
-  "session_note": "Wed Sep 16 2026 regular session is CLOSED after 1pm PT. Yahoo 1d close for 9/16 is a completed close and MAY be used for invalidation. Aug 21 / Aug 28 / Sep 4 / Sep 11 already settled. Sep 18 (CLMT/ZVRA/NVO noon/HIMS noon) still open, marked with post-close Yahoo last + CBOE delayed mid. LULU still carries Fri 8/21 CBOE mid 1.16. Sep 16 AM: 0 new tickets. Sep 16 noon: midday routine did not run (0 tickets). Weekly goal 1.5\u20134% of equity; weekly_target 750 is the 1.5% floor on $50k.",
+  "session_note": "Tue Sep 22 2026 regular session is CLOSED after 1pm PT. Yahoo 1d close for 9/22 is a completed close and MAY be used for invalidation. Fri Sep 18 OTM leftovers: ZVRA exited at Mon Sep 21 RTH open (real Yahoo open); HIMS leftover ROLLED to Sep25 28.50c (parent leftover stays open, roll capital_at_risk=0). LULU still carries Fri 8/21 CBOE mid 1.16. New Sep22: AM ADBE long call + CLSK stock+CC; noon GRRR stock+CC. Open Sep25: TOST/SE/BABA/HOOD/EOSE + IREN/NFLX/HIMS-roll + ADBE/CLSK/GRRR; noon MRAM Oct16 17.5c. Account=50000+paper_pnl; weekly_target=1.5% of current account (floor bar); weekly goal band 1.5\u20134% of equity.",
   "paper_totals": {
     "emailed_all_ideas_independent": {
       "label": "emailed_all_ideas",
-      "n_rows": 58,
-      "n_scored": 58,
+      "n_rows": 71,
+      "n_scored": 71,
       "n_unscored": 0,
-      "sum_pnl": 1899.0,
-      "sum_capital": 152050.5,
-      "wins": 35,
-      "losses": 23,
-      "hit_rate": 0.603448275862069,
-      "avg_pnl": 32.74,
-      "sum_acct_pct": 0.07596,
+      "sum_pnl": 2896.22,
+      "sum_capital": 212272.78,
+      "wins": 47,
+      "losses": 24,
+      "hit_rate": 0.6619718309859155,
+      "avg_pnl": 40.79,
+      "sum_acct_pct": 0.057924399999999994,
       "vs_weekly_target": {
-        "elapsed_weeks": 4.857142857142857,
-        "target_dollars": 1821.43,
-        "sum_pnl": 1899.0,
-        "vs_target": 77.57,
+        "elapsed_weeks": 5.714285714285714,
+        "target_dollars": 4285.71,
+        "sum_pnl": 2896.22,
+        "vs_target": -1389.49,
         "note": "Includes both PFE alternatives independently. Not a simultaneous book."
       }
     },
     "emailed_if_PFE_28_50c_taken": {
       "label": "emailed_if_PFE_28_50c_taken",
-      "n_rows": 57,
-      "n_scored": 57,
+      "n_rows": 70,
+      "n_scored": 70,
       "n_unscored": 0,
-      "sum_pnl": 1845.0,
-      "sum_capital": 149253.5,
-      "wins": 34,
-      "losses": 23,
-      "hit_rate": 0.5964912280701754,
-      "avg_pnl": 32.37,
-      "sum_acct_pct": 0.0738,
+      "sum_pnl": 2842.22,
+      "sum_capital": 209475.78,
+      "wins": 46,
+      "losses": 24,
+      "hit_rate": 0.6571428571428571,
+      "avg_pnl": 40.6,
+      "sum_acct_pct": 0.056844399999999996,
       "vs_weekly_target": {
-        "elapsed_weeks": 4.857142857142857,
-        "target_dollars": 1821.43,
-        "sum_pnl": 1845.0,
-        "vs_target": 23.57
+        "elapsed_weeks": 5.714285714285714,
+        "target_dollars": 4285.71,
+        "sum_pnl": 2842.22,
+        "vs_target": -1443.49
       }
     },
     "emailed_if_PFE_28c_taken": {
       "label": "emailed_if_PFE_28c_taken",
-      "n_rows": 57,
-      "n_scored": 57,
+      "n_rows": 70,
+      "n_scored": 70,
       "n_unscored": 0,
-      "sum_pnl": 1901.0,
-      "sum_capital": 149220.5,
-      "wins": 35,
-      "losses": 22,
-      "hit_rate": 0.6140350877192983,
-      "avg_pnl": 33.35,
-      "sum_acct_pct": 0.07604,
+      "sum_pnl": 2898.22,
+      "sum_capital": 209442.78,
+      "wins": 47,
+      "losses": 23,
+      "hit_rate": 0.6714285714285714,
+      "avg_pnl": 41.4,
+      "sum_acct_pct": 0.0579644,
       "vs_weekly_target": {
-        "elapsed_weeks": 4.857142857142857,
-        "target_dollars": 1821.43,
-        "sum_pnl": 1901.0,
-        "vs_target": 79.57
+        "elapsed_weeks": 5.714285714285714,
+        "target_dollars": 4285.71,
+        "sum_pnl": 2898.22,
+        "vs_target": -1387.49
       }
     },
     "tracker_only_not_emailed": {
@@ -79,7 +79,7 @@
       "losses": 2,
       "hit_rate": 0.0,
       "avg_pnl": -178.0,
-      "sum_acct_pct": -0.01424
+      "sum_acct_pct": -0.00712
     }
   },
   "by_structure": {
@@ -94,33 +94,33 @@
       "losses": 0,
       "hit_rate": 1.0,
       "avg_pnl": 66.2,
-      "sum_acct_pct": 0.01324
+      "sum_acct_pct": 0.00662
     },
     "stock+CC": {
       "label": "stock+CC",
-      "n_rows": 48,
-      "n_scored": 48,
+      "n_rows": 60,
+      "n_scored": 60,
       "n_unscored": 0,
-      "sum_pnl": 1306.0,
-      "sum_capital": 129088.5,
-      "wins": 29,
+      "sum_pnl": 2725.72,
+      "sum_capital": 188888.28,
+      "wins": 41,
       "losses": 19,
-      "hit_rate": 0.6041666666666666,
-      "avg_pnl": 27.21,
-      "sum_acct_pct": 0.05224
+      "hit_rate": 0.6833333333333333,
+      "avg_pnl": 45.43,
+      "sum_acct_pct": 0.0545144
     },
     "long call": {
       "label": "long call",
-      "n_rows": 5,
-      "n_scored": 5,
+      "n_rows": 6,
+      "n_scored": 6,
       "n_unscored": 0,
-      "sum_pnl": 262.0,
-      "sum_capital": 1712.0,
+      "sum_pnl": -160.5,
+      "sum_capital": 2134.5,
       "wins": 1,
-      "losses": 4,
-      "hit_rate": 0.2,
-      "avg_pnl": 52.4,
-      "sum_acct_pct": 0.01048
+      "losses": 5,
+      "hit_rate": 0.16666666666666666,
+      "avg_pnl": -26.75,
+      "sum_acct_pct": -0.00321
     }
   },
   "by_creator": {
@@ -129,13 +129,13 @@
       "n_rows": 7,
       "n_scored": 7,
       "n_unscored": 0,
-      "sum_pnl": 1191.0,
+      "sum_pnl": 1502.5,
       "sum_capital": 11651.5,
       "wins": 5,
       "losses": 2,
       "hit_rate": 0.7142857142857143,
-      "avg_pnl": 170.14,
-      "sum_acct_pct": 0.04764
+      "avg_pnl": 214.64,
+      "sum_acct_pct": 0.03005
     },
     "Danny+TLI": {
       "label": "Danny+TLI",
@@ -148,7 +148,7 @@
       "losses": 1,
       "hit_rate": 0.5,
       "avg_pnl": -4.5,
-      "sum_acct_pct": -0.00036
+      "sum_acct_pct": -0.00018
     },
     "Lucas": {
       "label": "Lucas",
@@ -161,33 +161,46 @@
       "losses": 0,
       "hit_rate": 1.0,
       "avg_pnl": 16.0,
-      "sum_acct_pct": 0.00064
+      "sum_acct_pct": 0.00032
+    },
+    "Rabbit's Cave": {
+      "label": "Rabbit's Cave",
+      "n_rows": 1,
+      "n_scored": 1,
+      "n_unscored": 0,
+      "sum_pnl": 9.5,
+      "sum_capital": 394.0,
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0,
+      "avg_pnl": 9.5,
+      "sum_acct_pct": 0.00019
     },
     "Stocktimus": {
       "label": "Stocktimus",
-      "n_rows": 17,
-      "n_scored": 17,
+      "n_rows": 24,
+      "n_scored": 24,
       "n_unscored": 0,
-      "sum_pnl": 733.0,
-      "sum_capital": 66421.0,
-      "wins": 12,
-      "losses": 5,
-      "hit_rate": 0.7058823529411765,
-      "avg_pnl": 43.12,
-      "sum_acct_pct": 0.02932
+      "sum_pnl": 1485.5,
+      "sum_capital": 114011.0,
+      "wins": 17,
+      "losses": 7,
+      "hit_rate": 0.7083333333333334,
+      "avg_pnl": 61.9,
+      "sum_acct_pct": 0.02971
     },
     "TLI": {
       "label": "TLI",
-      "n_rows": 23,
-      "n_scored": 23,
+      "n_rows": 28,
+      "n_scored": 28,
       "n_unscored": 0,
-      "sum_pnl": -138.0,
-      "sum_capital": 45407.0,
-      "wins": 11,
-      "losses": 12,
-      "hit_rate": 0.4782608695652174,
-      "avg_pnl": -6.0,
-      "sum_acct_pct": -0.00552
+      "sum_pnl": -214.28,
+      "sum_capital": 57645.28,
+      "wins": 17,
+      "losses": 11,
+      "hit_rate": 0.6071428571428571,
+      "avg_pnl": -7.65,
+      "sum_acct_pct": -0.0042856
     },
     "TLI+Danny": {
       "label": "TLI+Danny",
@@ -200,7 +213,7 @@
       "losses": 3,
       "hit_rate": 0.625,
       "avg_pnl": 13.25,
-      "sum_acct_pct": 0.00424
+      "sum_acct_pct": 0.00212
     }
   },
   "by_week": {
@@ -215,33 +228,33 @@
       "losses": 3,
       "hit_rate": 0.625,
       "avg_pnl": 0.25,
-      "sum_acct_pct": 8e-05
+      "sum_acct_pct": 4e-05
     },
     "2026-W34": {
       "label": "2026-W34",
       "n_rows": 23,
       "n_scored": 23,
       "n_unscored": 0,
-      "sum_pnl": 621.0,
+      "sum_pnl": 660.0,
       "sum_capital": 72080.0,
       "wins": 17,
       "losses": 6,
       "hit_rate": 0.7391304347826086,
-      "avg_pnl": 27.0,
-      "sum_acct_pct": 0.02484
+      "avg_pnl": 28.7,
+      "sum_acct_pct": 0.0132
     },
     "2026-W35": {
       "label": "2026-W35",
       "n_rows": 15,
       "n_scored": 15,
       "n_unscored": 0,
-      "sum_pnl": 312.5,
+      "sum_pnl": 336.0,
       "sum_capital": 29215.0,
-      "wins": 7,
-      "losses": 8,
-      "hit_rate": 0.4666666666666667,
-      "avg_pnl": 20.83,
-      "sum_acct_pct": 0.0125
+      "wins": 8,
+      "losses": 7,
+      "hit_rate": 0.5333333333333333,
+      "avg_pnl": 22.4,
+      "sum_acct_pct": 0.00672
     },
     "2026-W36": {
       "label": "2026-W36",
@@ -254,35 +267,68 @@
       "losses": 4,
       "hit_rate": 0.5,
       "avg_pnl": 117.75,
-      "sum_acct_pct": 0.03768
+      "sum_acct_pct": 0.01884
     },
     "2026-W37": {
       "label": "2026-W37",
       "n_rows": 4,
       "n_scored": 4,
       "n_unscored": 0,
-      "sum_pnl": 21.5,
+      "sum_pnl": 470.5,
       "sum_capital": 12586.5,
-      "wins": 2,
-      "losses": 2,
-      "hit_rate": 0.5,
-      "avg_pnl": 5.38,
-      "sum_acct_pct": 0.00086
+      "wins": 3,
+      "losses": 1,
+      "hit_rate": 0.75,
+      "avg_pnl": 117.62,
+      "sum_acct_pct": 0.00941
+    },
+    "2026-W38": {
+      "label": "2026-W38",
+      "n_rows": 6,
+      "n_scored": 6,
+      "n_unscored": 0,
+      "sum_pnl": 893.5,
+      "sum_capital": 43160.5,
+      "wins": 6,
+      "losses": 0,
+      "hit_rate": 1.0,
+      "avg_pnl": 148.92,
+      "sum_acct_pct": 0.01787
+    },
+    "2026-W39": {
+      "label": "2026-W39",
+      "n_rows": 7,
+      "n_scored": 7,
+      "n_unscored": 0,
+      "sum_pnl": -407.78,
+      "sum_capital": 17061.78,
+      "wins": 4,
+      "losses": 3,
+      "hit_rate": 0.5714285714285714,
+      "avg_pnl": -58.25,
+      "sum_acct_pct": -0.008155599999999999
     }
   },
   "by_paper_status": {
     "open": {
-      "n": 4,
+      "n": 11,
       "ids": [
-        "2026-08-21-AM-CLMT",
-        "2026-08-26-AM-ZVRA",
-        "2026-09-11-noon-NVO",
-        "2026-09-11-noon-HIMS"
+        "2026-09-18-AM-TOST",
+        "2026-09-18-AM-SE",
+        "2026-09-18-AM-BABA",
+        "2026-09-18-AM-HOOD",
+        "2026-09-18-noon-EOSE",
+        "2026-09-21-noon-MRAM",
+        "2026-09-21-AM-IREN",
+        "2026-09-21-AM-NFLX",
+        "2026-09-21-AM-HIMS",
+        "2026-09-22-AM-CLSK",
+        "2026-09-22-noon-GRRR"
       ],
-      "sum_pnl": 296.0
+      "sum_pnl": 810.72
     },
     "invalidated": {
-      "n": 7,
+      "n": 9,
       "ids": [
         "2026-08-13-noon-HIMS",
         "2026-08-21-noon-IREN",
@@ -290,9 +336,11 @@
         "2026-08-25-AM-ADUR",
         "2026-08-27-AM-HIMS",
         "2026-09-02-AM-BABA",
-        "2026-09-02-AM-UPS"
+        "2026-09-02-AM-UPS",
+        "2026-09-18-noon-NFLX",
+        "2026-09-22-AM-ADBE"
       ],
-      "sum_pnl": -362.0
+      "sum_pnl": -687.0
     },
     "out": {
       "n": 1,
@@ -302,7 +350,7 @@
       "sum_pnl": -298.0
     },
     "expired": {
-      "n": 46,
+      "n": 49,
       "ids": [
         "2026-08-13-noon-JD",
         "2026-08-13-noon-IREN",
@@ -329,6 +377,7 @@
         "2026-08-20-noon-IREN-42c",
         "2026-08-21-AM-OSCR",
         "2026-08-21-AM-JD",
+        "2026-08-21-AM-CLMT",
         "2026-08-21-AM-NVO",
         "2026-08-21-noon-PFE",
         "2026-08-24-AM-CELH",
@@ -338,6 +387,7 @@
         "2026-08-25-noon-ONDS",
         "2026-08-25-noon-GRRR",
         "2026-08-26-AM-IBRX",
+        "2026-08-26-AM-ZVRA",
         "2026-08-27-noon-KHC",
         "2026-08-28-AM-ZETA",
         "2026-08-28-AM-NVO",
@@ -349,9 +399,17 @@
         "2026-09-01-AM-NOK",
         "2026-09-02-AM-QCOM",
         "2026-09-09-AM-ZETA",
-        "2026-09-09-AM-KHC"
+        "2026-09-09-AM-KHC",
+        "2026-09-11-noon-NVO"
       ],
-      "sum_pnl": 2263.0
+      "sum_pnl": 2686.0
+    },
+    "leftover_shares": {
+      "n": 1,
+      "ids": [
+        "2026-09-11-noon-HIMS"
+      ],
+      "sum_pnl": 384.5
     },
     "reprint": {
       "n": 2,
@@ -373,11 +431,11 @@
     },
     "Medium": {
       "label": "Medium",
-      "n": 50,
-      "wins": 30,
-      "hit_rate": 0.6,
-      "sum_pnl": 1995.0,
-      "avg_pnl": 39.9
+      "n": 63,
+      "wins": 42,
+      "hit_rate": 0.6666666666666666,
+      "sum_pnl": 2992.22,
+      "avg_pnl": 47.5
     },
     "Low": {
       "label": "Low",
@@ -560,6 +618,11 @@
       "flag": "missing CBOE contract: contract not in CBOE chain: JD 2026-08-28 C30"
     },
     {
+      "id": "2026-08-21-AM-CLMT",
+      "ticker": "CLMT",
+      "flag": "missing CBOE contract: contract not in CBOE chain: CLMT 2026-09-18 C49"
+    },
+    {
       "id": "2026-08-21-AM-NVO",
       "ticker": "NVO",
       "flag": "missing CBOE contract: contract not in CBOE chain: NVO 2026-08-28 C47"
@@ -595,6 +658,11 @@
       "flag": "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-28 C32"
     },
     {
+      "id": "2026-08-25-AM-ADUR",
+      "ticker": "ADUR",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ADUR 2026-09-18 C15"
+    },
+    {
       "id": "2026-08-25-noon-RR",
       "ticker": "RR",
       "flag": "missing CBOE contract: contract not in CBOE chain: RR 2026-08-28 C2"
@@ -613,6 +681,11 @@
       "id": "2026-08-26-AM-IBRX",
       "ticker": "IBRX",
       "flag": "missing CBOE contract: contract not in CBOE chain: IBRX 2026-09-04 C8.5"
+    },
+    {
+      "id": "2026-08-26-AM-ZVRA",
+      "ticker": "ZVRA",
+      "flag": "missing CBOE contract: contract not in CBOE chain: ZVRA 2026-09-18 C12"
     },
     {
       "id": "2026-08-27-AM-HIMS",
@@ -688,6 +761,16 @@
       "id": "2026-09-09-AM-KHC",
       "ticker": "KHC",
       "flag": "missing CBOE contract: contract not in CBOE chain: KHC 2026-09-11 C25.0"
+    },
+    {
+      "id": "2026-09-11-noon-NVO",
+      "ticker": "NVO",
+      "flag": "missing CBOE contract: contract not in CBOE chain: NVO 2026-09-18 C43.0"
+    },
+    {
+      "id": "2026-09-11-noon-HIMS",
+      "ticker": "HIMS",
+      "flag": "missing CBOE contract: contract not in CBOE chain: HIMS 2026-09-18 C28.0"
     },
     {
       "id": "tracker-only-1",
@@ -1069,9 +1152,9 @@
       "csv_id": 32,
       "ticker": "CLMT",
       "structure": "stock+CC",
-      "paper_pnl": 287.0,
-      "paper_roc_pct": 0.05918746133223345,
-      "paper_status": "open",
+      "paper_pnl": 326.0,
+      "paper_roc_pct": 0.0672303567745927,
+      "paper_status": "expired",
       "source_group": "emailed",
       "confidence": "Medium",
       "confidence_reason": "Zero Sum hold. Next monthly, no weekly. Under cap."
@@ -1225,9 +1308,9 @@
       "csv_id": 45,
       "ticker": "ZVRA",
       "structure": "stock+CC",
-      "paper_pnl": -5.5,
-      "paper_roc_pct": -0.004568106312292359,
-      "paper_status": "open",
+      "paper_pnl": 18.0,
+      "paper_roc_pct": 0.014950166112956811,
+      "paper_status": "expired",
       "source_group": "emailed",
       "confidence": "Medium",
       "confidence_reason": "TLI triangle under the $12.15 50-DMA. Next monthly. Single feed."
@@ -1417,9 +1500,9 @@
       "csv_id": 62,
       "ticker": "NVO",
       "structure": "stock+CC",
-      "paper_pnl": -58.5,
-      "paper_roc_pct": -0.013626834381551363,
-      "paper_status": "open",
+      "paper_pnl": 79.0,
+      "paper_roc_pct": 0.01840204984859073,
+      "paper_status": "expired",
       "source_group": "emailed",
       "confidence": "Medium",
       "confidence_reason": "TLI Buy Zone ~$43.48 (0.5 Fib); stock now in/under zone; single feed; under the cap. One lot."
@@ -1429,12 +1512,168 @@
       "csv_id": 63,
       "ticker": "HIMS",
       "structure": "stock+CC",
-      "paper_pnl": 73.0,
-      "paper_roc_pct": 0.026793907138924572,
-      "paper_status": "open",
+      "paper_pnl": 384.5,
+      "paper_roc_pct": 0.14112681225913012,
+      "paper_status": "leftover_shares",
       "source_group": "emailed",
       "confidence": "Medium",
       "confidence_reason": "Danny $27 support / $27\u201332 range; stock at support; single feed; under the cap. One lot."
+    },
+    {
+      "id": "2026-09-18-AM-TOST",
+      "csv_id": 64,
+      "ticker": "TOST",
+      "structure": "stock+CC",
+      "paper_pnl": 7.0,
+      "paper_roc_pct": 0.0023194168323392977,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI ~$30 support (200DMA/0.5 Fib); stock at the zone. One lot under cap."
+    },
+    {
+      "id": "2026-09-18-AM-SE",
+      "csv_id": 65,
+      "ticker": "SE",
+      "structure": "stock+CC",
+      "paper_pnl": 277.5,
+      "paper_roc_pct": 0.02768079800498753,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI BUY ALERT $106; stock ~$100 under alert. One lot under $12.5k cap."
+    },
+    {
+      "id": "2026-09-18-AM-BABA",
+      "csv_id": 66,
+      "ticker": "BABA",
+      "structure": "stock+CC",
+      "paper_pnl": 181.0,
+      "paper_roc_pct": 0.01614917915774447,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI tradeable: still in buy zone after $107 Fib test; next $117. One lot under cap."
+    },
+    {
+      "id": "2026-09-18-AM-HOOD",
+      "csv_id": 67,
+      "ticker": "HOOD",
+      "structure": "stock+CC",
+      "paper_pnl": 321.0,
+      "paper_roc_pct": 0.02838949323427965,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Danny reclaim $112.20; stock just above. Support $108/$100. One lot under cap."
+    },
+    {
+      "id": "2026-09-18-noon-NFLX",
+      "csv_id": 68,
+      "ticker": "NFLX",
+      "structure": "stock+CC",
+      "paper_pnl": 97.5,
+      "paper_roc_pct": 0.01352569882777277,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI buy if $72\u2013$74 holds; AM was under (~$71.4), noon prints in zone."
+    },
+    {
+      "id": "2026-09-18-noon-EOSE",
+      "csv_id": 69,
+      "ticker": "EOSE",
+      "structure": "stock+CC",
+      "paper_pnl": 9.5,
+      "paper_roc_pct": 0.024111675126903553,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "Rabbit's Cave: $3.80 weekly / $3.91 cloud-Fib / ~$3.88 purple support; stock at the shelf."
+    },
+    {
+      "id": "2026-09-21-noon-MRAM",
+      "csv_id": 70,
+      "ticker": "MRAM",
+      "structure": "stock+CC",
+      "paper_pnl": 26.0,
+      "paper_roc_pct": 0.0151426907396622,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI hold above $16.35 toward $20.87. No weeklies; next monthly. One lot under cap."
+    },
+    {
+      "id": "2026-09-21-AM-IREN",
+      "csv_id": 71,
+      "ticker": "IREN",
+      "structure": "stock+CC",
+      "paper_pnl": 92.0,
+      "paper_roc_pct": 0.019462661307383118,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI break/hold $47 toward $67. One lot under cap."
+    },
+    {
+      "id": "2026-09-21-AM-NFLX",
+      "csv_id": 72,
+      "ticker": "NFLX",
+      "structure": "stock+CC",
+      "paper_pnl": -31.0,
+      "paper_roc_pct": -0.004243668720054757,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI buy zone $69\u2013$72; stock at the top. Prior Fri lot invalidated. One lot under cap."
+    },
+    {
+      "id": "2026-09-21-AM-HIMS",
+      "csv_id": 73,
+      "ticker": "HIMS",
+      "structure": "stock+CC",
+      "paper_pnl": -134.0,
+      "paper_roc_pct": null,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI hold/flip $28; roll leftovers instead of selling. Covered-call roll \u2014 share capital stays on parent."
+    },
+    {
+      "id": "2026-09-22-AM-ADBE",
+      "csv_id": 74,
+      "ticker": "ADBE",
+      "structure": "long call",
+      "paper_pnl": -422.5,
+      "paper_roc_pct": -1.0,
+      "paper_status": "invalidated",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI starter $242\u2013$251 when $242 Fib holds; share lot over max/cash so long call. One lot."
+    },
+    {
+      "id": "2026-09-22-AM-CLSK",
+      "csv_id": 75,
+      "ticker": "CLSK",
+      "structure": "stock+CC",
+      "paper_pnl": 16.72,
+      "paper_roc_pct": 0.011181852228345193,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI reclaim/hold $15 as support (Sep21 noon); stock still at the level. One lot under remaining cash."
+    },
+    {
+      "id": "2026-09-22-noon-GRRR",
+      "csv_id": 76,
+      "ticker": "GRRR",
+      "structure": "stock+CC",
+      "paper_pnl": 45.0,
+      "paper_roc_pct": 0.03225806451612903,
+      "paper_status": "open",
+      "source_group": "emailed",
+      "confidence": "Medium",
+      "confidence_reason": "TLI breakout above $13.56\u2013$13.70 50/200-day MA confluence; Wave 3 confirm $16.50 / Bull $18.20. One lot fits remaining cash."
     },
     {
       "id": "tracker-only-1",
