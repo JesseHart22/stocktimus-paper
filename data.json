@@ -1,15 +1,15 @@
 {
-  "as_of": "2026-09-22T08:03:41.805832-07:00",
+  "as_of": "2026-09-22T12:31:54.994009-07:00",
   "account": 53016.5,
   "weekly_target": 795.25,
   "starting_account": 50000.0,
   "source": "stocktimus-paper",
-  "note": "AM Sep 22: appended ADBE long call Sep25 $245 (over share cap/cash) + CLSK stock+CC Sep25 $15. Open cap_at_risk\u224851618.78; cash_room\u22481397.72. Account=starting+paper_pnl unchanged until 1:20 MTM; weekly_target=1.5% of account.",
+  "note": "Midday Sep 22: appended GRRR stock+CC Sep25 $14. Account=starting+paper_pnl unchanged until 1:20 MTM; weekly_target=1.5% of account. Open cap_at_risk\u224853013.78; cash_room\u22482.72.",
   "summary": {
     "paper_pnl": 3016.5,
     "paper_roc": 0.014435777182235834,
     "account_pct": 0.06033,
-    "open": 11,
+    "open": 12,
     "leftover_shares": 1,
     "invalidated": 8,
     "out": 2,
@@ -9076,6 +9076,49 @@
       "yahoo_quote_v7": null,
       "confidence": "Medium",
       "confidence_reason": "TLI reclaim/hold $15 resistance as support (Sep21 noon watchlist); stock still at the level. One lot under remaining cash."
+    },
+    {
+      "id": "2026-09-22-noon-GRRR",
+      "csv_id": "2026-09-22-noon-GRRR",
+      "ticker": "GRRR",
+      "structure": "stock+CC",
+      "creator": "TLI",
+      "source_group": "TLI",
+      "confidence": "Medium",
+      "confidence_reason": "TLI breakout above $13.56\u2013$13.70 50/200-day MA confluence; Wave 3 confirm $16.50 / Bull $18.20. One lot fits remaining cash.",
+      "taken": "proposed",
+      "paper_status": "open",
+      "new_vs_carry": "new",
+      "session": "noon",
+      "date_opened": "2026-09-22",
+      "date_proposed": "2026-09-22",
+      "expiry": "2026-09-25",
+      "dte": 3,
+      "strike": 14.0,
+      "right": "C",
+      "contracts": 1,
+      "spot_at_idea": 13.95,
+      "live_stock": 13.95,
+      "premium_per_share": 0.45,
+      "live_option_bid": 0.4,
+      "live_option_ask": 0.5,
+      "live_option_mid": 0.45,
+      "live_option_symbol": "GRRR260925C00014000",
+      "credit_or_debit": 45.0,
+      "credit_or_debit_side": "credit",
+      "capital_at_risk": 1395.0,
+      "invalidation": "daily close under $13.56 (MA confluence)",
+      "price_asof": "2026-09-22 12:31:54 PT",
+      "daily_closes_completed": 0,
+      "flags": [
+        "emailed"
+      ],
+      "notes": "Credit mid 0.45 (CBOE 0.4x0.5). Stock mid 13.95 (CBOE 13.93x13.97). Weekly ~7.5% on cash in that trade (3 DTE). Target confirm $16.50 then Bull $18.20.",
+      "sources": {
+        "cboe": "/workspace/quotes-raw/2026-09-22-noon/cboe/GRRR.json",
+        "proxy": "/workspace/briefs/2026-09-22-noon-quotes-stocks.json",
+        "inventory": "/workspace/tracker-inventory.json"
+      }
     }
   ]
 }
