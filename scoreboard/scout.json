@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-09-25T08:10:00-07:00",
+  "as_of": "2026-09-25T16:00:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -12,7 +12,7 @@
       "stars": 1,
       "called_at": "2026-09-08",
       "example": false,
-      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Sep 25 2½-day MOVE bounce note is short-term only — not a thesis change. Proxies TLT,IEF,TLH. Not graded."
+      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Sep 25 2\u00bd-day MOVE bounce note is short-term only \u2014 not a thesis change. Proxies TLT,IEF,TLH. Not graded."
     },
     {
       "id": "ds-tlt-2026-09-17",
@@ -25,7 +25,7 @@
       "called_at": "2026-09-17",
       "closed_at": "2026-09-22",
       "example": false,
-      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Under 14d — not graded."
+      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Under 14d \u2014 not graded."
     },
     {
       "id": "ds-tlt-2026-09-22",
@@ -38,7 +38,7 @@
       "called_at": "2026-09-22",
       "closed_at": "2026-09-24",
       "example": false,
-      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d — not graded."
+      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d \u2014 not graded."
     },
     {
       "id": "ds-tlt-2026-09-24",
@@ -47,10 +47,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "long",
-      "stars": 1,
+      "stars": 2,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25: still long deltas after QRA short (TLT −10% in two months). Proxies TLT,IEF,TLH,ZB. Under 14d."
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 AM: still long deltas after QRA. ~8:02am PT Max long ZB risking 3% AUM via options = \u26052 (same call). Proxies TLT,IEF,TLH,ZB. Under 14d."
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -62,7 +62,7 @@
       "stars": 0,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Not clearly restated or reversed in Sep 24–25 window — still open. Proxies SPY,QQQ,IWM. Under 14d."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Not clearly restated or reversed in Sep 24\u201325 window \u2014 still open. Proxies SPY,QQQ,IWM. Under 14d."
     }
   ]
 }
