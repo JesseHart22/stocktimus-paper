@@ -24,8 +24,9 @@
     "invalidation": "daily close under $27.50",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 29.28,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.42,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -45,8 +46,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-08-18 Yahoo close=27.389999389648438 vs {'kind': 'daily', 'price': 27.5, 'raw': 'daily close under $27.50'}"
     ],
-    "price_asof": "2026-09-24 13:24:02 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -173,9 +174,13 @@
       {
         "date": "2026-09-24",
         "close": 29.280000686645508
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.42
       }
     ],
-    "cboe_stock": 29.325,
+    "cboe_stock": 29.3608,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed Stocktimus CC at the printed $27.50 zone, 100sh under the cap."
@@ -207,6 +212,7 @@
     "new_vs_carry": "new",
     "live_stock": 26.75,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -228,7 +234,7 @@
       "historical OTM settled at expiry close=29.3700008392334 (next open 2026-08-24 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:24:29 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/JD.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/JD.json",
@@ -353,7 +359,7 @@
         "close": 26.75
       }
     ],
-    "cboe_stock": 26.74,
+    "cboe_stock": 26.53,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed Stocktimus CC under the cap at a printed idea."
@@ -383,8 +389,9 @@
     "invalidation": null,
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -405,8 +412,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=41.880001068115234 (next open 2026-08-24 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -533,9 +540,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "First IREN CC is Stocktimus-only with no printed support, so not High; 100sh under the cap."
@@ -567,6 +578,7 @@
     "new_vs_carry": "new",
     "live_stock": 61.06,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -587,7 +599,7 @@
       "settled at expiry-close intrinsic (no time value); close=68.6500015258789 strike=70"
     ],
     "price_asof": "2026-09-24 13:24:20 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ASTS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ASTS.json",
@@ -716,7 +728,7 @@
         "close": 61.060001373291016
       }
     ],
-    "cboe_stock": 61.05,
+    "cboe_stock": 61.85,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Low",
     "confidence_reason": "Conflicted name and $7,000 cash over the $6,250 cap."
@@ -748,6 +760,7 @@
     "new_vs_carry": "new",
     "live_stock": 2.53,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -769,7 +782,7 @@
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
     "price_asof": "2026-09-24 13:25:34 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/OPEN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/OPEN.json",
@@ -894,7 +907,7 @@
         "close": 2.5299999713897705
       }
     ],
-    "cboe_stock": 2.5301,
+    "cboe_stock": 2.58,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CC at the printed 200 WMA / $2.68 zone, sized under the cap."
@@ -926,6 +939,7 @@
     "new_vs_carry": "new",
     "live_stock": 3.11,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -948,7 +962,7 @@
       "historical OTM settled at expiry close=3.4800000190734863 (next open 2026-08-24 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:25:06 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/GRAB.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/GRAB.json",
@@ -1073,7 +1087,7 @@
         "close": 3.109999895095825
       }
     ],
-    "cboe_stock": 3.12,
+    "cboe_stock": 3.16,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CC at the reclaim / bottom-trendline zone, sized under the cap."
@@ -1105,6 +1119,7 @@
     "new_vs_carry": "new",
     "live_stock": 29.57,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -1124,7 +1139,7 @@
       "settled at expiry-close intrinsic (no time value); close=29.06999969482422 strike=28"
     ],
     "price_asof": "2026-09-24 13:18:57 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ZETA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ZETA.json",
@@ -1249,7 +1264,7 @@
         "close": 29.56999969482422
       }
     ],
-    "cboe_stock": 29.55,
+    "cboe_stock": 29.76,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI+Danny overlap but not at the TLI $26 add zone \u2014 put sold above, do not buy shares."
@@ -1279,8 +1294,9 @@
     "invalidation": "daily close under $41",
     "notes": "expires Aug 21, before 8/27 earnings. Same structure as Aug 13 IREN 45c but new session/prices.",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -1301,8 +1317,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=41.880001068115234 (next open 2026-08-24 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -1425,9 +1441,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI and Danny overlap but extended vs the $41 support, so not High."
@@ -1457,8 +1477,9 @@
     "invalidation": "daily close under Friday low $117.95; skip if it loses that on the open",
     "notes": "OUT at Aug 17 noon. Stock ~$115.49, closed the morning level at $117.95. Carried as still OUT through Aug 20 AM.",
     "new_vs_carry": "new",
-    "live_stock": 101.64,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 101.3,
+    "live_stock_source": "stock-prices-proxy delayed=True price=101.3; cboe_current=101.022",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 1.16,
@@ -1478,8 +1499,8 @@
       "LULU marked OUT midday 8/17 (stock ~$115.49 under $117.95). Not treated as still-open.",
       "carried Friday 8/21 CBOE mid 1.16 (last real print)"
     ],
-    "price_asof": "2026-09-24 13:24:10 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/LULU.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/LULU.json",
@@ -1598,9 +1619,13 @@
       {
         "date": "2026-09-24",
         "close": 101.63999938964844
+      },
+      {
+        "date": "2026-09-25",
+        "close": 101.3
       }
     ],
-    "cboe_stock": 100.7297,
+    "cboe_stock": 101.022,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Low",
     "confidence_reason": "Long call with only 4 days to expiry."
@@ -1630,15 +1655,16 @@
     "invalidation": "daily close <$75 or weekly close <$73.57",
     "notes": "Do not chase if it rips through $79 first.",
     "new_vs_carry": "new",
-    "live_stock": 71.72,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 71.145,
+    "live_stock_source": "stock-prices-proxy delayed=True price=71.145; cboe_current=71.1",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
     "live_option_last": null,
     "live_option_symbol": null,
     "first_invalidation_date": "2026-09-18",
-    "min_close_since": 71.36000061035156,
+    "min_close_since": 71.145,
     "max_close_since": 82.7300033569336,
     "paper_status": "expired",
     "paper_pnl": -170.0,
@@ -1650,8 +1676,8 @@
       "missing CBOE contract: contract not in CBOE chain: NFLX 2026-08-21 C79",
       "settled at expiry-close intrinsic (no time value); close=79.58999633789062 strike=79"
     ],
-    "price_asof": "2026-09-24 13:25:50 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NFLX.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NFLX.json",
@@ -1770,9 +1796,13 @@
       {
         "date": "2026-09-24",
         "close": 71.72000122070312
+      },
+      {
+        "date": "2026-09-25",
+        "close": 71.145
       }
     ],
-    "cboe_stock": 71.62,
+    "cboe_stock": 71.1,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Cap-correct long-call structure at the Danny 75\u201378 zone (CSP does not fit $6,250)."
@@ -1802,8 +1832,9 @@
     "invalidation": "daily close <$27.08",
     "notes": "1 lot only. Do not add if it weakens. Caps Danny >$33.27 validation on purpose.",
     "new_vs_carry": "new",
-    "live_stock": 28.87,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.6,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.6; cboe_current=29.66",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -1824,8 +1855,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=32.040000915527344 (next open 2026-08-24 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:19:13 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/OSCR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/OSCR.json",
@@ -1940,9 +1971,13 @@
       {
         "date": "2026-09-24",
         "close": 28.8700008392334
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.6
       }
     ],
-    "cboe_stock": 28.88,
+    "cboe_stock": 29.66,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "High",
     "confidence_reason": "TLI and Danny overlap at a stated zone, 100sh under the $6,250 cap."
@@ -1972,8 +2007,9 @@
     "invalidation": "closes under $41.53",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 38.62,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 38.8,
+    "live_stock_source": "stock-prices-proxy delayed=True price=38.8; cboe_current=38.695",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -1993,8 +2029,8 @@
       "settled at expiry-close intrinsic (no time value); close=46.7400016784668 strike=45",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:24:09 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NVO.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NVO.json",
@@ -2113,9 +2149,13 @@
       {
         "date": "2026-09-24",
         "close": 38.619998931884766
+      },
+      {
+        "date": "2026-09-25",
+        "close": 38.8
       }
     ],
-    "cboe_stock": 38.56,
+    "cboe_stock": 38.695,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed Stocktimus CC at the printed $41.53 zone, 100sh under the cap."
@@ -2145,8 +2185,9 @@
     "invalidation": "closes under $13.50",
     "notes": "if assigned basis ~$13.60. Cash $1,400. Morning cut was earnings; ticketed after the print.",
     "new_vs_carry": "new",
-    "live_stock": 14.36,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 14.01,
+    "live_stock_source": "stock-prices-proxy delayed=True price=14.01; cboe_current=14.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -2166,8 +2207,8 @@
       "GRRR noon email did not print a last \u2014 spot_at_idea left blank (not invented)",
       "settled at expiry-close intrinsic (no time value); close=16.059999465942383 strike=14"
     ],
-    "price_asof": "2026-09-24 13:23:08 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/GRRR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/GRRR.json",
@@ -2282,9 +2323,13 @@
       {
         "date": "2026-09-24",
         "close": 14.359999656677246
+      },
+      {
+        "date": "2026-09-25",
+        "close": 14.01
       }
     ],
-    "cboe_stock": 14.38,
+    "cboe_stock": 14.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CSP at the printed $13.50 buy zone, under the cap."
@@ -2316,6 +2361,7 @@
     "new_vs_carry": "new",
     "live_stock": 10.95,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -2337,7 +2383,7 @@
       "historical OTM settled at expiry close=14.550000190734863 (next open 2026-08-24 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:20:00 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/CSIQ.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/CSIQ.json",
@@ -2454,7 +2500,7 @@
         "close": 10.949999809265137
       }
     ],
-    "cboe_stock": 10.755,
+    "cboe_stock": 10.99,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed Lucas CC at the printed $14 zone, 100sh under the cap."
@@ -2484,8 +2530,9 @@
     "invalidation": "closes under $52.65",
     "notes": "if assigned basis ~$54.11, inside Danny $50\u201356. Cash $5,500. One lot only.",
     "new_vs_carry": "new",
-    "live_stock": 60.72,
+    "live_stock": 61.91,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -2504,8 +2551,8 @@
       "missing CBOE contract: contract not in CBOE chain: DRAM 2026-08-28 P55",
       "settled at expiry-close intrinsic (no time value); close=55.83000183105469 strike=55"
     ],
-    "price_asof": "2026-09-24 13:24:17 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:28:58 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/DRAM.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/DRAM.json",
@@ -2622,7 +2669,7 @@
         "close": 60.720001220703125
       }
     ],
-    "cboe_stock": 60.81,
+    "cboe_stock": 61.91,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed CSP at the stated Danny $50\u201356 zone, one lot under the cap."
@@ -2652,8 +2699,9 @@
     "invalidation": "closes under $38.00",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 35.99,
+    "live_stock": 35.75,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -2673,8 +2721,8 @@
       "settled at expiry-close intrinsic (no time value); close=40.7599983215332 strike=39.5",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:24:53 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:29:55 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NKE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NKE.json",
@@ -2789,9 +2837,13 @@
       {
         "date": "2026-09-24",
         "close": 35.9900016784668
+      },
+      {
+        "date": "2026-09-25",
+        "close": 35.75
       }
     ],
-    "cboe_stock": 35.96,
+    "cboe_stock": 35.78,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed Stocktimus CC at the printed $38 zone, 100sh under the cap."
@@ -2823,6 +2875,7 @@
     "new_vs_carry": "new",
     "live_stock": 29.57,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -2843,7 +2896,7 @@
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
     "price_asof": "2026-09-24 13:18:57 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ZETA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ZETA.json",
@@ -2960,7 +3013,7 @@
         "close": 29.56999969482422
       }
     ],
-    "cboe_stock": 29.55,
+    "cboe_stock": 29.76,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed Stocktimus CC at the printed $26.50 zone, 100sh under the cap."
@@ -2990,8 +3043,9 @@
     "invalidation": "closes under $41.70",
     "notes": "new strike vs Aug 14 45c. Call expires Aug 21, before 8/27 earnings. One lot only.",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -3012,8 +3066,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=41.880001068115234 (next open 2026-08-24 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -3128,9 +3182,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
@@ -3162,6 +3220,7 @@
     "new_vs_carry": "new",
     "live_stock": 12.56,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -3182,7 +3241,7 @@
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
     "price_asof": "2026-09-24 13:21:12 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ADUR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ADUR.json",
@@ -3295,7 +3354,7 @@
         "close": 12.5600004196167
       }
     ],
-    "cboe_stock": 12.9806,
+    "cboe_stock": 12.65,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CC at the printed $15 hold, 100sh under the cap."
@@ -3325,8 +3384,9 @@
     "invalidation": "closes under $10.00",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 9.25,
+    "live_stock": 9.32,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -3346,8 +3406,8 @@
       "settled at expiry-close intrinsic (no time value); close=11.670000076293945 strike=11.5",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:25:48 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:12:18 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/OWL.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/OWL.json",
@@ -3452,15 +3512,23 @@
         "close": 10.020000457763672
       },
       {
+        "date": "2026-09-22",
+        "close": 9.880000114440918
+      },
+      {
         "date": "2026-09-23",
         "close": 9.600000381469727
       },
       {
         "date": "2026-09-24",
         "close": 9.25
+      },
+      {
+        "date": "2026-09-25",
+        "close": 9.319999694824219
       }
     ],
-    "cboe_stock": 9.205,
+    "cboe_stock": 9.33,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Low",
     "confidence_reason": "No real buy/support zone \u2014 only a loose $10 kill far under spot."
@@ -3490,8 +3558,9 @@
     "invalidation": "closes under $41.70",
     "notes": "Overlay vs Tue Aug 18 44c. 'If you still hold the IREN shares, sell 1 Aug 21 $42.50 call. The $44 call is done. Do not buy a second lot.'",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -3513,8 +3582,8 @@
       "historical OTM settled at expiry close=41.880001068115234 (next open 2026-08-24 already passed); credit kept",
       "overlay on existing IREN shares (not a new 100sh buy). Reprints 8/19 noon and 8/20 AM not scored separately. Paper fill credit $1.17 (first print); later quote $1.42"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -3625,9 +3694,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "IREN overlay at the $41.70 support, single feed, under the cap."
@@ -3657,8 +3730,9 @@
     "invalidation": "closes under $41.53",
     "notes": "Skip if already long NVO from Mon midday stock+CC. If assigned basis ~$44.77. Cash $4,550.",
     "new_vs_carry": "new",
-    "live_stock": 38.62,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 38.8,
+    "live_stock_source": "stock-prices-proxy delayed=True price=38.8; cboe_current=38.695",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -3678,8 +3752,8 @@
       "settled at expiry-close intrinsic (no time value); close=45.61000061035156 strike=45.5",
       "email: skip if already long NVO from Mon midday stock+CC \u2014 scored independently as its own idea"
     ],
-    "price_asof": "2026-09-24 13:24:09 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NVO.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NVO.json",
@@ -3790,9 +3864,13 @@
       {
         "date": "2026-09-24",
         "close": 38.619998931884766
+      },
+      {
+        "date": "2026-09-25",
+        "close": 38.8
       }
     ],
-    "cboe_stock": 38.56,
+    "cboe_stock": 38.695,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CSP at the printed buy zone below $45.46, under the cap."
@@ -3822,8 +3900,9 @@
     "invalidation": "closes under $41.70",
     "notes": "Same overlay as AM. 'If you still hold the IREN shares and did not sell a call this morning.' Tagged $39.48 today. Do not buy a second lot.",
     "new_vs_carry": "reprint",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -3842,8 +3921,8 @@
       "reprint \u2014 same overlay as 2026-08-19-AM-IREN-4250c; not scored as a second fill",
       "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -3954,9 +4033,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Reprint of the 8/19 AM IREN overlay thesis; not scored separately."
@@ -3988,6 +4071,7 @@
     "new_vs_carry": "new",
     "live_stock": 28.41,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -4010,7 +4094,7 @@
       "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled"
     ],
     "price_asof": "2026-09-24 13:25:24 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/PFE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/PFE.json",
@@ -4119,7 +4203,7 @@
         "close": 28.40999984741211
       }
     ],
-    "cboe_stock": 28.4068,
+    "cboe_stock": 28.6415,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CC at the safe-haven zone, 100sh under the cap."
@@ -4149,8 +4233,9 @@
     "invalidation": "closes under $41.70",
     "notes": "Same overlay as Aug 19. Credit updated 1.17\u21921.42. 'If you still hold the IREN shares and did not sell a call.' Tagged $39.48 yesterday. Do not buy a second lot.",
     "new_vs_carry": "reprint",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -4170,8 +4255,8 @@
       "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5",
       "credit update on same overlay: 1.17 \u2192 1.42; fill assumed at first print 1.17 on 2026-08-19-AM-IREN-4250c"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -4278,9 +4363,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Reprint of the 8/19 AM IREN overlay thesis; not scored separately."
@@ -4312,6 +4401,7 @@
     "new_vs_carry": "new",
     "live_stock": 28.41,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -4334,7 +4424,7 @@
       "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled"
     ],
     "price_asof": "2026-09-24 13:25:24 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/PFE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/PFE.json",
@@ -4439,7 +4529,7 @@
         "close": 28.40999984741211
       }
     ],
-    "cboe_stock": 28.4068,
+    "cboe_stock": 28.6415,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CC alternative at the same $27 zone, 100sh under the cap."
@@ -4469,8 +4559,9 @@
     "invalidation": "daily close under $41.70",
     "notes": "Different strike from 42.50c so scored independently (like PFE 28 vs 28.50). Overlay, 100sh under the cap. Do not add a second PFE 28c from noon.",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -4492,8 +4583,8 @@
       "historical OTM settled at expiry close=41.880001068115234 (next open 2026-08-24 already passed); credit kept",
       "IREN 8/20 noon $42c is a different strike from $42.50c \u2014 scored independently; not a reprint"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -4600,9 +4691,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
@@ -4632,8 +4727,9 @@
     "invalidation": "daily close under $28",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 28.87,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.6,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.6; cboe_current=29.66",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -4654,8 +4750,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=30.469999313354492 (next open 2026-08-31 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:19:13 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/OSCR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/OSCR.json",
@@ -4754,9 +4850,13 @@
       {
         "date": "2026-09-24",
         "close": 28.8700008392334
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.6
       }
     ],
-    "cboe_stock": 28.88,
+    "cboe_stock": 29.66,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny ribbon + TLI still likes OSCR; stock under $32-33 resistance, not in $28-30 zone."
@@ -4788,6 +4888,7 @@
     "new_vs_carry": "new",
     "live_stock": 26.75,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -4809,7 +4910,7 @@
       "historical OTM settled at expiry close=28.739999771118164 (next open 2026-08-31 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:24:29 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/JD.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/JD.json",
@@ -4910,7 +5011,7 @@
         "close": 26.75
       }
     ],
-    "cboe_stock": 26.74,
+    "cboe_stock": 26.53,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI buy zone at the 0.618. Single feed."
@@ -4940,8 +5041,9 @@
     "invalidation": "daily close under $45.50",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 53.85,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 53.65,
+    "live_stock_source": "stock-prices-proxy delayed=True price=53.65; cboe_current=52.54",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -4961,8 +5063,8 @@
       "settled at expiry-close intrinsic (no time value); close=59.0 strike=49",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:15:00 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/CLMT.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/CLMT.json",
@@ -5061,9 +5163,13 @@
       {
         "date": "2026-09-24",
         "close": 53.849998474121094
+      },
+      {
+        "date": "2026-09-25",
+        "close": 53.65
       }
     ],
-    "cboe_stock": 54.16,
+    "cboe_stock": 52.54,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Zero Sum hold. Next monthly, no weekly. Under cap."
@@ -5093,8 +5199,9 @@
     "invalidation": "daily close under $44",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 38.62,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 38.8,
+    "live_stock_source": "stock-prices-proxy delayed=True price=38.8; cboe_current=38.695",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -5115,8 +5222,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=45.61000061035156 (next open 2026-08-31 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:24:09 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NVO.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NVO.json",
@@ -5219,9 +5326,13 @@
       {
         "date": "2026-09-24",
         "close": 38.619998931884766
+      },
+      {
+        "date": "2026-09-25",
+        "close": 38.8
       }
     ],
-    "cboe_stock": 38.56,
+    "cboe_stock": 38.695,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI Top 10 in the $46-47 dip. Next add $48."
@@ -5251,8 +5362,9 @@
     "invalidation": "daily close under $40.77",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -5273,8 +5385,8 @@
       "first invalidation close 2026-08-24 Yahoo close=39.810001373291016 vs {'kind': 'daily', 'price': 40.77, 'raw': 'daily close under $40.77'}",
       "IREN 8/21 noon $43c Aug 28 is a NEW overlay \u2014 scored independently; 8/20 42.50c reprints stay unscored; 8/20 noon 42c is independent"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -5377,9 +5489,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI at the $40.77 0.5 Fib retest. Single feed. Under the cap."
@@ -5411,6 +5527,7 @@
     "new_vs_carry": "new",
     "live_stock": 28.41,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -5433,7 +5550,7 @@
       "8/21 noon PFE $28c Aug 28 is a new week overlay, scored independently of 8/20 AM PFE 28c (unused alt to 8/19 28.50c)"
     ],
     "price_asof": "2026-09-24 13:25:24 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/PFE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/PFE.json",
@@ -5534,7 +5651,7 @@
         "close": 28.40999984741211
       }
     ],
-    "cboe_stock": 28.4068,
+    "cboe_stock": 28.6415,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI safe haven at $28 / $28.80 Wave 3 line. Single feed."
@@ -5566,6 +5683,7 @@
     "new_vs_carry": "new",
     "live_stock": 28.43,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -5587,7 +5705,7 @@
       "historical OTM settled at expiry close=32.97999954223633 (next open 2026-08-31 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:24:51 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/CELH.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/CELH.json",
@@ -5688,7 +5806,7 @@
         "close": 28.43000030517578
       }
     ],
-    "cboe_stock": 28.43,
+    "cboe_stock": 27.98,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny weekly red candle + TLI Wave 3. Under the cap. Not a fresh dual add zone."
@@ -5720,6 +5838,7 @@
     "new_vs_carry": "new",
     "live_stock": 2.53,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -5741,7 +5860,7 @@
       "historical OTM settled at expiry close=3.2899999618530273 (next open 2026-08-31 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:25:34 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/OPEN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/OPEN.json",
@@ -5842,7 +5961,7 @@
         "close": 2.5299999713897705
       }
     ],
-    "cboe_stock": 2.5301,
+    "cboe_stock": 2.58,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI 200 WMA / buy under $5. Single feed."
@@ -5872,8 +5991,9 @@
     "invalidation": "daily close under $17.70",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 16.8,
+    "live_stock": 16.58,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -5894,8 +6014,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=18.059999465942383 (next open 2026-08-31 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:26:13 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:32:41 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/SOFI.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/SOFI.json",
@@ -5996,7 +6116,7 @@
         "close": 16.799999237060547
       }
     ],
-    "cboe_stock": 16.78,
+    "cboe_stock": 16.55,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny red ribbon at the top of $15.9\u201318.8 support. Single feed."
@@ -6026,8 +6146,9 @@
     "invalidation": "daily close under $30",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 29.28,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.42,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -6047,8 +6168,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-08-26 Yahoo close=29.829999923706055 vs {'kind': 'daily', 'price': 30.0, 'raw': 'daily close under $30'}"
     ],
-    "price_asof": "2026-09-24 13:24:02 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -6143,9 +6264,13 @@
       {
         "date": "2026-09-24",
         "close": 29.280000686645508
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.42
       }
     ],
-    "cboe_stock": 29.325,
+    "cboe_stock": 29.3608,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "High",
     "confidence_reason": "TLI $30\u201331 and Danny $30 support, both at the zone, under the cap."
@@ -6177,6 +6302,7 @@
     "new_vs_carry": "new",
     "live_stock": 12.56,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -6197,7 +6323,7 @@
       "first invalidation close 2026-08-27 Yahoo close=15.09000015258789 vs {'kind': 'daily', 'price': 15.15, 'raw': 'daily close under $15.15'}"
     ],
     "price_asof": "2026-09-24 13:21:12 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ADUR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ADUR.json",
@@ -6290,7 +6416,7 @@
         "close": 12.5600004196167
       }
     ],
-    "cboe_stock": 12.9806,
+    "cboe_stock": 12.65,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI 0.38 tests and Chemelot visit. Next monthly, no weekly. Single feed."
@@ -6322,6 +6448,7 @@
     "new_vs_carry": "new",
     "live_stock": 1.64,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -6343,7 +6470,7 @@
       "historical OTM settled at expiry close=1.8300000429153442 (next open 2026-08-31 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:18:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/RR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/RR.json",
@@ -6440,7 +6567,7 @@
         "close": 1.6399999856948853
       }
     ],
-    "cboe_stock": 1.64,
+    "cboe_stock": 1.6687,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI wedge-break entry at $2. Single feed. Under the cap."
@@ -6470,8 +6597,9 @@
     "invalidation": "daily close under $8",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 7.6,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 7.64,
+    "live_stock_source": "stock-prices-proxy delayed=True price=7.64; cboe_current=7.6582",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -6492,8 +6620,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=7.900000095367432 (next open 2026-08-31 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:25:46 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ONDS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ONDS.json",
@@ -6588,9 +6716,13 @@
       {
         "date": "2026-09-24",
         "close": 7.599999904632568
+      },
+      {
+        "date": "2026-09-25",
+        "close": 7.64
       }
     ],
-    "cboe_stock": 7.59,
+    "cboe_stock": 7.6582,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI third buy zone at $8. Single feed."
@@ -6620,8 +6752,9 @@
     "invalidation": "daily close under $13.55",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 14.36,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 14.01,
+    "live_stock_source": "stock-prices-proxy delayed=True price=14.01; cboe_current=14.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -6641,8 +6774,8 @@
       "settled at expiry-close intrinsic (no time value); close=14.40999984741211 strike=14",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:23:08 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/GRRR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/GRRR.json",
@@ -6733,9 +6866,13 @@
       {
         "date": "2026-09-24",
         "close": 14.359999656677246
+      },
+      {
+        "date": "2026-09-25",
+        "close": 14.01
       }
     ],
-    "cboe_stock": 14.38,
+    "cboe_stock": 14.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI hold / Wave 3 sitting on the $13.55 add. Single feed. Skip if already four live."
@@ -6767,6 +6904,7 @@
     "new_vs_carry": "new",
     "live_stock": 8.64,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -6788,7 +6926,7 @@
       "historical OTM settled at expiry close=8.079999923706055 (next open 2026-09-07 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:20:46 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IBRX.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IBRX.json",
@@ -6881,7 +7019,7 @@
         "close": 8.640000343322754
       }
     ],
-    "cboe_stock": 8.595,
+    "cboe_stock": 8.455,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny daily at the $8.23 resume line. Single feed. Under the cap."
@@ -6911,15 +7049,16 @@
     "invalidation": "daily close under $11",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 11.26,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 11.04,
+    "live_stock_source": "stock-prices-proxy delayed=True price=11.04; cboe_current=11.26",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
     "live_option_last": null,
     "live_option_symbol": null,
     "first_invalidation_date": null,
-    "min_close_since": 11.260000228881836,
+    "min_close_since": 11.04,
     "max_close_since": 12.675000190734863,
     "paper_status": "expired",
     "paper_pnl": 18.0,
@@ -6933,8 +7072,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=11.609999656677246 (next open 2026-09-21 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:10:05 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ZVRA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ZVRA.json",
@@ -7021,9 +7160,13 @@
       {
         "date": "2026-09-24",
         "close": 11.260000228881836
+      },
+      {
+        "date": "2026-09-25",
+        "close": 11.04
       }
     ],
-    "cboe_stock": 11.563,
+    "cboe_stock": 11.26,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI triangle under the $12.15 50-DMA. Next monthly. Single feed."
@@ -7053,8 +7196,9 @@
     "invalidation": "daily close under $29.62",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 29.28,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.42,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -7074,8 +7218,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-08-28 Yahoo close=28.84000015258789 vs {'kind': 'daily', 'price': 29.62, 'raw': 'daily close under $29.62'}"
     ],
-    "price_asof": "2026-09-24 13:24:02 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -7162,9 +7306,13 @@
       {
         "date": "2026-09-24",
         "close": 29.280000686645508
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.42
       }
     ],
-    "cboe_stock": 29.325,
+    "cboe_stock": 29.3608,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "High",
     "confidence_reason": "TLI $30 and Danny yellow, both at the zone, under the cap."
@@ -7196,6 +7344,7 @@
     "new_vs_carry": "new",
     "live_stock": 23.86,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -7217,7 +7366,7 @@
       "historical OTM settled at expiry close=24.850000381469727 (next open 2026-09-07 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:24:24 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/KHC.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/KHC.json",
@@ -7302,7 +7451,7 @@
         "close": 23.860000610351562
       }
     ],
-    "cboe_stock": 23.77,
+    "cboe_stock": 23.63,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI safe-haven at the $24 0.5 Fib / 50-WMA. Single feed. Under the cap."
@@ -7334,6 +7483,7 @@
     "new_vs_carry": "new",
     "live_stock": 29.57,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -7354,7 +7504,7 @@
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
     "price_asof": "2026-09-24 13:18:57 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ZETA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ZETA.json",
@@ -7439,7 +7589,7 @@
         "close": 29.56999969482422
       }
     ],
-    "cboe_stock": 29.55,
+    "cboe_stock": 29.76,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "High",
     "confidence_reason": "TLI hold/flip $30 and Danny red candle at $30 / invalid $28.80, both at the zone, under the cap."
@@ -7469,8 +7619,9 @@
     "invalidation": "daily close under $45",
     "notes": "Fri 8/28 pre-open. After Aug28 NVO lots expire. Credit 1.06 (CBOE last; 0.97x1.05).",
     "new_vs_carry": "new",
-    "live_stock": 38.62,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 38.8,
+    "live_stock_source": "stock-prices-proxy delayed=True price=38.8; cboe_current=38.695",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -7490,8 +7641,8 @@
       "settled at expiry-close intrinsic (no time value); close=46.599998474121094 strike=46.0",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:24:09 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NVO.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NVO.json",
@@ -7574,9 +7725,13 @@
       {
         "date": "2026-09-24",
         "close": 38.619998931884766
+      },
+      {
+        "date": "2026-09-25",
+        "close": 38.8
       }
     ],
-    "cboe_stock": 38.56,
+    "cboe_stock": 38.695,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI BUY ALERT @ $46. Single feed. Under the cap."
@@ -7606,8 +7761,9 @@
     "invalidation": "daily close under $13",
     "notes": "Fri 8/28 midday. Credit 0.42 (CBOE last; 0.35x0.55).",
     "new_vs_carry": "new",
-    "live_stock": 14.36,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 14.01,
+    "live_stock_source": "stock-prices-proxy delayed=True price=14.01; cboe_current=14.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -7628,8 +7784,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=13.789999961853027 (next open 2026-09-07 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:23:08 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/GRRR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/GRRR.json",
@@ -7708,9 +7864,13 @@
       {
         "date": "2026-09-24",
         "close": 14.359999656677246
+      },
+      {
+        "date": "2026-09-25",
+        "close": 14.01
       }
     ],
-    "cboe_stock": 14.38,
+    "cboe_stock": 14.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI support-range hold (200-DMA / 0.5 Fib to amber $16.25). Single feed. Under the cap."
@@ -7740,8 +7900,9 @@
     "invalidation": "daily close under $16.50",
     "notes": "Credit 0.51 (CBOE last; 0.50x0.52). Weekly ~1.8% on $1,787.",
     "new_vs_carry": "new",
-    "live_stock": 16.8,
+    "live_stock": 16.58,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -7762,8 +7923,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=17.31999969482422 (next open 2026-09-14 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:26:13 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:32:41 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/SOFI.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/SOFI.json",
@@ -7844,7 +8005,7 @@
         "close": 16.799999237060547
       }
     ],
-    "cboe_stock": 16.78,
+    "cboe_stock": 16.55,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny Stage 1 base $14\u2013$18, stock inside the base, under the cap. TLI still wants $25 \u2014 not overlap. One lot."
@@ -7874,8 +8035,9 @@
     "invalidation": "daily close under $28",
     "notes": "Credit 1.31 (CBOE last; 1.16x1.35). Weekly ~2.8% on $2,993.",
     "new_vs_carry": "new",
-    "live_stock": 28.87,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.6,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.6; cboe_current=29.66",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -7895,8 +8057,8 @@
       "settled at expiry-close intrinsic (no time value); close=32.77000045776367 strike=30.0",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:19:13 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/OSCR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/OSCR.json",
@@ -7971,9 +8133,13 @@
       {
         "date": "2026-09-24",
         "close": 28.8700008392334
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.6
       }
     ],
-    "cboe_stock": 28.88,
+    "cboe_stock": 29.66,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny nearby support $28\u2013$30 and TLI $28\u2013$30 healthy pullback, both at the hold range, under the cap. TLI's actual buy zone is still $21\u2013$25, so this is not High. One lot."
@@ -8005,6 +8171,7 @@
     "new_vs_carry": "new",
     "live_stock": 28.41,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -8027,7 +8194,7 @@
       "PFE Sep11 is a NEW week overlay, scored independently of 8/19 28.50c and 8/20/8/21 Aug28 28c"
     ],
     "price_asof": "2026-09-24 13:25:24 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/PFE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/PFE.json",
@@ -8104,7 +8271,7 @@
         "close": 28.40999984741211
       }
     ],
-    "cboe_stock": 28.4068,
+    "cboe_stock": 28.6415,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI safe-haven retest of the bull-case line $27.45, +6.1% div, under the cap. Single feed. One lot."
@@ -8134,8 +8301,9 @@
     "invalidation": "daily close under $7.00",
     "notes": "Credit 0.31 (CBOE 0.25x0.37). Weekly ~3.0% on $720. Day low $7.18 tagged TLI $7.",
     "new_vs_carry": "new",
-    "live_stock": 7.6,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 7.64,
+    "live_stock_source": "stock-prices-proxy delayed=True price=7.64; cboe_current=7.6582",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -8156,8 +8324,8 @@
       "close<=strike: call expires worthless, credit kept",
       "historical OTM settled at expiry close=7.230000019073486 (next open 2026-09-14 already passed); credit kept"
     ],
-    "price_asof": "2026-09-24 13:25:46 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ONDS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ONDS.json",
@@ -8232,9 +8400,13 @@
       {
         "date": "2026-09-24",
         "close": 7.599999904632568
+      },
+      {
+        "date": "2026-09-25",
+        "close": 7.64
       }
     ],
-    "cboe_stock": 7.59,
+    "cboe_stock": 7.6582,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "High",
     "confidence_reason": "TLI in the buy zone and wants $7 to hold; Danny support $6 / $6.60 / $7.20; under the cap. One lot."
@@ -8266,6 +8438,7 @@
     "new_vs_carry": "new",
     "live_stock": 10.43,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -8286,7 +8459,7 @@
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
     "price_asof": "2026-09-24 13:25:03 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NOK.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NOK.json",
@@ -8363,7 +8536,7 @@
         "close": 10.430000305175781
       }
     ],
-    "cboe_stock": 10.43,
+    "cboe_stock": 10.3502,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny $9.80 support (day low $9.82). Single feed. Under the cap. One lot."
@@ -8393,8 +8566,9 @@
     "invalidation": "daily close under $112",
     "notes": "Debit mid 2.43 (CBOE 2.30x2.56). ~50%/wk if tags $117 by Sep11. Max loss 100% debit.",
     "new_vs_carry": "new",
-    "live_stock": 110.63,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 109.74,
+    "live_stock_source": "stock-prices-proxy delayed=True price=109.74; cboe_current=109.74",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -8414,8 +8588,8 @@
       "long-call invalidation: valued at intrinsic only \u2014 time value unknown FLAG",
       "first invalidation close 2026-09-02 Yahoo close=111.80999755859375 vs {'kind': 'daily', 'price': 112.0, 'raw': 'daily close under $112'}"
     ],
-    "price_asof": "2026-09-24 13:23:03 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:25:58 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/BABA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/BABA.json",
@@ -8486,9 +8660,13 @@
       {
         "date": "2026-09-24",
         "close": 110.62999725341797
+      },
+      {
+        "date": "2026-09-25",
+        "close": 109.74
       }
     ],
-    "cboe_stock": 110.68,
+    "cboe_stock": 109.74,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI rotate-INTO + add zone $112\u2013117; stock in the zone. Over the share cap so long call. One lot."
@@ -8520,6 +8698,7 @@
     "new_vs_carry": "new",
     "live_stock": 92.05,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -8540,7 +8719,7 @@
       "first invalidation close 2026-09-08 Yahoo close=100.4800033569336 vs {'kind': 'daily', 'price': 102.0, 'raw': 'daily close under $102'}"
     ],
     "price_asof": "2026-09-24 13:21:56 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/UPS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/UPS.json",
@@ -8611,9 +8790,13 @@
       {
         "date": "2026-09-24",
         "close": 92.05000305175781
+      },
+      {
+        "date": "2026-09-25",
+        "close": 93.95999908447266
       }
     ],
-    "cboe_stock": 92.05,
+    "cboe_stock": 93.96,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI holding 50 WMA $102 ~3 weeks; open/add; 6.2% div. Over the share cap so long call. One lot."
@@ -8643,8 +8826,9 @@
     "invalidation": "daily close under $162",
     "notes": "Debit mid 3.675 (CBOE 3.40x3.95). ~17.5%/wk if tags $172 by Sep11. Max loss 100% debit.",
     "new_vs_carry": "new",
-    "live_stock": 194.26,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 201.97,
+    "live_stock_source": "stock-prices-proxy delayed=True price=201.97; cboe_current=201.7395",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -8652,7 +8836,7 @@
     "live_option_symbol": null,
     "first_invalidation_date": null,
     "min_close_since": 168.57000732421875,
-    "max_close_since": 198.27000427246094,
+    "max_close_since": 201.97,
     "paper_status": "expired",
     "paper_pnl": 1079.0,
     "paper_roc_pct": 2.932065217391304,
@@ -8663,8 +8847,8 @@
       "missing CBOE contract: contract not in CBOE chain: QCOM 2026-09-11 C167.5",
       "settled at expiry-close intrinsic (no time value); close=181.97000122070312 strike=167.5"
     ],
-    "price_asof": "2026-09-24 13:26:12 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/QCOM.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/QCOM.json",
@@ -8735,9 +8919,13 @@
       {
         "date": "2026-09-24",
         "close": 194.25999450683594
+      },
+      {
+        "date": "2026-09-25",
+        "close": 201.97
       }
     ],
-    "cboe_stock": 193.5697,
+    "cboe_stock": 201.7395,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny vol hole marked the low; bullish red ribbon; stock in the $162 support area. Over the share cap so long call. One lot."
@@ -8769,6 +8957,7 @@
     "new_vs_carry": "new",
     "live_stock": 29.57,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -8790,7 +8979,7 @@
       "historical OTM settled at expiry close=30.18000030517578 (next open 2026-09-14 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:18:57 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ZETA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ZETA.json",
@@ -8847,7 +9036,7 @@
         "close": 29.56999969482422
       }
     ],
-    "cboe_stock": 29.55,
+    "cboe_stock": 29.76,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny consolidating $30-$32 sitting on $30 support; single feed; under the cap. One lot."
@@ -8879,6 +9068,7 @@
     "new_vs_carry": "new",
     "live_stock": 23.86,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -8900,7 +9090,7 @@
       "historical OTM settled at expiry close=24.600000381469727 (next open 2026-09-14 already passed); credit kept"
     ],
     "price_asof": "2026-09-24 13:24:24 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/KHC.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/KHC.json",
@@ -8953,7 +9143,7 @@
         "close": 23.860000610351562
       }
     ],
-    "cboe_stock": 23.77,
+    "cboe_stock": 23.63,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI Buy Zone / 50 WMA at $24.22; stock tested the zone; single feed; under the cap. One lot."
@@ -8983,8 +9173,9 @@
     "invalidation": "daily close under $41.50",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 38.62,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 38.8,
+    "live_stock_source": "stock-prices-proxy delayed=True price=38.8; cboe_current=38.695",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -9004,8 +9195,8 @@
       "settled at expiry-close intrinsic (no time value); close=43.2400016784668 strike=43.0",
       "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:24:09 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NVO.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NVO.json",
@@ -9052,9 +9243,13 @@
       {
         "date": "2026-09-24",
         "close": 38.619998931884766
+      },
+      {
+        "date": "2026-09-25",
+        "close": 38.8
       }
     ],
-    "cboe_stock": 38.56,
+    "cboe_stock": 38.695,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI Buy Zone ~$43.48 (0.5 Fib); stock now in/under zone; single feed; under the cap. One lot."
@@ -9084,8 +9279,9 @@
     "invalidation": "daily close under $25.20",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 29.28,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.42,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -9095,19 +9291,19 @@
     "min_close_since": 27.510000228881836,
     "max_close_since": 30.43000030517578,
     "paper_status": "leftover_shares",
-    "paper_pnl": 269.5,
-    "paper_roc_pct": 0.09891723251972839,
-    "paper_acct_pct": 0.00539,
-    "stock_path_pnl": 203.5,
+    "paper_pnl": 283.5,
+    "paper_roc_pct": 0.10405579005322077,
+    "paper_acct_pct": 0.00567,
+    "stock_path_pnl": 217.5,
     "option_path_pnl": 66.0,
     "flags": [
       "missing CBOE contract: contract not in CBOE chain: HIMS 2026-09-18 C28.0",
       "settled at expiry-close intrinsic (no time value); close=27.989999771118164 strike=28.0",
       "close<=strike: call expires worthless, credit kept",
-      "OTM CC leftover shares ROLLED (keep parent open); MTM mark=29.28; expiry_close=27.989999771118164; share capital stays on this lot; see roll ticket"
+      "OTM CC leftover shares ROLLED (keep parent open); MTM mark=29.42; expiry_close=27.989999771118164; share capital stays on this lot; see roll ticket"
     ],
-    "price_asof": "2026-09-24 13:24:02 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -9154,9 +9350,13 @@
       {
         "date": "2026-09-24",
         "close": 29.280000686645508
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.42
       }
     ],
-    "cboe_stock": 29.325,
+    "cboe_stock": 29.3608,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny $27 support / $27\u201332 range; stock at support; single feed; under the cap. One lot."
@@ -9168,7 +9368,7 @@
     "date_proposed": "2026-09-18",
     "session": "AM",
     "date_opened": "2026-09-18",
-    "date_closed": null,
+    "date_closed": "2026-09-25",
     "taken": "proposed",
     "ticker": "TOST",
     "creator": "Stocktimus",
@@ -9186,25 +9386,29 @@
     "invalidation": "daily close under $29",
     "notes": "Credit mid 1.12 (CBOE 0.93x1.31). ~3.7%/wk on cash. Max lot ok.",
     "new_vs_carry": "new",
-    "live_stock": 30.11,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.19,
-    "live_option_ask": 0.29,
-    "live_option_mid": 0.24,
-    "live_option_last": 0.19,
+    "live_stock": 30.6,
+    "live_stock_source": "stock-prices-proxy delayed=True price=30.6; cboe_current=30.845",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.81,
+    "live_option_ask": 0.97,
+    "live_option_mid": 0.89,
+    "live_option_last": 0.88,
     "live_option_symbol": "TOST260925C00030000",
     "first_invalidation_date": null,
-    "min_close_since": 29.739999771118164,
-    "max_close_since": 30.110000610351562,
-    "paper_status": "open",
-    "paper_pnl": 81.0,
-    "paper_roc_pct": 0.0268389662027833,
-    "paper_acct_pct": 0.00162,
-    "stock_path_pnl": -7.0,
-    "option_path_pnl": 88.0,
-    "flags": [],
-    "price_asof": "2026-09-24 13:14:08 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "min_close_since": 29.649999618530273,
+    "max_close_since": 30.6,
+    "paper_status": "expired",
+    "paper_pnl": 94.0,
+    "paper_roc_pct": 0.031146454605699137,
+    "paper_acct_pct": 0.00188,
+    "stock_path_pnl": 42.0,
+    "option_path_pnl": 52.0,
+    "flags": [
+      "settled at expiry-close intrinsic (no time value); close=30.6 strike=30.0",
+      "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
+    ],
+    "price_asof": "2026-09-25 13:25:42 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/TOST.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/TOST.json",
@@ -9221,15 +9425,23 @@
         "close": 29.799999237060547
       },
       {
+        "date": "2026-09-22",
+        "close": 29.649999618530273
+      },
+      {
         "date": "2026-09-23",
         "close": 29.809999465942383
       },
       {
         "date": "2026-09-24",
         "close": 30.110000610351562
+      },
+      {
+        "date": "2026-09-25",
+        "close": 30.6
       }
     ],
-    "cboe_stock": 29.615,
+    "cboe_stock": 30.845,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI ~$30 support (200DMA/0.5 Fib); stock at the zone. One lot under cap."
@@ -9259,25 +9471,30 @@
     "invalidation": "daily close under $97",
     "notes": "Credit mid 3.275 (CBOE 2.50x4.05 wide). ~3.3%/wk on cash.",
     "new_vs_carry": "new",
-    "live_stock": 100.73,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 3.25,
-    "live_option_ask": 4.6,
-    "live_option_mid": 3.925,
-    "live_option_last": 4.13,
+    "live_stock": 99.55,
+    "live_stock_source": "stock-prices-proxy delayed=True price=99.55; cboe_current=99.955",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.15,
+    "live_option_ask": 0.9,
+    "live_option_mid": 0.0,
+    "live_option_last": 0.75,
     "live_option_symbol": "SE260925C00100000",
     "first_invalidation_date": null,
-    "min_close_since": 100.7300033569336,
-    "max_close_since": 103.29000091552734,
-    "paper_status": "open",
-    "paper_pnl": -16.5,
-    "paper_roc_pct": -0.0016458852867830423,
-    "paper_acct_pct": -0.00033,
-    "stock_path_pnl": 48.0,
-    "option_path_pnl": -64.5,
-    "flags": [],
-    "price_asof": "2026-09-24 13:20:00 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "min_close_since": 99.55,
+    "max_close_since": 103.66999816894531,
+    "paper_status": "leftover_shares",
+    "paper_pnl": 258.0,
+    "paper_roc_pct": 0.025735660847880298,
+    "paper_acct_pct": 0.00516,
+    "stock_path_pnl": -70.0,
+    "option_path_pnl": 328.0,
+    "flags": [
+      "settled at expiry-close intrinsic (no time value); close=99.55 strike=100.0",
+      "close<=strike: call expires worthless, credit kept",
+      "OTM CC leftover shares OPEN; stock exit = next RTH open 2026-09-28; MTM mark=99.55 (not a final stock exit); expiry_close=99.55"
+    ],
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/SE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/SE.json",
@@ -9294,15 +9511,23 @@
         "close": 102.6500015258789
       },
       {
+        "date": "2026-09-22",
+        "close": 103.66999816894531
+      },
+      {
         "date": "2026-09-23",
         "close": 103.29000091552734
       },
       {
         "date": "2026-09-24",
         "close": 100.7300033569336
+      },
+      {
+        "date": "2026-09-25",
+        "close": 99.55
       }
     ],
-    "cboe_stock": 102.0,
+    "cboe_stock": 99.955,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI BUY ALERT $106; stock ~$100 under alert. One lot under $12.5k cap."
@@ -9332,25 +9557,30 @@
     "invalidation": "daily close under $107",
     "notes": "Credit mid 4.275 (CBOE 4.10x4.45). ~3.8%/wk on cash.",
     "new_vs_carry": "new",
-    "live_stock": 110.63,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 1.4,
-    "live_option_ask": 1.45,
-    "live_option_mid": 1.4249999999999998,
-    "live_option_last": 1.48,
+    "live_stock": 109.74,
+    "live_stock_source": "stock-prices-proxy delayed=True price=109.74; cboe_current=109.74",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.0,
+    "live_option_ask": 0.02,
+    "live_option_mid": 0.0,
+    "live_option_last": 0.01,
     "live_option_symbol": "BABA260925C00110000",
     "first_invalidation_date": null,
-    "min_close_since": 110.62999725341797,
+    "min_close_since": 109.74,
     "max_close_since": 116.30999755859375,
-    "paper_status": "open",
-    "paper_pnl": 140.5,
-    "paper_roc_pct": 0.012535688793718773,
-    "paper_acct_pct": 0.00281,
-    "stock_path_pnl": -145.0,
-    "option_path_pnl": 285.5,
-    "flags": [],
-    "price_asof": "2026-09-24 13:23:03 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "paper_status": "leftover_shares",
+    "paper_pnl": 194.0,
+    "paper_roc_pct": 0.01730906495360457,
+    "paper_acct_pct": 0.00388,
+    "stock_path_pnl": -234.0,
+    "option_path_pnl": 428.0,
+    "flags": [
+      "settled at expiry-close intrinsic (no time value); close=109.74 strike=110.0",
+      "close<=strike: call expires worthless, credit kept",
+      "OTM CC leftover shares OPEN; stock exit = next RTH open 2026-09-28; MTM mark=109.74 (not a final stock exit); expiry_close=109.74"
+    ],
+    "price_asof": "2026-09-25 13:25:58 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/BABA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/BABA.json",
@@ -9377,9 +9607,13 @@
       {
         "date": "2026-09-24",
         "close": 110.62999725341797
+      },
+      {
+        "date": "2026-09-25",
+        "close": 109.74
       }
     ],
-    "cboe_stock": 110.68,
+    "cboe_stock": 109.74,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI tradeable: still in buy zone after $107 Fib test; next $117. One lot under cap."
@@ -9391,7 +9625,7 @@
     "date_proposed": "2026-09-18",
     "session": "AM",
     "date_opened": "2026-09-18",
-    "date_closed": null,
+    "date_closed": "2026-09-25",
     "taken": "proposed",
     "ticker": "HOOD",
     "creator": "Stocktimus",
@@ -9409,25 +9643,29 @@
     "invalidation": "daily close under $108",
     "notes": "Credit mid 4.525 (CBOE 4.45x4.60). ~4.0%/wk on cash.",
     "new_vs_carry": "new",
-    "live_stock": 120.82,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 8.75,
-    "live_option_ask": 9.05,
-    "live_option_mid": 8.9,
-    "live_option_last": 8.75,
+    "live_stock": 119.4,
+    "live_stock_source": "stock-prices-proxy delayed=True price=119.4; cboe_current=118.66",
+    "quote_quality": "delayed",
+    "live_option_bid": 7.25,
+    "live_option_ask": 7.5,
+    "live_option_mid": 7.375,
+    "live_option_last": 7.4,
     "live_option_symbol": "HOOD260925C00112000",
     "first_invalidation_date": null,
-    "min_close_since": 119.81999969482422,
+    "min_close_since": 119.4,
     "max_close_since": 124.25,
-    "paper_status": "open",
-    "paper_pnl": 338.0,
-    "paper_roc_pct": 0.029892986645440878,
-    "paper_acct_pct": 0.00676,
-    "stock_path_pnl": 775.0,
-    "option_path_pnl": -437.0,
-    "flags": [],
-    "price_asof": "2026-09-24 13:25:13 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "paper_status": "expired",
+    "paper_pnl": 346.0,
+    "paper_roc_pct": 0.030600512956575572,
+    "paper_acct_pct": 0.00692,
+    "stock_path_pnl": 633.0,
+    "option_path_pnl": -287.0,
+    "flags": [
+      "settled at expiry-close intrinsic (no time value); close=119.4 strike=112.0",
+      "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
+    ],
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HOOD.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HOOD.json",
@@ -9454,9 +9692,13 @@
       {
         "date": "2026-09-24",
         "close": 120.81999969482422
+      },
+      {
+        "date": "2026-09-25",
+        "close": 119.4
       }
     ],
-    "cboe_stock": 120.6152,
+    "cboe_stock": 118.66,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Danny reclaim $112.20; stock just above. Support $108/$100. One lot under cap."
@@ -9486,15 +9728,16 @@
     "invalidation": "daily close under $72",
     "notes": "Credit mid 1.27 (CBOE). ~1.8%/wk on cash. Max lot ok.",
     "new_vs_carry": "new",
-    "live_stock": 71.72,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.34,
-    "live_option_ask": 0.36,
-    "live_option_mid": 0.35,
-    "live_option_last": 0.37,
+    "live_stock": 71.145,
+    "live_stock_source": "stock-prices-proxy delayed=True price=71.145; cboe_current=71.1",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.0,
+    "live_option_ask": 0.01,
+    "live_option_mid": 0.01,
+    "live_option_last": 0.01,
     "live_option_symbol": "NFLX260925C00072000",
     "first_invalidation_date": "2026-09-18",
-    "min_close_since": 71.36000061035156,
+    "min_close_since": 71.145,
     "max_close_since": 73.36000061035156,
     "paper_status": "invalidated",
     "paper_pnl": 97.5,
@@ -9506,8 +9749,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-09-18 Yahoo close=71.79000091552734 vs {'kind': 'daily', 'price': 72.0, 'raw': 'daily close under $72'}"
     ],
-    "price_asof": "2026-09-24 13:25:50 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NFLX.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NFLX.json",
@@ -9534,9 +9777,13 @@
       {
         "date": "2026-09-24",
         "close": 71.72000122070312
+      },
+      {
+        "date": "2026-09-25",
+        "close": 71.145
       }
     ],
-    "cboe_stock": 71.62,
+    "cboe_stock": 71.1,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI buy if $72\u2013$74 holds; AM was under (~$71.4), noon prints in zone."
@@ -9566,15 +9813,16 @@
     "invalidation": "daily close under $3.80",
     "notes": "Source: Rabbit's Cave. Credit mid 0.165 (CBOE). ~4.2%/wk on cash.",
     "new_vs_carry": "new",
-    "live_stock": 3.245,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 3.165,
+    "live_stock_source": "stock-prices-proxy delayed=True price=3.165; cboe_current=3.1996",
+    "quote_quality": "delayed",
     "live_option_bid": 0.0,
     "live_option_ask": 0.01,
     "live_option_mid": 0.01,
     "live_option_last": 0.01,
     "live_option_symbol": "EOSE260925C00004000",
     "first_invalidation_date": "2026-09-23",
-    "min_close_since": 3.244999885559082,
+    "min_close_since": 3.1649999618530273,
     "max_close_since": 4.070000171661377,
     "paper_status": "invalidated",
     "paper_pnl": -20.0,
@@ -9586,8 +9834,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-09-23 Yahoo close=3.5799999237060547 vs {'kind': 'daily', 'price': 3.8, 'raw': 'daily close under $3.80'}"
     ],
-    "price_asof": "2026-09-24 13:25:10 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/EOSE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/EOSE.json",
@@ -9614,9 +9862,13 @@
       {
         "date": "2026-09-24",
         "close": 3.244999885559082
+      },
+      {
+        "date": "2026-09-25",
+        "close": 3.1649999618530273
       }
     ],
-    "cboe_stock": 3.27,
+    "cboe_stock": 3.1996,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Rabbit's Cave: $3.80 weekly / $3.91 cloud-Fib / ~$3.88 purple support; stock at the shelf."
@@ -9646,25 +9898,26 @@
     "invalidation": "daily close under $16.35",
     "notes": "No weeklies; next monthly Oct16. Credit mid 1.35 (CBOE 1.25x1.45). ~2.2%/wk equiv on cash. TLI hold $16.35 / target $20.87.",
     "new_vs_carry": "new",
-    "live_stock": 17.88,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 1.1,
-    "live_option_ask": 1.45,
-    "live_option_mid": 1.275,
-    "live_option_last": 1.35,
+    "live_stock": 18.47,
+    "live_stock_source": "stock-prices-proxy delayed=True price=18.47; cboe_current=18.7102",
+    "quote_quality": "delayed",
+    "live_option_bid": 2.1,
+    "live_option_ask": 2.4,
+    "live_option_mid": 2.25,
+    "live_option_last": 2.31,
     "live_option_symbol": "MRAM261016C00017500",
     "first_invalidation_date": null,
     "min_close_since": 17.09000015258789,
-    "max_close_since": 17.8799991607666,
+    "max_close_since": 18.47,
     "paper_status": "open",
-    "paper_pnl": 78.5,
-    "paper_roc_pct": 0.04571927781013395,
-    "paper_acct_pct": 0.00157,
-    "stock_path_pnl": 71.0,
-    "option_path_pnl": 7.5,
+    "paper_pnl": 40.0,
+    "paper_roc_pct": 0.023296447291787998,
+    "paper_acct_pct": 0.0008,
+    "stock_path_pnl": 130.0,
+    "option_path_pnl": -90.0,
     "flags": [],
-    "price_asof": "2026-09-24 13:25:18 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/MRAM.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/MRAM.json",
@@ -9683,9 +9936,13 @@
       {
         "date": "2026-09-24",
         "close": 17.8799991607666
+      },
+      {
+        "date": "2026-09-25",
+        "close": 18.47
       }
     ],
-    "cboe_stock": 16.5,
+    "cboe_stock": 18.7102,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI hold above $16.35 toward $20.87. No weeklies; next monthly. One lot under cap."
@@ -9715,15 +9972,16 @@
     "invalidation": "daily close under $47",
     "notes": "Credit mid 1.72 (CBOE). ~3.6%/wk on cash. TLI break/hold $47. Don't chase above $49.",
     "new_vs_carry": "new",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.31,
-    "live_option_ask": 0.35,
-    "live_option_mid": 0.32999999999999996,
-    "live_option_last": 0.33,
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.0,
+    "live_option_ask": 0.01,
+    "live_option_mid": 0.01,
+    "live_option_last": 0.01,
     "live_option_symbol": "IREN260925C00047500",
     "first_invalidation_date": "2026-09-24",
-    "min_close_since": 46.150001525878906,
+    "min_close_since": 44.125,
     "max_close_since": 48.54999923706055,
     "paper_status": "invalidated",
     "paper_pnl": 60.0,
@@ -9735,8 +9993,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-09-24 Yahoo close=46.150001525878906 vs {'kind': 'daily', 'price': 47.0, 'raw': 'daily close under $47'}"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -9759,9 +10017,13 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
-    "cboe_stock": 46.13,
+    "cboe_stock": 44.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI break/hold $47 toward $67. One lot under cap."
@@ -9791,25 +10053,30 @@
     "invalidation": "daily close under $69",
     "notes": "Credit mid 1.11 (CBOE). ~1.5%/wk on cash. Prior noon lot invalidated Fri; re-entry.",
     "new_vs_carry": "new",
-    "live_stock": 71.72,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.11,
-    "live_option_ask": 0.12,
-    "live_option_mid": 0.11499999999999999,
-    "live_option_last": 0.11,
+    "live_stock": 71.145,
+    "live_stock_source": "stock-prices-proxy delayed=True price=71.145; cboe_current=71.1",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.0,
+    "live_option_ask": 0.01,
+    "live_option_mid": 0.0,
+    "live_option_last": 0.01,
     "live_option_symbol": "NFLX260925C00073000",
     "first_invalidation_date": null,
-    "min_close_since": 71.36000061035156,
+    "min_close_since": 71.145,
     "max_close_since": 73.36000061035156,
-    "paper_status": "open",
-    "paper_pnl": -33.5,
-    "paper_roc_pct": -0.00458590006844627,
-    "paper_acct_pct": -0.00067,
-    "stock_path_pnl": -133.0,
-    "option_path_pnl": 99.5,
-    "flags": [],
-    "price_asof": "2026-09-24 13:25:50 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "paper_status": "leftover_shares",
+    "paper_pnl": -79.5,
+    "paper_roc_pct": -0.010882956878850103,
+    "paper_acct_pct": -0.00159,
+    "stock_path_pnl": -190.5,
+    "option_path_pnl": 111.0,
+    "flags": [
+      "settled at expiry-close intrinsic (no time value); close=71.145 strike=73.0",
+      "close<=strike: call expires worthless, credit kept",
+      "OTM CC leftover shares OPEN; stock exit = next RTH open 2026-09-28; MTM mark=71.145 (not a final stock exit); expiry_close=71.145"
+    ],
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NFLX.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NFLX.json",
@@ -9832,9 +10099,13 @@
       {
         "date": "2026-09-24",
         "close": 71.72000122070312
+      },
+      {
+        "date": "2026-09-25",
+        "close": 71.145
       }
     ],
-    "cboe_stock": 71.62,
+    "cboe_stock": 71.1,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI buy zone $69\u2013$72; stock at the top. Prior Fri lot invalidated. One lot under cap."
@@ -9846,7 +10117,7 @@
     "date_proposed": "2026-09-21",
     "session": "AM",
     "date_opened": "2026-09-21",
-    "date_closed": null,
+    "date_closed": "2026-09-25",
     "taken": "proposed",
     "ticker": "HIMS",
     "creator": "Stocktimus",
@@ -9864,28 +10135,30 @@
     "invalidation": "daily close under $28",
     "notes": "ROLL leftover shares from 2026-09-11-noon-HIMS. Credit mid 0.84. ~3.0%/wk. Do not double-count share capital.",
     "new_vs_carry": "new",
-    "live_stock": 29.28,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.98,
-    "live_option_ask": 1.06,
-    "live_option_mid": 1.02,
-    "live_option_last": 1.02,
+    "live_stock": 29.42,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.3,
+    "live_option_ask": 1.3,
+    "live_option_mid": 0.8,
+    "live_option_last": 0.88,
     "live_option_symbol": "HIMS260925C00028500",
     "first_invalidation_date": null,
     "min_close_since": 28.389999389648438,
     "max_close_since": 30.43000030517578,
-    "paper_status": "open",
-    "paper_pnl": -18.0,
+    "paper_status": "expired",
+    "paper_pnl": 93.0,
     "paper_roc_pct": null,
-    "paper_acct_pct": -0.00036,
-    "stock_path_pnl": 0.0,
-    "option_path_pnl": -18.0,
+    "paper_acct_pct": 0.00186,
+    "stock_path_pnl": 101.0,
+    "option_path_pnl": -8.0,
     "flags": [
       "capital_at_risk override=0.0 (inventory)",
-      "CC roll MTM: option path only (share capital/path on leftover parent)"
+      "settled at expiry-close intrinsic (no time value); close=29.42 strike=28.5",
+      "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:24:02 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -9908,9 +10181,13 @@
       {
         "date": "2026-09-24",
         "close": 29.280000686645508
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.42
       }
     ],
-    "cboe_stock": 29.325,
+    "cboe_stock": 29.3608,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI hold/flip $28; roll leftovers instead of selling. Covered-call roll \u2014 share capital stays on parent."
@@ -9940,15 +10217,16 @@
     "invalidation": "daily close under $242",
     "notes": "Debit mid 4.225 (CBOE 3.95x4.50). Over share cap/cash room so long call. Target $254/$275/$407.",
     "new_vs_carry": "new",
-    "live_stock": 238.93,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.36,
-    "live_option_ask": 0.46,
-    "live_option_mid": 0.41000000000000003,
-    "live_option_last": 0.43,
+    "live_stock": 235.47,
+    "live_stock_source": "stock-prices-proxy delayed=True price=235.47; cboe_current=235.29",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.0,
+    "live_option_ask": 0.01,
+    "live_option_mid": 0.01,
+    "live_option_last": 0.01,
     "live_option_symbol": "ADBE260925C00245000",
     "first_invalidation_date": "2026-09-22",
-    "min_close_since": 238.25,
+    "min_close_since": 235.47,
     "max_close_since": 240.69000244140625,
     "paper_status": "invalidated",
     "paper_pnl": -422.5,
@@ -9960,8 +10238,8 @@
       "long-call invalidation: valued at intrinsic only \u2014 time value unknown FLAG",
       "first invalidation close 2026-09-22 Yahoo close=238.25 vs {'kind': 'daily', 'price': 242.0, 'raw': 'daily close under $242'}"
     ],
-    "price_asof": "2026-09-24 13:24:50 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ADBE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ADBE.json",
@@ -9980,9 +10258,13 @@
       {
         "date": "2026-09-24",
         "close": 238.92999267578125
+      },
+      {
+        "date": "2026-09-25",
+        "close": 235.47
       }
     ],
-    "cboe_stock": 238.88,
+    "cboe_stock": 235.29,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI starter $242\u2013$251 when $242 Fib holds; share lot over max/cash so long call. One lot."
@@ -10012,15 +10294,16 @@
     "invalidation": "daily close under $14.50",
     "notes": "Credit mid 0.52 (CBOE 0.49x0.55). ~8.1%/wk on cash in that trade (3 DTE).",
     "new_vs_carry": "new",
-    "live_stock": 14.26,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "live_option_bid": 0.03,
-    "live_option_ask": 0.04,
-    "live_option_mid": 0.035,
-    "live_option_last": 0.04,
+    "live_stock": 13.95,
+    "live_stock_source": "stock-prices-proxy delayed=True price=13.95; cboe_current=13.95",
+    "quote_quality": "delayed",
+    "live_option_bid": 0.0,
+    "live_option_ask": 0.01,
+    "live_option_mid": 0.01,
+    "live_option_last": 0.01,
     "live_option_symbol": "CLSK260925C00015000",
     "first_invalidation_date": "2026-09-23",
-    "min_close_since": 14.260000228881836,
+    "min_close_since": 13.95,
     "max_close_since": 15.140000343322754,
     "paper_status": "invalidated",
     "paper_pnl": 2.72,
@@ -10032,8 +10315,8 @@
       "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
       "first invalidation close 2026-09-23 Yahoo close=14.460000038146973 vs {'kind': 'daily', 'price': 14.5, 'raw': 'daily close under $14.50'}"
     ],
-    "price_asof": "2026-09-24 13:22:45 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/CLSK.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/CLSK.json",
@@ -10052,9 +10335,13 @@
       {
         "date": "2026-09-24",
         "close": 14.260000228881836
+      },
+      {
+        "date": "2026-09-25",
+        "close": 13.95
       }
     ],
-    "cboe_stock": 14.08,
+    "cboe_stock": 13.95,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI reclaim/hold $15 as support (Sep21 noon); stock still at the level. One lot under remaining cash."
@@ -10066,7 +10353,7 @@
     "date_proposed": "2026-09-22",
     "session": "noon",
     "date_opened": "2026-09-22",
-    "date_closed": null,
+    "date_closed": "2026-09-25",
     "taken": "proposed",
     "ticker": "GRRR",
     "creator": "TLI",
@@ -10084,27 +10371,30 @@
     "invalidation": "daily close under $13.56",
     "notes": "Credit mid 0.45 (CBOE 0.40x0.50). Stock ~$13.95 CBOE mid. ~7.5%/wk on cash in that trade (3 DTE).",
     "new_vs_carry": "new",
-    "live_stock": 14.36,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 14.01,
+    "live_stock_source": "stock-prices-proxy delayed=True price=14.01; cboe_current=14.14",
+    "quote_quality": "delayed",
     "live_option_bid": 0.35,
     "live_option_ask": 0.75,
     "live_option_mid": 0.55,
     "live_option_last": 0.7,
     "live_option_symbol": "GRRR260925C00014000",
     "first_invalidation_date": null,
-    "min_close_since": 14.069999694824219,
+    "min_close_since": 14.01,
     "max_close_since": 14.359999656677246,
-    "paper_status": "open",
-    "paper_pnl": 31.0,
-    "paper_roc_pct": 0.022222222222222223,
-    "paper_acct_pct": 0.00062,
-    "stock_path_pnl": 41.0,
-    "option_path_pnl": -10.0,
+    "paper_status": "expired",
+    "paper_pnl": 50.0,
+    "paper_roc_pct": 0.035842293906810034,
+    "paper_acct_pct": 0.001,
+    "stock_path_pnl": 6.0,
+    "option_path_pnl": 44.0,
     "flags": [
-      "capital_at_risk override=1395.0 (inventory)"
+      "capital_at_risk override=1395.0 (inventory)",
+      "settled at expiry-close intrinsic (no time value); close=14.01 strike=14.0",
+      "close>strike: ITM CC settled at expiry close (shares called away / intrinsic)"
     ],
-    "price_asof": "2026-09-24 13:23:08 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/GRRR.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/GRRR.json",
@@ -10119,9 +10409,13 @@
       {
         "date": "2026-09-24",
         "close": 14.359999656677246
+      },
+      {
+        "date": "2026-09-25",
+        "close": 14.01
       }
     ],
-    "cboe_stock": 14.38,
+    "cboe_stock": 14.14,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "TLI breakout above $13.56\u2013$13.70 50/200-day MA confluence; Wave 3 confirm $16.50 / Bull $18.20. One lot fits remaining cash."
@@ -10151,8 +10445,9 @@
     "invalidation": "daily close under $27.50",
     "notes": "NOT in any Stocktimus briefing email. Trading-bot rewrite after $25k/$6,250 rules.",
     "new_vs_carry": "tracker-only",
-    "live_stock": 29.28,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 29.42,
+    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -10173,8 +10468,8 @@
       "CSP invalidation: put valued at expiry-style intrinsic only \u2014 time value unknown FLAG",
       "first invalidation close 2026-08-18 Yahoo close=27.389999389648438 vs {'kind': 'daily', 'price': 27.5, 'raw': 'daily close under $27.50'}"
     ],
-    "price_asof": "2026-09-24 13:24:02 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -10301,9 +10596,13 @@
       {
         "date": "2026-09-24",
         "close": 29.280000686645508
+      },
+      {
+        "date": "2026-09-25",
+        "close": 29.42
       }
     ],
-    "cboe_stock": 29.325,
+    "cboe_stock": 29.3608,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": null,
     "confidence_reason": null
@@ -10333,8 +10632,9 @@
     "invalidation": "lose $46 as support",
     "notes": "Buy 100 sh into MSFT/NVDA pop, sell aggressive Aug28 OTM call. Premium TBD at Fidelity fill.",
     "new_vs_carry": "tracker-only",
-    "live_stock": 46.15,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 44.125,
+    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -10355,8 +10655,8 @@
       "premium TBD / missing \u2014 cannot keep a call credit that was never printed",
       "first invalidation close 2026-08-13 Yahoo close=44.7599983215332 vs {'kind': 'daily', 'price': 46.0, 'raw': 'lose $46 as support'}"
     ],
-    "price_asof": "2026-09-24 13:25:14 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:30:31 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
@@ -10483,6 +10783,10 @@
       {
         "date": "2026-09-24",
         "close": 46.150001525878906
+      },
+      {
+        "date": "2026-09-25",
+        "close": 44.125
       }
     ],
     "cboe_stock": null,
@@ -10515,15 +10819,16 @@
     "invalidation": "$75 fails as support",
     "notes": "Long Aug28 OTM calls, debit cap $6250. Premium TBD.",
     "new_vs_carry": "tracker-only",
-    "live_stock": 71.72,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "live_stock": 71.145,
+    "live_stock_source": "stock-prices-proxy delayed=True price=71.145; cboe_current=71.1",
+    "quote_quality": "delayed",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
     "live_option_last": null,
     "live_option_symbol": null,
     "first_invalidation_date": "2026-09-18",
-    "min_close_since": 71.36000061035156,
+    "min_close_since": 71.145,
     "max_close_since": 82.7300033569336,
     "paper_status": "expired",
     "paper_pnl": null,
@@ -10538,8 +10843,8 @@
       "settled at expiry-close intrinsic (no time value); close=81.72000122070312 strike=None",
       "expired long call missing strike/premium/size \u2014 cannot settle"
     ],
-    "price_asof": "2026-09-24 13:25:50 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "price_asof": "2026-09-25 13:00:00 PT",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NFLX.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NFLX.json",
@@ -10666,6 +10971,10 @@
       {
         "date": "2026-09-24",
         "close": 71.72000122070312
+      },
+      {
+        "date": "2026-09-25",
+        "close": 71.145
       }
     ],
     "cboe_stock": null,
@@ -10700,6 +11009,7 @@
     "new_vs_carry": "tracker-only",
     "live_stock": 12.65,
     "live_stock_source": "yahoo-1m meta.regularMarketPrice",
+    "quote_quality": null,
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": null,
@@ -10721,7 +11031,7 @@
       "expired CSP missing strike/premium/size \u2014 cannot settle without inventing"
     ],
     "price_asof": "2026-09-24 13:18:43 PT",
-    "mtm_asof": "2026-09-24T13:26:33.723069-07:00",
+    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ABCL.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ABCL.json",
@@ -10846,7 +11156,7 @@
         "close": 12.649999618530273
       }
     ],
-    "cboe_stock": 12.325,
+    "cboe_stock": 12.79,
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": null,
     "confidence_reason": null
