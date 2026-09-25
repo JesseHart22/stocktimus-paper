@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "at": "2026-09-25T20:03:33.620Z",
+  "serverStopped": true,
+  "survived": [
+    "doctor.json",
+    "stocktimus-paper-book-drawer.png",
+    "stocktimus-paper-book-hero.png",
+    "stocktimus-paper-book.json"
+  ],
+  "missing": []
+}

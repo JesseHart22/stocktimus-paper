@@ -1,0 +1,223 @@
+{
+  "ok": true,
+  "at": "2026-09-25T20:03:30.269Z",
+  "url": "http://127.0.0.1:43417/",
+  "books": {
+    "data.json": {
+      "tickets": 71
+    },
+    "desks/moonshot.json": {
+      "tickets": 3
+    },
+    "desks/compounder.json": {
+      "tickets": 7
+    }
+  },
+  "proxy": {
+    "url": "https://stock-prices-proxy.jessehartung.workers.dev",
+    "symbol": "TOST",
+    "ok": true,
+    "status": 200,
+    "numericPricePresent": true,
+    "error": null
+  },
+  "numbersSource": "json-files",
+  "inventedPrices": false,
+  "checks": [
+    {
+      "name": "app.js loads data.json first",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app.js moonshot file",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app.js compounder file",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "price proxy url",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "delayed pill suffix",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "delayed MTM copy",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "never label as real-time",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "footer not advice",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "four desk tabs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scoreboard redirect",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scoreboard.js desk files",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "data.json parses",
+      "ok": true,
+      "detail": "71 tickets"
+    },
+    {
+      "name": "data.json unique ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desks/moonshot.json parses",
+      "ok": true,
+      "detail": "3 tickets"
+    },
+    {
+      "name": "desks/moonshot.json unique ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desks/compounder.json parses",
+      "ok": true,
+      "detail": "7 tickets"
+    },
+    {
+      "name": "desks/compounder.json unique ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "trade-tracker-paper.json parses",
+      "ok": true,
+      "detail": "fallback, not the first file"
+    },
+    {
+      "name": "summary has account and weekly_target",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scoreboard/stocktimus.json desk field",
+      "ok": true,
+      "detail": "desk=stocktimus"
+    },
+    {
+      "name": "scoreboard/stocktimus.json calls array",
+      "ok": true,
+      "detail": "13 calls"
+    },
+    {
+      "name": "scoreboard/stocktimus.json unique call ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scoreboard/moonshot.json desk field",
+      "ok": true,
+      "detail": "desk=moonshot"
+    },
+    {
+      "name": "scoreboard/moonshot.json calls array",
+      "ok": true,
+      "detail": "0 calls"
+    },
+    {
+      "name": "scoreboard/moonshot.json unique call ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scoreboard/compounder.json desk field",
+      "ok": true,
+      "detail": "desk=compounder"
+    },
+    {
+      "name": "scoreboard/compounder.json calls array",
+      "ok": true,
+      "detail": "0 calls"
+    },
+    {
+      "name": "scoreboard/compounder.json unique call ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scoreboard/scout.json desk field",
+      "ok": true,
+      "detail": "desk=scout"
+    },
+    {
+      "name": "scoreboard/scout.json calls array",
+      "ok": true,
+      "detail": "5 calls"
+    },
+    {
+      "name": "scoreboard/scout.json unique call ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "GET /",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /data.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /desks/moonshot.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /desks/compounder.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /app.js",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /scoreboard.js",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /scoreboard/stocktimus.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /scoreboard/scout.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ]
+}

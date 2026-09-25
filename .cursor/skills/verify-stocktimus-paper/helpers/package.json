@@ -1,0 +1,9 @@
+{
+  "name": "verify-stocktimus-paper",
+  "private": true,
+  "type": "module",
+  "description": "Headless Chrome driver for the Stocktimus paper book. Numbers are read from JSON at runtime.",
+  "dependencies": {
+    "playwright-core": "1.55.1"
+  }
+}

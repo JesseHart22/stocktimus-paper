@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "feature": "stocktimus-paper-book",
+  "at": "2026-09-25T20:03:33.472Z",
+  "url": "http://127.0.0.1:43417/",
+  "numbersSource": "json-files",
+  "inventedPrices": false,
+  "files": [
+    "data.json",
+    "trade-tracker-summary.json"
+  ],
+  "outcome": null,
+  "proxySettle": "ok",
+  "proxyNumericPricePresent": null,
+  "observed": {
+    "title": "Stocktimus · Paper book",
+    "deskName": "Stocktimus",
+    "deskSub": "Paper book",
+    "pill": "stocktimus-paper · delayed",
+    "bookSub": "71 tickets in view",
+    "pnl": "$2,500.22",
+    "pnlSub": "Open $756.50 · Closed $1,743.72 · delayed MTM",
+    "closedPnl": "$1,743.72",
+    "openN": "9",
+    "invN": "12",
+    "outN": "50",
+    "targetK": "Avg $/week vs $789.21 goal",
+    "deployedSub": "Idle $0.00 of $52,614.22 book · avg $35k",
+    "footer": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.",
+    "rowCount": 71,
+    "drawer": {
+      "title": "HIMS",
+      "pnl": "−$113.00"
+    }
+  },
+  "checks": [
+    {
+      "name": "desk name",
+      "ok": true,
+      "detail": "Stocktimus"
+    },
+    {
+      "name": "desk subtitle",
+      "ok": true,
+      "detail": "Paper book"
+    },
+    {
+      "name": "document title",
+      "ok": true,
+      "detail": "Stocktimus · Paper book"
+    },
+    {
+      "name": "active tab",
+      "ok": true,
+      "detail": "stocktimus"
+    },
+    {
+      "name": "source pill",
+      "ok": true,
+      "detail": "stocktimus-paper · delayed expected stocktimus-paper"
+    },
+    {
+      "name": "pill is not real-time",
+      "ok": true,
+      "detail": "stocktimus-paper · delayed"
+    },
+    {
+      "name": "ticket line",
+      "ok": true,
+      "detail": "71 tickets in view"
+    },
+    {
+      "name": "row ids match file",
+      "ok": true,
+      "detail": "71 rows / 71 file"
+    },
+    {
+      "name": "footer text",
+      "ok": true,
+      "detail": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice."
+    },
+    {
+      "name": "footer visible",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "deployed subtitle names file account",
+      "ok": true,
+      "detail": "Idle $0.00 of $52,614.22 book · avg $35k"
+    },
+    {
+      "name": "weekly goal label",
+      "ok": true,
+      "detail": "Avg $/week vs $789.21 goal"
+    },
+    {
+      "name": "open count",
+      "ok": true,
+      "detail": "9 vs 9"
+    },
+    {
+      "name": "inv count",
+      "ok": true,
+      "detail": "12 vs 12"
+    },
+    {
+      "name": "out count",
+      "ok": true,
+      "detail": "50 vs 50"
+    },
+    {
+      "name": "closed P&L matches file",
+      "ok": true,
+      "detail": "$1,743.72 vs $1,743.72"
+    },
+    {
+      "name": "delayed total is formatted money",
+      "ok": true,
+      "detail": "$2,500.22"
+    },
+    {
+      "name": "delayed MTM subtitle",
+      "ok": true,
+      "detail": "Open $756.50 · Closed $1,743.72 · delayed MTM"
+    },
+    {
+      "name": "row tickers and confidence pills match file",
+      "ok": true,
+      "detail": "71 rows"
+    },
+    {
+      "name": "drawer title",
+      "ok": true,
+      "detail": "HIMS vs HIMS"
+    },
+    {
+      "name": "drawer closed P&L matches file",
+      "ok": true,
+      "detail": "−$113.00 vs −$113.00"
+    },
+    {
+      "name": "confidence filter High",
+      "ok": true,
+      "detail": "5 vs 5"
+    }
+  ]
+}
