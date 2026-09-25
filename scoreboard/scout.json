@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-09-22T08:50:00-07:00",
+  "as_of": "2026-09-25T08:10:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -12,7 +12,7 @@
       "stars": 1,
       "called_at": "2026-09-08",
       "example": false,
-      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. No new posts since Sep 17. Proxies TLT,IEF,TLH. Not graded."
+      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Sep 25 2½-day MOVE bounce note is short-term only — not a thesis change. Proxies TLT,IEF,TLH. Not graded."
     },
     {
       "id": "ds-tlt-2026-09-17",
@@ -32,12 +32,25 @@
       "handle": "dampedspring",
       "ticker": "TLT",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 0,
       "called_at": "2026-09-22",
+      "closed_at": "2026-09-24",
       "example": false,
-      "note": "Major themes: higher-for-longer long yields (no V-top despite Bessent suppression); central case drift higher. Credit 1x2 in ZB. Proxies TLT,IEF,TLH. Under 14d."
+      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d — not graded."
+    },
+    {
+      "id": "ds-tlt-2026-09-24",
+      "handle": "dampedspring",
+      "ticker": "TLT",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-09-24",
+      "example": false,
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25: still long deltas after QRA short (TLT −10% in two months). Proxies TLT,IEF,TLH,ZB. Under 14d."
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -49,7 +62,7 @@
       "stars": 0,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble / highish valuations; max short by 9/30 via Nov puts (~4% AUM risk). Slightly long into 9/30 first. Not crash-positioned. Beta still long at risk target. Proxies SPY,QQQ,IWM. Under 14d."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Not clearly restated or reversed in Sep 24–25 window — still open. Proxies SPY,QQQ,IWM. Under 14d."
     }
   ]
 }
