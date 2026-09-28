@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-09-25T20:03:30.269Z",
-  "url": "http://127.0.0.1:43417/",
+  "at": "2026-09-28T15:41:19.642Z",
+  "url": "http://127.0.0.1:35155/",
   "books": {
     "data.json": {
       "tickets": 71
@@ -15,7 +15,7 @@
   },
   "proxy": {
     "url": "https://stock-prices-proxy.jessehartung.workers.dev",
-    "symbol": "TOST",
+    "symbol": "MRAM",
     "ok": true,
     "status": 200,
     "numericPricePresent": true,
@@ -40,7 +40,7 @@
       "detail": ""
     },
     {
-      "name": "price proxy url",
+      "name": "massive delayed proxy url",
       "ok": true,
       "detail": ""
     },
@@ -50,12 +50,22 @@
       "detail": ""
     },
     {
+      "name": "robinhood pill suffix",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "delayed MTM copy",
       "ok": true,
       "detail": ""
     },
     {
-      "name": "never label as real-time",
+      "name": "massive fallback gate",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no default live poll",
       "ok": true,
       "detail": ""
     },
@@ -127,7 +137,7 @@
     {
       "name": "scoreboard/stocktimus.json calls array",
       "ok": true,
-      "detail": "13 calls"
+      "detail": "20 calls"
     },
     {
       "name": "scoreboard/stocktimus.json unique call ids",
@@ -157,7 +167,7 @@
     {
       "name": "scoreboard/compounder.json calls array",
       "ok": true,
-      "detail": "0 calls"
+      "detail": "9 calls"
     },
     {
       "name": "scoreboard/compounder.json unique call ids",

@@ -45,9 +45,7 @@
   const INV = new Set(["invalidated", "invalid", "killed"]);
   const OUT = new Set(["out", "closed", "expired", "skipped", "no", "resolved"]);
 
-  const PRICE_PROXY_URL = "https://stock-prices-proxy.jessehartung.workers.dev";
-  // Massive quotes from this worker are delayed. Robinhood live marks arrive
-  // in the published JSON (marks_source / quote_quality). Do not invent those fields.
+  const MASSIVE_DELAYED_PROXY_URL = "https://stock-prices-proxy.jessehartung.workers.dev";
 
   const state = {
     trades: [],
@@ -861,7 +859,7 @@
   async function fetchLiveQuotes(symbols) {
     if (!symbols.length) return null;
     const q = encodeURIComponent(symbols.join(","));
-    const url = PRICE_PROXY_URL + "?symbols=" + q;
+    const url = MASSIVE_DELAYED_PROXY_URL + "?symbols=" + q;
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error("proxy HTTP " + res.status);
     return res.json();

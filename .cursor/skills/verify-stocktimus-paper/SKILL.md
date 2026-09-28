@@ -25,7 +25,7 @@ Hash tabs in `nav.desk-tabs`:
 | Compounder | `#compounder` | `./desks/compounder.json` |
 | Scoreboard | `#scoreboard` | `./scoreboard/stocktimus.json`, `compounder.json`, `moonshot.json`, `scout.json`. This is the X call log, not the paper book. |
 
-Paper marks assume fill at the recommended premium. The footer in `index.html` says so, and that it is not Jesse's actual fills and not advice. Published marks are the source of truth. See `MARKS.md`. When top-level `marks_source` contains `robinhood`, or `quote_quality` is `robinhood`, `live`, or `robinhood_live`, the pill and P&L subtitle say `Robinhood live`. When those fields name Massive or a delayed quote, the pill says `delayed` and the subtitle says `delayed MTM`. The page does not invent either field. It calls `https://stock-prices-proxy.jessehartung.workers.dev` only from `needsMassiveFallback`, when an open lot has no file mark and the payload is not a Robinhood success. That worker is delayed. Closed lots keep file `paper_pnl`.
+Paper marks assume fill at the recommended premium. The footer in `index.html` says so, and that it is not Jesse's actual fills and not advice. Published marks are the source of truth. See `MARKS.md`. When top-level `marks_source` contains `robinhood`, or `quote_quality` is `robinhood`, `live`, or `robinhood_live`, the pill and P&L subtitle say `Robinhood live`. When those fields name Massive or a delayed quote, the pill says `delayed` and the subtitle says `delayed MTM`. The page does not invent either field. It calls `MASSIVE_DELAYED_PROXY_URL` (`https://stock-prices-proxy.jessehartung.workers.dev`) only from `needsMassiveFallback`, when an open lot has no file mark and the payload is not a Robinhood success. That worker is delayed. Closed lots keep file `paper_pnl`.
 
 Feature map: `features/README.md`.
 
@@ -58,7 +58,7 @@ Hard failures (exit 1, written to `evidence/doctor.json`):
 - Desk file lists in `app.js` no longer match the paths above
 - Scoreboard `desk` field does not match its filename
 - Duplicate ticket or call ids inside one file
-- The mark contract is gone from `app.js` (`PRICE_PROXY_URL`, ` · delayed`, ` · Robinhood live`, `delayed MTM`, `needsMassiveFallback`, and no `startLiveMtm` poll)
+- The mark contract is gone from `app.js` (`MASSIVE_DELAYED_PROXY_URL`, ` · delayed`, ` · Robinhood live`, `delayed MTM`, `needsMassiveFallback`, and no `startLiveMtm` poll)
 - The footer no longer contains `Not advice`
 - The local server is down, or `GET /` is not the paper page
 - A desk or scoreboard URL on that server is not HTTP 200

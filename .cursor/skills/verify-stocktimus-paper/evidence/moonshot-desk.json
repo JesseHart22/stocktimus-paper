@@ -1,78 +1,77 @@
 {
   "ok": true,
-  "feature": "stocktimus-paper-book",
-  "at": "2026-09-28T15:38:43.986Z",
+  "feature": "moonshot-desk",
+  "at": "2026-09-28T15:38:47.236Z",
   "url": "http://127.0.0.1:35155/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
-    "data.json",
-    "trade-tracker-summary.json"
+    "desks/moonshot.json"
   ],
   "outcome": null,
   "proxySettle": "timeout",
   "proxyNumericPricePresent": null,
   "observed": {
-    "title": "Stocktimus · Paper book",
-    "deskName": "Stocktimus",
-    "deskSub": "Paper book",
-    "pill": "stocktimus-paper",
-    "bookSub": "71 tickets in view",
-    "pnl": "$3,022.72",
-    "pnlSub": "Open $696.00 · Closed $2,326.72",
-    "closedPnl": "$2,326.72",
-    "openN": "5",
-    "invN": "12",
-    "outN": "54",
-    "targetK": "Avg $/week vs $795.34 goal",
-    "deployedSub": "Idle $4,323.22 of $53,022.72 book · avg $36k",
+    "title": "Moonshot · Paper book",
+    "deskName": "Moonshot",
+    "deskSub": "10x sleeve",
+    "pill": "paper json · delayed",
+    "bookSub": "3 tickets in view",
+    "pnl": "$177.26",
+    "pnlSub": "Cash $45,268.26 · delayed MTM",
+    "closedPnl": "$56.71",
+    "openN": "2",
+    "invN": "0",
+    "outN": "1",
+    "targetK": "Return on avg deployed",
+    "deployedSub": "Idle $45,268.26 of $50,000.00 book · avg $4.9k",
     "footer": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.",
-    "rowCount": 71,
+    "rowCount": 3,
     "drawer": {
-      "title": "HIMS",
-      "pnl": "−$113.00"
+      "title": "RXRX",
+      "pnl": "$56.71"
     }
   },
   "checks": [
     {
       "name": "desk name",
       "ok": true,
-      "detail": "Stocktimus"
+      "detail": "Moonshot"
     },
     {
       "name": "desk subtitle",
       "ok": true,
-      "detail": "Paper book"
+      "detail": "10x sleeve"
     },
     {
       "name": "document title",
       "ok": true,
-      "detail": "Stocktimus · Paper book"
+      "detail": "Moonshot · Paper book"
     },
     {
       "name": "active tab",
       "ok": true,
-      "detail": "stocktimus"
+      "detail": "moonshot"
     },
     {
       "name": "source pill",
       "ok": true,
-      "detail": "stocktimus-paper expected stocktimus-paper"
+      "detail": "paper json · delayed expected paper json · delayed"
     },
     {
       "name": "pill is not real-time",
       "ok": true,
-      "detail": "stocktimus-paper"
+      "detail": "paper json · delayed"
     },
     {
       "name": "ticket line",
       "ok": true,
-      "detail": "71 tickets in view"
+      "detail": "3 tickets in view"
     },
     {
       "name": "row ids match file",
       "ok": true,
-      "detail": "71 rows / 71 file"
+      "detail": "3 rows / 3 file"
     },
     {
       "name": "footer text",
@@ -87,57 +86,67 @@
     {
       "name": "deployed subtitle names file account",
       "ok": true,
-      "detail": "Idle $4,323.22 of $53,022.72 book · avg $36k"
+      "detail": "Idle $45,268.26 of $50,000.00 book · avg $4.9k"
     },
     {
-      "name": "weekly goal label",
+      "name": "no weekly goal tile",
       "ok": true,
-      "detail": "Avg $/week vs $795.34 goal"
+      "detail": "Return on avg deployed"
     },
     {
       "name": "open count",
       "ok": true,
-      "detail": "5 vs 5"
+      "detail": "2 vs 2"
     },
     {
       "name": "inv count",
       "ok": true,
-      "detail": "12 vs 12"
+      "detail": "0 vs 0"
     },
     {
       "name": "out count",
       "ok": true,
-      "detail": "54 vs 54"
+      "detail": "1 vs 1"
     },
     {
       "name": "closed P&L matches file",
       "ok": true,
-      "detail": "$2,326.72 vs $2,326.72"
+      "detail": "$56.71 vs $56.71"
     },
     {
       "name": "total P&L matches file",
       "ok": true,
-      "detail": "$3,022.72 vs $3,022.72"
+      "detail": "$177.26 vs $177.26"
+    },
+    {
+      "name": "file delayed subtitle",
+      "ok": true,
+      "detail": "Cash $45,268.26 · delayed MTM"
+    },
+    {
+      "name": "cash subtitle",
+      "ok": true,
+      "detail": "Cash $45,268.26 · delayed MTM"
     },
     {
       "name": "row tickers and confidence pills match file",
       "ok": true,
-      "detail": "71 rows"
+      "detail": "3 rows"
     },
     {
       "name": "drawer title",
       "ok": true,
-      "detail": "HIMS vs HIMS"
+      "detail": "RXRX vs RXRX"
     },
     {
       "name": "drawer closed P&L matches file",
       "ok": true,
-      "detail": "−$113.00 vs −$113.00"
+      "detail": "$56.71 vs $56.71"
     },
     {
-      "name": "confidence filter High",
+      "name": "confidence filter Medium",
       "ok": true,
-      "detail": "5 vs 5"
+      "detail": "3 vs 3"
     }
   ]
 }

@@ -434,7 +434,7 @@ async function doctor() {
   hard(checks, "app.js loads data.json first", app.includes('files: ["./data.json", "./trade-tracker-paper.json", "../trade-tracker-paper.json"]'));
   hard(checks, "app.js moonshot file", app.includes('files: ["./desks/moonshot.json"]'));
   hard(checks, "app.js compounder file", app.includes('files: ["./desks/compounder.json"]'));
-  hard(checks, "price proxy url", app.includes('const PRICE_PROXY_URL = "' + PROXY_URL + '"'));
+  hard(checks, "massive delayed proxy url", app.includes('const MASSIVE_DELAYED_PROXY_URL = "' + PROXY_URL + '"'));
   hard(checks, "delayed pill suffix", app.includes('src += " · delayed"'));
   hard(checks, "robinhood pill suffix", app.includes('src += " · Robinhood live"'));
   hard(checks, "delayed MTM copy", app.includes("delayed MTM"));

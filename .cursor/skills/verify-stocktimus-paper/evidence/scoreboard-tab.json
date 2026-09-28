@@ -1,0 +1,127 @@
+{
+  "ok": true,
+  "feature": "scoreboard-tab",
+  "at": "2026-09-28T15:38:51.371Z",
+  "url": "http://127.0.0.1:35155/",
+  "numbersSource": "json-files",
+  "inventedPrices": false,
+  "files": [
+    "scoreboard/stocktimus.json",
+    "scoreboard/compounder.json",
+    "scoreboard/moonshot.json",
+    "scoreboard/scout.json"
+  ],
+  "outcome": null,
+  "proxySettle": null,
+  "proxyNumericPricePresent": null,
+  "observed": {
+    "title": "Scoreboard · X calls",
+    "deskName": "Scoreboard",
+    "pill": "x log",
+    "banner": "Sample rows are example data, not scored.",
+    "examplePills": 0,
+    "boards": [
+      "stocktimus",
+      "compounder",
+      "moonshot",
+      "scout"
+    ]
+  },
+  "checks": [
+    {
+      "name": "scoreboard name",
+      "ok": true,
+      "detail": "Scoreboard"
+    },
+    {
+      "name": "scoreboard subtitle",
+      "ok": true,
+      "detail": "X calls"
+    },
+    {
+      "name": "scoreboard title",
+      "ok": true,
+      "detail": "Scoreboard · X calls"
+    },
+    {
+      "name": "scoreboard tab",
+      "ok": true,
+      "detail": "scoreboard"
+    },
+    {
+      "name": "source pill x log",
+      "ok": true,
+      "detail": "x log"
+    },
+    {
+      "name": "view class",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "hero hidden",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "banner",
+      "ok": true,
+      "detail": "Sample rows are example data, not scored."
+    },
+    {
+      "name": "weekly note",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "first post rule",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "board stocktimus",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "stocktimus handles",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "board compounder",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "compounder handles",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "board moonshot",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "moonshot empty copy",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "board scout",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scout handles",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "example pills match files",
+      "ok": true,
+      "detail": "0 vs 0"
+    }
+  ]
+}

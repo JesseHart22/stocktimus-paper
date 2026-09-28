@@ -36,4 +36,4 @@ The price itself is not written to evidence. Report: `evidence/delayed-mark-labe
 - The word `delayed` inside a ticket note is not the label. Judge `#source-pill` and `#stat-pnl-sub`.
 - Per-ticket `quote_quality` does not set the pill. Only the top-level fields do, plus a fallback quote that actually arrived.
 - A file that already says `delayed` still uses `summary.paper_pnl` until a fallback quote lands (`liveOk`).
-- The worker URL is `PRICE_PROXY_URL` in `app.js`: `https://stock-prices-proxy.jessehartung.workers.dev`.
+- The worker URL is `MASSIVE_DELAYED_PROXY_URL` in `app.js`: `https://stock-prices-proxy.jessehartung.workers.dev`.
