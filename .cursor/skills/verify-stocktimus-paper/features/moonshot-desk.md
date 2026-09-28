@@ -6,7 +6,7 @@ Header reads Moonshot / 10x sleeve. Browser tab title is `Moonshot · Paper book
 
 - Same hero, breakdowns, filters, open/closed tables, and ticket drawer as the Stocktimus book
 - Weekly goal tile switches to **Return on avg deployed** because this file's `weekly_target` is 0
-- P&L subtitle shows cash from the file when `cash` is set, plus `delayed MTM` only after a proxy quote
+- P&L subtitle shows cash from the file when `cash` is set, plus `delayed MTM` because this file's `quote_quality` is delayed
 - Footer disclaimer stays visible
 
 ## How to get to it (user POV)
@@ -22,7 +22,7 @@ node .cursor/skills/verify-stocktimus-paper/helpers/drive.mjs drive moonshot-des
 The helper clicks `a.desk-tab[data-desk="moonshot"]`, waits until `#stat-book-sub` matches the ticket count in `desks/moonshot.json`, and checks:
 
 - Name, subtitle, title, and the active tab
-- Pill is `paper json` or `paper json · delayed`. The file's `source` is `"paper"`, and `app.js` maps that word to the label `paper json`. That label does not mean `trade-tracker-paper.json` loaded.
+- Pill is `paper json · delayed`. The file's `source` is `"paper"`, and `app.js` maps that word to the label `paper json`. `marks_source` is the Massive worker, so the delayed suffix comes from the file. That label does not mean `trade-tracker-paper.json` loaded.
 - Cash subtitle starts with the formatted file `cash`
 - `#stat-target-k` is `Return on avg deployed`
 - Closed P&L matches file `paper_pnl` on closed tickets
@@ -34,7 +34,6 @@ Screenshots: `evidence/moonshot-desk-hero.png`, `evidence/moonshot-desk-drawer.p
 ## Gotchas
 
 - This desk does not read `data.json` or the summary overlay. Account and weekly target come from `desks/moonshot.json` only. Defaults in `app.js` (`5000` / `0`) apply only if those fields are missing. The file currently sets its own account.
-- There is no `summary` object, so the hero total before a delayed mark is the sum of ticket `paper_pnl`. After `delayed`, open stock lots are remarked from the proxy and the total can change. Closed lots stay on file `paper_pnl`.
-- `marks_source` in the JSON points at the same delayed worker. `quote_quality` is a file note; the on-screen delayed wording is still the source pill, not this field.
+- There is no `summary` object, so the hero total is the sum of ticket `paper_pnl`. The delayed suffix is the file's `marks_source` / `quote_quality`. Open lots already have file marks, so this desk does not call the proxy. Closed lots stay on file `paper_pnl`.
 - Cash subtitle replaces the "Open … · Closed …" line. Closed dollars stay in `#stat-closed-pnl`.
 - Do not invent a moonshot fill. Entry and `paper_pnl` in the drawer must match the file for a closed row.

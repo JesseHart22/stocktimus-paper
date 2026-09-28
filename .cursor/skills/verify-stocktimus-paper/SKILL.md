@@ -4,13 +4,13 @@ description: >-
   Prove the Stocktimus paper book static site the way a user does: serve the
   repo root, doctor the desk JSON, drive a hash tab in headless Chrome, and
   keep evidence. Use when verifying jessehart22.github.io/stocktimus-paper,
-  app.js desks, the scoreboard tab, or delayed paper marks. Never invent
+  app.js desks, the scoreboard tab, or published paper marks. Never invent
   prices or P&L.
 ---
 
 # Verify Stocktimus paper
 
-Prove the site from the repo, not from memory. Every dollar figure comes from the JSON files loaded at run time, or from a delayed quote the price proxy actually returned. Do not invent prices or P&L, do not hardcode this week's totals into the skill, and do not treat a proxy quote as a fill.
+Prove the site from the repo, not from memory. Every dollar figure comes from the JSON files loaded at run time, or from a delayed quote the Massive proxy actually returned on the fallback path. Do not invent prices or P&L, do not hardcode this week's totals into the skill, and do not treat a proxy quote as a fill.
 
 Public site: https://jessehart22.github.io/stocktimus-paper/
 
@@ -25,7 +25,7 @@ Hash tabs in `nav.desk-tabs`:
 | Compounder | `#compounder` | `./desks/compounder.json` |
 | Scoreboard | `#scoreboard` | `./scoreboard/stocktimus.json`, `compounder.json`, `moonshot.json`, `scout.json`. This is the X call log, not the paper book. |
 
-Paper marks assume fill at the recommended premium. The footer in `index.html` says so, and that it is not Jesse's actual fills and not advice. Quotes from `https://stock-prices-proxy.jessehartung.workers.dev` are delayed. `app.js` appends ` · delayed` to `#source-pill` and `delayed MTM` to the P&L subtitle only after a proxy quote lands (`state.liveOk`). Closed lots keep file `paper_pnl`. A proxy failure leaves the file marks in place.
+Paper marks assume fill at the recommended premium. The footer in `index.html` says so, and that it is not Jesse's actual fills and not advice. Published marks are the source of truth. See `MARKS.md`. When top-level `marks_source` contains `robinhood`, or `quote_quality` is `robinhood`, `live`, or `robinhood_live`, the pill and P&L subtitle say `Robinhood live`. When those fields name Massive or a delayed quote, the pill says `delayed` and the subtitle says `delayed MTM`. The page does not invent either field. It calls `https://stock-prices-proxy.jessehartung.workers.dev` only from `needsMassiveFallback`, when an open lot has no file mark and the payload is not a Robinhood success. That worker is delayed. Closed lots keep file `paper_pnl`.
 
 Feature map: `features/README.md`.
 
@@ -58,7 +58,7 @@ Hard failures (exit 1, written to `evidence/doctor.json`):
 - Desk file lists in `app.js` no longer match the paths above
 - Scoreboard `desk` field does not match its filename
 - Duplicate ticket or call ids inside one file
-- The delayed-mark contract is gone from `app.js` (`PRICE_PROXY_URL`, ` · delayed`, `delayed MTM`, `never label as real-time`)
+- The mark contract is gone from `app.js` (`PRICE_PROXY_URL`, ` · delayed`, ` · Robinhood live`, `delayed MTM`, `needsMassiveFallback`, and no `startLiveMtm` poll)
 - The footer no longer contains `Not advice`
 - The local server is down, or `GET /` is not the paper page
 - A desk or scoreboard URL on that server is not HTTP 200
@@ -79,11 +79,11 @@ The driver opens the launched origin in headless Chrome, clicks the desk tab, wa
 
 - Ticket ids on screen are exactly the ids in that desk file (scoreboard: handles and board files, after the page finishes fetching).
 - Closed P&L text matches the sum of file `paper_pnl` on closed buckets (`out`, `closed`, `expired`, `skipped`, `no`, `resolved`, `invalidated`, `invalid`, `killed`). Live marks do not replace closed file P&L.
-- Hero total matches file `summary.paper_pnl` when the source pill does not contain `delayed`. When the pill contains `delayed`, the total may differ because open lots were remarked. Do not overwrite the file number with a guessed quote.
+- Hero total matches file `summary.paper_pnl` unless the Massive fallback actually returned a quote in that drive. A `delayed` or `Robinhood live` suffix that came from the file still uses the file total. Do not overwrite the file number with a guessed quote.
 - Account and weekly goal text use the file `account` / `weekly_target` (Stocktimus summary JSON overrides those two fields when present). The `$50,000` / `$750` constants in `app.js` apply only when a file omits them.
 - Confidence chip: the helper clicks the first of High, Medium, Low that the file actually contains. Medium is displayed as `Med`.
 
-`delayed-mark-label` passes when the pill and P&L subtitle say `delayed` / `delayed MTM` and neither says real-time. If the proxy has no numeric price, it passes as `file-marks-only` only when the book still loaded and the chrome does not say real-time. If the proxy did return a price and the pill never says `delayed`, the drive fails.
+`delayed-mark-label` reloads Stocktimus three times. The published file has no top-level mark fields, so the pill has no `delayed` or `Robinhood` suffix and the page does not call the proxy. A routed copy with `marks_source=robinhood` and `quote_quality=robinhood_live` shows `Robinhood live`, keeps the file total, and still does not call the proxy. A routed copy that clears open-lot file marks requests the proxy. If that quote lands, the pill says `delayed`. If it does not, the pill stays unlabeled. Neither pill says real-time. The drive does not store the proxy price.
 
 ## Evidence
 
@@ -95,7 +95,8 @@ Proof files live in `.cursor/skills/verify-stocktimus-paper/evidence/` and are m
 | `evidence/<feature-id>.json` | After a drive. Checks, observed strings, file paths. No proxy price. |
 | `evidence/<feature-id>-hero.png` | Paper desks, viewport of the loaded book |
 | `evidence/<feature-id>-drawer.png` | Paper desks, ticket drawer open |
-| `evidence/<feature-id>.png` | Scoreboard or delayed-mark label |
+| `evidence/<feature-id>.png` | Scoreboard, or the Massive fallback label |
+| `evidence/robinhood-mark-label.png` | Routed Robinhood live pill |
 | `evidence/cleanup.json` | After cleanup. Lists files that were present and still present |
 
 A drive writes its JSON and screenshots even when a check fails, then exits 1. Replace them by re-running after a fix. Do not hand-edit expected dollars into these files.
