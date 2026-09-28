@@ -1,5 +1,123 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-21T08:39:37-07:00",
-  "calls": []
+  "as_of": "2026-09-28T08:23:47-07:00",
+  "calls": [
+    {
+      "id": "tli-zeta-2026-09-24",
+      "handle": "TheLongInvest",
+      "ticker": "ZETA",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-09-24",
+      "example": false,
+      "note": "Can still 5X from here (PLTR-at-$21 analogy). Later: CEO interview, will-5X-by-early-2028, DCF/tech target $52 \u2192 +3 stars. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2103168861290033243"
+    },
+    {
+      "id": "bf-ma-2026-09-25",
+      "handle": "BrianFeroldi",
+      "ticker": "MA",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-25",
+      "example": false,
+      "note": "Is Mastercard a buy at $568? Great business, good valuation \u2014 I like it here. Under 14d.",
+      "url": "https://x.com/BrianFeroldi/status/2103601564753551742"
+    },
+    {
+      "id": "tli-eth-2026-09-25",
+      "handle": "TheLongInvest",
+      "ticker": "ETH",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-09-25",
+      "example": false,
+      "note": "Buy under ascending-triangle breakout / 200 WMA retest (~$4800 path); $9200 coin at $2700. Later: Hold ETH + Tom Lee hold \u2192 +3 stars. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2103554718471696451"
+    },
+    {
+      "id": "tli-grab-2026-09-25",
+      "handle": "TheLongInvest",
+      "ticker": "GRAB",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-25",
+      "example": false,
+      "note": "CEO bought $30M at 0.887 Fib $2.70; +50% to 200 WMA $4.00 called a guarantee. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2103465526047727713"
+    },
+    {
+      "id": "tli-nu-2026-09-25",
+      "handle": "TheLongInvest",
+      "ticker": "NU",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-25",
+      "example": false,
+      "note": "FREEBIE: NU (or SOFI) looking great next 2\u20133y; +320% to Wave 5 target. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2103462985444585568"
+    },
+    {
+      "id": "tli-asts-2026-09-26",
+      "handle": "TheLongInvest",
+      "ticker": "ASTS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-09-26",
+      "example": false,
+      "note": "Clearest 10X now / 100X from here; $2T MC in 5y thesis. Sep 28 institutional-ownership accel \u2192 +1 star. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2103806702084833674"
+    },
+    {
+      "id": "bf-shop-2026-09-27",
+      "handle": "BrianFeroldi",
+      "ticker": "SHOP",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-27",
+      "example": false,
+      "note": "Is Shopify a buy at $142? Exceptional business; happily buy under $160/share. Under 14d.",
+      "url": "https://x.com/BrianFeroldi/status/2104049860861460500"
+    },
+    {
+      "id": "tli-meli-2026-09-28",
+      "handle": "TheLongInvest",
+      "ticker": "MELI",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-28",
+      "example": false,
+      "note": "Excellent buy whenever below 200 WMA; again at 200 WMA (2022 analog $700\u2192$2700). Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2104520122291634554"
+    },
+    {
+      "id": "tli-tmdx-2026-09-28",
+      "handle": "TheLongInvest",
+      "ticker": "TMDX",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-28",
+      "example": false,
+      "note": "Add under 200 WMA at ~$84; upside target $274 (+326%). Low-risk buy if $100 captured as support. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2104550215407854002"
+    }
+  ]
 }
