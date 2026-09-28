@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "scoreboard-tab",
-  "at": "2026-09-28T15:38:51.371Z",
-  "url": "http://127.0.0.1:35155/",
+  "at": "2026-09-28T16:15:56.659Z",
+  "url": "http://127.0.0.1:38249/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [

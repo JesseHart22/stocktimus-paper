@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "moonshot-desk",
-  "at": "2026-09-28T15:38:47.236Z",
-  "url": "http://127.0.0.1:35155/",
+  "at": "2026-09-28T16:15:28.780Z",
+  "url": "http://127.0.0.1:38249/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -18,13 +18,13 @@
     "pill": "paper json · delayed",
     "bookSub": "3 tickets in view",
     "pnl": "$177.26",
-    "pnlSub": "Cash $45,268.26 · delayed MTM",
+    "pnlSub": "Cash $245,268.26 · delayed MTM",
     "closedPnl": "$56.71",
     "openN": "2",
     "invN": "0",
     "outN": "1",
     "targetK": "Return on avg deployed",
-    "deployedSub": "Idle $45,268.26 of $50,000.00 book · avg $4.9k",
+    "deployedSub": "Idle $245,268.26 of $250,000.00 book · avg $4.9k",
     "footer": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.",
     "rowCount": 3,
     "drawer": {
@@ -86,7 +86,7 @@
     {
       "name": "deployed subtitle names file account",
       "ok": true,
-      "detail": "Idle $45,268.26 of $50,000.00 book · avg $4.9k"
+      "detail": "Idle $245,268.26 of $250,000.00 book · avg $4.9k"
     },
     {
       "name": "no weekly goal tile",
@@ -121,12 +121,12 @@
     {
       "name": "file delayed subtitle",
       "ok": true,
-      "detail": "Cash $45,268.26 · delayed MTM"
+      "detail": "Cash $245,268.26 · delayed MTM"
     },
     {
       "name": "cash subtitle",
       "ok": true,
-      "detail": "Cash $45,268.26 · delayed MTM"
+      "detail": "Cash $245,268.26 · delayed MTM"
     },
     {
       "name": "row tickers and confidence pills match file",

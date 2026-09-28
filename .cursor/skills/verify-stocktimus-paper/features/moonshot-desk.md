@@ -33,7 +33,7 @@ Screenshots: `evidence/moonshot-desk-hero.png`, `evidence/moonshot-desk-drawer.p
 
 ## Gotchas
 
-- This desk does not read `data.json` or the summary overlay. Account and weekly target come from `desks/moonshot.json` only. Defaults in `app.js` (`5000` / `0`) apply only if those fields are missing. The file currently sets its own account.
+- This desk does not read `data.json` or the summary overlay. Account and weekly target come from `desks/moonshot.json` only. Defaults in `app.js` (`250000` / `0`) apply only if those fields are missing. The file currently sets its own account.
 - There is no `summary` object, so the hero total is the sum of ticket `paper_pnl`. The delayed suffix is the file's `marks_source` / `quote_quality`. Open lots already have file marks, so this desk does not call the proxy. Closed lots stay on file `paper_pnl`.
 - Cash subtitle replaces the "Open … · Closed …" line. Closed dollars stay in `#stat-closed-pnl`.
 - Do not invent a moonshot fill. Entry and `paper_pnl` in the drawer must match the file for a closed row.

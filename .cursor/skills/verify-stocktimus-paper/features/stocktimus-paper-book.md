@@ -35,10 +35,10 @@ Observations and pass/fail checks: `evidence/stocktimus-paper-book.json`.
 ## Gotchas
 
 - `data.json` wins over `trade-tracker-paper.json`. The pill shows the JSON `source` string when it is not one of the built-in labels. Current files use `stocktimus-paper` and have no top-level `marks_source`, so the pill reads `stocktimus-paper`. A Robinhood publish appends ` · Robinhood live`. A delayed file or a Massive fallback quote appends ` · delayed`.
-- `trade-tracker-summary.json` overrides `account` and `weekly_target` for this desk only. Hero idle cash and the goal label follow that overlay, not the `$50,000` / `$750` defaults in `app.js`.
+- `trade-tracker-summary.json` overrides `account` and `weekly_target` for this desk only. Hero idle cash and the goal label follow that overlay, not the `$250,000` / `$3,750` defaults in `app.js`.
 - Hero **open** and **inv** prefer `summary.open` and `summary.invalidated` when those fields exist. **Out** keeps the larger of `summary.out` and the counted closed buckets. Expired tickets are closed (`out`), not their own hero number. `leftover_shares` stays in the open table.
 - Closed P&L is the sum of file `paper_pnl` on closed tickets. The hero total stays on `summary.paper_pnl` unless the Massive fallback remarked open lots in that session. Do not "fix" a mismatch by typing a price.
 - When `summary.resolved` equals the trade count, the page recomputes hit rate from closed marked tickets instead of `summary.hit_rate`.
 - Medium confidence is painted as **Med**.
 - **This week** is the current Monday–Sunday in `America/Los_Angeles`, compared to the ticket date. The helper does not drive that chip because the set depends on the clock.
-- The `$750` string in `index.html` is placeholder copy before `app.js` runs.
+- `index.html` weekly-goal labels are generic placeholders. `app.js` replaces them from the file `weekly_target`, or from `WEEKLY` when the file omits it.

@@ -1,7 +1,7 @@
 /* Stocktimus paper book. Numbers come from files only — never invented. */
 (() => {
-  const ACCOUNT = 50000;
-  const WEEKLY = 750;
+  const ACCOUNT = 250000;
+  const WEEKLY = 3750;
   const TZ = "America/Los_Angeles";
 
   const DESKS = {
@@ -10,15 +10,15 @@
       sub: "Paper book",
       files: ["./data.json", "./trade-tracker-paper.json", "../trade-tracker-paper.json"],
       csv: true,
-      defaultAccount: 50000,
-      defaultWeekly: 750,
+      defaultAccount: 250000,
+      defaultWeekly: 3750,
     },
     moonshot: {
       name: "Moonshot",
       sub: "10x sleeve",
       files: ["./desks/moonshot.json"],
       csv: false,
-      defaultAccount: 5000,
+      defaultAccount: 250000,
       defaultWeekly: 0,
     },
     compounder: {
@@ -26,7 +26,7 @@
       sub: "Long-term book",
       files: ["./desks/compounder.json"],
       csv: false,
-      defaultAccount: 25000,
+      defaultAccount: 250000,
       defaultWeekly: 0,
     },
   };
@@ -1200,7 +1200,7 @@
         money(totalPnl, "$0.00") + " / avg dep " + money(avgDep, "$0") +
         " · book " + money(state.account, "$0.00") + " (idle not in denom)";
     } else {
-      if (kEl) kEl.textContent = "Avg $/week vs " + money(state.weekly, "$750.00") + " goal";
+      if (kEl) kEl.textContent = "Avg $/week vs " + money(state.weekly) + " goal";
       acctEl.textContent = avgPerWeek != null ? money(avgPerWeek) + "/wk" : "—";
       acctEl.className = "stat-v mono " + clsPnL(avgPerWeek);
       const vsGoal = avgPerWeek != null ? avgPerWeek / state.weekly : 0;
@@ -1211,7 +1211,7 @@
         ? pct(weeklyVsDep) + "/wk of avg deployed"
         : null;
       $("stat-target-sub").textContent =
-        money(avgPerWeek, "$0.00") + "/week vs " + money(state.weekly, "$750.00") + " goal" +
+        money(avgPerWeek, "$0.00") + "/week vs " + money(state.weekly) + " goal" +
         (weeks != null ? " · " + weeks + " wk" : "") +
         (depBit ? " · " + depBit : "") +
         " · deployed denom (not " + moneyShort(state.account) + " book)";

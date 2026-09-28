@@ -38,8 +38,8 @@ const PAPER_DESKS = {
     title: "Stocktimus · Paper book",
     file: "data.json",
     summaryFile: "trade-tracker-summary.json",
-    defaultAccount: 50000,
-    defaultWeekly: 750,
+    defaultAccount: 250000,
+    defaultWeekly: 3750,
   },
   "moonshot-desk": {
     tab: "moonshot",
@@ -48,7 +48,7 @@ const PAPER_DESKS = {
     title: "Moonshot · Paper book",
     file: "desks/moonshot.json",
     summaryFile: null,
-    defaultAccount: 5000,
+    defaultAccount: 250000,
     defaultWeekly: 0,
   },
   "compounder-desk": {
@@ -58,7 +58,7 @@ const PAPER_DESKS = {
     title: "Compounder · Paper book",
     file: "desks/compounder.json",
     summaryFile: null,
-    defaultAccount: 25000,
+    defaultAccount: 250000,
     defaultWeekly: 0,
   },
 };

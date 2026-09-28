@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "stocktimus-paper-book",
-  "at": "2026-09-28T15:38:43.986Z",
-  "url": "http://127.0.0.1:35155/",
+  "at": "2026-09-28T16:15:25.508Z",
+  "url": "http://127.0.0.1:38249/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -24,8 +24,8 @@
     "openN": "5",
     "invN": "12",
     "outN": "54",
-    "targetK": "Avg $/week vs $795.34 goal",
-    "deployedSub": "Idle $4,323.22 of $53,022.72 book · avg $36k",
+    "targetK": "Avg $/week vs $3,795.34 goal",
+    "deployedSub": "Idle $204,323.22 of $253,022.72 book · avg $39k",
     "footer": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.",
     "rowCount": 71,
     "drawer": {
@@ -87,12 +87,12 @@
     {
       "name": "deployed subtitle names file account",
       "ok": true,
-      "detail": "Idle $4,323.22 of $53,022.72 book · avg $36k"
+      "detail": "Idle $204,323.22 of $253,022.72 book · avg $39k"
     },
     {
       "name": "weekly goal label",
       "ok": true,
-      "detail": "Avg $/week vs $795.34 goal"
+      "detail": "Avg $/week vs $3,795.34 goal"
     },
     {
       "name": "open count",
