@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "compounder-desk",
-  "at": "2026-09-28T15:38:50.463Z",
-  "url": "http://127.0.0.1:35155/",
+  "at": "2026-09-28T16:15:32.055Z",
+  "url": "http://127.0.0.1:38249/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -18,13 +18,13 @@
     "pill": "compounder · delayed",
     "bookSub": "7 tickets in view",
     "pnl": "$128.58",
-    "pnlSub": "Cash $406.17 · delayed MTM",
+    "pnlSub": "Cash $200,406.17 · delayed MTM",
     "closedPnl": "−$111.53",
     "openN": "5",
     "invN": "0",
     "outN": "2",
     "targetK": "Return on avg deployed",
-    "deployedSub": "Idle $0.00 of $50,000.00 book · avg $11k",
+    "deployedSub": "Idle $159,061.41 of $250,000.00 book · avg $14k",
     "footer": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.",
     "rowCount": 7,
     "drawer": {
@@ -86,7 +86,7 @@
     {
       "name": "deployed subtitle names file account",
       "ok": true,
-      "detail": "Idle $0.00 of $50,000.00 book · avg $11k"
+      "detail": "Idle $159,061.41 of $250,000.00 book · avg $14k"
     },
     {
       "name": "no weekly goal tile",
@@ -121,12 +121,12 @@
     {
       "name": "file delayed subtitle",
       "ok": true,
-      "detail": "Cash $406.17 · delayed MTM"
+      "detail": "Cash $200,406.17 · delayed MTM"
     },
     {
       "name": "cash subtitle",
       "ok": true,
-      "detail": "Cash $406.17 · delayed MTM"
+      "detail": "Cash $200,406.17 · delayed MTM"
     },
     {
       "name": "row tickers and confidence pills match file",

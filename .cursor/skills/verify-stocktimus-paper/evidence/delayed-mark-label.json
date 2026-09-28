@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "delayed-mark-label",
-  "at": "2026-09-28T15:38:55.847Z",
-  "url": "http://127.0.0.1:35155/",
+  "at": "2026-09-28T16:16:02.052Z",
+  "url": "http://127.0.0.1:38249/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -18,7 +18,7 @@
     "robinhoodPnlSub": "Open $696.00 · Closed $2,326.72 · Robinhood live",
     "robinhoodPnl": "$3,022.72",
     "fallbackPill": "stocktimus-paper · delayed",
-    "fallbackPnlSub": "Open $669.00 · Closed $2,326.72 · delayed MTM"
+    "fallbackPnlSub": "Open $697.00 · Closed $2,326.72 · delayed MTM"
   },
   "checks": [
     {
@@ -94,7 +94,7 @@
     {
       "name": "fallback subtitle says delayed MTM",
       "ok": true,
-      "detail": "Open $669.00 · Closed $2,326.72 · delayed MTM"
+      "detail": "Open $697.00 · Closed $2,326.72 · delayed MTM"
     },
     {
       "name": "fallback pill is not Robinhood",
