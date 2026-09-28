@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-09-21T08:39:37-07:00",
+  "as_of": "2026-09-28T08:24:41-07:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -21,10 +21,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 11,
+      "stars": 24,
       "called_at": "2026-09-17",
       "example": false,
-      "note": "Sep 17 window. +6 CLMT posts Sep 18\u201321 (base oil / deleveraging) \u2192 stars 11. Not graded."
+      "note": "Window Sep 17\u201323. Prior stars +19 CLMT longs Sep 21\u201323 PT (diesel-ban noise / base-oil / Q3 print). Not graded."
     },
     {
       "id": "zs-inv-2026-09-11",
@@ -36,7 +36,7 @@
       "stars": 0,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "Hard look $0.50\u2013$0.75. Prev close 2026-09-18 PT ~$0.60 touched zone; delayed mark ~$0.85 on 2026-09-21. No new same-direction posts this week. Not graded."
+      "note": "Hard look $0.50\u2013$0.75. Sep 15 sold placeholder / more downside. No INV posts since Sep 21; delayed mid ~$0.68 back in zone 2026-09-28. Not graded."
     },
     {
       "id": "sd-nbis-2026-09-11",
@@ -48,19 +48,7 @@
       "stars": 13,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "Bullish through Sep 17. Window closed. Not graded."
-    },
-    {
-      "id": "sd-nbis-2026-09-21",
-      "handle": "Sandeman52",
-      "ticker": "NBIS",
-      "kind": "trade",
-      "status": "open",
-      "direction": "long",
-      "stars": 0,
-      "called_at": "2026-09-21",
-      "example": false,
-      "note": "New 7-day window. Dismissed bearish NBIS analyst targets. Not graded."
+      "note": "First window Sep 11\u201317. Later NBIS longs Sep 22+ are new graded call sd-nbis-2026-09-22. Not graded."
     },
     {
       "id": "sd-hims-2026-09-16",
@@ -93,10 +81,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 1,
+      "stars": 0,
       "called_at": "2026-09-14",
       "example": false,
-      "note": "Pump thesis. Sep 19 FLNC/BESS post also named CSIQ \u2192 +1 star. Not graded."
+      "note": "First window Sep 14. Sep 24 'too cheap\u2026 adding' opens ls-csiq-2026-09-24. Not graded."
     },
     {
       "id": "ls-eose-2026-09-14",
@@ -105,22 +93,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 1,
+      "stars": 0,
       "called_at": "2026-09-14",
       "example": false,
-      "note": "Time to execute. Sep 19 FLNC/BESS post also named EOSE \u2192 +1 star. Not graded."
-    },
-    {
-      "id": "ls-flnc-2026-09-19",
-      "handle": "LucasSacerdote_",
-      "ticker": "FLNC",
-      "kind": "trade",
-      "status": "open",
-      "direction": "long",
-      "stars": 0,
-      "called_at": "2026-09-19",
-      "example": false,
-      "note": "BESS cell manufacturing as long-term survivor filter; CSIQ/EOSE named as visitors context. Not graded."
+      "note": "First window Sep 14. Sep 22 Indensity/progress post opens ls-eose-2026-09-22. Not graded."
     },
     {
       "id": "ct-cls-2026-09-12",
@@ -132,7 +108,7 @@
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Friday calls, no strike. No new posts this week. Not graded."
+      "note": "Friday calls, no strike. Not graded."
     },
     {
       "id": "ct-be-2026-09-12",
@@ -144,7 +120,7 @@
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Same post as CLS. No strike. No new posts this week. Not graded."
+      "note": "Same post as CLS. No strike. Not graded."
     },
     {
       "id": "ct-spx-2026-09-17",
@@ -156,7 +132,115 @@
       "stars": 0,
       "called_at": "2026-09-17",
       "example": false,
-      "note": "Tagged daily 100MA, stalled at daily 20MA and 21EMA. No new posts this week. Not graded."
+      "note": "Tagged daily 100MA, stalled at daily 20MA and 21EMA. Not graded."
+    },
+    {
+      "id": "zs-clmt-2026-09-24",
+      "handle": "Zerosumgame33",
+      "ticker": "CLMT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 4,
+      "called_at": "2026-09-24",
+      "example": false,
+      "note": "New 7-day window (\u22657d after Sep 17). First Sep 24 diesel-ban chirp; +4 through Sep 26 hang-tight / base-oil. Not graded."
+    },
+    {
+      "id": "zs-eose-2026-09-23",
+      "handle": "Zerosumgame33",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 2,
+      "called_at": "2026-09-23",
+      "example": false,
+      "note": "Short: back to $1 / sell the L / Cerberus exit thesis after NYSERDA miss. Not graded."
+    },
+    {
+      "id": "sd-nbis-2026-09-22",
+      "handle": "Sandeman52",
+      "ticker": "NBIS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 13,
+      "called_at": "2026-09-22",
+      "example": false,
+      "note": "New window after Sep 11. ARR poll / PT / undervalued / customer-capacity narrative through Sep 28. Not graded."
+    },
+    {
+      "id": "sd-ionq-2026-09-23",
+      "handle": "Sandeman52",
+      "ticker": "IONQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-23",
+      "example": false,
+      "note": "Jan 2028 $65 calls should start to come alive. Not graded."
+    },
+    {
+      "id": "sd-meta-2026-09-23",
+      "handle": "Sandeman52",
+      "ticker": "META",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-23",
+      "example": false,
+      "note": "Go $META (quoted Zuck/AI narrative). Not graded."
+    },
+    {
+      "id": "ls-csiq-2026-09-24",
+      "handle": "LucasSacerdote_",
+      "ticker": "CSIQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-24",
+      "example": false,
+      "note": "Too cheap\u2026 adding; US-China / midterms hedge. No share price. Not graded."
+    },
+    {
+      "id": "ls-lode-2026-09-21",
+      "handle": "LucasSacerdote_",
+      "ticker": "LODE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-09-21",
+      "example": false,
+      "note": "R/R better / SSOF / 24-7 recycling ramp. Not graded."
+    },
+    {
+      "id": "ls-eose-2026-09-22",
+      "handle": "LucasSacerdote_",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-09-22",
+      "example": false,
+      "note": "Indensity white-paper / progress; still long vs ZS short. Not graded."
+    },
+    {
+      "id": "ct-qqq-2026-09-22",
+      "handle": "Chartradamus",
+      "ticker": "QQQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-09-22",
+      "example": false,
+      "note": "Stretched; rubber-band lower; grabbed puts. Not graded."
     }
   ]
 }
