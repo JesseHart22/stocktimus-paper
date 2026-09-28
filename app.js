@@ -45,8 +45,7 @@
   const INV = new Set(["invalidated", "invalid", "killed"]);
   const OUT = new Set(["out", "closed", "expired", "skipped", "no", "resolved"]);
 
-  const PRICE_PROXY_URL = "https://stock-prices-proxy.jessehartung.workers.dev";
-  // Polygon Starter/Developer quotes via this worker are DELAYED — never label as real-time.
+  const MASSIVE_DELAYED_PROXY_URL = "https://stock-prices-proxy.jessehartung.workers.dev";
 
   const state = {
     trades: [],
@@ -60,9 +59,11 @@
     weekly: WEEKLY,
     cash: null,
     incomingSummary: null,
+    marksSource: null,
+    quoteQuality: null,
+    markKind: null,
     liveOk: false,
     liveAsOf: null,
-    mtmTimer: null,
   };
 
   function deskFromHash() {
@@ -825,10 +826,40 @@
     return [...stocks, ...opts];
   }
 
+  function readMarkField(payload, key) {
+    if (!payload || !Object.prototype.hasOwnProperty.call(payload, key)) return null;
+    if (payload[key] == null || payload[key] === "") return null;
+    return String(payload[key]);
+  }
+
+  function classifyPublishedMarks(source, quality) {
+    const s = str(source).toLowerCase();
+    const q = str(quality).toLowerCase();
+    if (s.includes("robinhood") || q === "robinhood" || q === "live" || q === "robinhood_live") {
+      return "robinhood";
+    }
+    if (q.includes("delay") || s.includes("massive") || s.includes("polygon") || s.includes("stock-prices-proxy")) {
+      return "delayed";
+    }
+    return null;
+  }
+
+  function openLotLacksFileMark(t) {
+    return isOpenLot(t) && t.paper_pnl == null && t.live_stock == null && t.live_option_mid == null;
+  }
+
+  // Massive is not the default path. Paperwright writes Robinhood marks into
+  // the JSON. Call the proxy only when an open lot has no file mark and the
+  // payload is not a Robinhood success (publish failed or marks missing).
+  function needsMassiveFallback() {
+    if (state.markKind === "robinhood") return false;
+    return state.trades.some(openLotLacksFileMark);
+  }
+
   async function fetchLiveQuotes(symbols) {
     if (!symbols.length) return null;
     const q = encodeURIComponent(symbols.join(","));
-    const url = PRICE_PROXY_URL + "?symbols=" + q;
+    const url = MASSIVE_DELAYED_PROXY_URL + "?symbols=" + q;
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error("proxy HTTP " + res.status);
     return res.json();
@@ -924,6 +955,7 @@
     }
     if (any) {
       state.liveOk = true;
+      state.markKind = "delayed";
       if (maxAsOf != null) state.liveAsOf = maxAsOf;
       state.summary = computeSummary(state.trades, state.incomingSummary);
     }
@@ -943,20 +975,6 @@
     }
   }
 
-  function stopLiveMtm() {
-    if (state.mtmTimer != null) {
-      clearInterval(state.mtmTimer);
-      state.mtmTimer = null;
-    }
-  }
-
-  function startLiveMtm() {
-    stopLiveMtm();
-    state.mtmTimer = setInterval(() => {
-      refreshLiveMarks().then((ok) => { if (ok) render(); }).catch(() => {});
-    }, 30000);
-  }
-
   async function load() {
     const deskId = state.desk || deskFromHash();
     const desk = DESKS[deskId] || DESKS.stocktimus;
@@ -971,8 +989,12 @@
     let weekly = desk.defaultWeekly;
 
     let cash = null;
+    let marksSource = null;
+    let quoteQuality = null;
     if (paper && paper.data) {
       const payload = paper.data;
+      marksSource = readMarkField(payload, "marks_source");
+      quoteQuality = readMarkField(payload, "quote_quality");
       trades = asList(payload).map(normalizeTrade).filter(Boolean);
       asOf = pick(payload, ["as_of", "asOf", "updated", "generated_at", "timestamp"]) || null;
       incomingSummary = payload.summary || null;
@@ -1021,6 +1043,9 @@
     state.asOf = asOf;
     state.source = source;
     state.incomingSummary = incomingSummary;
+    state.marksSource = marksSource;
+    state.quoteQuality = quoteQuality;
+    state.markKind = classifyPublishedMarks(marksSource, quoteQuality);
     state.liveOk = false;
     state.liveAsOf = null;
     state.summary = computeSummary(trades, incomingSummary);
@@ -1051,8 +1076,11 @@
     pnlEl.textContent = marked || totalPnl != null ? money(totalPnl, "$0.00") : "—";
     pnlEl.className = "stat-v mono " + clsPnL(totalPnl);
     const pnlSub = $("stat-pnl-sub");
+    const mtmLabel = state.markKind === "robinhood"
+      ? "Robinhood live"
+      : (state.markKind === "delayed" || state.liveOk ? "delayed MTM" : "");
     if (state.cash != null) {
-      pnlSub.textContent = "Cash " + money(state.cash, "$0.00") + (state.liveOk ? " · delayed MTM" : "");
+      pnlSub.textContent = "Cash " + money(state.cash, "$0.00") + (mtmLabel ? " · " + mtmLabel : "");
     } else {
       const bits = [];
       if (s.open_pnl != null || s.closed_pnl != null) {
@@ -1062,7 +1090,7 @@
       } else {
         bits.push("No paper marks yet");
       }
-      if (state.liveOk) bits.push("delayed MTM");
+      if (mtmLabel) bits.push(mtmLabel);
       pnlSub.textContent = bits.join(" · ");
     }
 
@@ -1214,7 +1242,8 @@
       compounder: "compounder",
     };
     let src = labels[state.source] || state.source;
-    if (state.liveOk) src += " · delayed";
+    if (state.markKind === "robinhood") src += " · Robinhood live";
+    else if (state.markKind === "delayed" || state.liveOk) src += " · delayed";
     pill.textContent = src;
   }
 
@@ -1509,7 +1538,6 @@
     window.addEventListener("hashchange", () => {
       const next = deskFromHash();
       if (next === "scoreboard") {
-        if (state.desk !== "scoreboard") stopLiveMtm();
         state.desk = "scoreboard";
         syncDeskTabs();
         setScoreboardView(true);
@@ -1522,13 +1550,13 @@
       state.filter = "all";
       document.querySelectorAll(".chip").forEach((b) => b.classList.toggle("on", b.getAttribute("data-filter") === "all"));
       syncDeskTabs();
-      stopLiveMtm();
       load()
         .then(async () => {
           render();
-          await refreshLiveMarks();
-          render();
-          startLiveMtm();
+          if (needsMassiveFallback()) {
+            await refreshLiveMarks();
+            render();
+          }
         })
         .catch((err) => {
           console.warn("desk load failed", err);
@@ -1583,12 +1611,13 @@
     }
     render();
     try {
-      await refreshLiveMarks();
-      render();
+      if (needsMassiveFallback()) {
+        await refreshLiveMarks();
+        render();
+      }
     } catch (err) {
       console.warn("initial live marks failed", err);
     }
-    startLiveMtm();
   }
 
   init();

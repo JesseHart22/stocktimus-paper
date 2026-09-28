@@ -1,9 +1,20 @@
 {
   "ok": true,
-  "at": "2026-09-25T20:03:33.620Z",
+  "at": "2026-09-28T15:41:19.785Z",
   "serverStopped": true,
   "survived": [
+    "compounder-desk-drawer.png",
+    "compounder-desk-hero.png",
+    "compounder-desk.json",
+    "delayed-mark-label.json",
+    "delayed-mark-label.png",
     "doctor.json",
+    "moonshot-desk-drawer.png",
+    "moonshot-desk-hero.png",
+    "moonshot-desk.json",
+    "robinhood-mark-label.png",
+    "scoreboard-tab.json",
+    "scoreboard-tab.png",
     "stocktimus-paper-book-drawer.png",
     "stocktimus-paper-book-hero.png",
     "stocktimus-paper-book.json"

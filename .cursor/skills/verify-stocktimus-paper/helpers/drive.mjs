@@ -155,6 +155,18 @@ function footerFromIndex() {
   return m[1].replace(/\s+/g, " ").trim();
 }
 
+function publishedMarkKind(payload) {
+  const source = str(pick(payload, ["marks_source"])).toLowerCase();
+  const quality = str(pick(payload, ["quote_quality"])).toLowerCase();
+  if (source.includes("robinhood") || quality === "robinhood" || quality === "live" || quality === "robinhood_live") {
+    return "robinhood";
+  }
+  if (quality.includes("delay") || source.includes("massive") || source.includes("polygon") || source.includes("stock-prices-proxy")) {
+    return "delayed";
+  }
+  return null;
+}
+
 function pillBase(payload) {
   const trades = asList(payload);
   let source = "stub";
@@ -422,10 +434,12 @@ async function doctor() {
   hard(checks, "app.js loads data.json first", app.includes('files: ["./data.json", "./trade-tracker-paper.json", "../trade-tracker-paper.json"]'));
   hard(checks, "app.js moonshot file", app.includes('files: ["./desks/moonshot.json"]'));
   hard(checks, "app.js compounder file", app.includes('files: ["./desks/compounder.json"]'));
-  hard(checks, "price proxy url", app.includes('const PRICE_PROXY_URL = "' + PROXY_URL + '"'));
+  hard(checks, "massive delayed proxy url", app.includes('const MASSIVE_DELAYED_PROXY_URL = "' + PROXY_URL + '"'));
   hard(checks, "delayed pill suffix", app.includes('src += " · delayed"'));
+  hard(checks, "robinhood pill suffix", app.includes('src += " · Robinhood live"'));
   hard(checks, "delayed MTM copy", app.includes("delayed MTM"));
-  hard(checks, "never label as real-time", app.includes("never label as real-time"));
+  hard(checks, "massive fallback gate", app.includes("function needsMassiveFallback()"));
+  hard(checks, "no default live poll", !app.includes("startLiveMtm"));
   hard(checks, "footer not advice", index.includes("Not advice"));
   hard(checks, "four desk tabs", ["stocktimus", "moonshot", "compounder", "scoreboard"].every((id) => index.includes('data-desk="' + id + '"')));
   hard(checks, "scoreboard redirect", readText("scoreboard.html").includes('location.replace("./#scoreboard")'));
@@ -521,7 +535,7 @@ async function doctor() {
   console.log("doctor ok -> " + join(EVIDENCE, "doctor.json"));
 }
 
-function settleProxy(page, ms = 8000) {
+function settleProxy(page, ms = 2000) {
   return new Promise((resolveSettle) => {
     let done = false;
     const finish = (why) => {
@@ -608,12 +622,16 @@ async function drivePaper(page, featureId) {
   const checks = [];
   const { payload, trades, summary, proxy } = await openPaperDesk(page, desk);
   const snap = await paperSnapshot(page);
-  const live = snap.pill.includes("delayed");
+  const proxyRemarked = proxy === "ok";
   const summaryObj = mergedSummary(payload, desk.summaryFile ? summary : null);
   const countsFixed = bookCounts(trades, summaryObj);
   const { account, weekly } = accountWeekly(desk, payload, desk.summaryFile ? summary : null);
   const footer = footerFromIndex();
   const base = pillBase(payload);
+  const kind = publishedMarkKind(payload);
+  let expectedPill = base;
+  if (kind === "robinhood") expectedPill = base + " · Robinhood live";
+  else if (kind === "delayed" || proxyRemarked) expectedPill = base + " · delayed";
   const ids = new Set(trades.map(tradeId));
   const seen = snap.rows.map((r) => r.id);
 
@@ -621,7 +639,7 @@ async function drivePaper(page, featureId) {
   hard(checks, "desk subtitle", snap.deskSub === desk.sub, snap.deskSub);
   hard(checks, "document title", snap.title === desk.title, snap.title);
   hard(checks, "active tab", snap.tabOn === desk.tab, snap.tabOn);
-  hard(checks, "source pill", snap.pill === base || snap.pill === base + " · delayed", snap.pill + " expected " + base);
+  hard(checks, "source pill", snap.pill === expectedPill, snap.pill + " expected " + expectedPill);
   hard(checks, "pill is not real-time", !/real-?time/i.test(snap.pill), snap.pill);
   hard(checks, "ticket line", snap.bookSub === ticketLine(trades.length), snap.bookSub);
   hard(checks, "row ids match file", seen.length === ids.size && seen.every((id) => ids.has(id)), seen.length + " rows / " + ids.size + " file");
@@ -638,12 +656,19 @@ async function drivePaper(page, featureId) {
   hard(checks, "out count", snap.outN === String(countsFixed.out), snap.outN + " vs " + countsFixed.out);
   const expectedClosed = closedPnlText(trades);
   hard(checks, "closed P&L matches file", snap.closedPnl === expectedClosed, snap.closedPnl + " vs " + expectedClosed);
-  if (!live) {
+  if (!proxyRemarked) {
     const expectedTotal = fileTotalText(trades, summaryObj, false);
-    hard(checks, "total P&L matches file while not delayed", snap.pnl === expectedTotal, snap.pnl + " vs " + expectedTotal);
+    hard(checks, "total P&L matches file", snap.pnl === expectedTotal, snap.pnl + " vs " + expectedTotal);
   } else {
-    hard(checks, "delayed total is formatted money", /^(?:−\$|\$)[\d,]+\.\d{2}$/.test(snap.pnl), snap.pnl);
+    hard(checks, "proxy total is formatted money", /^(?:−\$|\$)[\d,]+\.\d{2}$/.test(snap.pnl), snap.pnl);
     hard(checks, "delayed MTM subtitle", snap.pnlSub.includes("delayed MTM"), snap.pnlSub);
+  }
+  if (kind === "delayed") {
+    hard(checks, "file delayed subtitle", snap.pnlSub.includes("delayed MTM"), snap.pnlSub);
+  }
+  if (kind === "robinhood") {
+    hard(checks, "robinhood subtitle", snap.pnlSub.includes("Robinhood live"), snap.pnlSub);
+    hard(checks, "robinhood pill is not delayed", !snap.pill.includes("delayed"), snap.pill);
   }
   const cash = cashOf(payload);
   if (cash != null) {
@@ -833,28 +858,111 @@ async function driveScoreboard(page) {
   };
 }
 
+function watchProxy(page) {
+  const hits = [];
+  const onRequest = (req) => {
+    if (req.url().includes("stock-prices-proxy")) hits.push("request");
+  };
+  page.on("request", onRequest);
+  return hits;
+}
+
+async function waitForBook(page, line) {
+  await page.waitForFunction((expected) => {
+    const book = document.getElementById("stat-book-sub");
+    const pill = document.getElementById("source-pill");
+    const loading = [...document.querySelectorAll("tbody")].some((tb) => (tb.textContent || "").includes("Loading book"));
+    return book && book.textContent.trim() === expected && pill && pill.textContent.trim() !== "loading" && !loading;
+  }, line, { timeout: 20000 });
+}
+
+async function fulfillJson(route, body) {
+  await route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify(body),
+  });
+}
+
 async function driveDelayed(page) {
   const checks = [];
+  const hits = watchProxy(page);
   const desk = PAPER_DESKS["stocktimus-paper-book"];
-  const { trades, proxy } = await openPaperDesk(page, desk);
-  const snap = await paperSnapshot(page);
-  let probe = { numericPricePresent: false, ok: false };
-  const symbol = firstOpenTicker(trades);
-  if (symbol) probe = await proxyProbe(symbol);
-  const quoteLanded = probe.numericPricePresent || proxy === "ok";
-  hard(checks, "book loaded", snap.bookSub === ticketLine(trades.length), snap.bookSub);
-  hard(checks, "pill does not say real-time", !/real-?time/i.test(snap.pill), snap.pill);
-  hard(checks, "subtitle does not say real-time", !/real-?time/i.test(snap.pnlSub), snap.pnlSub);
-  let outcome = "delayed";
-  if (quoteLanded) {
-    hard(checks, "pill says delayed", snap.pill.includes("delayed"), snap.pill);
-    hard(checks, "subtitle says delayed MTM", snap.pnlSub.includes("delayed MTM"), snap.pnlSub);
+  const payload = readJson(desk.file);
+  const trades = asList(payload);
+  const summary = readJson(desk.summaryFile);
+  const summaryObj = mergedSummary(payload, summary);
+  const expectedTotal = fileTotalText(trades, summaryObj, false);
+  const line = ticketLine(trades.length);
+
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await waitForBook(page, line);
+  await sleep(1500);
+  const published = await paperSnapshot(page);
+  hard(checks, "book loaded", published.bookSub === line, published.bookSub);
+  hard(checks, "published pill has no delayed suffix", !published.pill.includes("delayed"), published.pill);
+  hard(checks, "published pill has no Robinhood suffix", !published.pill.includes("Robinhood"), published.pill);
+  hard(checks, "published book does not call Massive", hits.length === 0, String(hits.length));
+  hard(checks, "published total matches file", published.pnl === expectedTotal, published.pnl + " vs " + expectedTotal);
+
+  await page.route("**/data.json*", async (route) => {
+    const res = await route.fetch();
+    const body = await res.json();
+    body.marks_source = "robinhood";
+    body.quote_quality = "robinhood_live";
+    await fulfillJson(route, body);
+  });
+  const hitsBeforeRh = hits.length;
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => {
+    const pill = document.getElementById("source-pill");
+    return pill && pill.textContent.includes("Robinhood");
+  }, null, { timeout: 20000 });
+  await sleep(1500);
+  const rh = await paperSnapshot(page);
+  hard(checks, "robinhood pill", rh.pill.includes("Robinhood live"), rh.pill);
+  hard(checks, "robinhood pill is not delayed", !rh.pill.includes("delayed"), rh.pill);
+  hard(checks, "robinhood subtitle", rh.pnlSub.includes("Robinhood live"), rh.pnlSub);
+  hard(checks, "robinhood pill does not say real-time", !/real-?time/i.test(rh.pill), rh.pill);
+  hard(checks, "robinhood book does not call Massive", hits.length === hitsBeforeRh, String(hits.length - hitsBeforeRh));
+  hard(checks, "robinhood total stays on file marks", rh.pnl === expectedTotal, rh.pnl + " vs " + expectedTotal);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: join(EVIDENCE, "robinhood-mark-label.png") });
+
+  await page.unroute("**/data.json*");
+  await page.route("**/data.json*", async (route) => {
+    const res = await route.fetch();
+    const body = await res.json();
+    delete body.marks_source;
+    delete body.quote_quality;
+    for (const t of asList(body)) {
+      const status = tradeStatus(t).toLowerCase();
+      if (!OPEN.has(status)) continue;
+      t.paper_pnl = null;
+      t.live_stock = null;
+      t.live_option_mid = null;
+      t.live_option_last = null;
+    }
+    await fulfillJson(route, body);
+  });
+  const hitsBeforeFallback = hits.length;
+  const proxyWait = settleProxy(page, 8000);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await waitForBook(page, line);
+  const proxy = await proxyWait;
+  const fb = await paperSnapshot(page);
+  const requested = hits.length > hitsBeforeFallback || proxy === "ok";
+  hard(checks, "fallback requests Massive", requested, proxy);
+  hard(checks, "fallback pill does not say real-time", !/real-?time/i.test(fb.pill), fb.pill);
+  let outcome = "fallback-no-quote";
+  if (proxy === "ok") {
+    outcome = "fallback-delayed";
+    hard(checks, "fallback pill says delayed", fb.pill.includes("delayed"), fb.pill);
+    hard(checks, "fallback subtitle says delayed MTM", fb.pnlSub.includes("delayed MTM"), fb.pnlSub);
+    hard(checks, "fallback pill is not Robinhood", !fb.pill.includes("Robinhood"), fb.pill);
   } else {
-    outcome = "file-marks-only";
-    hard(checks, "no delayed suffix without a quote", !snap.pill.includes("delayed"), snap.pill);
-    const ids = new Set(trades.map(tradeId));
-    const seen = snap.rows.map((r) => r.id);
-    hard(checks, "file tickets still listed", seen.length === ids.size && seen.every((id) => ids.has(id)));
+    hard(checks, "no delayed label without a quote", !fb.pill.includes("delayed"), fb.pill);
+    hard(checks, "no Robinhood label on unmarked fallback", !fb.pill.includes("Robinhood"), fb.pill);
   }
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: join(EVIDENCE, "delayed-mark-label.png") });
@@ -862,8 +970,15 @@ async function driveDelayed(page) {
     checks,
     outcome,
     proxySettle: proxy,
-    proxyNumericPricePresent: probe.numericPricePresent,
-    observed: { pill: snap.pill, pnlSub: snap.pnlSub, bookSub: snap.bookSub },
+    observed: {
+      publishedPill: published.pill,
+      publishedPnl: published.pnl,
+      robinhoodPill: rh.pill,
+      robinhoodPnlSub: rh.pnlSub,
+      robinhoodPnl: rh.pnl,
+      fallbackPill: fb.pill,
+      fallbackPnlSub: fb.pnlSub,
+    },
     files: ["data.json"],
   };
 }
