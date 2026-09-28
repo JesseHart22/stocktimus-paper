@@ -1,11 +1,11 @@
 {
   "desk": "compounder",
   "as_of": "2026-09-17T15:05:54-07:00",
-  "account": 50000.0,
+  "account": 250000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder $50k paper. Max 25%/name. Confidence High|Medium|Low on every ticket. \u226510%/yr floor; LEAPs \u226512mo on pullbacks only (none open). Marks delayed Massive proxy. Not live.",
-  "cash": 406.17,
+  "note": "Compounder $250k paper. Max 25%/name. Confidence High|Medium|Low on every ticket. \u226510%/yr floor; LEAPs \u226512mo on pullbacks only (none open). Marks delayed Massive proxy. Not live.",
+  "cash": 200406.17,
   "summary": {
     "paper_pnl": 128.58,
     "open": 5,

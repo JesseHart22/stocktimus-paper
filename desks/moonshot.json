@@ -1,10 +1,10 @@
 {
   "as_of": "2026-09-17T15:05:33.733681-07:00",
-  "account": 50000,
+  "account": 250000,
   "weekly_target": 0,
   "source": "paper",
-  "note": "Moonshot paper $50k (raised 2026-09-17). NTLA+CAPR open; undeployed cash is opportunity/strategic until new moonshots. Massive 1m fills. Delayed marks. Not live. Not advice.",
-  "cash": 45268.26,
+  "note": "Moonshot paper $250k (raised 2026-09-28). NTLA+CAPR open; undeployed cash is opportunity/strategic until new moonshots. Massive 1m fills. Delayed marks. Not live. Not advice.",
+  "cash": 245268.26,
   "trades": [
     {
       "id": "2026-09-01-moonshot-NTLA",

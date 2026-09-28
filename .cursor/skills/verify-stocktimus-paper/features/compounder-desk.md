@@ -32,6 +32,6 @@ Screenshots: `evidence/compounder-desk-hero.png`, `evidence/compounder-desk-draw
 
 - This file has a `summary`. Hero total P&L prefers `summary.paper_pnl`. The delayed label comes from `quote_quality`. Open lots already have file marks, so the proxy does not replace that total.
 - Closed P&L is not taken from `summary`. It stays the sum of file `paper_pnl` on closed buckets.
-- `app.js` default account for this desk is `25000` only when the JSON omits `account`. The file sets `account` itself. Do not expect the default.
+- `app.js` default account for this desk is `250000` only when the JSON omits `account`. The file sets `account` itself. Do not expect the default.
 - Marks are the file's delayed quote. Drawer Paper P&L for a closed row matches that row's file `paper_pnl`.
 - The note in the JSON is not the footer. The footer is the shared disclaimer in `index.html`.

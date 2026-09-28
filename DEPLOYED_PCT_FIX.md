@@ -5,7 +5,7 @@
 **Branch:** main  
 **Message:** Paper UI: all return % use deployed capital (never / $25k book)
 
-> **Follow-on (same day):** Paper book raised to **$50,000** / weekly target **$750**. See `ACCOUNT_50K.md`. Return % still use deployed capital (not idle). Current deployed ~**$13,070** · idle ~**$36,930** of $50k.
+> **Follow-on:** Paper book is **$250,000** / Stocktimus weekly default **$3,750** (1.5% of 250k). See `ACCOUNT_50K.md`. The 2026-09-17 raise to $50,000 / $750 is the prior book. Return % still use deployed capital (not idle). The ~$13,070 deployed / ~$36,930 idle figures below are that day's snapshot, not the current book.
 
 
 ## Bug / requirement
