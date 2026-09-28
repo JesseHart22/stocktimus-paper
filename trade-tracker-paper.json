@@ -3876,175 +3876,6 @@
     "confidence_reason": "Single-feed TLI CSP at the printed buy zone below $45.46, under the cap."
   },
   {
-    "id": "2026-08-19-noon-IREN-4250c",
-    "csv_id": null,
-    "source_group": "emailed",
-    "date_proposed": "2026-08-19",
-    "session": "noon",
-    "date_opened": null,
-    "date_closed": null,
-    "taken": "proposed",
-    "ticker": "IREN",
-    "creator": "Stocktimus",
-    "structure": "stock+CC",
-    "strike": 42.5,
-    "expiry": "2026-08-21",
-    "right": "call",
-    "dte": 2,
-    "contracts": 1,
-    "spot_at_idea": 42.06,
-    "premium_per_share": 1.17,
-    "credit_or_debit": 117,
-    "credit_or_debit_side": "credit",
-    "capital_at_risk": 4206.0,
-    "invalidation": "closes under $41.70",
-    "notes": "Same overlay as AM. 'If you still hold the IREN shares and did not sell a call this morning.' Tagged $39.48 today. Do not buy a second lot.",
-    "new_vs_carry": "reprint",
-    "live_stock": 44.125,
-    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
-    "quote_quality": "delayed",
-    "live_option_bid": null,
-    "live_option_ask": null,
-    "live_option_mid": null,
-    "live_option_last": null,
-    "live_option_symbol": null,
-    "first_invalidation_date": null,
-    "min_close_since": 35.45000076293945,
-    "max_close_since": 48.54999923706055,
-    "paper_status": "reprint",
-    "paper_pnl": null,
-    "paper_roc_pct": null,
-    "paper_acct_pct": null,
-    "stock_path_pnl": null,
-    "option_path_pnl": null,
-    "flags": [
-      "reprint \u2014 same overlay as 2026-08-19-AM-IREN-4250c; not scored as a second fill",
-      "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5"
-    ],
-    "price_asof": "2026-09-25 13:30:31 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
-    "sources": {
-      "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
-      "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
-      "cboe": "/workspace/quotes-raw/backtest/cboe/IREN.json",
-      "inventory": "/workspace/tracker-inventory.json"
-    },
-    "daily_closes_completed": [
-      {
-        "date": "2026-08-19",
-        "close": 42.84000015258789
-      },
-      {
-        "date": "2026-08-20",
-        "close": 42.599998474121094
-      },
-      {
-        "date": "2026-08-21",
-        "close": 41.880001068115234
-      },
-      {
-        "date": "2026-08-24",
-        "close": 39.810001373291016
-      },
-      {
-        "date": "2026-08-25",
-        "close": 42.209999084472656
-      },
-      {
-        "date": "2026-08-26",
-        "close": 39.58000183105469
-      },
-      {
-        "date": "2026-08-27",
-        "close": 40.529998779296875
-      },
-      {
-        "date": "2026-08-28",
-        "close": 35.45000076293945
-      },
-      {
-        "date": "2026-08-31",
-        "close": 37.1150016784668
-      },
-      {
-        "date": "2026-09-01",
-        "close": 36.81999969482422
-      },
-      {
-        "date": "2026-09-02",
-        "close": 39.599998474121094
-      },
-      {
-        "date": "2026-09-03",
-        "close": 41.650001525878906
-      },
-      {
-        "date": "2026-09-04",
-        "close": 44.68000030517578
-      },
-      {
-        "date": "2026-09-08",
-        "close": 46.93000030517578
-      },
-      {
-        "date": "2026-09-09",
-        "close": 45.369998931884766
-      },
-      {
-        "date": "2026-09-10",
-        "close": 43.63999938964844
-      },
-      {
-        "date": "2026-09-11",
-        "close": 43.83000183105469
-      },
-      {
-        "date": "2026-09-14",
-        "close": 43.16999816894531
-      },
-      {
-        "date": "2026-09-15",
-        "close": 41.58000183105469
-      },
-      {
-        "date": "2026-09-16",
-        "close": 42.619998931884766
-      },
-      {
-        "date": "2026-09-17",
-        "close": 43.47999954223633
-      },
-      {
-        "date": "2026-09-18",
-        "close": 46.68000030517578
-      },
-      {
-        "date": "2026-09-21",
-        "close": 47.22999954223633
-      },
-      {
-        "date": "2026-09-22",
-        "close": 48.54999923706055
-      },
-      {
-        "date": "2026-09-23",
-        "close": 47.04999923706055
-      },
-      {
-        "date": "2026-09-24",
-        "close": 46.150001525878906
-      },
-      {
-        "date": "2026-09-25",
-        "close": 44.125
-      }
-    ],
-    "cboe_stock": 44.14,
-    "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
-    "confidence": "Medium",
-    "confidence_reason": "Reprint of the 8/19 AM IREN overlay thesis; not scored separately."
-  },
-  {
     "id": "2026-08-19-noon-PFE",
     "csv_id": 23,
     "source_group": "emailed",
@@ -4207,172 +4038,6 @@
     "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
     "confidence": "Medium",
     "confidence_reason": "Single-feed TLI CC at the safe-haven zone, 100sh under the cap."
-  },
-  {
-    "id": "2026-08-20-AM-IREN-4250c",
-    "csv_id": null,
-    "source_group": "emailed",
-    "date_proposed": "2026-08-20",
-    "session": "AM",
-    "date_opened": null,
-    "date_closed": null,
-    "taken": "proposed",
-    "ticker": "IREN",
-    "creator": "Stocktimus",
-    "structure": "stock+CC",
-    "strike": 42.5,
-    "expiry": "2026-08-21",
-    "right": "call",
-    "dte": 1,
-    "contracts": 1,
-    "spot_at_idea": 42.69,
-    "premium_per_share": 1.42,
-    "credit_or_debit": 142,
-    "credit_or_debit_side": "credit",
-    "capital_at_risk": 4269.0,
-    "invalidation": "closes under $41.70",
-    "notes": "Same overlay as Aug 19. Credit updated 1.17\u21921.42. 'If you still hold the IREN shares and did not sell a call.' Tagged $39.48 yesterday. Do not buy a second lot.",
-    "new_vs_carry": "reprint",
-    "live_stock": 44.125,
-    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
-    "quote_quality": "delayed",
-    "live_option_bid": null,
-    "live_option_ask": null,
-    "live_option_mid": null,
-    "live_option_last": null,
-    "live_option_symbol": null,
-    "first_invalidation_date": null,
-    "min_close_since": 35.45000076293945,
-    "max_close_since": 48.54999923706055,
-    "paper_status": "reprint",
-    "paper_pnl": null,
-    "paper_roc_pct": null,
-    "paper_acct_pct": null,
-    "stock_path_pnl": null,
-    "option_path_pnl": null,
-    "flags": [
-      "reprint \u2014 same overlay as 2026-08-19-AM-IREN-4250c; not scored as a second fill",
-      "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-21 C42.5",
-      "credit update on same overlay: 1.17 \u2192 1.42; fill assumed at first print 1.17 on 2026-08-19-AM-IREN-4250c"
-    ],
-    "price_asof": "2026-09-25 13:30:31 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
-    "sources": {
-      "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
-      "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
-      "cboe": "/workspace/quotes-raw/backtest/cboe/IREN.json",
-      "inventory": "/workspace/tracker-inventory.json"
-    },
-    "daily_closes_completed": [
-      {
-        "date": "2026-08-20",
-        "close": 42.599998474121094
-      },
-      {
-        "date": "2026-08-21",
-        "close": 41.880001068115234
-      },
-      {
-        "date": "2026-08-24",
-        "close": 39.810001373291016
-      },
-      {
-        "date": "2026-08-25",
-        "close": 42.209999084472656
-      },
-      {
-        "date": "2026-08-26",
-        "close": 39.58000183105469
-      },
-      {
-        "date": "2026-08-27",
-        "close": 40.529998779296875
-      },
-      {
-        "date": "2026-08-28",
-        "close": 35.45000076293945
-      },
-      {
-        "date": "2026-08-31",
-        "close": 37.1150016784668
-      },
-      {
-        "date": "2026-09-01",
-        "close": 36.81999969482422
-      },
-      {
-        "date": "2026-09-02",
-        "close": 39.599998474121094
-      },
-      {
-        "date": "2026-09-03",
-        "close": 41.650001525878906
-      },
-      {
-        "date": "2026-09-04",
-        "close": 44.68000030517578
-      },
-      {
-        "date": "2026-09-08",
-        "close": 46.93000030517578
-      },
-      {
-        "date": "2026-09-09",
-        "close": 45.369998931884766
-      },
-      {
-        "date": "2026-09-10",
-        "close": 43.63999938964844
-      },
-      {
-        "date": "2026-09-11",
-        "close": 43.83000183105469
-      },
-      {
-        "date": "2026-09-14",
-        "close": 43.16999816894531
-      },
-      {
-        "date": "2026-09-15",
-        "close": 41.58000183105469
-      },
-      {
-        "date": "2026-09-16",
-        "close": 42.619998931884766
-      },
-      {
-        "date": "2026-09-17",
-        "close": 43.47999954223633
-      },
-      {
-        "date": "2026-09-18",
-        "close": 46.68000030517578
-      },
-      {
-        "date": "2026-09-21",
-        "close": 47.22999954223633
-      },
-      {
-        "date": "2026-09-22",
-        "close": 48.54999923706055
-      },
-      {
-        "date": "2026-09-23",
-        "close": 47.04999923706055
-      },
-      {
-        "date": "2026-09-24",
-        "close": 46.150001525878906
-      },
-      {
-        "date": "2026-09-25",
-        "close": 44.125
-      }
-    ],
-    "cboe_stock": 44.14,
-    "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
-    "confidence": "Medium",
-    "confidence_reason": "Reprint of the 8/19 AM IREN overlay thesis; not scored separately."
   },
   {
     "id": "2026-08-20-AM-PFE",
@@ -9279,9 +8944,9 @@
     "invalidation": "daily close under $25.20",
     "notes": "",
     "new_vs_carry": "new",
-    "live_stock": 29.42,
-    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
-    "quote_quality": "delayed",
+    "live_stock": 28.79,
+    "live_stock_source": "robinhood last_trade_price RTH",
+    "quote_quality": "robinhood_live",
     "live_option_bid": null,
     "live_option_ask": null,
     "live_option_mid": 0.0,
@@ -9291,19 +8956,20 @@
     "min_close_since": 27.510000228881836,
     "max_close_since": 30.43000030517578,
     "paper_status": "leftover_shares",
-    "paper_pnl": 283.5,
-    "paper_roc_pct": 0.10405579005322077,
-    "paper_acct_pct": 0.00567,
-    "stock_path_pnl": 217.5,
+    "paper_pnl": 220.5,
+    "paper_roc_pct": 0.08093228115250505,
+    "paper_acct_pct": 0.000882,
+    "stock_path_pnl": 154.5,
     "option_path_pnl": 66.0,
     "flags": [
       "missing CBOE contract: contract not in CBOE chain: HIMS 2026-09-18 C28.0",
       "settled at expiry-close intrinsic (no time value); close=27.989999771118164 strike=28.0",
       "close<=strike: call expires worthless, credit kept",
-      "OTM CC leftover shares ROLLED (keep parent open); MTM mark=29.42; expiry_close=27.989999771118164; share capital stays on this lot; see roll ticket"
+      "OTM CC leftover shares ROLLED (keep parent open); MTM mark=29.42; expiry_close=27.989999771118164; share capital stays on this lot; see roll ticket",
+      "OTM CC leftover shares ROLLED (keep parent open); MTM mark=28.79; RH live"
     ],
-    "price_asof": "2026-09-25 13:00:00 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -9471,9 +9137,9 @@
     "invalidation": "daily close under $97",
     "notes": "Credit mid 3.275 (CBOE 2.50x4.05 wide). ~3.3%/wk on cash.",
     "new_vs_carry": "new",
-    "live_stock": 99.55,
-    "live_stock_source": "stock-prices-proxy delayed=True price=99.55; cboe_current=99.955",
-    "quote_quality": "delayed",
+    "live_stock": 98.95,
+    "live_stock_source": "robinhood last_trade_price RTH",
+    "quote_quality": "robinhood_live",
     "live_option_bid": 0.15,
     "live_option_ask": 0.9,
     "live_option_mid": 0.0,
@@ -9483,18 +9149,18 @@
     "min_close_since": 99.55,
     "max_close_since": 103.66999816894531,
     "paper_status": "leftover_shares",
-    "paper_pnl": 258.0,
-    "paper_roc_pct": 0.025735660847880298,
-    "paper_acct_pct": 0.00516,
-    "stock_path_pnl": -70.0,
+    "paper_pnl": 198.0,
+    "paper_roc_pct": 0.019750623441396508,
+    "paper_acct_pct": 0.000792,
+    "stock_path_pnl": -130.0,
     "option_path_pnl": 328.0,
     "flags": [
       "settled at expiry-close intrinsic (no time value); close=99.55 strike=100.0",
       "close<=strike: call expires worthless, credit kept",
-      "OTM CC leftover shares OPEN; stock exit = next RTH open 2026-09-28; MTM mark=99.55 (not a final stock exit); expiry_close=99.55"
+      "OTM CC leftover shares ROLLED (keep parent open); MTM mark=98.95; RH live"
     ],
-    "price_asof": "2026-09-25 13:00:00 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/SE.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/SE.json",
@@ -9539,7 +9205,7 @@
     "date_proposed": "2026-09-18",
     "session": "AM",
     "date_opened": "2026-09-18",
-    "date_closed": null,
+    "date_closed": "2026-09-28",
     "taken": "proposed",
     "ticker": "BABA",
     "creator": "Stocktimus",
@@ -9557,9 +9223,9 @@
     "invalidation": "daily close under $107",
     "notes": "Credit mid 4.275 (CBOE 4.10x4.45). ~3.8%/wk on cash.",
     "new_vs_carry": "new",
-    "live_stock": 109.74,
-    "live_stock_source": "stock-prices-proxy delayed=True price=109.74; cboe_current=109.74",
-    "quote_quality": "delayed",
+    "live_stock": 109.735,
+    "live_stock_source": "robinhood_minute_open 2026-09-28 (leftover Mon-open exit)",
+    "quote_quality": "robinhood_live",
     "live_option_bid": 0.0,
     "live_option_ask": 0.02,
     "live_option_mid": 0.0,
@@ -9568,19 +9234,19 @@
     "first_invalidation_date": null,
     "min_close_since": 109.74,
     "max_close_since": 116.30999755859375,
-    "paper_status": "leftover_shares",
-    "paper_pnl": 194.0,
-    "paper_roc_pct": 0.01730906495360457,
-    "paper_acct_pct": 0.00388,
-    "stock_path_pnl": -234.0,
+    "paper_status": "out",
+    "paper_pnl": 193.5,
+    "paper_roc_pct": 0.0172644539614561,
+    "paper_acct_pct": 0.000774,
+    "stock_path_pnl": -234.5,
     "option_path_pnl": 428.0,
     "flags": [
       "settled at expiry-close intrinsic (no time value); close=109.74 strike=110.0",
       "close<=strike: call expires worthless, credit kept",
-      "OTM CC leftover shares OPEN; stock exit = next RTH open 2026-09-28; MTM mark=109.74 (not a final stock exit); expiry_close=109.74"
+      "leftover shares exited next RTH open 2026-09-28 open=109.735; fill_source=robinhood_minute_open"
     ],
-    "price_asof": "2026-09-25 13:25:58 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/BABA.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/BABA.json",
@@ -9898,26 +9564,26 @@
     "invalidation": "daily close under $16.35",
     "notes": "No weeklies; next monthly Oct16. Credit mid 1.35 (CBOE 1.25x1.45). ~2.2%/wk equiv on cash. TLI hold $16.35 / target $20.87.",
     "new_vs_carry": "new",
-    "live_stock": 18.47,
-    "live_stock_source": "stock-prices-proxy delayed=True price=18.47; cboe_current=18.7102",
-    "quote_quality": "delayed",
-    "live_option_bid": 2.1,
-    "live_option_ask": 2.4,
-    "live_option_mid": 2.25,
+    "live_stock": 18.13,
+    "live_stock_source": "robinhood last_trade_price RTH",
+    "quote_quality": "robinhood_live",
+    "live_option_bid": 1.65,
+    "live_option_ask": 2.1,
+    "live_option_mid": 1.875,
     "live_option_last": 2.31,
     "live_option_symbol": "MRAM261016C00017500",
     "first_invalidation_date": null,
     "min_close_since": 17.09000015258789,
     "max_close_since": 18.47,
     "paper_status": "open",
-    "paper_pnl": 40.0,
-    "paper_roc_pct": 0.023296447291787998,
-    "paper_acct_pct": 0.0008,
-    "stock_path_pnl": 130.0,
-    "option_path_pnl": -90.0,
+    "paper_pnl": 43.5,
+    "paper_roc_pct": 0.02533488642981945,
+    "paper_acct_pct": 0.000174,
+    "stock_path_pnl": 96.0,
+    "option_path_pnl": -52.5,
     "flags": [],
-    "price_asof": "2026-09-25 13:00:00 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/MRAM.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/MRAM.json",
@@ -10035,7 +9701,7 @@
     "date_proposed": "2026-09-21",
     "session": "AM",
     "date_opened": "2026-09-21",
-    "date_closed": null,
+    "date_closed": "2026-09-28",
     "taken": "proposed",
     "ticker": "NFLX",
     "creator": "Stocktimus",
@@ -10053,9 +9719,9 @@
     "invalidation": "daily close under $69",
     "notes": "Credit mid 1.11 (CBOE). ~1.5%/wk on cash. Prior noon lot invalidated Fri; re-entry.",
     "new_vs_carry": "new",
-    "live_stock": 71.145,
-    "live_stock_source": "stock-prices-proxy delayed=True price=71.145; cboe_current=71.1",
-    "quote_quality": "delayed",
+    "live_stock": 71.55,
+    "live_stock_source": "robinhood_minute_open 2026-09-28 (leftover Mon-open exit)",
+    "quote_quality": "robinhood_live",
     "live_option_bid": 0.0,
     "live_option_ask": 0.01,
     "live_option_mid": 0.0,
@@ -10064,19 +9730,19 @@
     "first_invalidation_date": null,
     "min_close_since": 71.145,
     "max_close_since": 73.36000061035156,
-    "paper_status": "leftover_shares",
-    "paper_pnl": -79.5,
-    "paper_roc_pct": -0.010882956878850103,
-    "paper_acct_pct": -0.00159,
-    "stock_path_pnl": -190.5,
+    "paper_status": "out",
+    "paper_pnl": -39.0,
+    "paper_roc_pct": -0.0053388090349075976,
+    "paper_acct_pct": -0.000156,
+    "stock_path_pnl": -150.0,
     "option_path_pnl": 111.0,
     "flags": [
       "settled at expiry-close intrinsic (no time value); close=71.145 strike=73.0",
       "close<=strike: call expires worthless, credit kept",
-      "OTM CC leftover shares OPEN; stock exit = next RTH open 2026-09-28; MTM mark=71.145 (not a final stock exit); expiry_close=71.145"
+      "leftover shares exited next RTH open 2026-09-28 open=71.55; fill_source=robinhood_minute_open"
     ],
-    "price_asof": "2026-09-25 13:00:00 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
     "sources": {
       "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NFLX.json",
       "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NFLX.json",
@@ -10421,744 +10087,173 @@
     "confidence_reason": "TLI breakout above $13.56\u2013$13.70 50/200-day MA confluence; Wave 3 confirm $16.50 / Bull $18.20. One lot fits remaining cash."
   },
   {
-    "id": "tracker-only-1",
-    "csv_id": 1,
-    "source_group": "tracker-only",
-    "date_proposed": "2026-08-13",
-    "session": null,
-    "date_opened": "2026-08-13",
-    "date_closed": "2026-08-18",
-    "taken": "proposed",
-    "ticker": "HIMS",
-    "creator": "both",
-    "structure": "CSP",
-    "strike": 29,
-    "expiry": "2026-08-28",
-    "right": "put",
-    "dte": 15,
-    "contracts": 2,
-    "spot_at_idea": 28.69,
-    "premium_per_share": 1.45,
-    "credit_or_debit": 290,
-    "credit_or_debit_side": "credit",
-    "capital_at_risk": 5800.0,
-    "invalidation": "daily close under $27.50",
-    "notes": "NOT in any Stocktimus briefing email. Trading-bot rewrite after $25k/$6,250 rules.",
-    "new_vs_carry": "tracker-only",
-    "live_stock": 29.42,
-    "live_stock_source": "stock-prices-proxy delayed=True price=29.42; cboe_current=29.3608",
-    "quote_quality": "delayed",
-    "live_option_bid": null,
-    "live_option_ask": null,
-    "live_option_mid": null,
-    "live_option_last": null,
-    "live_option_symbol": null,
-    "first_invalidation_date": "2026-08-18",
-    "min_close_since": 27.389999389648438,
-    "max_close_since": 33.779998779296875,
-    "paper_status": "invalidated",
-    "paper_pnl": -32.0,
-    "paper_roc_pct": -0.005517241379310344,
-    "paper_acct_pct": -0.00064,
-    "stock_path_pnl": 0.0,
-    "option_path_pnl": -32.0,
-    "flags": [
-      "tracker-only / not emailed \u2014 not in any Stocktimus briefing email",
-      "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-28 P29",
-      "CSP invalidation: put valued at expiry-style intrinsic only \u2014 time value unknown FLAG",
-      "first invalidation close 2026-08-18 Yahoo close=27.389999389648438 vs {'kind': 'daily', 'price': 27.5, 'raw': 'daily close under $27.50'}"
-    ],
-    "price_asof": "2026-09-25 13:00:00 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
-    "sources": {
-      "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
-      "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
-      "cboe": "/workspace/quotes-raw/backtest/cboe/HIMS.json",
-      "inventory": "/workspace/tracker-inventory.json"
-    },
-    "daily_closes_completed": [
-      {
-        "date": "2026-08-13",
-        "close": 28.770000457763672
-      },
-      {
-        "date": "2026-08-14",
-        "close": 28.149999618530273
-      },
-      {
-        "date": "2026-08-17",
-        "close": 28.610000610351562
-      },
-      {
-        "date": "2026-08-18",
-        "close": 27.389999389648438
-      },
-      {
-        "date": "2026-08-19",
-        "close": 31.09000015258789
-      },
-      {
-        "date": "2026-08-20",
-        "close": 31.860000610351562
-      },
-      {
-        "date": "2026-08-21",
-        "close": 33.779998779296875
-      },
-      {
-        "date": "2026-08-24",
-        "close": 31.079999923706055
-      },
-      {
-        "date": "2026-08-25",
-        "close": 31.75
-      },
-      {
-        "date": "2026-08-26",
-        "close": 29.829999923706055
-      },
-      {
-        "date": "2026-08-27",
-        "close": 31.65999984741211
-      },
-      {
-        "date": "2026-08-28",
-        "close": 28.84000015258789
-      },
-      {
-        "date": "2026-08-31",
-        "close": 29.579999923706055
-      },
-      {
-        "date": "2026-09-01",
-        "close": 28.440000534057617
-      },
-      {
-        "date": "2026-09-02",
-        "close": 28.68000030517578
-      },
-      {
-        "date": "2026-09-03",
-        "close": 27.81999969482422
-      },
-      {
-        "date": "2026-09-04",
-        "close": 27.709999084472656
-      },
-      {
-        "date": "2026-09-08",
-        "close": 28.170000076293945
-      },
-      {
-        "date": "2026-09-09",
-        "close": 27.899999618530273
-      },
-      {
-        "date": "2026-09-10",
-        "close": 27.440000534057617
-      },
-      {
-        "date": "2026-09-11",
-        "close": 27.510000228881836
-      },
-      {
-        "date": "2026-09-14",
-        "close": 28.809999465942383
-      },
-      {
-        "date": "2026-09-15",
-        "close": 27.850000381469727
-      },
-      {
-        "date": "2026-09-16",
-        "close": 28.0
-      },
-      {
-        "date": "2026-09-17",
-        "close": 27.889999389648438
-      },
-      {
-        "date": "2026-09-18",
-        "close": 27.989999771118164
-      },
-      {
-        "date": "2026-09-21",
-        "close": 29.350000381469727
-      },
-      {
-        "date": "2026-09-22",
-        "close": 30.43000030517578
-      },
-      {
-        "date": "2026-09-23",
-        "close": 28.389999389648438
-      },
-      {
-        "date": "2026-09-24",
-        "close": 29.280000686645508
-      },
-      {
-        "date": "2026-09-25",
-        "close": 29.42
-      }
-    ],
-    "cboe_stock": 29.3608,
-    "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
-    "confidence": null,
-    "confidence_reason": null
-  },
-  {
-    "id": "tracker-only-2",
-    "csv_id": 2,
-    "source_group": "tracker-only",
-    "date_proposed": "2026-08-13",
-    "session": null,
-    "date_opened": "2026-08-13",
-    "date_closed": "2026-08-13",
-    "taken": "proposed",
-    "ticker": "IREN",
-    "creator": "TLI+Danny",
+    "id": "2026-09-28-AM-RKLB",
+    "csv_id": 77,
+    "ticker": "RKLB",
     "structure": "stock+CC",
-    "strike": null,
-    "expiry": "2026-08-28",
-    "right": "call",
-    "dte": 15,
-    "contracts": 1,
-    "spot_at_idea": 48.0,
-    "premium_per_share": null,
-    "credit_or_debit": null,
-    "credit_or_debit_side": "credit",
-    "capital_at_risk": 4800.0,
-    "invalidation": "lose $46 as support",
-    "notes": "Buy 100 sh into MSFT/NVDA pop, sell aggressive Aug28 OTM call. Premium TBD at Fidelity fill.",
-    "new_vs_carry": "tracker-only",
-    "live_stock": 44.125,
-    "live_stock_source": "stock-prices-proxy delayed=True price=44.125; cboe_current=44.14",
-    "quote_quality": "delayed",
-    "live_option_bid": null,
-    "live_option_ask": null,
-    "live_option_mid": null,
-    "live_option_last": null,
-    "live_option_symbol": null,
-    "first_invalidation_date": "2026-08-13",
-    "min_close_since": 35.45000076293945,
-    "max_close_since": 48.54999923706055,
-    "paper_status": "invalidated",
-    "paper_pnl": -324.0,
-    "paper_roc_pct": -0.0675,
-    "paper_acct_pct": -0.00648,
-    "stock_path_pnl": -324.0,
-    "option_path_pnl": null,
-    "flags": [
-      "tracker-only / not emailed \u2014 not in any Stocktimus briefing email",
-      "no strike/expiry to mark option \u2014 cannot mark live option",
-      "premium TBD / missing \u2014 cannot keep a call credit that was never printed",
-      "first invalidation close 2026-08-13 Yahoo close=44.7599983215332 vs {'kind': 'daily', 'price': 46.0, 'raw': 'lose $46 as support'}"
-    ],
-    "price_asof": "2026-09-25 13:30:31 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
-    "sources": {
-      "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/IREN.json",
-      "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/IREN.json",
-      "cboe": "/workspace/quotes-raw/backtest/cboe/IREN.json",
-      "inventory": "/workspace/tracker-inventory.json"
-    },
-    "daily_closes_completed": [
-      {
-        "date": "2026-08-13",
-        "close": 44.7599983215332
-      },
-      {
-        "date": "2026-08-14",
-        "close": 44.060001373291016
-      },
-      {
-        "date": "2026-08-17",
-        "close": 44.900001525878906
-      },
-      {
-        "date": "2026-08-18",
-        "close": 42.0
-      },
-      {
-        "date": "2026-08-19",
-        "close": 42.84000015258789
-      },
-      {
-        "date": "2026-08-20",
-        "close": 42.599998474121094
-      },
-      {
-        "date": "2026-08-21",
-        "close": 41.880001068115234
-      },
-      {
-        "date": "2026-08-24",
-        "close": 39.810001373291016
-      },
-      {
-        "date": "2026-08-25",
-        "close": 42.209999084472656
-      },
-      {
-        "date": "2026-08-26",
-        "close": 39.58000183105469
-      },
-      {
-        "date": "2026-08-27",
-        "close": 40.529998779296875
-      },
-      {
-        "date": "2026-08-28",
-        "close": 35.45000076293945
-      },
-      {
-        "date": "2026-08-31",
-        "close": 37.1150016784668
-      },
-      {
-        "date": "2026-09-01",
-        "close": 36.81999969482422
-      },
-      {
-        "date": "2026-09-02",
-        "close": 39.599998474121094
-      },
-      {
-        "date": "2026-09-03",
-        "close": 41.650001525878906
-      },
-      {
-        "date": "2026-09-04",
-        "close": 44.68000030517578
-      },
-      {
-        "date": "2026-09-08",
-        "close": 46.93000030517578
-      },
-      {
-        "date": "2026-09-09",
-        "close": 45.369998931884766
-      },
-      {
-        "date": "2026-09-10",
-        "close": 43.63999938964844
-      },
-      {
-        "date": "2026-09-11",
-        "close": 43.83000183105469
-      },
-      {
-        "date": "2026-09-14",
-        "close": 43.16999816894531
-      },
-      {
-        "date": "2026-09-15",
-        "close": 41.58000183105469
-      },
-      {
-        "date": "2026-09-16",
-        "close": 42.619998931884766
-      },
-      {
-        "date": "2026-09-17",
-        "close": 43.47999954223633
-      },
-      {
-        "date": "2026-09-18",
-        "close": 46.68000030517578
-      },
-      {
-        "date": "2026-09-21",
-        "close": 47.22999954223633
-      },
-      {
-        "date": "2026-09-22",
-        "close": 48.54999923706055
-      },
-      {
-        "date": "2026-09-23",
-        "close": 47.04999923706055
-      },
-      {
-        "date": "2026-09-24",
-        "close": 46.150001525878906
-      },
-      {
-        "date": "2026-09-25",
-        "close": 44.125
-      }
-    ],
-    "cboe_stock": null,
-    "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
-    "confidence": null,
-    "confidence_reason": null
-  },
-  {
-    "id": "tracker-only-3",
-    "csv_id": 3,
-    "source_group": "tracker-only",
-    "date_proposed": "2026-08-13",
-    "session": null,
-    "date_opened": "2026-08-13",
-    "date_closed": "2026-08-28",
-    "taken": "proposed",
-    "ticker": "NFLX",
-    "creator": "TLI",
-    "structure": "long call",
-    "strike": null,
-    "expiry": "2026-08-28",
-    "right": "call",
-    "dte": 15,
-    "contracts": 1,
-    "spot_at_idea": 77.25,
-    "premium_per_share": null,
-    "credit_or_debit": null,
-    "credit_or_debit_side": "debit",
-    "capital_at_risk": null,
-    "invalidation": "$75 fails as support",
-    "notes": "Long Aug28 OTM calls, debit cap $6250. Premium TBD.",
-    "new_vs_carry": "tracker-only",
-    "live_stock": 71.145,
-    "live_stock_source": "stock-prices-proxy delayed=True price=71.145; cboe_current=71.1",
-    "quote_quality": "delayed",
-    "live_option_bid": null,
-    "live_option_ask": null,
-    "live_option_mid": null,
-    "live_option_last": null,
-    "live_option_symbol": null,
-    "first_invalidation_date": "2026-09-18",
-    "min_close_since": 71.145,
-    "max_close_since": 82.7300033569336,
-    "paper_status": "expired",
-    "paper_pnl": null,
-    "paper_roc_pct": null,
-    "paper_acct_pct": null,
-    "stock_path_pnl": null,
-    "option_path_pnl": null,
-    "flags": [
-      "tracker-only / not emailed \u2014 not in any Stocktimus briefing email",
-      "no strike/expiry to mark option \u2014 cannot mark live option",
-      "size not printed; assumed 1 lot (100 sh / 1 contract)",
-      "settled at expiry-close intrinsic (no time value); close=81.72000122070312 strike=None",
-      "expired long call missing strike/premium/size \u2014 cannot settle"
-    ],
-    "price_asof": "2026-09-25 13:00:00 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
-    "sources": {
-      "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/NFLX.json",
-      "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/NFLX.json",
-      "cboe": "/workspace/quotes-raw/backtest/cboe/NFLX.json",
-      "inventory": "/workspace/tracker-inventory.json"
-    },
-    "daily_closes_completed": [
-      {
-        "date": "2026-08-13",
-        "close": 78.23999786376953
-      },
-      {
-        "date": "2026-08-14",
-        "close": 78.16000366210938
-      },
-      {
-        "date": "2026-08-17",
-        "close": 76.0199966430664
-      },
-      {
-        "date": "2026-08-18",
-        "close": 77.7699966430664
-      },
-      {
-        "date": "2026-08-19",
-        "close": 80.22000122070312
-      },
-      {
-        "date": "2026-08-20",
-        "close": 80.13999938964844
-      },
-      {
-        "date": "2026-08-21",
-        "close": 79.58999633789062
-      },
-      {
-        "date": "2026-08-24",
-        "close": 80.01000213623047
-      },
-      {
-        "date": "2026-08-25",
-        "close": 82.2300033569336
-      },
-      {
-        "date": "2026-08-26",
-        "close": 81.45999908447266
-      },
-      {
-        "date": "2026-08-27",
-        "close": 79.83999633789062
-      },
-      {
-        "date": "2026-08-28",
-        "close": 81.72000122070312
-      },
-      {
-        "date": "2026-08-31",
-        "close": 81.05000305175781
-      },
-      {
-        "date": "2026-09-01",
-        "close": 80.80999755859375
-      },
-      {
-        "date": "2026-09-02",
-        "close": 82.7300033569336
-      },
-      {
-        "date": "2026-09-03",
-        "close": 82.66999816894531
-      },
-      {
-        "date": "2026-09-04",
-        "close": 78.25
-      },
-      {
-        "date": "2026-09-08",
-        "close": 76.7699966430664
-      },
-      {
-        "date": "2026-09-09",
-        "close": 76.02999877929688
-      },
-      {
-        "date": "2026-09-10",
-        "close": 76.01000213623047
-      },
-      {
-        "date": "2026-09-11",
-        "close": 77.4000015258789
-      },
-      {
-        "date": "2026-09-14",
-        "close": 80.31999969482422
-      },
-      {
-        "date": "2026-09-15",
-        "close": 77.9000015258789
-      },
-      {
-        "date": "2026-09-16",
-        "close": 76.41000366210938
-      },
-      {
-        "date": "2026-09-17",
-        "close": 75.30999755859375
-      },
-      {
-        "date": "2026-09-18",
-        "close": 71.79000091552734
-      },
-      {
-        "date": "2026-09-21",
-        "close": 73.36000061035156
-      },
-      {
-        "date": "2026-09-22",
-        "close": 72.16000366210938
-      },
-      {
-        "date": "2026-09-23",
-        "close": 71.36000061035156
-      },
-      {
-        "date": "2026-09-24",
-        "close": 71.72000122070312
-      },
-      {
-        "date": "2026-09-25",
-        "close": 71.145
-      }
-    ],
-    "cboe_stock": null,
-    "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
-    "confidence": null,
-    "confidence_reason": null
-  },
-  {
-    "id": "tracker-only-4",
-    "csv_id": 4,
-    "source_group": "tracker-only",
-    "date_proposed": "2026-08-13",
-    "session": null,
-    "date_opened": "2026-08-13",
-    "date_closed": "2026-08-28",
-    "taken": "proposed",
-    "ticker": "ABCL",
     "creator": "Danny",
-    "structure": "CSP",
-    "strike": 10,
-    "expiry": "2026-08-28",
-    "right": "put",
-    "dte": 15,
-    "contracts": 4,
-    "spot_at_idea": 10.53,
-    "premium_per_share": null,
-    "credit_or_debit": null,
+    "confidence": "Medium",
+    "confidence_reason": "Danny Tier3 accumulate $68-$74 this week; single feed; in zone.",
+    "date_proposed": "2026-09-28",
+    "date_opened": "2026-09-28",
+    "date_closed": null,
+    "expiry": "2026-10-02",
+    "dte": 4,
+    "strike": 75.0,
+    "right": "C",
+    "contracts": 1,
+    "spot_at_idea": 73.21,
+    "premium_per_share": 1.4,
+    "credit_or_debit": 140.0,
     "credit_or_debit_side": "credit",
-    "capital_at_risk": 4000.0,
-    "invalidation": "weekly close under $9.31",
-    "notes": "Sell 4x Aug28 10 put. Premium TBD.",
-    "new_vs_carry": "tracker-only",
-    "live_stock": 12.65,
-    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
-    "quote_quality": null,
-    "live_option_bid": null,
-    "live_option_ask": null,
-    "live_option_mid": null,
+    "capital_at_risk": 7321.0,
+    "invalidation": "daily close under $65 or leave $68-$74 accumulation thesis",
+    "notes": "Buy 100 + sell Oct2 $75c. Credit mid 1.40 (RH mark). Stock ~$73.21 proxy 2026-09-28 07:42 PT. ~3.3%/wk on cash. Danny buy order through week.",
+    "taken": "proposed",
+    "session": "AM",
+    "source_group": "emailed",
+    "new_vs_carry": "new",
+    "paper_status": "open",
+    "paper_pnl": -92.0,
+    "paper_roc_pct": -0.012566589263761781,
+    "paper_acct_pct": -0.000368,
+    "live_stock": 72.2,
+    "live_stock_source": "robinhood last_trade_price RTH",
+    "live_option_mid": 1.31,
+    "live_option_bid": 1.26,
+    "live_option_ask": 1.36,
     "live_option_last": null,
     "live_option_symbol": null,
+    "cboe_stock": null,
+    "quote_quality": "robinhood_live",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
     "first_invalidation_date": null,
-    "min_close_since": 10.460000038146973,
-    "max_close_since": 12.729999542236328,
-    "paper_status": "expired",
-    "paper_pnl": null,
-    "paper_roc_pct": null,
-    "paper_acct_pct": null,
-    "stock_path_pnl": null,
-    "option_path_pnl": null,
+    "daily_closes_completed": 0,
     "flags": [
-      "tracker-only / not emailed \u2014 not in any Stocktimus briefing email",
-      "missing CBOE contract: contract not in CBOE chain: ABCL 2026-08-28 P10",
-      "settled at expiry-close intrinsic (no time value); close=11.350000381469727 strike=10",
-      "expired CSP missing strike/premium/size \u2014 cannot settle without inventing"
+      "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)"
     ],
-    "price_asof": "2026-09-24 13:18:43 PT",
-    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
     "sources": {
-      "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/ABCL.json",
-      "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/ABCL.json",
-      "cboe": "/workspace/quotes-raw/backtest/cboe/ABCL.json",
-      "inventory": "/workspace/tracker-inventory.json"
+      "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
     },
-    "daily_closes_completed": [
-      {
-        "date": "2026-08-13",
-        "close": 10.970000267028809
-      },
-      {
-        "date": "2026-08-14",
-        "close": 11.380000114440918
-      },
-      {
-        "date": "2026-08-17",
-        "close": 11.199999809265137
-      },
-      {
-        "date": "2026-08-18",
-        "close": 11.119999885559082
-      },
-      {
-        "date": "2026-08-19",
-        "close": 12.010000228881836
-      },
-      {
-        "date": "2026-08-20",
-        "close": 11.569999694824219
-      },
-      {
-        "date": "2026-08-21",
-        "close": 11.319999694824219
-      },
-      {
-        "date": "2026-08-24",
-        "close": 10.609999656677246
-      },
-      {
-        "date": "2026-08-25",
-        "close": 12.5
-      },
-      {
-        "date": "2026-08-26",
-        "close": 12.239999771118164
-      },
-      {
-        "date": "2026-08-27",
-        "close": 12.399999618530273
-      },
-      {
-        "date": "2026-08-28",
-        "close": 11.350000381469727
-      },
-      {
-        "date": "2026-08-31",
-        "close": 11.479999542236328
-      },
-      {
-        "date": "2026-09-01",
-        "close": 11.279999732971191
-      },
-      {
-        "date": "2026-09-02",
-        "close": 11.359999656677246
-      },
-      {
-        "date": "2026-09-03",
-        "close": 11.569999694824219
-      },
-      {
-        "date": "2026-09-04",
-        "close": 11.430000305175781
-      },
-      {
-        "date": "2026-09-08",
-        "close": 11.4399995803833
-      },
-      {
-        "date": "2026-09-09",
-        "close": 11.050000190734863
-      },
-      {
-        "date": "2026-09-10",
-        "close": 10.460000038146973
-      },
-      {
-        "date": "2026-09-11",
-        "close": 10.890000343322754
-      },
-      {
-        "date": "2026-09-14",
-        "close": 11.170000076293945
-      },
-      {
-        "date": "2026-09-15",
-        "close": 11.40999984741211
-      },
-      {
-        "date": "2026-09-16",
-        "close": 11.670000076293945
-      },
-      {
-        "date": "2026-09-17",
-        "close": 12.729999542236328
-      },
-      {
-        "date": "2026-09-18",
-        "close": 12.630000114440918
-      },
-      {
-        "date": "2026-09-21",
-        "close": 12.65999984741211
-      },
-      {
-        "date": "2026-09-23",
-        "close": 12.3100004196167
-      },
-      {
-        "date": "2026-09-24",
-        "close": 12.649999618530273
-      }
+    "yahoo_quote_v7": null,
+    "stock_path_pnl": -101.0,
+    "option_path_pnl": 9.0,
+    "max_close_since": null,
+    "min_close_since": null
+  },
+  {
+    "id": "2026-09-28-AM-MKC",
+    "csv_id": 78,
+    "ticker": "MKC",
+    "structure": "stock+CC",
+    "creator": "TLI",
+    "confidence": "Medium",
+    "confidence_reason": "TLI BUY ZONE $41-$57; no weeklies so next monthly; in zone.",
+    "date_proposed": "2026-09-28",
+    "date_opened": "2026-09-28",
+    "date_closed": null,
+    "expiry": "2026-10-16",
+    "dte": 18,
+    "strike": 50.0,
+    "right": "C",
+    "contracts": 1,
+    "spot_at_idea": 48.425,
+    "premium_per_share": 1.0,
+    "credit_or_debit": 100.0,
+    "credit_or_debit_side": "credit",
+    "capital_at_risk": 4842.5,
+    "invalidation": "daily close under $41 (leave buy zone)",
+    "notes": "Buy 100 + sell Oct16 $50c (no weeklies). Credit mid 1.00 (RH mark). Stock ~$48.42 proxy 2026-09-28 07:42 PT. ~0.8%/wk equiv on cash.",
+    "taken": "proposed",
+    "session": "AM",
+    "source_group": "emailed",
+    "new_vs_carry": "new",
+    "paper_status": "open",
+    "paper_pnl": 3.0,
+    "paper_roc_pct": 0.000619514713474445,
+    "paper_acct_pct": 1.2e-05,
+    "live_stock": 48.48,
+    "live_stock_source": "robinhood last_trade_price RTH",
+    "live_option_mid": 1.025,
+    "live_option_bid": 0.95,
+    "live_option_ask": 1.1,
+    "live_option_last": null,
+    "live_option_symbol": null,
+    "cboe_stock": null,
+    "quote_quality": "robinhood_live",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
+    "first_invalidation_date": null,
+    "daily_closes_completed": 0,
+    "flags": [
+      "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)"
     ],
-    "cboe_stock": 12.79,
-    "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
-    "confidence": null,
-    "confidence_reason": null
+    "sources": {
+      "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
+    },
+    "yahoo_quote_v7": null,
+    "stock_path_pnl": 5.5,
+    "option_path_pnl": -2.5,
+    "max_close_since": null,
+    "min_close_since": null
+  },
+  {
+    "id": "2026-09-28-AM-SE",
+    "csv_id": 79,
+    "ticker": "SE",
+    "structure": "stock+CC",
+    "creator": "TLI",
+    "confidence": "Medium",
+    "confidence_reason": "TLI $98 5th buy/add still live; roll leftover Sep25 OTM shares.",
+    "date_proposed": "2026-09-28",
+    "date_opened": "2026-09-28",
+    "date_closed": null,
+    "expiry": "2026-10-02",
+    "dte": 4,
+    "strike": 102.0,
+    "right": "C",
+    "contracts": 1,
+    "spot_at_idea": 98.45,
+    "premium_per_share": 1.01,
+    "credit_or_debit": 101.0,
+    "credit_or_debit_side": "credit",
+    "capital_at_risk": 0.0,
+    "invalidation": "daily close under $95 or TLI cancels $98 add",
+    "notes": "ROLL leftover from 2026-09-18-AM-SE. Sell Oct2 $102c credit mid 1.01 (RH mark). Stock ~$98.45 proxy 2026-09-28 07:42 PT. capital_at_risk=0 (share capital on parent).",
+    "taken": "proposed",
+    "session": "AM",
+    "source_group": "emailed",
+    "new_vs_carry": "roll",
+    "paper_status": "open",
+    "paper_pnl": 9.0,
+    "paper_roc_pct": null,
+    "paper_acct_pct": 3.6e-05,
+    "live_stock": 98.95,
+    "live_stock_source": "robinhood last_trade_price RTH",
+    "live_option_mid": 0.92,
+    "live_option_bid": 0.78,
+    "live_option_ask": 1.06,
+    "live_option_last": null,
+    "live_option_symbol": null,
+    "cboe_stock": null,
+    "quote_quality": "robinhood_live",
+    "price_asof": "2026-09-28T13:28:00-07:00",
+    "mtm_asof": "2026-09-28T13:28:00-07:00",
+    "first_invalidation_date": null,
+    "daily_closes_completed": 0,
+    "flags": [
+      "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)",
+      "ROLL leftover; capital_at_risk=0; share capital on parent",
+      "CC roll MTM: option path only (share capital/path on leftover parent); RH live"
+    ],
+    "sources": {
+      "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
+    },
+    "yahoo_quote_v7": null,
+    "stock_path_pnl": 0.0,
+    "option_path_pnl": 9.0,
+    "max_close_since": null,
+    "min_close_since": null
   }
 ]
