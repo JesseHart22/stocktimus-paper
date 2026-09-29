@@ -11,7 +11,7 @@ Header reads Compounder / Long-term book. Browser tab title is `Compounder · Pa
 
 ## How to get to it (user POV)
 
-Click **Compounder** in the top bar. The address becomes `#compounder`. Wait until the ticket line and tables leave the previous desk's rows.
+Click **Compounder** in the top bar. The address becomes `#compounder`. The book uses the same Open book / Summary shell as Stocktimus, with a gold header accent. Wait until the ticket line and tables leave the previous desk's rows.
 
 ## Driving it with stocktimus-drive
 

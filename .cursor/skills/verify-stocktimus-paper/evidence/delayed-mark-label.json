@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "delayed-mark-label",
-  "at": "2026-09-28T16:16:02.052Z",
-  "url": "http://127.0.0.1:38249/",
+  "at": "2026-09-29T21:03:23.390Z",
+  "url": "http://127.0.0.1:35091/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -12,29 +12,24 @@
   "proxySettle": "ok",
   "proxyNumericPricePresent": null,
   "observed": {
-    "publishedPill": "stocktimus-paper",
-    "publishedPnl": "$3,022.72",
+    "publishedPill": "stocktimus-paper · Robinhood live",
+    "publishedPnl": "$2,718.22",
     "robinhoodPill": "stocktimus-paper · Robinhood live",
-    "robinhoodPnlSub": "Open $696.00 · Closed $2,326.72 · Robinhood live",
-    "robinhoodPnl": "$3,022.72",
+    "robinhoodPnlSub": "Open $237.00 · Closed $2,481.22 · Robinhood live",
+    "robinhoodPnl": "$2,718.22",
     "fallbackPill": "stocktimus-paper · delayed",
-    "fallbackPnlSub": "Open $697.00 · Closed $2,326.72 · delayed MTM"
+    "fallbackPnlSub": "Open $135.00 · Closed $2,481.22 · delayed MTM"
   },
   "checks": [
     {
       "name": "book loaded",
       "ok": true,
-      "detail": "71 tickets in view"
+      "detail": "74 tickets in view"
     },
     {
-      "name": "published pill has no delayed suffix",
+      "name": "published pill says Robinhood live",
       "ok": true,
-      "detail": "stocktimus-paper"
-    },
-    {
-      "name": "published pill has no Robinhood suffix",
-      "ok": true,
-      "detail": "stocktimus-paper"
+      "detail": "stocktimus-paper · Robinhood live"
     },
     {
       "name": "published book does not call Massive",
@@ -44,7 +39,7 @@
     {
       "name": "published total matches file",
       "ok": true,
-      "detail": "$3,022.72 vs $3,022.72"
+      "detail": "$2,718.22 vs $2,718.22"
     },
     {
       "name": "robinhood pill",
@@ -59,7 +54,7 @@
     {
       "name": "robinhood subtitle",
       "ok": true,
-      "detail": "Open $696.00 · Closed $2,326.72 · Robinhood live"
+      "detail": "Open $237.00 · Closed $2,481.22 · Robinhood live"
     },
     {
       "name": "robinhood pill does not say real-time",
@@ -74,7 +69,7 @@
     {
       "name": "robinhood total stays on file marks",
       "ok": true,
-      "detail": "$3,022.72 vs $3,022.72"
+      "detail": "$2,718.22 vs $2,718.22"
     },
     {
       "name": "fallback requests Massive",
@@ -94,7 +89,7 @@
     {
       "name": "fallback subtitle says delayed MTM",
       "ok": true,
-      "detail": "Open $697.00 · Closed $2,326.72 · delayed MTM"
+      "detail": "Open $135.00 · Closed $2,481.22 · delayed MTM"
     },
     {
       "name": "fallback pill is not Robinhood",

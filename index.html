@@ -8,14 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="scoreboard.css?v=20260918c">
-  <link rel="stylesheet" href="jesse.css?v=20260929b">
+  <link rel="stylesheet" href="styles.css?v=20260929s">
+  <link rel="stylesheet" href="scoreboard.css?v=20260929s">
+  <link rel="stylesheet" href="shell.css?v=20260929s">
+  <link rel="stylesheet" href="jesse.css?v=20260929s">
+  <link rel="stylesheet" href="sleeve.css?v=20260929s">
   <script>
     (function () {
       var h = (location.hash || "").replace(/^#/, "").toLowerCase();
       if (h === "scoreboard") document.documentElement.classList.add("view-scoreboard");
       if (h === "jesse") document.documentElement.classList.add("view-jesse");
+      if (h === "sleeve") document.documentElement.classList.add("view-sleeve");
+      var desk = h === "moonshot" || h === "compounder" || h === "sleeve" || h === "jesse" || h === "scoreboard" ? h : "stocktimus";
+      document.documentElement.setAttribute("data-desk", desk);
     })();
   </script>
 </head>
@@ -33,6 +38,7 @@
         <a class="desk-tab on" href="#stocktimus" data-desk="stocktimus">Stocktimus</a>
         <a class="desk-tab" href="#moonshot" data-desk="moonshot">Moonshot</a>
         <a class="desk-tab" href="#compounder" data-desk="compounder">Compounder</a>
+        <a class="desk-tab" href="#sleeve" data-desk="sleeve">Sleeve</a>
         <a class="desk-tab" href="#jesse" data-desk="jesse">Jesse</a>
         <a class="desk-tab" href="#scoreboard" data-desk="scoreboard">Scoreboard</a>
       </nav>
@@ -93,46 +99,16 @@
       </article>
     </section>
 
-    <section class="roc-row" aria-label="Cumul return on avg deployed">
-      <article class="stat stat-roc" data-stat="roc">
-        <div class="roc-main">
-          <div class="stat-k" id="stat-roc-k">Cumul. return on avg deployed</div>
-          <div class="stat-v mono" id="stat-roc">—</div>
-          <div class="stat-s" id="stat-roc-sub">Compounded on daily deployed — never / full book (idle cash excluded)</div>
-        </div>
-        <div class="roc-spark" id="roc-spark" aria-hidden="true"></div>
-        <div class="roc-weeks" id="roc-weeks"></div>
-      </article>
-    </section>
+    <nav class="sh-subnav" id="paper-subnav" aria-label="Desk sections">
+      <button type="button" class="sh-view on" data-paper-view="book" aria-pressed="true">Open book</button>
+      <button type="button" class="sh-view" data-paper-view="summary" aria-pressed="false">Summary</button>
+    </nav>
 
-    <section class="breaks" aria-label="Breakdowns">
-      <article class="panel">
-        <header class="panel-h">
-          <h2>By structure</h2>
-          <span class="panel-k">CSP · stock+CC · long call</span>
-        </header>
-        <div id="by-structure" class="rows"></div>
-      </article>
-      <article class="panel">
-        <header class="panel-h">
-          <h2>By creator</h2>
-          <span class="panel-k">Who ticketed it</span>
-        </header>
-        <div id="by-creator" class="rows"></div>
-      </article>
-      <article class="panel">
-        <header class="panel-h">
-          <h2>By confidence</h2>
-          <span class="panel-k">Thesis grade · not P&amp;L</span>
-        </header>
-        <div id="by-confidence" class="rows"></div>
-      </article>
-    </section>
-
+    <div id="paper-book">
     <section class="books" aria-label="Trades">
       <header class="books-h">
         <div>
-          <h2>Trades</h2>
+          <h2>Open book</h2>
           <p class="book-sub" id="table-sub">Paper marks only — no demo book.</p>
         </div>
         <div class="chips" role="tablist" aria-label="Filter">
@@ -212,6 +188,51 @@
         </div>
       </section>
     </section>
+    </div>
+
+    <div id="paper-summary" hidden>
+      <header class="books-h">
+        <div>
+          <h2>Summary</h2>
+          <p class="book-sub">Return on deployed and the structure, creator, and confidence breakdowns.</p>
+        </div>
+      </header>
+      <section class="roc-row" aria-label="Cumul return on avg deployed">
+        <article class="stat stat-roc" data-stat="roc">
+          <div class="roc-main">
+            <div class="stat-k" id="stat-roc-k">Cumul. return on avg deployed</div>
+            <div class="stat-v mono" id="stat-roc">—</div>
+            <div class="stat-s" id="stat-roc-sub">Compounded on daily deployed — never / full book (idle cash excluded)</div>
+          </div>
+          <div class="roc-spark" id="roc-spark" aria-hidden="true"></div>
+          <div class="roc-weeks" id="roc-weeks"></div>
+        </article>
+      </section>
+
+      <section class="breaks" aria-label="Breakdowns">
+        <article class="panel">
+          <header class="panel-h">
+            <h2>By structure</h2>
+            <span class="panel-k">CSP · stock+CC · long call</span>
+          </header>
+          <div id="by-structure" class="rows"></div>
+        </article>
+        <article class="panel">
+          <header class="panel-h">
+            <h2>By creator</h2>
+            <span class="panel-k">Who ticketed it</span>
+          </header>
+          <div id="by-creator" class="rows"></div>
+        </article>
+        <article class="panel">
+          <header class="panel-h">
+            <h2>By confidence</h2>
+            <span class="panel-k">Thesis grade · not P&amp;L</span>
+          </header>
+          <div id="by-confidence" class="rows"></div>
+        </article>
+      </section>
+    </div>
 
     <footer class="foot">
       Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.
@@ -229,6 +250,12 @@
         <p class="js-empty" id="jesse-status">Loading covered-call book…</p>
       </div>
     </section>
+
+    <section id="sleeve-view" class="sleeve-view" hidden aria-label="Sleeve ledger">
+      <div id="sleeve-root">
+        <p class="js-empty" id="sleeve-status">Loading sleeve ledger…</p>
+      </div>
+    </section>
   </div>
 
   <div class="shade" id="shade" hidden></div>
@@ -243,8 +270,9 @@
     <div class="drawer-body" id="drawer-body"></div>
   </aside>
 
-  <script src="app.js?v=20260929a"></script>
+  <script src="app.js?v=20260929s"></script>
   <script src="scoreboard.js?v=20260918c"></script>
-  <script src="jesse.js?v=20260929b"></script>
+  <script src="jesse.js?v=20260929s"></script>
+  <script src="sleeve.js?v=20260929s"></script>
 </body>
 </html>

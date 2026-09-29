@@ -5,11 +5,17 @@ html.view-scoreboard .roc-row,
 html.view-scoreboard .breaks,
 html.view-scoreboard .books,
 html.view-scoreboard .foot,
+html.view-scoreboard .sh-subnav,
+html.view-scoreboard #paper-book,
+html.view-scoreboard #paper-summary,
 body.view-scoreboard .hero,
 body.view-scoreboard .roc-row,
 body.view-scoreboard .breaks,
 body.view-scoreboard .books,
-body.view-scoreboard .foot { display: none !important; }
+body.view-scoreboard .foot,
+body.view-scoreboard .sh-subnav,
+body.view-scoreboard #paper-book,
+body.view-scoreboard #paper-summary { display: none !important; }
 html.view-scoreboard #scoreboard-view,
 body.view-scoreboard #scoreboard-view { display: block !important; }
 

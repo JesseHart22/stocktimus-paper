@@ -11,6 +11,7 @@ Numbers on screen come from the JSON files listed here. A `delayed` suffix is ei
 | [Compounder desk](compounder-desk.md) | `compounder-desk` | Compounder tab | `desks/compounder.json` |
 | [Scoreboard tab](scoreboard-tab.md) | `scoreboard-tab` | Scoreboard tab, or `scoreboard.html` | `scoreboard/*.json` |
 | [Jesse tab](jesse-tab.md) | `jesse-tab` | Jesse tab | `jesse/cc-tracker.json` |
+| [Sleeve tab](sleeve-tab.md) | `sleeve-tab` | Sleeve tab | `sleeve/trades.json` |
 | [Mark labeling](delayed-mark-label.md) | `delayed-mark-label` | Stocktimus, then the same book with routed mark fields | `data.json` as published, plus two routed copies. See `MARKS.md`. |
 
 ```bash

@@ -153,16 +153,16 @@ button { font: inherit; color: inherit; }
 .stat {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: var(--r);
+  border-radius: 10px;
   padding: 10px 12px 9px;
-  min-height: 86px;
+  min-width: 0;
 }
 .stat-k {
-  font-size: 11px;
-  letter-spacing: 0.06em;
+  font-size: 10px;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--mute);
-  font-weight: 500;
+  font-weight: 600;
 }
 .stat-v {
   margin-top: 6px;
@@ -224,14 +224,14 @@ button { font: inherit; color: inherit; }
 .panel {
   background: var(--elev);
   border: 1px solid var(--line);
-  border-radius: var(--r);
-  padding: 12px 14px 10px;
+  border-radius: 12px;
+  padding: 14px 14px 12px;
 }
 .panel-h {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 8px;
 }
-.panel-h h2 { margin: 0; font-size: 13px; font-weight: 600; }
+.panel-h h2 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
 .panel-k { font-size: 11px; color: var(--mute); }
 .rows { display: flex; flex-direction: column; gap: 6px; }
 .rowb {
@@ -273,7 +273,7 @@ button { font: inherit; color: inherit; }
   gap: 12px;
   flex-wrap: wrap;
 }
-.books-h h2 { margin: 0; font-size: 14px; font-weight: 600; }
+.books-h h2 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
 .book-open { border-color: rgba(61, 207, 142, 0.22); }
 .book-closed { border-color: rgba(109, 118, 136, 0.35); }
 .book {
@@ -290,16 +290,17 @@ button { font: inherit; color: inherit; }
   padding: 14px 16px 12px;
   border-bottom: 1px solid var(--line);
 }
-.book-h h2 { margin: 0; font-size: 14px; font-weight: 600; }
+.book-h h2 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
 .book-sub { margin: 3px 0 0; font-size: 12px; color: var(--mute); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
-  background: transparent;
-  border: 1px solid var(--line-2);
+  background: var(--card);
+  border: 1px solid var(--line);
   color: var(--dim);
   border-radius: 999px;
-  padding: 4px 10px;
+  padding: 6px 12px;
   font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
 }
 .chip:hover { border-color: #445; color: var(--text); }
@@ -317,20 +318,20 @@ table.trades {
 }
 table.trades th {
   text-align: left;
-  font-size: 10.5px;
-  letter-spacing: 0.07em;
+  font-size: 10px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--mute);
-  font-weight: 500;
-  padding: 10px 12px;
+  font-weight: 600;
+  padding: 8px 8px;
   border-bottom: 1px solid var(--line);
-  background: #0e1118;
+  background: var(--elev);
   position: sticky; top: 0;
 }
 table.trades th.num, table.trades td.num { text-align: right; }
 table.trades td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #1a1e28;
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
   white-space: nowrap;
 }
 table.trades tbody tr { cursor: pointer; }
@@ -368,10 +369,10 @@ table.trades tbody tr.active td { background: #1c2433; }
 .chip[data-filter="Medium"].on { color: var(--amber); border-color: rgba(232,180,76,.35); }
 .chip[data-filter="Low"].on { color: var(--dim); }
 .empty-row td {
-  text-align: center !important;
+  text-align: left !important;
   color: var(--mute);
-  padding: 48px 16px !important;
-  font-size: 13px;
+  padding: 10px 8px !important;
+  font-size: 12.5px;
   cursor: default;
 }
 
@@ -566,4 +567,44 @@ table.trades tbody tr.active td { background: #1c2433; }
   }
   .roc-spark { height: 44px; }
   .roc-spark .spark { height: 44px; }
+}
+
+/* Section nav shared with the Jesse / Sleeve shell: pill buttons, same type scale. */
+.sh-subnav { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+.sh-view {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--dim);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.sh-view:hover { border-color: var(--chart); color: var(--text); }
+.sh-view.on {
+  background: var(--chart);
+  color: #0b0d08;
+  border-color: transparent;
+}
+#paper-summary { margin-top: 2px; }
+#paper-summary .books-h { margin-bottom: 10px; }
+
+html[data-desk="moonshot"] {
+  --chart: #c4b5fd;
+  --chart-dim: rgba(196, 181, 253, 0.16);
+  --orange: #c4b5fd;
+}
+html[data-desk="moonshot"] .mark {
+  background: linear-gradient(160deg, #ddd6fe 0%, #8b5cf6 55%, #3b0764 100%);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.28), 0 8px 18px rgba(167, 139, 250, 0.14);
+}
+html[data-desk="compounder"] {
+  --chart: #f0c14d;
+  --chart-dim: rgba(240, 193, 77, 0.16);
+}
+html[data-desk="compounder"] .mark {
+  background: linear-gradient(160deg, #fde68a 0%, #d97706 55%, #78350f 100%);
+  box-shadow: 0 0 0 1px rgba(240, 193, 77, 0.28), 0 8px 18px rgba(240, 193, 77, 0.14);
 }

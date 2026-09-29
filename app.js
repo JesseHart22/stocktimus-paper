@@ -64,14 +64,17 @@
     markKind: null,
     liveOk: false,
     liveAsOf: null,
+    paperPane: "book",
   };
 
   function deskFromHash() {
     const h = (location.hash || "").replace(/^#/, "").toLowerCase();
     // #scoreboard is the X call tab, not a paper book. Do not add it to DESKS.
     // #jesse is the covered-call income tracker. It reads jesse/cc-tracker.json only.
+    // #sleeve is the live Agentic ledger. It reads sleeve/trades.json only.
     if (h === "scoreboard") return "scoreboard";
     if (h === "jesse") return "jesse";
+    if (h === "sleeve") return "sleeve";
     return DESKS[h] ? h : "stocktimus";
   }
 
@@ -1530,9 +1533,47 @@
     }
   }
 
+  function setSleeveView(on) {
+    document.documentElement.classList.toggle("view-sleeve", on);
+    if (document.body) document.body.classList.toggle("view-sleeve", on);
+    const view = document.getElementById("sleeve-view");
+    if (view) view.hidden = !on;
+    const api = window.StocktimusSleeve;
+    if (!api) return;
+    try {
+      if (on) api.show();
+      else api.hide();
+    } catch (err) {
+      console.warn("sleeve view", err);
+    }
+  }
+
+  function setPaperPane(pane) {
+    state.paperPane = pane === "summary" ? "summary" : "book";
+    const book = $("paper-book");
+    const summary = $("paper-summary");
+    if (book) book.hidden = state.paperPane !== "book";
+    if (summary) summary.hidden = state.paperPane !== "summary";
+    document.querySelectorAll("[data-paper-view]").forEach((btn) => {
+      const on = btn.getAttribute("data-paper-view") === state.paperPane;
+      btn.classList.toggle("on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
   function syncDeskTabs() {
+    document.documentElement.setAttribute("data-desk", state.desk);
     const name = $("desk-name");
     const sub = $("desk-sub");
+    if (state.desk === "sleeve") {
+      if (name) name.textContent = "Sleeve";
+      if (sub) sub.textContent = "Agentic";
+      document.title = "Sleeve · Agentic";
+      document.querySelectorAll(".desk-tab").forEach((a) => {
+        a.classList.toggle("on", a.getAttribute("data-desk") === "sleeve");
+      });
+      return;
+    }
     if (state.desk === "jesse") {
       if (name) name.textContent = "Covered Call Income";
       if (sub) sub.textContent = "Jesse";
@@ -1561,21 +1602,32 @@
   }
 
   function bind() {
+    const paperNav = $("paper-subnav");
+    if (paperNav) {
+      paperNav.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-paper-view]");
+        if (!btn) return;
+        setPaperPane(btn.getAttribute("data-paper-view"));
+      });
+    }
     window.addEventListener("hashchange", () => {
       const next = deskFromHash();
-      if (next === "scoreboard" || next === "jesse") {
+      if (next === "scoreboard" || next === "jesse" || next === "sleeve") {
         state.desk = next;
         syncDeskTabs();
         setScoreboardView(next === "scoreboard");
         setJesseView(next === "jesse");
+        setSleeveView(next === "sleeve");
         return;
       }
-      const leavingSpecial = state.desk === "scoreboard" || state.desk === "jesse";
+      const leavingSpecial = state.desk === "scoreboard" || state.desk === "jesse" || state.desk === "sleeve";
       if (state.desk === "scoreboard") setScoreboardView(false);
       if (state.desk === "jesse") setJesseView(false);
+      if (state.desk === "sleeve") setSleeveView(false);
       if (next === state.desk && !leavingSpecial) return;
       state.desk = next;
       state.filter = "all";
+      setPaperPane("book");
       document.querySelectorAll(".chip").forEach((b) => b.classList.toggle("on", b.getAttribute("data-filter") === "all"));
       syncDeskTabs();
       load()
@@ -1630,6 +1682,10 @@
     }
     if (state.desk === "jesse") {
       setJesseView(true);
+      return;
+    }
+    if (state.desk === "sleeve") {
+      setSleeveView(true);
       return;
     }
     try {

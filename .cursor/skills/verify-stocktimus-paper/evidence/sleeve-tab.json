@@ -1,0 +1,215 @@
+{
+  "ok": true,
+  "feature": "sleeve-tab",
+  "at": "2026-09-29T21:02:17.700Z",
+  "url": "http://127.0.0.1:35091/",
+  "numbersSource": "json-files",
+  "inventedPrices": false,
+  "files": [
+    "sleeve/trades.json"
+  ],
+  "outcome": null,
+  "proxySettle": null,
+  "proxyNumericPricePresent": null,
+  "observed": {
+    "title": "Sleeve · Agentic",
+    "pill": "sleeve ledger",
+    "pending": "$24,750.00",
+    "deployed": "$32.00",
+    "openN": "1",
+    "fillsN": "1",
+    "symbols": [
+      "EOSE"
+    ],
+    "fillIds": [
+      "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3"
+    ]
+  },
+  "checks": [
+    {
+      "name": "sleeve name",
+      "ok": true,
+      "detail": "Sleeve"
+    },
+    {
+      "name": "sleeve subtitle",
+      "ok": true,
+      "detail": "Agentic"
+    },
+    {
+      "name": "sleeve title",
+      "ok": true,
+      "detail": "Sleeve · Agentic"
+    },
+    {
+      "name": "sleeve tab",
+      "ok": true,
+      "detail": "sleeve"
+    },
+    {
+      "name": "source pill sleeve ledger",
+      "ok": true,
+      "detail": "sleeve ledger"
+    },
+    {
+      "name": "as_of datetime",
+      "ok": true,
+      "detail": "2026-09-29T13:52:00-07:00"
+    },
+    {
+      "name": "view class",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "hero hidden",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "hash sleeve",
+      "ok": true,
+      "detail": "#sleeve"
+    },
+    {
+      "name": "pending deposits",
+      "ok": true,
+      "detail": "$24,750.00 vs $24,750.00"
+    },
+    {
+      "name": "pending subtitle",
+      "ok": true,
+      "detail": "Funding in flight · from notes"
+    },
+    {
+      "name": "deployed",
+      "ok": true,
+      "detail": "$32.00 vs $32.00"
+    },
+    {
+      "name": "sleeve budget",
+      "ok": true,
+      "detail": "$25,000.00"
+    },
+    {
+      "name": "account value absent",
+      "ok": true,
+      "detail": "—"
+    },
+    {
+      "name": "cash absent",
+      "ok": true,
+      "detail": "—"
+    },
+    {
+      "name": "unrealized absent",
+      "ok": true,
+      "detail": "—"
+    },
+    {
+      "name": "return absent",
+      "ok": true,
+      "detail": "—"
+    },
+    {
+      "name": "realized from ledger",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "open positions",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "filled orders",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "notes rendered",
+      "ok": true,
+      "detail": "Sleeve bot owns live fills only. Ledger is broker-sourced from Robinhood Agentic"
+    },
+    {
+      "name": "equity symbols",
+      "ok": true,
+      "detail": "EOSE"
+    },
+    {
+      "name": "equity buckets",
+      "ok": true,
+      "detail": "unknown_pre_ledger"
+    },
+    {
+      "name": "options empty copy",
+      "ok": true,
+      "detail": "No open option positions."
+    },
+    {
+      "name": "orders empty or listed",
+      "ok": true,
+      "detail": "No open orders."
+    },
+    {
+      "name": "realized collapsed",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "weekly summary hidden when empty",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "ember tab",
+      "ok": true,
+      "detail": "rgb(249, 115, 22)"
+    },
+    {
+      "name": "steel text",
+      "ok": true,
+      "detail": "rgb(226, 232, 240)"
+    },
+    {
+      "name": "no invented last",
+      "ok": true,
+      "detail": "body"
+    },
+    {
+      "name": "no extra equity symbols",
+      "ok": true,
+      "detail": "EOSE"
+    },
+    {
+      "name": "blotter stays on sleeve",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "blotter hides open book",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "blotter fill ids",
+      "ok": true,
+      "detail": "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3"
+    },
+    {
+      "name": "blotter buckets",
+      "ok": true,
+      "detail": "unknown_pre_ledger"
+    },
+    {
+      "name": "back to stocktimus",
+      "ok": true,
+      "detail": "Stocktimus hero=grid"
+    },
+    {
+      "name": "paper open book restored",
+      "ok": true,
+      "detail": "book"
+    }
+  ]
+}

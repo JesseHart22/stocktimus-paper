@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "at": "2026-09-29T16:38:27.636Z",
+  "at": "2026-09-29T21:03:33.597Z",
   "serverStopped": true,
   "survived": [
     "compounder-desk-drawer.png",
@@ -19,6 +19,9 @@
     "robinhood-mark-label.png",
     "scoreboard-tab.json",
     "scoreboard-tab.png",
+    "sleeve-tab-blotter.png",
+    "sleeve-tab.json",
+    "sleeve-tab.png",
     "stocktimus-paper-book-drawer.png",
     "stocktimus-paper-book-hero.png",
     "stocktimus-paper-book.json"

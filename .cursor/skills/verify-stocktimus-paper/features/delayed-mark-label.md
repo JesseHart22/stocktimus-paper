@@ -4,7 +4,7 @@ Published JSON is the mark source. The pill says `Robinhood live` only when the 
 
 ## Sub-features
 
-- Published `data.json` has no top-level `marks_source` or `quote_quality`. The pill stays on the file source, with no `delayed` or `Robinhood` suffix, and the page does not call the proxy.
+- The published pill follows top-level `marks_source` / `quote_quality` in `data.json`. When those fields name Robinhood, the pill says `Robinhood live` and the page does not call the proxy. When they are absent, the pill has no `delayed` or `Robinhood` suffix. When they name a delayed quote, the pill says `delayed`.
 - A payload with `marks_source` containing `robinhood`, or `quote_quality` of `robinhood`, `live`, or `robinhood_live`, appends ` · Robinhood live` to `#source-pill` and `Robinhood live` to `#stat-pnl-sub`. The hero total stays on the file.
 - `#source-pill` gains ` · delayed` and `#stat-pnl-sub` gains `delayed MTM` when the file's mark fields are delayed, or when `needsMassiveFallback` gets a proxy quote.
 - The fallback runs only when an open lot has no `paper_pnl`, `live_stock`, or `live_option_mid`, and the payload is not a Robinhood success. There is no 30 second poll.
@@ -24,7 +24,7 @@ node .cursor/skills/verify-stocktimus-paper/helpers/drive.mjs drive delayed-mark
 
 The helper reloads Stocktimus, then routes two copies of `data.json` without editing the file on disk.
 
-- Published load. No proxy request. Pill has neither suffix. Hero total matches the file.
+- Published load. No proxy request. Pill matches the file’s mark fields. Hero total matches the file.
 - Routed `marks_source=robinhood` and `quote_quality=robinhood_live`. Pill contains `Robinhood live` and not `delayed`. No proxy request. Hero total unchanged. Screenshot `evidence/robinhood-mark-label.png`.
 - Routed copy with open-lot marks cleared. The page requests the Massive worker. If a quote lands, the pill says `delayed`. If it does not, the pill stays unlabeled. Screenshot `evidence/delayed-mark-label.png`.
 
