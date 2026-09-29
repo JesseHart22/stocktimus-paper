@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-09-29T15:52:02.184Z",
-  "url": "http://127.0.0.1:44143/",
+  "at": "2026-09-29T16:38:08.524Z",
+  "url": "http://127.0.0.1:34711/",
   "books": {
     "data.json": {
       "tickets": 74
@@ -211,6 +211,16 @@
     },
     {
       "name": "jesse weeks",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "jesse dashboard roc",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "jesse weekly summary",
       "ok": true,
       "detail": "4"
     },

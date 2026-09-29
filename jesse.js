@@ -7,6 +7,7 @@
     data: null,
     error: null,
     week: null,
+    pane: "book",
     loading: null,
   };
 
@@ -149,6 +150,19 @@
       .filter((w) => ymd(w && w.week_ending))
       .slice()
       .sort((a, b) => ymd(a.week_ending).localeCompare(ymd(b.week_ending)));
+  }
+
+  function summaryWeeks(data) {
+    const rows = Array.isArray(data && data.weekly_summary) ? data.weekly_summary : (data && data.weeks);
+    return (Array.isArray(rows) ? rows : [])
+      .filter((w) => ymd(w && w.week_ending))
+      .slice()
+      .sort((a, b) => ymd(a.week_ending).localeCompare(ymd(b.week_ending)));
+  }
+
+  function dashboard(data) {
+    const board = data && data.dashboard;
+    return board && typeof board === "object" ? board : null;
   }
 
   function allocations(data) {
@@ -303,13 +317,68 @@
       : "No weeks in the file";
     const coveredSub = (coveredSh == null ? "—" : shares(coveredSh) + " shares") +
       " · cost basis on open CC shares";
-    return '<section class="js-strip" aria-label="Program">' +
+    const board = dashboard(data);
+    const rocCovered = board ? num(board.roc_vs_covered) : null;
+    const rocProgram = board ? num(board.roc_vs_program) : null;
+    return '<section class="js-roc" aria-label="Return">' +
+      stat("js-roc-covered", "Return on capital", pct(rocCovered), "ROC vs Covered", pnlClass(rocCovered)) +
+      stat("js-roc-program", "Return on program", pct(rocProgram), "ROC vs Program", pnlClass(rocProgram)) +
+      "</section>" +
+      '<section class="js-strip" aria-label="Program">' +
       stat("js-program", "Program capital", money(program), "Sum of position program capital") +
       stat("js-covered", "Covered", money(covered), coveredSub) +
       stat("js-uncovered", "Uncovered", money(uncovered), "Program capital minus covered cost") +
       stat("js-open-prem", "Open premium net", money(openPrem), "Open covered calls · premium net", pnlClass(openPrem)) +
       stat("js-todate", "To date", money(toDate), toSub, pnlClass(toDate)) +
       "</section>";
+  }
+
+  function renderSubnav(pane) {
+    const bookOn = pane === "book" ? " on" : "";
+    const sumOn = pane === "summary" ? " on" : "";
+    return '<nav class="js-subnav" aria-label="Jesse sections">' +
+      '<button type="button" class="js-view' + bookOn + '" data-view="book" aria-pressed="' + (pane === "book" ? "true" : "false") + '">Open book</button>' +
+      '<button type="button" class="js-view' + sumOn + '" data-view="summary" aria-pressed="' + (pane === "summary" ? "true" : "false") + '">Weekly summary</button>' +
+      "</nav>";
+  }
+
+  function renderSummary(data) {
+    const rows = summaryWeeks(data);
+    const body = rows.length
+      ? rows.map((w) => {
+        const friday = ymd(w.week_ending);
+        const ret = num(w.week_return_pct);
+        return "<tr data-week=\"" + escapeHtml(friday) + "\">" +
+          td(escapeHtml(fmtDay(friday))) +
+          td(escapeHtml(money(num(w.premium_allocated))), true) +
+          td(escapeHtml(money(num(w.fees_allocated))), true) +
+          td(escapeHtml(money(num(w.net_income))), true) +
+          td(escapeHtml(money(num(w.capital_deployed))), true) +
+          td(escapeHtml(money(num(w.assignment_pnl))), true) +
+          td(escapeHtml(money(num(w.total_week_pnl))), true) +
+          td(escapeHtml(pct(ret)), true) +
+          td(escapeHtml(w.trade_count == null ? "—" : String(w.trade_count)), true) +
+          "</tr>";
+      }).join("")
+      : '<tr class="js-empty-row"><td colspan="9">No weeks in the file.</td></tr>';
+    return '<section class="js-panel" id="js-weekly-panel" aria-label="Weekly summary">' +
+      "<h2>Weekly summary</h2>" +
+      '<p class="js-note">Every Friday on the Excel Weekly Summary. Week return is the file’s week_return_pct.</p>' +
+      '<div class="js-wrap"><table class="js-table"><thead>' +
+        ths([
+          { t: "Week ending" },
+          { t: "Premium allocated", num: true },
+          { t: "Fees", num: true },
+          { t: "Net income", num: true },
+          { t: "Capital deployed", num: true },
+          { t: "Assignment P&L", num: true },
+          { t: "Total week P&L", num: true },
+          { t: "Week return", num: true },
+          { t: "Trades", num: true },
+        ]) +
+      '</thead><tbody id="js-weekly">' + body + "</tbody></table></div>" +
+      "</section>" +
+      '<p class="js-foot">Read-only view of the published Excel export. Last, premium, and week totals are the file’s figures. Not advice.</p>';
   }
 
   function ths(labels) {
@@ -498,7 +567,11 @@
       host.innerHTML = '<p class="js-empty">' + escapeHtml(state.error || "Loading covered-call book…") + "</p>";
       return;
     }
-    host.innerHTML = renderDash(state.data) + renderWeek(state.data) + renderOpen(state.data) + renderClosed(state.data);
+    const pane = state.pane === "summary" ? "summary" : "book";
+    const body = pane === "summary"
+      ? renderSummary(state.data)
+      : renderWeek(state.data) + renderOpen(state.data) + renderClosed(state.data);
+    host.innerHTML = renderDash(state.data) + renderSubnav(pane) + body;
   }
 
   function load() {
@@ -541,6 +614,14 @@
     if (!view || view.dataset.bound) return;
     view.dataset.bound = "1";
     view.addEventListener("click", (e) => {
+      const viewBtn = e.target.closest(".js-view");
+      if (viewBtn && view.contains(viewBtn)) {
+        const next = viewBtn.getAttribute("data-view") === "summary" ? "summary" : "book";
+        if (next === state.pane) return;
+        state.pane = next;
+        render();
+        return;
+      }
       const btn = e.target.closest(".js-week");
       if (!btn || !view.contains(btn)) return;
       const next = btn.getAttribute("data-week");

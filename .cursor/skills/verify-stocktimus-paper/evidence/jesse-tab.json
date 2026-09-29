@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "jesse-tab",
-  "at": "2026-09-29T15:55:23.947Z",
-  "url": "http://127.0.0.1:44143/",
+  "at": "2026-09-29T16:38:10.305Z",
+  "url": "http://127.0.0.1:34711/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -15,8 +15,16 @@
     "title": "Covered Call Income · Jesse",
     "deskName": "Covered Call Income",
     "pill": "cc tracker",
-    "asof": "Sep 29, 2026, 8:17 AM PT",
+    "asof": "Sep 29, 2026, 9:34 AM PT",
     "program": "$255,655.50",
+    "rocCovered": "+7.33%",
+    "rocProgram": "+4.11%",
+    "summaryWeeks": [
+      "2026-09-25",
+      "2026-10-02",
+      "2026-10-09",
+      "2026-10-16"
+    ],
     "covered": "$143,245.00",
     "uncovered": "$112,410.50",
     "openPrem": "$4,607.01",
@@ -72,12 +80,12 @@
     {
       "name": "as_of datetime",
       "ok": true,
-      "detail": "2026-09-29T08:17:00-07:00"
+      "detail": "2026-09-29T09:34:56-07:00"
     },
     {
       "name": "as_of visible",
       "ok": true,
-      "detail": "Sep 29, 2026, 8:17 AM PT"
+      "detail": "Sep 29, 2026, 9:34 AM PT"
     },
     {
       "name": "view class",
@@ -93,6 +101,36 @@
       "name": "hash jesse",
       "ok": true,
       "detail": "#jesse"
+    },
+    {
+      "name": "return on capital label",
+      "ok": true,
+      "detail": "Return on capital"
+    },
+    {
+      "name": "return on program label",
+      "ok": true,
+      "detail": "Return on program"
+    },
+    {
+      "name": "roc vs covered subtitle",
+      "ok": true,
+      "detail": "ROC vs Covered"
+    },
+    {
+      "name": "roc vs program subtitle",
+      "ok": true,
+      "detail": "ROC vs Program"
+    },
+    {
+      "name": "roc vs covered",
+      "ok": true,
+      "detail": "+7.33% vs +7.33%"
+    },
+    {
+      "name": "roc vs program",
+      "ok": true,
+      "detail": "+4.11% vs +4.11%"
     },
     {
       "name": "program capital",
@@ -182,7 +220,7 @@
     {
       "name": "week click does not navigate",
       "ok": true,
-      "detail": "http://127.0.0.1:44143/#jesse"
+      "detail": "http://127.0.0.1:34711/#jesse"
     },
     {
       "name": "selected week",
@@ -213,6 +251,186 @@
       "name": "open book stays put",
       "ok": true,
       "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+    },
+    {
+      "name": "weekly summary stays on jesse",
+      "ok": true,
+      "detail": "#jesse"
+    },
+    {
+      "name": "weekly summary hides week picker",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "roc stays on weekly summary",
+      "ok": true,
+      "detail": "+7.33% / +4.11%"
+    },
+    {
+      "name": "weekly summary rows",
+      "ok": true,
+      "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16"
+    },
+    {
+      "name": "week 2026-09-25 premium",
+      "ok": true,
+      "detail": "$6,486.69"
+    },
+    {
+      "name": "week 2026-09-25 fees",
+      "ok": true,
+      "detail": "$44.03"
+    },
+    {
+      "name": "week 2026-09-25 net",
+      "ok": true,
+      "detail": "$6,442.66"
+    },
+    {
+      "name": "week 2026-09-25 capital",
+      "ok": true,
+      "detail": "$196,620.50"
+    },
+    {
+      "name": "week 2026-09-25 assignment",
+      "ok": true,
+      "detail": "$340.00"
+    },
+    {
+      "name": "week 2026-09-25 total",
+      "ok": true,
+      "detail": "$6,782.66"
+    },
+    {
+      "name": "week 2026-09-25 return",
+      "ok": true,
+      "detail": "+3.45%"
+    },
+    {
+      "name": "week 2026-09-25 trades",
+      "ok": true,
+      "detail": "13"
+    },
+    {
+      "name": "week 2026-10-02 premium",
+      "ok": true,
+      "detail": "$3,099.50"
+    },
+    {
+      "name": "week 2026-10-02 fees",
+      "ok": true,
+      "detail": "$8.30"
+    },
+    {
+      "name": "week 2026-10-02 net",
+      "ok": true,
+      "detail": "$3,091.20"
+    },
+    {
+      "name": "week 2026-10-02 capital",
+      "ok": true,
+      "detail": "$97,068.50"
+    },
+    {
+      "name": "week 2026-10-02 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-10-02 total",
+      "ok": true,
+      "detail": "$3,091.20"
+    },
+    {
+      "name": "week 2026-10-02 return",
+      "ok": true,
+      "detail": "+3.18%"
+    },
+    {
+      "name": "week 2026-10-02 trades",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "week 2026-10-09 premium",
+      "ok": true,
+      "detail": "$557.50"
+    },
+    {
+      "name": "week 2026-10-09 fees",
+      "ok": true,
+      "detail": "$2.43"
+    },
+    {
+      "name": "week 2026-10-09 net",
+      "ok": true,
+      "detail": "$555.07"
+    },
+    {
+      "name": "week 2026-10-09 capital",
+      "ok": true,
+      "detail": "$17,410.50"
+    },
+    {
+      "name": "week 2026-10-09 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-10-09 total",
+      "ok": true,
+      "detail": "$555.07"
+    },
+    {
+      "name": "week 2026-10-09 return",
+      "ok": true,
+      "detail": "+3.19%"
+    },
+    {
+      "name": "week 2026-10-09 trades",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "week 2026-10-16 premium",
+      "ok": true,
+      "detail": "$407.50"
+    },
+    {
+      "name": "week 2026-10-16 fees",
+      "ok": true,
+      "detail": "$1.83"
+    },
+    {
+      "name": "week 2026-10-16 net",
+      "ok": true,
+      "detail": "$405.68"
+    },
+    {
+      "name": "week 2026-10-16 capital",
+      "ok": true,
+      "detail": "$11,355.50"
+    },
+    {
+      "name": "week 2026-10-16 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-10-16 total",
+      "ok": true,
+      "detail": "$405.68"
+    },
+    {
+      "name": "week 2026-10-16 return",
+      "ok": true,
+      "detail": "+3.57%"
+    },
+    {
+      "name": "week 2026-10-16 trades",
+      "ok": true,
+      "detail": "3"
     },
     {
       "name": "back to stocktimus",

@@ -116,6 +116,14 @@ function money(v) {
   return "$" + abs;
 }
 
+function pct(v) {
+  if (v == null || Number.isNaN(Number(v))) return "—";
+  const n = Number(v);
+  const p = Math.abs(n) <= 2 ? n * 100 : n;
+  const sign = p > 0 ? "+" : p < 0 ? "−" : "";
+  return sign + Math.abs(p).toFixed(2) + "%";
+}
+
 function asList(payload) {
   if (!payload) return [];
   if (Array.isArray(payload)) return payload;
@@ -501,6 +509,9 @@ async function doctor() {
     hard(checks, "jesse desk field", jesse.desk === "jesse", "desk=" + jesse.desk);
     hard(checks, "jesse unique trade ids", !dup, dup ? "duplicate " + dup : "");
     hard(checks, "jesse weeks", Array.isArray(jesse.weeks) && jesse.weeks.length > 0, String((jesse.weeks || []).length));
+    const board = jesse.dashboard || {};
+    hard(checks, "jesse dashboard roc", num(board.roc_vs_covered) != null && num(board.roc_vs_program) != null);
+    hard(checks, "jesse weekly summary", Array.isArray(jesse.weekly_summary) && jesse.weekly_summary.length > 0, String((jesse.weekly_summary || []).length));
   } catch (err) {
     hard(checks, "jesse/cc-tracker.json parses", false, err.message);
   }
@@ -1149,6 +1160,20 @@ async function driveJesse(page) {
       heroDisplay: hero ? getComputedStyle(hero).display : "",
       hash: location.hash,
       program: text("js-program"),
+      rocCovered: text("js-roc-covered"),
+      rocProgram: text("js-roc-program"),
+      rocCoveredLabel: (document.querySelector("#js-roc-covered") && document.querySelector("#js-roc-covered").parentElement
+        ? document.querySelector("#js-roc-covered").parentElement.querySelector(".js-k").textContent.trim()
+        : ""),
+      rocProgramLabel: (document.querySelector("#js-roc-program") && document.querySelector("#js-roc-program").parentElement
+        ? document.querySelector("#js-roc-program").parentElement.querySelector(".js-k").textContent.trim()
+        : ""),
+      rocCoveredSub: (document.querySelector("#js-roc-covered") && document.querySelector("#js-roc-covered").parentElement
+        ? document.querySelector("#js-roc-covered").parentElement.querySelector(".js-s").textContent.trim()
+        : ""),
+      rocProgramSub: (document.querySelector("#js-roc-program") && document.querySelector("#js-roc-program").parentElement
+        ? document.querySelector("#js-roc-program").parentElement.querySelector(".js-s").textContent.trim()
+        : ""),
       covered: text("js-covered"),
       uncovered: text("js-uncovered"),
       openPrem: text("js-open-prem"),
@@ -1184,6 +1209,13 @@ async function driveJesse(page) {
   hard(checks, "view class", snap.view && snap.hidden === false);
   hard(checks, "hero hidden", snap.heroDisplay === "none", snap.heroDisplay);
   hard(checks, "hash jesse", snap.hash === "#jesse", snap.hash);
+  const board = data.dashboard || {};
+  hard(checks, "return on capital label", snap.rocCoveredLabel === "Return on capital", snap.rocCoveredLabel);
+  hard(checks, "return on program label", snap.rocProgramLabel === "Return on program", snap.rocProgramLabel);
+  hard(checks, "roc vs covered subtitle", snap.rocCoveredSub === "ROC vs Covered", snap.rocCoveredSub);
+  hard(checks, "roc vs program subtitle", snap.rocProgramSub === "ROC vs Program", snap.rocProgramSub);
+  hard(checks, "roc vs covered", snap.rocCovered === pct(num(board.roc_vs_covered)), snap.rocCovered + " vs " + pct(num(board.roc_vs_covered)));
+  hard(checks, "roc vs program", snap.rocProgram === pct(num(board.roc_vs_program)), snap.rocProgram + " vs " + pct(num(board.roc_vs_program)));
   hard(checks, "program capital", snap.program === money(book.program), snap.program + " vs " + money(book.program));
   hard(checks, "covered cost", snap.covered === money(book.covered), snap.covered + " vs " + money(book.covered));
   hard(checks, "uncovered program", snap.uncovered === money(book.uncovered), snap.uncovered + " vs " + money(book.uncovered));
@@ -1239,6 +1271,50 @@ async function driveJesse(page) {
   hard(checks, "open book stays put", switched.openCcs.join(",") === openIds.join(","), switched.openCcs.join(","));
   await page.screenshot({ path: join(EVIDENCE, "jesse-tab-week.png"), fullPage: true });
 
+  await page.locator('.js-view[data-view="summary"]').click();
+  await page.waitForFunction(() => {
+    const body = document.getElementById("js-weekly");
+    return body && document.querySelector('.js-view[data-view="summary"].on') && location.hash === "#jesse";
+  }, null, { timeout: 20000 });
+  const summary = await page.evaluate(() => {
+    const text = (id) => {
+      const el = document.getElementById(id);
+      return el ? el.textContent.trim() : "";
+    };
+    return {
+      hash: location.hash,
+      rocCovered: text("js-roc-covered"),
+      rocProgram: text("js-roc-program"),
+      weekPicker: !!document.getElementById("js-week"),
+      rows: [...document.querySelectorAll("#js-weekly tr[data-week]")].map((tr) => ({
+        week: tr.getAttribute("data-week"),
+        cells: [...tr.querySelectorAll("td")].map((td) => td.textContent.trim()),
+      })),
+    };
+  });
+  const summaryRows = (Array.isArray(data.weekly_summary) ? data.weekly_summary : data.weeks || [])
+    .filter((w) => ymdKey(w.week_ending))
+    .slice()
+    .sort((a, b) => ymdKey(a.week_ending).localeCompare(ymdKey(b.week_ending)));
+  hard(checks, "weekly summary stays on jesse", summary.hash === "#jesse" && page.url() === urlBefore, summary.hash);
+  hard(checks, "weekly summary hides week picker", summary.weekPicker === false);
+  hard(checks, "roc stays on weekly summary", summary.rocCovered === pct(num(board.roc_vs_covered)) && summary.rocProgram === pct(num(board.roc_vs_program)), summary.rocCovered + " / " + summary.rocProgram);
+  hard(checks, "weekly summary rows", summary.rows.map((row) => row.week).join(",") === summaryRows.map((w) => ymdKey(w.week_ending)).join(","), summary.rows.map((row) => row.week).join(","));
+  summaryRows.forEach((w, i) => {
+    const cells = summary.rows[i] ? summary.rows[i].cells : [];
+    const friday = ymdKey(w.week_ending);
+    hard(checks, "week " + friday + " premium", cells[1] === money(num(w.premium_allocated)), cells[1]);
+    hard(checks, "week " + friday + " fees", cells[2] === money(num(w.fees_allocated)), cells[2]);
+    hard(checks, "week " + friday + " net", cells[3] === money(num(w.net_income)), cells[3]);
+    hard(checks, "week " + friday + " capital", cells[4] === money(num(w.capital_deployed)), cells[4]);
+    hard(checks, "week " + friday + " assignment", cells[5] === money(num(w.assignment_pnl)), cells[5]);
+    hard(checks, "week " + friday + " total", cells[6] === money(num(w.total_week_pnl)), cells[6]);
+    hard(checks, "week " + friday + " return", cells[7] === pct(num(w.week_return_pct)), cells[7]);
+    hard(checks, "week " + friday + " trades", cells[8] === String(w.trade_count), cells[8]);
+  });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: join(EVIDENCE, "jesse-tab-summary.png"), fullPage: true });
+
   const stock = readJson("data.json");
   const line = ticketLine(asList(stock).length);
   await page.locator('a.desk-tab[data-desk="stocktimus"]').click();
@@ -1270,6 +1346,9 @@ async function driveJesse(page) {
       pill: snap.pill,
       asof: snap.asof,
       program: snap.program,
+      rocCovered: snap.rocCovered,
+      rocProgram: snap.rocProgram,
+      summaryWeeks: summary.rows.map((row) => row.week),
       covered: snap.covered,
       uncovered: snap.uncovered,
       openPrem: snap.openPrem,

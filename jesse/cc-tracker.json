@@ -1,7 +1,7 @@
 {
   "desk": "jesse",
   "title": "Covered Call Income",
-  "as_of": "2026-09-29T08:17:00-07:00",
+  "as_of": "2026-09-29T09:34:56-07:00",
   "source": "fidelity_positions_csv + covered-call-income-tracker.xlsx",
   "theme": "clay_sage",
   "rules": {
@@ -979,7 +979,10 @@
       "net_income": 6442.658333,
       "capital_deployed": 196620.5,
       "assignment_pnl": 340.0,
-      "total_week_pnl": 6782.658333
+      "total_week_pnl": 6782.658333,
+      "week_return_pct": 0.034496,
+      "trade_count": 13,
+      "called_away_flags": 8
     },
     {
       "week_ending": "2026-10-02",
@@ -987,8 +990,11 @@
       "fees_allocated": 8.304167,
       "net_income": 3091.198333,
       "capital_deployed": 97068.5,
-      "assignment_pnl": 0,
-      "total_week_pnl": 3091.198333
+      "assignment_pnl": 0.0,
+      "total_week_pnl": 3091.198333,
+      "week_return_pct": 0.031846,
+      "trade_count": 7,
+      "called_away_flags": 0
     },
     {
       "week_ending": "2026-10-09",
@@ -996,8 +1002,11 @@
       "fees_allocated": 2.434167,
       "net_income": 555.068333,
       "capital_deployed": 17410.5,
-      "assignment_pnl": 0,
-      "total_week_pnl": 555.068333
+      "assignment_pnl": 0.0,
+      "total_week_pnl": 555.068333,
+      "week_return_pct": 0.031881,
+      "trade_count": 4,
+      "called_away_flags": 0
     },
     {
       "week_ending": "2026-10-16",
@@ -1005,8 +1014,85 @@
       "fees_allocated": 1.8275,
       "net_income": 405.675,
       "capital_deployed": 11355.5,
-      "assignment_pnl": 0,
-      "total_week_pnl": 405.675
+      "assignment_pnl": 0.0,
+      "total_week_pnl": 405.675,
+      "week_return_pct": 0.035725,
+      "trade_count": 3,
+      "called_away_flags": 0
+    }
+  ],
+  "dashboard": {
+    "active_capital": 200512,
+    "covered_capital": 143245,
+    "uncovered_capital": 112410.5,
+    "eose_capital": 132275,
+    "program_capital": 255655.5,
+    "idle_pct": 0.439695,
+    "roc_vs_covered": 0.073263,
+    "roc_vs_program": 0.04105,
+    "total_net_premium": 10494.6,
+    "commission_fees": 56.6,
+    "roc_vs_active": 0.052339,
+    "avg_weekly_income": 6782.6583,
+    "avg_weekly_roc": 0.034496,
+    "avg_weekly_roc_vs_covered": 0.04735,
+    "avg_weekly_roc_vs_program": 0.02653,
+    "open_cc_count": 7,
+    "expired_count": 6,
+    "called_away_count": 2,
+    "total_assignment_pnl": 340.0,
+    "assignment_gains": 670.0,
+    "assignment_losses": -330.0,
+    "net_premium_plus_assignment": 10834.6
+  },
+  "weekly_summary": [
+    {
+      "week_ending": "2026-09-25",
+      "premium_allocated": 6486.6925,
+      "fees_allocated": 44.034167,
+      "net_income": 6442.658333,
+      "capital_deployed": 196620.5,
+      "assignment_pnl": 340.0,
+      "total_week_pnl": 6782.658333,
+      "week_return_pct": 0.034496,
+      "trade_count": 13,
+      "called_away_flags": 8
+    },
+    {
+      "week_ending": "2026-10-02",
+      "premium_allocated": 3099.5025,
+      "fees_allocated": 8.304167,
+      "net_income": 3091.198333,
+      "capital_deployed": 97068.5,
+      "assignment_pnl": 0.0,
+      "total_week_pnl": 3091.198333,
+      "week_return_pct": 0.031846,
+      "trade_count": 7,
+      "called_away_flags": 0
+    },
+    {
+      "week_ending": "2026-10-09",
+      "premium_allocated": 557.5025,
+      "fees_allocated": 2.434167,
+      "net_income": 555.068333,
+      "capital_deployed": 17410.5,
+      "assignment_pnl": 0.0,
+      "total_week_pnl": 555.068333,
+      "week_return_pct": 0.031881,
+      "trade_count": 4,
+      "called_away_flags": 0
+    },
+    {
+      "week_ending": "2026-10-16",
+      "premium_allocated": 407.5025,
+      "fees_allocated": 1.8275,
+      "net_income": 405.675,
+      "capital_deployed": 11355.5,
+      "assignment_pnl": 0.0,
+      "total_week_pnl": 405.675,
+      "week_return_pct": 0.035725,
+      "trade_count": 3,
+      "called_away_flags": 0
     }
   ]
 }

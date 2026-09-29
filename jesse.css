@@ -68,14 +68,39 @@ html.view-jesse .brand-text .sub {
 
 .jesse-view { margin-top: 4px; }
 
+.js-roc,
 .js-strip,
 .js-kpis {
   display: grid;
   gap: 8px;
   margin: 16px 0 14px;
 }
+.js-roc { grid-template-columns: 1fr 1fr; margin-bottom: 8px; }
 .js-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .js-kpis { grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 10px; }
+.js-roc .js-stat {
+  border-color: rgba(47, 79, 63, 0.45);
+  background: linear-gradient(180deg, rgba(47, 79, 63, 0.1), #fffaf4 48%);
+}
+.js-roc .js-v { font-size: 28px; }
+.js-subnav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+.js-view {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid #ddcbb8;
+  background: #fffaf4;
+  color: #3e5348;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.js-view:hover { border-color: #2f4f3f; color: #2f4f3f; }
+.js-view.on {
+  background: #c65a3a;
+  color: #fffaf4;
+  border-color: transparent;
+}
 
 .js-stat {
   background: var(--card, #fffaf4);
@@ -239,6 +264,6 @@ html.view-jesse .brand-text .sub {
   .js-kpis { grid-template-columns: 1fr 1fr 1fr; }
 }
 @media (max-width: 760px) {
-  .js-strip, .js-kpis { grid-template-columns: 1fr 1fr; }
-  .js-v { font-size: 18px; }
+  .js-strip, .js-kpis, .js-roc { grid-template-columns: 1fr 1fr; }
+  .js-v, .js-roc .js-v { font-size: 18px; }
 }
