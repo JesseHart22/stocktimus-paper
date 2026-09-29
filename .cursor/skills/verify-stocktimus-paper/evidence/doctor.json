@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-09-29T16:38:08.524Z",
-  "url": "http://127.0.0.1:34711/",
+  "at": "2026-09-29T21:02:02.961Z",
+  "url": "http://127.0.0.1:35091/",
   "books": {
     "data.json": {
       "tickets": 74
@@ -81,6 +81,11 @@
     },
     {
       "name": "jesse tracker path",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sleeve ledger path",
       "ok": true,
       "detail": ""
     },
@@ -225,6 +230,26 @@
       "detail": "4"
     },
     {
+      "name": "sleeve/trades.json parses",
+      "ok": true,
+      "detail": "1 fills"
+    },
+    {
+      "name": "sleeve schema",
+      "ok": true,
+      "detail": "1.0"
+    },
+    {
+      "name": "sleeve unique fill ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sleeve has equity book",
+      "ok": true,
+      "detail": "EOSE"
+    },
+    {
       "name": "GET /",
       "ok": true,
       "detail": "HTTP 200"
@@ -276,6 +301,26 @@
     },
     {
       "name": "GET /jesse.css",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /sleeve/trades.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /sleeve.js",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /sleeve.css",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /shell.css",
       "ok": true,
       "detail": "HTTP 200"
     }

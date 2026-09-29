@@ -793,6 +793,22 @@ async function drivePaper(page, featureId) {
     await page.waitForFunction((n) => document.querySelectorAll("tr[data-id]").length === n, trades.length);
   }
 
+  await page.locator('.sh-view[data-paper-view="summary"]').click();
+  await page.waitForFunction(() => {
+    const summary = document.getElementById("paper-summary");
+    const book = document.getElementById("paper-book");
+    const roc = document.getElementById("stat-roc");
+    return summary && summary.hidden === false && book && book.hidden === true && roc && roc.textContent.trim() !== "";
+  });
+  hard(checks, "summary pane shows return", true);
+  await page.locator('.sh-view[data-paper-view="book"]').click();
+  await page.waitForFunction((n) => {
+    const book = document.getElementById("paper-book");
+    const summary = document.getElementById("paper-summary");
+    return book && book.hidden === false && summary && summary.hidden === true && document.querySelectorAll("tr[data-id]").length === n;
+  }, trades.length);
+  hard(checks, "open book pane restored", true);
+
   return {
     checks,
     proxySettle: proxy,
@@ -939,9 +955,16 @@ async function driveDelayed(page) {
   await waitForBook(page, line);
   await sleep(1500);
   const published = await paperSnapshot(page);
+  const publishedKind = publishedMarkKind(payload);
   hard(checks, "book loaded", published.bookSub === line, published.bookSub);
-  hard(checks, "published pill has no delayed suffix", !published.pill.includes("delayed"), published.pill);
-  hard(checks, "published pill has no Robinhood suffix", !published.pill.includes("Robinhood"), published.pill);
+  if (publishedKind === "robinhood") {
+    hard(checks, "published pill says Robinhood live", published.pill.includes("Robinhood live") && !published.pill.includes("delayed"), published.pill);
+  } else if (publishedKind === "delayed") {
+    hard(checks, "published pill says delayed", published.pill.includes("delayed") && !published.pill.includes("Robinhood"), published.pill);
+  } else {
+    hard(checks, "published pill has no delayed suffix", !published.pill.includes("delayed"), published.pill);
+    hard(checks, "published pill has no Robinhood suffix", !published.pill.includes("Robinhood"), published.pill);
+  }
   hard(checks, "published book does not call Massive", hits.length === 0, String(hits.length));
   hard(checks, "published total matches file", published.pnl === expectedTotal, published.pnl + " vs " + expectedTotal);
 

@@ -85,7 +85,7 @@ The driver opens the launched origin in headless Chrome, clicks the desk tab, wa
 - Account and weekly goal text use the file `account` / `weekly_target` (Stocktimus summary JSON overrides those two fields when present). The `$250,000` / `$3,750` constants in `app.js` apply only when a file omits them.
 - Confidence chip: the helper clicks the first of High, Medium, Low that the file actually contains. Medium is displayed as `Med`.
 
-`delayed-mark-label` reloads Stocktimus three times. The published file has no top-level mark fields, so the pill has no `delayed` or `Robinhood` suffix and the page does not call the proxy. A routed copy with `marks_source=robinhood` and `quote_quality=robinhood_live` shows `Robinhood live`, keeps the file total, and still does not call the proxy. A routed copy that clears open-lot file marks requests the proxy. If that quote lands, the pill says `delayed`. If it does not, the pill stays unlabeled. Neither pill says real-time. The drive does not store the proxy price.
+`delayed-mark-label` reloads Stocktimus three times. The published pill follows the file’s top-level mark fields and does not call the proxy. A routed copy with `marks_source=robinhood` and `quote_quality=robinhood_live` shows `Robinhood live`, keeps the file total, and still does not call the proxy. A routed copy that clears those fields and the open-lot file marks requests the proxy. If that quote lands, the pill says `delayed`. If it does not, the pill stays unlabeled. Neither pill says real-time. The drive does not store the proxy price.
 
 ## Evidence
 
