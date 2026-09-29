@@ -70,6 +70,7 @@ const FEATURES = [
   "scoreboard-tab",
   "delayed-mark-label",
   "jesse-tab",
+  "sleeve-tab",
 ];
 
 function sleep(ms) {
@@ -450,8 +451,9 @@ async function doctor() {
   hard(checks, "massive fallback gate", app.includes("function needsMassiveFallback()"));
   hard(checks, "no default live poll", !app.includes("startLiveMtm"));
   hard(checks, "footer not advice", index.includes("Not advice"));
-  hard(checks, "desk tabs", ["stocktimus", "moonshot", "compounder", "jesse", "scoreboard"].every((id) => index.includes('data-desk="' + id + '"')));
+  hard(checks, "desk tabs", ["stocktimus", "moonshot", "compounder", "sleeve", "jesse", "scoreboard"].every((id) => index.includes('data-desk="' + id + '"')));
   hard(checks, "jesse tracker path", readText("jesse.js").includes('const FILE = "./jesse/cc-tracker.json"'));
+  hard(checks, "sleeve ledger path", readText("sleeve.js").includes('const FILE = "./sleeve/trades.json"'));
   hard(checks, "scoreboard redirect", readText("scoreboard.html").includes('location.replace("./#scoreboard")'));
   hard(checks, "scoreboard.js desk files", ["stocktimus", "compounder", "moonshot", "scout"].every((id) => scoreboardJs.includes("./scoreboard/" + id + ".json")));
 
@@ -516,8 +518,21 @@ async function doctor() {
     hard(checks, "jesse/cc-tracker.json parses", false, err.message);
   }
 
+  try {
+    const sleeve = readJson("sleeve/trades.json");
+    const fillIds = (sleeve.fills || []).map((f) => str(f.fill_id));
+    const dup = fillIds.find((id, i) => id && fillIds.indexOf(id) !== i);
+    const symbols = (sleeve.open_positions && sleeve.open_positions.equity || []).map((p) => str(p.symbol));
+    hard(checks, "sleeve/trades.json parses", true, (sleeve.fills || []).length + " fills");
+    hard(checks, "sleeve schema", str(sleeve.schema_version) === "1.0", str(sleeve.schema_version));
+    hard(checks, "sleeve unique fill ids", !dup, dup ? "duplicate " + dup : "");
+    hard(checks, "sleeve has equity book", symbols.length > 0, symbols.join(","));
+  } catch (err) {
+    hard(checks, "sleeve/trades.json parses", false, err.message);
+  }
+
   const origin = server.url.replace(/\/$/, "");
-  const routes = ["/", "/data.json", "/desks/moonshot.json", "/desks/compounder.json", "/app.js", "/scoreboard.js", "/scoreboard/stocktimus.json", "/scoreboard/scout.json", "/jesse/cc-tracker.json", "/jesse.js", "/jesse.css"];
+  const routes = ["/", "/data.json", "/desks/moonshot.json", "/desks/compounder.json", "/app.js", "/scoreboard.js", "/scoreboard/stocktimus.json", "/scoreboard/scout.json", "/jesse/cc-tracker.json", "/jesse.js", "/jesse.css", "/sleeve/trades.json", "/sleeve.js", "/sleeve.css", "/shell.css"];
   for (const route of routes) {
     try {
       const res = await fetch(origin + route, { cache: "no-store", signal: AbortSignal.timeout(5000) });
@@ -1362,6 +1377,193 @@ async function driveJesse(page) {
   };
 }
 
+function sleevePending(data) {
+  const notes = data && data.notes;
+  const text = Array.isArray(notes) ? notes.join(" ") : String(notes || "");
+  const m = text.match(/pending deposit[^$0-9]*\$?\s*([\d,]+(?:\.\d+)?)/i);
+  if (!m) return null;
+  return num(String(m[1]).replace(/,/g, ""));
+}
+
+function sleeveDeployed(data) {
+  const book = data.open_positions || {};
+  const rows = []
+    .concat(Array.isArray(book.equity) ? book.equity : [])
+    .concat(Array.isArray(book.options) ? book.options : []);
+  let total = 0;
+  let any = false;
+  for (const row of rows) {
+    const v = num(row.deployed_usd);
+    if (v == null) continue;
+    total += v;
+    any = true;
+  }
+  return any ? total : null;
+}
+
+async function driveSleeve(page) {
+  const checks = [];
+  const data = readJson("sleeve/trades.json");
+  const fills = Array.isArray(data.fills) ? data.fills : [];
+  const equity = (data.open_positions && data.open_positions.equity) || [];
+  const options = (data.open_positions && data.open_positions.options) || [];
+  const orders = Array.isArray(data.orders_open) ? data.orders_open : [];
+  const realized = Array.isArray(data.realized_trades) ? data.realized_trades : [];
+  const weeks = Array.isArray(data.weekly_summary) ? data.weekly_summary : (Array.isArray(data.weeks) ? data.weeks : []);
+  await page.locator('a.desk-tab[data-desk="sleeve"]').click();
+  await page.waitForFunction(() => {
+    const pill = document.getElementById("source-pill");
+    const root = document.getElementById("sleeve-root");
+    const text = root ? root.textContent : "";
+    return document.documentElement.classList.contains("view-sleeve")
+      && pill && pill.textContent.trim() === "sleeve ledger"
+      && root && !text.includes("Loading sleeve");
+  }, null, { timeout: 20000 });
+
+  const snap = await page.evaluate(() => {
+    const text = (id) => {
+      const el = document.getElementById(id);
+      return el ? el.textContent.trim() : "";
+    };
+    const hero = document.querySelector(".hero");
+    const tab = document.querySelector(".desk-tab.on");
+    const value = document.querySelector("#sleeve-root .js-v");
+    const realizedEl = document.getElementById("sl-realized");
+    return {
+      title: document.title,
+      deskName: text("desk-name"),
+      deskSub: text("desk-sub"),
+      pill: text("source-pill"),
+      asofDate: (document.getElementById("asof") && document.getElementById("asof").getAttribute("datetime")) || "",
+      tabOn: tab ? tab.getAttribute("data-desk") : "",
+      view: document.documentElement.classList.contains("view-sleeve"),
+      hidden: document.getElementById("sleeve-view").hidden,
+      heroDisplay: hero ? getComputedStyle(hero).display : "",
+      hash: location.hash,
+      pending: text("sl-pending"),
+      pendingSub: (document.querySelector("#sl-pending") && document.querySelector("#sl-pending").parentElement
+        ? document.querySelector("#sl-pending").parentElement.querySelector(".js-s").textContent.trim()
+        : ""),
+      deployed: text("sl-deployed"),
+      budget: text("sl-budget"),
+      account: text("sl-account"),
+      cash: text("sl-cash"),
+      unreal: text("sl-unreal"),
+      realized: text("sl-real"),
+      roc: text("sl-roc"),
+      openN: text("sl-open-n"),
+      fillsN: text("sl-fills"),
+      notes: text("sl-notes"),
+      symbols: [...document.querySelectorAll("#sl-equity tr[data-symbol]")].map((tr) => tr.getAttribute("data-symbol")),
+      buckets: [...document.querySelectorAll("#sl-equity tr[data-bucket]")].map((tr) => tr.getAttribute("data-bucket")),
+      fillIds: [...document.querySelectorAll("#sl-fills tr[data-fill]")].map((tr) => tr.getAttribute("data-fill")),
+      optionText: (document.getElementById("sl-options") && document.getElementById("sl-options").textContent.trim()) || "",
+      orderText: (document.getElementById("sl-orders") && document.getElementById("sl-orders").textContent.trim()) || "",
+      realizedOpen: realizedEl ? realizedEl.open : null,
+      summaryBtn: !!document.querySelector('.js-view[data-view="summary"]'),
+      tabBg: tab ? getComputedStyle(tab).backgroundColor : "",
+      valueColor: value ? getComputedStyle(value).color : "",
+      bodyText: document.body.innerText,
+    };
+  });
+
+  const pending = sleevePending(data);
+  const deployed = sleeveDeployed(data);
+  hard(checks, "sleeve name", snap.deskName === "Sleeve", snap.deskName);
+  hard(checks, "sleeve subtitle", snap.deskSub === "Agentic", snap.deskSub);
+  hard(checks, "sleeve title", snap.title === "Sleeve · Agentic", snap.title);
+  hard(checks, "sleeve tab", snap.tabOn === "sleeve", snap.tabOn);
+  hard(checks, "source pill sleeve ledger", snap.pill === "sleeve ledger", snap.pill);
+  hard(checks, "as_of datetime", snap.asofDate === String(data.as_of), snap.asofDate);
+  hard(checks, "view class", snap.view && snap.hidden === false);
+  hard(checks, "hero hidden", snap.heroDisplay === "none", snap.heroDisplay);
+  hard(checks, "hash sleeve", snap.hash === "#sleeve", snap.hash);
+  hard(checks, "pending deposits", snap.pending === money(pending), snap.pending + " vs " + money(pending));
+  hard(checks, "pending subtitle", snap.pendingSub.includes("Funding in flight"), snap.pendingSub);
+  hard(checks, "deployed", snap.deployed === money(deployed), snap.deployed + " vs " + money(deployed));
+  hard(checks, "sleeve budget", snap.budget === money(num(data.sleeve_budget_usd)), snap.budget);
+  hard(checks, "account value absent", snap.account === "—", snap.account);
+  hard(checks, "cash absent", snap.cash === "—", snap.cash);
+  hard(checks, "unrealized absent", snap.unreal === "—", snap.unreal);
+  hard(checks, "return absent", snap.roc === "—", snap.roc);
+  const realizedTotal = realized.reduce((sum, row) => {
+    const v = num(row.realized_pnl_usd != null ? row.realized_pnl_usd : row.realized_pnl);
+    return v == null ? sum : sum + v;
+  }, 0);
+  hard(checks, "realized from ledger", snap.realized === money(realized.length ? realizedTotal : 0), snap.realized);
+  hard(checks, "open positions", snap.openN === String(equity.length + options.length), snap.openN);
+  hard(checks, "filled orders", snap.fillsN === String(fills.filter((f) => !f.status || str(f.status) === "filled").length), snap.fillsN);
+  hard(checks, "notes rendered", snap.notes === (Array.isArray(data.notes) ? data.notes.join(" ") : String(data.notes || "")), snap.notes.slice(0, 80));
+  hard(checks, "equity symbols", snap.symbols.join(",") === equity.map((p) => str(p.symbol)).join(","), snap.symbols.join(","));
+  hard(checks, "equity buckets", snap.buckets.join(",") === equity.map((p) => str(p.desk_bucket)).join(","), snap.buckets.join(","));
+  hard(checks, "options empty copy", options.length === 0 ? snap.optionText.includes("No open option positions") : snap.optionText.length > 0, snap.optionText);
+  hard(checks, "orders empty or listed", orders.length === 0 ? snap.orderText.includes("No open orders") : true, snap.orderText);
+  hard(checks, "realized collapsed", snap.realizedOpen === false, String(snap.realizedOpen));
+  hard(checks, "weekly summary hidden when empty", weeks.length ? snap.summaryBtn : !snap.summaryBtn, String(snap.summaryBtn));
+  hard(checks, "ember tab", snap.tabBg === "rgb(249, 115, 22)", snap.tabBg);
+  hard(checks, "steel text", snap.valueColor === "rgb(226, 232, 240)", snap.valueColor);
+  hard(checks, "no invented last", !snap.bodyText.includes("3.13"), "body");
+  const allowed = new Set(equity.map((p) => str(p.symbol)));
+  hard(checks, "no extra equity symbols", snap.symbols.every((s) => allowed.has(s)) && snap.symbols.length === equity.length, snap.symbols.join(","));
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: join(EVIDENCE, "sleeve-tab.png"), fullPage: true });
+
+  await page.locator('.js-view[data-view="blotter"]').click();
+  await page.waitForFunction(() => document.getElementById("sl-fills") && location.hash === "#sleeve");
+  const blotter = await page.evaluate(() => ({
+    hash: location.hash,
+    fillIds: [...document.querySelectorAll("#sl-fills tr[data-fill]")].map((tr) => tr.getAttribute("data-fill")),
+    buckets: [...document.querySelectorAll("#sl-fills tr[data-bucket]")].map((tr) => tr.getAttribute("data-bucket")),
+    equityGone: !document.getElementById("sl-equity"),
+  }));
+  hard(checks, "blotter stays on sleeve", blotter.hash === "#sleeve");
+  hard(checks, "blotter hides open book", blotter.equityGone);
+  hard(checks, "blotter fill ids", blotter.fillIds.join(",") === fills.map((f) => str(f.fill_id)).join(","), blotter.fillIds.join(","));
+  hard(checks, "blotter buckets", blotter.buckets.join(",") === fills.map((f) => str(f.desk_bucket)).join(","), blotter.buckets.join(","));
+  await page.screenshot({ path: join(EVIDENCE, "sleeve-tab-blotter.png"), fullPage: true });
+
+  const stock = readJson("data.json");
+  const line = ticketLine(asList(stock).length);
+  await page.locator('a.desk-tab[data-desk="stocktimus"]').click();
+  await page.waitForFunction(() => {
+    const name = document.getElementById("desk-name");
+    return name
+      && name.textContent.trim() === "Stocktimus"
+      && !document.documentElement.classList.contains("view-sleeve")
+      && location.hash === "#stocktimus";
+  }, null, { timeout: 20000 });
+  await waitForBook(page, line);
+  const back = await page.evaluate(() => {
+    const hero = document.querySelector(".hero");
+    const book = document.getElementById("paper-book");
+    return {
+      name: (document.getElementById("desk-name") && document.getElementById("desk-name").textContent.trim()) || "",
+      view: document.documentElement.classList.contains("view-sleeve"),
+      heroDisplay: hero ? getComputedStyle(hero).display : "",
+      bookHidden: book ? book.hidden : null,
+      subOn: (document.querySelector(".sh-view.on") && document.querySelector(".sh-view.on").getAttribute("data-paper-view")) || "",
+    };
+  });
+  hard(checks, "back to stocktimus", back.name === "Stocktimus" && back.view === false && back.heroDisplay !== "none", back.name + " hero=" + back.heroDisplay);
+  hard(checks, "paper open book restored", back.bookHidden === false && back.subOn === "book", back.subOn);
+
+  return {
+    checks,
+    observed: {
+      title: snap.title,
+      pill: snap.pill,
+      pending: snap.pending,
+      deployed: snap.deployed,
+      openN: snap.openN,
+      fillsN: snap.fillsN,
+      symbols: snap.symbols,
+      fillIds: blotter.fillIds,
+    },
+    files: ["sleeve/trades.json"],
+  };
+}
+
 async function drive(featureId) {
   if (!FEATURES.includes(featureId)) {
     throw new Error("unknown feature " + featureId + ". Choose: " + FEATURES.join(", "));
@@ -1385,6 +1587,7 @@ async function drive(featureId) {
     if (featureId === "scoreboard-tab") result = await driveScoreboard(page);
     else if (featureId === "delayed-mark-label") result = await driveDelayed(page);
     else if (featureId === "jesse-tab") result = await driveJesse(page);
+    else if (featureId === "sleeve-tab") result = await driveSleeve(page);
     else result = await drivePaper(page, featureId);
   } finally {
     await browser.close();

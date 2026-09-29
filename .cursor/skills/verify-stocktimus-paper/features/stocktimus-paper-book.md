@@ -5,8 +5,8 @@ Default desk. Browser tab title becomes `Stocktimus · Paper book`. The header r
 ## Sub-features
 
 - Hero snapshot: total, open, and closed paper P&L, weeks running, deployed now with idle cash, average dollars per week versus the file weekly goal, open / inv / out counts, hit rate
-- Cumulative return on average deployed, with a weekly table (week, $ P&L, avg dep, % dep)
-- Breakdown panels: by structure, by creator, by confidence
+- Section nav: **Open book** (default) and **Summary**. Summary holds cumulative return on average deployed, with a weekly table (week, $ P&L, avg dep, % dep), plus breakdown panels by structure, creator, and confidence
+- Open book uses the same pill section nav, card padding, and table header scale as the Jesse tab. Moonshot and Compounder keep that shell and swap the header accent
 - Trade filters: All, This week, High, Medium, Low
 - Open trades and closed trades tables. A row click opens the ticket drawer (notes, invalidation, paper P&L). Close with ×, the shade, or Escape
 - Footer: paper marks assume fill at the recommended premium, not actual fills, not advice

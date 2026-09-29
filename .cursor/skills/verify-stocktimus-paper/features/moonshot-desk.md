@@ -11,7 +11,7 @@ Header reads Moonshot / 10x sleeve. Browser tab title is `Moonshot · Paper book
 
 ## How to get to it (user POV)
 
-From the paper site, click **Moonshot** in the top bar. The address becomes `#moonshot`. The source pill changes when the desk file finishes loading. Open trades and closed trades list only this sleeve.
+From the paper site, click **Moonshot** in the top bar. The address becomes `#moonshot`. The source pill changes when the desk file finishes loading. Open book is the default section (same pill nav and table chrome as Jesse). The header accent is violet. Open trades and closed trades list only this sleeve. Summary holds the return row and breakdowns.
 
 ## Driving it with stocktimus-drive
 

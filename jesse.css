@@ -1,4 +1,5 @@
-/* Jesse covered-call tab. Clay & sage, scoped so the paper desks stay dark. */
+/* Jesse covered-call tab. Clay & sage, scoped so the paper desks stay dark.
+   Shared card / table / sub-nav chrome is in shell.css. */
 #jesse-view { display: none; }
 
 html.view-jesse .hero,
@@ -6,11 +7,17 @@ html.view-jesse .roc-row,
 html.view-jesse .breaks,
 html.view-jesse .books,
 html.view-jesse .foot,
+html.view-jesse .sh-subnav,
+html.view-jesse #paper-book,
+html.view-jesse #paper-summary,
 body.view-jesse .hero,
 body.view-jesse .roc-row,
 body.view-jesse .breaks,
 body.view-jesse .books,
-body.view-jesse .foot { display: none !important; }
+body.view-jesse .foot,
+body.view-jesse .sh-subnav,
+body.view-jesse #paper-book,
+body.view-jesse #paper-summary { display: none !important; }
 
 html.view-jesse #jesse-view,
 body.view-jesse #jesse-view { display: block !important; }
@@ -67,203 +74,3 @@ html.view-jesse .brand-text .sub {
 }
 
 .jesse-view { margin-top: 4px; }
-
-.js-roc,
-.js-strip,
-.js-kpis {
-  display: grid;
-  gap: 8px;
-  margin: 16px 0 14px;
-}
-.js-roc { grid-template-columns: 1fr 1fr; margin-bottom: 8px; }
-.js-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.js-kpis { grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 10px; }
-.js-roc .js-stat {
-  border-color: rgba(47, 79, 63, 0.45);
-  background: linear-gradient(180deg, rgba(47, 79, 63, 0.1), #fffaf4 48%);
-}
-.js-roc .js-v { font-size: 28px; }
-.js-subnav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
-.js-view {
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid #ddcbb8;
-  background: #fffaf4;
-  color: #3e5348;
-  border-radius: 999px;
-  padding: 7px 14px;
-  font-size: 13px;
-  font-weight: 600;
-}
-.js-view:hover { border-color: #2f4f3f; color: #2f4f3f; }
-.js-view.on {
-  background: #c65a3a;
-  color: #fffaf4;
-  border-color: transparent;
-}
-
-.js-stat {
-  background: var(--card, #fffaf4);
-  border: 1px solid var(--line, #e2d3c2);
-  border-radius: 10px;
-  padding: 10px 12px 9px;
-  min-width: 0;
-}
-.js-k {
-  font-size: 10px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--mute, #6d7c72);
-  font-weight: 600;
-}
-.js-v {
-  margin-top: 4px;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  color: #24352c;
-}
-.js-v.up { color: #2f4f3f; }
-.js-v.dn { color: #c65a3a; }
-.js-s {
-  margin-top: 4px;
-  font-size: 11px;
-  line-height: 1.35;
-  color: var(--mute, #6d7c72);
-}
-
-.js-panel {
-  background: rgba(255, 250, 244, 0.72);
-  border: 1px solid #e2d3c2;
-  border-radius: 12px;
-  padding: 14px 14px 12px;
-  margin: 0 0 12px;
-}
-.js-panel h2 {
-  margin: 0;
-  font-size: 15px;
-  letter-spacing: -0.02em;
-  color: #2f4f3f;
-}
-.js-panel h3 {
-  margin: 14px 0 8px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #c65a3a;
-  font-weight: 600;
-}
-.js-panel-h {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.js-note, .js-window, .js-empty, .js-foot {
-  margin: 4px 0 0;
-  font-size: 12px;
-  color: #6d7c72;
-  max-width: 70ch;
-}
-.js-window { font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace); color: #3e5348; }
-.js-foot { margin: 8px 2px 0; }
-
-.js-weeks { display: flex; flex-wrap: wrap; gap: 6px; }
-.js-week {
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid #ddcbb8;
-  background: #fffaf4;
-  color: #3e5348;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.js-week:hover { border-color: #2f4f3f; color: #2f4f3f; }
-.js-week.on {
-  background: #2f4f3f;
-  color: #fbf7f0;
-  border-color: transparent;
-}
-
-.js-wrap { overflow-x: auto; }
-.js-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-.js-table th {
-  text-align: left;
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #6d7c72;
-  font-weight: 600;
-  padding: 8px 8px;
-  border-bottom: 1px solid #e2d3c2;
-  white-space: nowrap;
-}
-.js-table td {
-  padding: 7px 8px;
-  border-bottom: 1px solid #efe4d6;
-  color: #24352c;
-  vertical-align: top;
-}
-.js-table .num {
-  text-align: right;
-  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.js-empty-row td { color: #6d7c72; }
-
-.js-tag {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 1px 6px 0;
-  border-radius: 999px;
-  border: 1px solid rgba(198, 90, 58, 0.35);
-  background: rgba(198, 90, 58, 0.1);
-  color: #c65a3a;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-weight: 600;
-  vertical-align: 1px;
-}
-
-.js-closed { padding: 0; }
-.js-closed summary {
-  cursor: pointer;
-  display: block;
-  list-style: none;
-  padding: 14px 14px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #2f4f3f;
-}
-.js-closed summary::-webkit-details-marker { display: none; }
-.js-closed summary::before {
-  content: "▸";
-  display: inline-block;
-  margin-right: 8px;
-  color: #c65a3a;
-}
-.js-closed[open] summary::before { content: "▾"; }
-.js-closed[open] summary { border-bottom: 1px solid #e2d3c2; }
-.js-closed .js-wrap { padding: 0 14px 12px; }
-.js-count {
-  margin-left: 8px;
-  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
-  font-size: 12px;
-  font-weight: 500;
-  color: #6d7c72;
-}
-
-@media (max-width: 1080px) {
-  .js-strip { grid-template-columns: 1fr 1fr 1fr; }
-  .js-kpis { grid-template-columns: 1fr 1fr 1fr; }
-}
-@media (max-width: 760px) {
-  .js-strip, .js-kpis, .js-roc { grid-template-columns: 1fr 1fr; }
-  .js-v, .js-roc .js-v { font-size: 18px; }
-}

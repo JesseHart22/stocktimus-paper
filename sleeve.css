@@ -1,0 +1,91 @@
+/* Sleeve live ledger. Steel & Ember, scoped so other desks keep their own theme. */
+#sleeve-view { display: none; }
+
+html.view-sleeve .hero,
+html.view-sleeve .roc-row,
+html.view-sleeve .breaks,
+html.view-sleeve .books,
+html.view-sleeve .foot,
+html.view-sleeve .sh-subnav,
+html.view-sleeve #paper-book,
+html.view-sleeve #paper-summary,
+body.view-sleeve .hero,
+body.view-sleeve .roc-row,
+body.view-sleeve .breaks,
+body.view-sleeve .books,
+body.view-sleeve .foot,
+body.view-sleeve .sh-subnav,
+body.view-sleeve #paper-book,
+body.view-sleeve #paper-summary { display: none !important; }
+
+html.view-sleeve #sleeve-view,
+body.view-sleeve #sleeve-view { display: block !important; }
+
+html.view-sleeve {
+  color-scheme: dark;
+  --sh-card: #1e293b;
+  --sh-line: #475569;
+  --sh-line-2: #475569;
+  --sh-text: #e2e8f0;
+  --sh-dim: #e2e8f0;
+  --sh-mute: #94a3b8;
+  --sh-accent: #f97316;
+  --sh-hot: #fb923c;
+  --sh-ink: #0f172a;
+  --sh-on-accent: #0f172a;
+  --sh-up: #34d399;
+  --sh-dn: #f87171;
+  --sh-panel: #1e293b;
+  --sh-row: #334155;
+  --sh-roc-line: rgba(249, 115, 22, 0.65);
+  --sh-roc-bg: linear-gradient(180deg, rgba(249, 115, 22, 0.18), #1e293b 52%);
+  --sh-tag-line: rgba(249, 115, 22, 0.45);
+  --sh-tag-bg: rgba(249, 115, 22, 0.12);
+  --bg: #0f172a;
+  --bg-2: #1e293b;
+  --elev: #1e293b;
+  --card: #1e293b;
+  --hover: #334155;
+  --line: #475569;
+  --line-2: #475569;
+  --text: #e2e8f0;
+  --dim: #cbd5e1;
+  --mute: #94a3b8;
+  --green: #34d399;
+  --red: #f87171;
+  --chart: #f97316;
+  --chart-dim: rgba(249, 115, 22, 0.16);
+  --orange: #fb923c;
+}
+
+html.view-sleeve,
+html.view-sleeve body {
+  background:
+    radial-gradient(900px 420px at 0% -8%, rgba(249, 115, 22, 0.16), transparent 52%),
+    radial-gradient(760px 360px at 100% 0%, rgba(51, 65, 85, 0.55), transparent 48%),
+    linear-gradient(180deg, #111827 0%, #0f172a 280px);
+  color: var(--text);
+}
+
+html.view-sleeve .topbar { border-bottom-color: #334155; }
+html.view-sleeve .desk-tab.on {
+  color: #0f172a;
+  background: #f97316;
+  border-color: transparent;
+}
+html.view-sleeve .mark {
+  background: linear-gradient(160deg, #fb923c 0%, #f97316 48%, #334155 100%);
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35), 0 8px 18px rgba(249, 115, 22, 0.18);
+}
+html.view-sleeve .brand-text .sub {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.14);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.sleeve-view { margin-top: 4px; }
+html.view-sleeve .sl-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (max-width: 1080px) {
+  html.view-sleeve .sl-strip { grid-template-columns: 1fr 1fr; }
+}

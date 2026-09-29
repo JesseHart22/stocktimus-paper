@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "account": {
+    "nickname": "Agentic",
+    "account_number_masked": "••••5198",
+    "venue": "robinhood_agentic"
+  },
+  "as_of": "2026-09-29T13:52:00-07:00",
+  "sleeve_budget_usd": 25000,
+  "notes": "Sleeve bot owns live fills only. Ledger is broker-sourced from Robinhood Agentic; Paperwright hosts read-only mirror. Pending deposit $24750 not yet posted as of 2026-09-29.",
+  "open_positions": {
+    "equity": [
+      {
+        "symbol": "EOSE",
+        "quantity": 10,
+        "avg_cost": 3.2,
+        "side": "long",
+        "deployed_usd": 32.0,
+        "desk_bucket": "unknown_pre_ledger",
+        "structure": "stock",
+        "status": "open"
+      }
+    ],
+    "options": []
+  },
+  "fills": [
+    {
+      "fill_id": "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3",
+      "order_id": "6ab6dcbe-28e4-4ac5-90a2-309c75c0b5c8",
+      "asset_class": "equity",
+      "symbol": "EOSE",
+      "side": "buy",
+      "structure": "stock",
+      "quantity": 10,
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "limit_price": 3.21,
+      "fill_price": 3.2,
+      "credit_debit": "debit",
+      "premium_per_share": null,
+      "notional_usd": 32.0,
+      "fees": 0,
+      "deployed_usd": 32.0,
+      "desk_bucket": "unknown_pre_ledger",
+      "lane": "sleeve",
+      "live_gate": "unknown",
+      "ticket_id": null,
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "extended_hours",
+      "walk": {
+        "start_limit": 3.21,
+        "fill": 3.2,
+        "note": "pre-ledger fill; walk not recorded by Sleeve"
+      },
+      "status": "filled",
+      "open_closed": "open",
+      "realized_pnl_usd": null,
+      "created_at": "2026-09-25T20:42:38.590371Z",
+      "filled_at": "2026-09-25T20:42:38.725Z"
+    }
+  ],
+  "orders_open": [],
+  "realized_trades": [],
+  "reconcile": {
+    "method": "broker_is_source_of_truth",
+    "equity_orders": "user-Robinhood.get_equity_orders",
+    "option_orders": "user-Robinhood.get_option_orders",
+    "equity_positions": "user-Robinhood.get_equity_positions",
+    "option_positions": "user-Robinhood.get_option_positions nonzero=true",
+    "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
+    "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
+    "update_cadence": "after every Sleeve fill; Paperwright may poll this file"
+  },
+  "schema_fields": {
+    "fills[]": [
+      "fill_id", "order_id", "asset_class(equity|option)", "symbol", "side(buy|sell)",
+      "structure(stock|covered_call|csp|long_leap|defined_risk|other)",
+      "quantity", "contracts", "strike", "expiry", "option_type(call|put|null)",
+      "limit_price", "fill_price", "credit_debit", "premium_per_share", "notional_usd", "fees",
+      "deployed_usd", "desk_bucket(stocktimus|compounder|moonshot|unknown_pre_ledger)",
+      "lane", "live_gate", "ticket_id", "placed_agent", "order_type", "market_hours",
+      "walk{start_limit,fill,note}", "status", "open_closed(open|closed)", "realized_pnl_usd",
+      "created_at", "filled_at"
+    ]
+  }
+}

@@ -23,6 +23,7 @@ Hash tabs in `nav.desk-tabs`:
 | Stocktimus | `#stocktimus` (also the default when the hash is empty or unknown) | `./data.json`, then `./trade-tracker-paper.json`, then `../trade-tracker-paper.json`. Summary overlay: `./trade-tracker-summary.json`. CSV only if that book has zero tickets. |
 | Moonshot | `#moonshot` | `./desks/moonshot.json` |
 | Compounder | `#compounder` | `./desks/compounder.json` |
+| Sleeve | `#sleeve` | `./sleeve/trades.json`. Robinhood Agentic live ledger. Not a paper book. Steel & Ember while this tab is open. Pending deposits are parsed from `notes`. Deployed is the sum of open-position `deployed_usd`. The file has no marks, so account value, cash, unrealized P&L, and return on deployed stay blank. |
 | Jesse | `#jesse` | `./jesse/cc-tracker.json`. Covered-call income tracker. Not a paper book. Clay & sage while this tab is open. Return on capital and Return on program come from `dashboard`. Weekly summary is a section on this tab, not a desk tab. |
 | Scoreboard | `#scoreboard` | `./scoreboard/stocktimus.json`, `compounder.json`, `moonshot.json`, `scout.json`. This is the X call log, not the paper book. |
 
@@ -55,8 +56,8 @@ node .cursor/skills/verify-stocktimus-paper/helpers/drive.mjs doctor
 
 Hard failures (exit 1, written to `evidence/doctor.json`):
 
-- Missing or unparseable `index.html`, `app.js`, `scoreboard.js`, `jesse.js`, desk JSON, scoreboard JSON, or `jesse/cc-tracker.json`
-- Desk file lists in `app.js` no longer match the paths above, or the Jesse tab no longer fetches `./jesse/cc-tracker.json`
+- Missing or unparseable `index.html`, `app.js`, `scoreboard.js`, `jesse.js`, `sleeve.js`, desk JSON, scoreboard JSON, `jesse/cc-tracker.json`, or `sleeve/trades.json`
+- Desk file lists in `app.js` no longer match the paths above, the Jesse tab no longer fetches `./jesse/cc-tracker.json`, or the Sleeve tab no longer fetches `./sleeve/trades.json`
 - Scoreboard `desk` field does not match its filename
 - Duplicate ticket or call ids inside one file
 - The mark contract is gone from `app.js` (`MASSIVE_DELAYED_PROXY_URL`, ` · delayed`, ` · Robinhood live`, `delayed MTM`, `needsMassiveFallback`, and no `startLiveMtm` poll)
@@ -74,7 +75,7 @@ Harness name: **stocktimus-drive** (`helpers/drive.mjs`).
 node .cursor/skills/verify-stocktimus-paper/helpers/drive.mjs drive stocktimus-paper-book
 ```
 
-Other feature ids: `moonshot-desk`, `compounder-desk`, `scoreboard-tab`, `delayed-mark-label`, `jesse-tab`.
+Other feature ids: `moonshot-desk`, `compounder-desk`, `scoreboard-tab`, `delayed-mark-label`, `jesse-tab`, `sleeve-tab`.
 
 The driver opens the launched origin in headless Chrome, clicks the desk tab, waits until the loading copy is gone, and checks the DOM against the JSON it just read. It never types a price. Expectations that can move are computed in the helper from those files:
 
