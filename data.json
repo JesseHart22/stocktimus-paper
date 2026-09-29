@@ -1,109 +1,109 @@
 {
-  "as_of": "2026-09-28T13:28:00-07:00",
-  "account": 252863.22,
-  "weekly_target": 3792.95,
+  "as_of": "2026-09-29T13:30:00-07:00",
+  "account": 252718.22,
+  "weekly_target": 3790.77,
   "starting_account": 250000.0,
   "source": "stocktimus-paper",
   "marks_source": "robinhood",
   "quote_quality": "robinhood_live",
-  "note": "Post-close Sep 28: Account=starting+paper_pnl (250000.0+2863.22); weekly_target=1.5% of account (3792.95); max_per_trade~25% equity (63215.81). marks_source=robinhood; quote_quality=robinhood_live. Mon leftovers: BABA/NFLX exited at RH RTH open; SE parent kept (AM Oct2 $102c roll); HIMS leftover rolled. AM fills: RKLB Oct2 $75c, MKC Oct16 $50c, SE roll. Paper marks assume fill at the emailed premium. Not Jesse's actual fills. Not advice.",
-  "max_per_trade": 63215.81,
+  "note": "Post-close Sep 29: Account=starting+paper_pnl (250000.0+2718.22); weekly_target=1.5% of account (3790.77); max_per_trade~25% equity (63179.56). marks_source=robinhood; quote_quality=robinhood_live. Open book MTM after cash close (RH last_trade_price equities + RH option mark). Not Jesse's actual fills. Not advice.",
+  "max_per_trade": 63179.56,
   "summary": {
-    "paper_pnl": 2863.22,
-    "paper_roc": null,
     "account_pct": 0.01,
-    "open": 6,
-    "leftover_shares": 2,
-    "invalidated": 12,
-    "out": 3,
-    "expired": 53,
-    "hit_rate": 0.6470588235294118,
-    "wins": 44,
-    "resolved": 68,
-    "by_structure": {
-      "stock+CC": {
-        "n": 63,
-        "sum_pnl": 2692.72,
-        "wins": 43,
-        "hit": 0.6825396825396826
-      },
-      "CSP": {
+    "by_confidence": {
+      "High": {
+        "hit": 0.6,
         "n": 5,
-        "sum_pnl": 331.0,
-        "wins": 5,
-        "hit": 1.0
+        "sum_pnl": 100.0,
+        "wins": 3
       },
-      "long call": {
-        "n": 6,
-        "sum_pnl": -160.5,
-        "wins": 1,
-        "hit": 0.16666666666666666
+      "Medium": {
+        "hit": 0.6515151515151515,
+        "n": 66,
+        "sum_pnl": 2814.22,
+        "wins": 43
+      },
+      "Low": {
+        "hit": 0.6666666666666666,
+        "n": 3,
+        "sum_pnl": -196.0,
+        "wins": 2
       }
     },
     "by_creator": {
-      "Stocktimus": {
-        "n": 24,
-        "sum_pnl": 1717.5,
-        "wins": 18,
-        "hit": 0.75
-      },
-      "TLI": {
-        "n": 30,
-        "sum_pnl": -193.78,
-        "wins": 19,
-        "hit": 0.6333333333333333
-      },
-      "TLI+Danny": {
+      "Danny": {
+        "hit": 0.625,
         "n": 8,
-        "sum_pnl": 106.0,
-        "wins": 5,
-        "hit": 0.625
+        "sum_pnl": 1078.0,
+        "wins": 5
       },
       "Danny+TLI": {
+        "hit": 0.5,
         "n": 2,
         "sum_pnl": -9.0,
-        "wins": 1,
-        "hit": 0.5
+        "wins": 1
       },
       "Lucas": {
+        "hit": 1.0,
         "n": 1,
         "sum_pnl": 16.0,
-        "wins": 1,
-        "hit": 1.0
-      },
-      "Danny": {
-        "n": 8,
-        "sum_pnl": 1246.5,
-        "wins": 5,
-        "hit": 0.625
+        "wins": 1
       },
       "Rabbit's Cave": {
+        "hit": 0.0,
         "n": 1,
         "sum_pnl": -20.0,
-        "wins": 0,
-        "hit": 0.0
+        "wins": 0
+      },
+      "Stocktimus": {
+        "hit": 0.75,
+        "n": 24,
+        "sum_pnl": 1680.5,
+        "wins": 18
+      },
+      "TLI": {
+        "hit": 0.6,
+        "n": 30,
+        "sum_pnl": -133.28,
+        "wins": 18
+      },
+      "TLI+Danny": {
+        "hit": 0.625,
+        "n": 8,
+        "sum_pnl": 106.0,
+        "wins": 5
       }
     },
-    "by_confidence": {
-      "Medium": {
-        "n": 66,
-        "sum_pnl": 2959.22,
-        "wins": 44,
-        "hit": 0.6666666666666666
-      },
-      "Low": {
-        "n": 3,
-        "sum_pnl": -196.0,
-        "wins": 2,
-        "hit": 0.6666666666666666
-      },
-      "High": {
+    "by_structure": {
+      "CSP": {
+        "hit": 1.0,
         "n": 5,
-        "sum_pnl": 100.0,
-        "wins": 3,
-        "hit": 0.6
+        "sum_pnl": 331.0,
+        "wins": 5
+      },
+      "long call": {
+        "hit": 0.16666666666666666,
+        "n": 6,
+        "sum_pnl": -160.5,
+        "wins": 1
+      },
+      "stock+CC": {
+        "hit": 0.6666666666666666,
+        "n": 63,
+        "sum_pnl": 2547.72,
+        "wins": 42
       }
-    }
+    },
+    "expired": 53,
+    "hit_rate": 0.6470588235294118,
+    "invalidated": 12,
+    "leftover_shares": 2,
+    "open": 6,
+    "out": 3,
+    "paper_pnl": 2718.22,
+    "paper_roc": null,
+    "resolved": 68,
+    "wins": 44
   },
   "trades": [
     {
@@ -9051,8 +9051,8 @@
       "invalidation": "daily close under $25.20",
       "notes": "",
       "new_vs_carry": "new",
-      "live_stock": 28.79,
-      "live_stock_source": "robinhood last_trade_price RTH",
+      "live_stock": 28.7,
+      "live_stock_source": "robinhood last_trade_price=28.7; RH live bid=28.6 ask=28.72",
       "quote_quality": "robinhood_live",
       "live_option_bid": null,
       "live_option_ask": null,
@@ -9063,20 +9063,19 @@
       "min_close_since": 27.510000228881836,
       "max_close_since": 30.43000030517578,
       "paper_status": "leftover_shares",
-      "paper_pnl": 220.5,
-      "paper_roc_pct": 0.08093228115250505,
-      "paper_acct_pct": 0.000882,
-      "stock_path_pnl": 154.5,
+      "paper_pnl": 211.5,
+      "paper_roc_pct": 0.07762892273811708,
+      "paper_acct_pct": 0.000846,
+      "stock_path_pnl": 145.5,
       "option_path_pnl": 66.0,
       "flags": [
         "missing CBOE contract: contract not in CBOE chain: HIMS 2026-09-18 C28.0",
         "settled at expiry-close intrinsic (no time value); close=27.989999771118164 strike=28.0",
         "close<=strike: call expires worthless, credit kept",
-        "OTM CC leftover shares ROLLED (keep parent open); MTM mark=29.42; expiry_close=27.989999771118164; share capital stays on this lot; see roll ticket",
-        "OTM CC leftover shares ROLLED (keep parent open); MTM mark=28.79; RH live"
+        "OTM CC leftover shares ROLLED (keep parent open); MTM mark=28.70; RH live leftover MTM"
       ],
-      "price_asof": "2026-09-28T13:28:00-07:00",
-      "mtm_asof": "2026-09-28T13:28:00-07:00",
+      "price_asof": "2026-09-29T13:30:00-07:00",
+      "mtm_asof": "2026-09-29T13:30:00-07:00",
       "sources": {
         "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/HIMS.json",
         "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/HIMS.json",
@@ -9244,30 +9243,30 @@
       "invalidation": "daily close under $97",
       "notes": "Credit mid 3.275 (CBOE 2.50x4.05 wide). ~3.3%/wk on cash.",
       "new_vs_carry": "new",
-      "live_stock": 98.95,
-      "live_stock_source": "robinhood last_trade_price RTH",
+      "live_stock": 98.58,
+      "live_stock_source": "robinhood last_trade_price=98.58; RH live bid=98.0 ask=98.97",
       "quote_quality": "robinhood_live",
-      "live_option_bid": 0.15,
-      "live_option_ask": 0.9,
+      "live_option_bid": null,
+      "live_option_ask": null,
       "live_option_mid": 0.0,
-      "live_option_last": 0.75,
+      "live_option_last": null,
       "live_option_symbol": "SE260925C00100000",
       "first_invalidation_date": null,
       "min_close_since": 99.55,
       "max_close_since": 103.66999816894531,
       "paper_status": "leftover_shares",
-      "paper_pnl": 198.0,
-      "paper_roc_pct": 0.019750623441396508,
-      "paper_acct_pct": 0.000792,
-      "stock_path_pnl": -130.0,
+      "paper_pnl": 161.0,
+      "paper_roc_pct": 0.01605985037406484,
+      "paper_acct_pct": 0.000644,
+      "stock_path_pnl": -167.0,
       "option_path_pnl": 328.0,
       "flags": [
         "settled at expiry-close intrinsic (no time value); close=99.55 strike=100.0",
         "close<=strike: call expires worthless, credit kept",
-        "OTM CC leftover shares ROLLED (keep parent open); MTM mark=98.95; RH live"
+        "OTM CC leftover shares ROLLED (keep parent open); MTM mark=98.58; RH live leftover MTM; rolled child 2026-09-28-AM-SE"
       ],
-      "price_asof": "2026-09-28T13:28:00-07:00",
-      "mtm_asof": "2026-09-28T13:28:00-07:00",
+      "price_asof": "2026-09-29T13:30:00-07:00",
+      "mtm_asof": "2026-09-29T13:30:00-07:00",
       "sources": {
         "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/SE.json",
         "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/SE.json",
@@ -9671,26 +9670,28 @@
       "invalidation": "daily close under $16.35",
       "notes": "No weeklies; next monthly Oct16. Credit mid 1.35 (CBOE 1.25x1.45). ~2.2%/wk equiv on cash. TLI hold $16.35 / target $20.87.",
       "new_vs_carry": "new",
-      "live_stock": 18.13,
-      "live_stock_source": "robinhood last_trade_price RTH",
+      "live_stock": 18.635,
+      "live_stock_source": "robinhood last_trade_price=18.635; RH live bid=18.67 ask=19.0",
       "quote_quality": "robinhood_live",
-      "live_option_bid": 1.65,
-      "live_option_ask": 2.1,
-      "live_option_mid": 1.875,
-      "live_option_last": 2.31,
+      "live_option_bid": 1.95,
+      "live_option_ask": 2.3,
+      "live_option_mid": 2.125,
+      "live_option_last": 2.125,
       "live_option_symbol": "MRAM261016C00017500",
       "first_invalidation_date": null,
       "min_close_since": 17.09000015258789,
       "max_close_since": 18.47,
       "paper_status": "open",
-      "paper_pnl": 43.5,
-      "paper_roc_pct": 0.02533488642981945,
-      "paper_acct_pct": 0.000174,
-      "stock_path_pnl": 96.0,
-      "option_path_pnl": -52.5,
-      "flags": [],
-      "price_asof": "2026-09-28T13:28:00-07:00",
-      "mtm_asof": "2026-09-28T13:28:00-07:00",
+      "paper_pnl": 69.0,
+      "paper_roc_pct": 0.040186371578334296,
+      "paper_acct_pct": 0.000276,
+      "stock_path_pnl": 146.5,
+      "option_path_pnl": -77.5,
+      "flags": [
+        "RH live MTM Sep29 cash close"
+      ],
+      "price_asof": "2026-09-29T13:30:00-07:00",
+      "mtm_asof": "2026-09-29T13:30:00-07:00",
       "sources": {
         "yahoo_1d": "/workspace/quotes-raw/backtest/yahoo-1d/MRAM.json",
         "yahoo_1m": "/workspace/quotes-raw/backtest/yahoo-1m/MRAM.json",
@@ -10221,31 +10222,32 @@
       "source_group": "emailed",
       "new_vs_carry": "new",
       "paper_status": "open",
-      "paper_pnl": -92.0,
-      "paper_roc_pct": -0.012566589263761781,
-      "paper_acct_pct": -0.000368,
-      "live_stock": 72.2,
-      "live_stock_source": "robinhood last_trade_price RTH",
-      "live_option_mid": 1.31,
-      "live_option_bid": 1.26,
-      "live_option_ask": 1.36,
-      "live_option_last": null,
+      "paper_pnl": -251.5,
+      "paper_roc_pct": -0.03435323043300095,
+      "paper_acct_pct": -0.001006,
+      "live_stock": 69.72,
+      "live_stock_source": "robinhood last_trade_price=69.72; RH live bid=69.79 ask=69.88",
+      "live_option_mid": 0.425,
+      "live_option_bid": 0.41,
+      "live_option_ask": 0.44,
+      "live_option_last": 0.425,
       "live_option_symbol": null,
       "cboe_stock": null,
       "quote_quality": "robinhood_live",
-      "price_asof": "2026-09-28T13:28:00-07:00",
-      "mtm_asof": "2026-09-28T13:28:00-07:00",
+      "price_asof": "2026-09-29T13:30:00-07:00",
+      "mtm_asof": "2026-09-29T13:30:00-07:00",
       "first_invalidation_date": null,
       "daily_closes_completed": 0,
       "flags": [
-        "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)"
+        "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)",
+        "RH live MTM Sep29 cash close"
       ],
       "sources": {
         "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
       },
       "yahoo_quote_v7": null,
-      "stock_path_pnl": -101.0,
-      "option_path_pnl": 9.0,
+      "stock_path_pnl": -349.0,
+      "option_path_pnl": 97.5,
       "max_close_since": null,
       "min_close_since": null
     },
@@ -10277,31 +10279,32 @@
       "source_group": "emailed",
       "new_vs_carry": "new",
       "paper_status": "open",
-      "paper_pnl": 3.0,
-      "paper_roc_pct": 0.000619514713474445,
-      "paper_acct_pct": 1.2e-05,
-      "live_stock": 48.48,
-      "live_stock_source": "robinhood last_trade_price RTH",
-      "live_option_mid": 1.025,
-      "live_option_bid": 0.95,
+      "paper_pnl": -3.5,
+      "paper_roc_pct": -0.0007227671657201859,
+      "paper_acct_pct": -1.4e-05,
+      "live_stock": 48.39,
+      "live_stock_source": "robinhood last_trade_price=48.39; RH live bid=47.95 ask=48.95",
+      "live_option_mid": 1.0,
+      "live_option_bid": 0.9,
       "live_option_ask": 1.1,
-      "live_option_last": null,
+      "live_option_last": 1.0,
       "live_option_symbol": null,
       "cboe_stock": null,
       "quote_quality": "robinhood_live",
-      "price_asof": "2026-09-28T13:28:00-07:00",
-      "mtm_asof": "2026-09-28T13:28:00-07:00",
+      "price_asof": "2026-09-29T13:30:00-07:00",
+      "mtm_asof": "2026-09-29T13:30:00-07:00",
       "first_invalidation_date": null,
       "daily_closes_completed": 0,
       "flags": [
-        "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)"
+        "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)",
+        "RH live MTM Sep29 cash close"
       ],
       "sources": {
         "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
       },
       "yahoo_quote_v7": null,
-      "stock_path_pnl": 5.5,
-      "option_path_pnl": -2.5,
+      "stock_path_pnl": -3.5,
+      "option_path_pnl": 0.0,
       "max_close_since": null,
       "min_close_since": null
     },
@@ -10333,33 +10336,33 @@
       "source_group": "emailed",
       "new_vs_carry": "roll",
       "paper_status": "open",
-      "paper_pnl": 9.0,
+      "paper_pnl": 50.5,
       "paper_roc_pct": null,
-      "paper_acct_pct": 3.6e-05,
-      "live_stock": 98.95,
-      "live_stock_source": "robinhood last_trade_price RTH",
-      "live_option_mid": 0.92,
-      "live_option_bid": 0.78,
-      "live_option_ask": 1.06,
-      "live_option_last": null,
+      "paper_acct_pct": 0.000202,
+      "live_stock": 98.58,
+      "live_stock_source": "robinhood last_trade_price=98.58; RH live bid=98.0 ask=98.97",
+      "live_option_mid": 0.505,
+      "live_option_bid": 0.29,
+      "live_option_ask": 0.72,
+      "live_option_last": 0.505,
       "live_option_symbol": null,
       "cboe_stock": null,
       "quote_quality": "robinhood_live",
-      "price_asof": "2026-09-28T13:28:00-07:00",
-      "mtm_asof": "2026-09-28T13:28:00-07:00",
+      "price_asof": "2026-09-29T13:30:00-07:00",
+      "mtm_asof": "2026-09-29T13:30:00-07:00",
       "first_invalidation_date": null,
       "daily_closes_completed": 0,
       "flags": [
         "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)",
         "ROLL leftover; capital_at_risk=0; share capital on parent",
-        "CC roll MTM: option path only (share capital/path on leftover parent); RH live"
+        "CC roll MTM: option path only (share capital/path on leftover parent); RH live Sep29"
       ],
       "sources": {
         "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
       },
       "yahoo_quote_v7": null,
       "stock_path_pnl": 0.0,
-      "option_path_pnl": 9.0,
+      "option_path_pnl": 50.5,
       "max_close_since": null,
       "min_close_since": null
     }
