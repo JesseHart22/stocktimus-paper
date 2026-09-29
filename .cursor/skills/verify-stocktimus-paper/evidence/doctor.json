@@ -1,10 +1,10 @@
 {
   "ok": true,
-  "at": "2026-09-28T16:15:14.956Z",
-  "url": "http://127.0.0.1:38249/",
+  "at": "2026-09-29T15:52:02.184Z",
+  "url": "http://127.0.0.1:44143/",
   "books": {
     "data.json": {
-      "tickets": 71
+      "tickets": 74
     },
     "desks/moonshot.json": {
       "tickets": 3
@@ -75,7 +75,12 @@
       "detail": ""
     },
     {
-      "name": "four desk tabs",
+      "name": "desk tabs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "jesse tracker path",
       "ok": true,
       "detail": ""
     },
@@ -92,7 +97,7 @@
     {
       "name": "data.json parses",
       "ok": true,
-      "detail": "71 tickets"
+      "detail": "74 tickets"
     },
     {
       "name": "data.json unique ids",
@@ -182,12 +187,32 @@
     {
       "name": "scoreboard/scout.json calls array",
       "ok": true,
-      "detail": "5 calls"
+      "detail": "6 calls"
     },
     {
       "name": "scoreboard/scout.json unique call ids",
       "ok": true,
       "detail": ""
+    },
+    {
+      "name": "jesse/cc-tracker.json parses",
+      "ok": true,
+      "detail": "16 trades"
+    },
+    {
+      "name": "jesse desk field",
+      "ok": true,
+      "detail": "desk=jesse"
+    },
+    {
+      "name": "jesse unique trade ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "jesse weeks",
+      "ok": true,
+      "detail": "4"
     },
     {
       "name": "GET /",
@@ -226,6 +251,21 @@
     },
     {
       "name": "GET /scoreboard/scout.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /jesse/cc-tracker.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /jesse.js",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /jesse.css",
       "ok": true,
       "detail": "HTTP 200"
     }

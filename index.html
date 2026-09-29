@@ -10,10 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="scoreboard.css?v=20260918c">
+  <link rel="stylesheet" href="jesse.css?v=20260929a">
   <script>
-    if ((location.hash || "").replace(/^#/, "").toLowerCase() === "scoreboard") {
-      document.documentElement.classList.add("view-scoreboard");
-    }
+    (function () {
+      var h = (location.hash || "").replace(/^#/, "").toLowerCase();
+      if (h === "scoreboard") document.documentElement.classList.add("view-scoreboard");
+      if (h === "jesse") document.documentElement.classList.add("view-jesse");
+    })();
   </script>
 </head>
 <body>
@@ -30,6 +33,7 @@
         <a class="desk-tab on" href="#stocktimus" data-desk="stocktimus">Stocktimus</a>
         <a class="desk-tab" href="#moonshot" data-desk="moonshot">Moonshot</a>
         <a class="desk-tab" href="#compounder" data-desk="compounder">Compounder</a>
+        <a class="desk-tab" href="#jesse" data-desk="jesse">Jesse</a>
         <a class="desk-tab" href="#scoreboard" data-desk="scoreboard">Scoreboard</a>
       </nav>
       <div class="top-meta">
@@ -219,6 +223,12 @@
       <p class="sb-rule">First post is the call. A later post by the same handle, same ticker, same direction inside 7 days adds a star and is not a second graded call. Rank is the average signed return of closed graded calls. n &lt; 5 is Provisional. Open calls and no-fills stay on the log and stay out of the average.</p>
       <div id="scoreboard-boards"></div>
     </section>
+
+    <section id="jesse-view" class="jesse-view" hidden aria-label="Covered call income">
+      <div id="jesse-root">
+        <p class="js-empty" id="jesse-status">Loading covered-call book…</p>
+      </div>
+    </section>
   </div>
 
   <div class="shade" id="shade" hidden></div>
@@ -233,7 +243,8 @@
     <div class="drawer-body" id="drawer-body"></div>
   </aside>
 
-  <script src="app.js?v=20260928b"></script>
+  <script src="app.js?v=20260929a"></script>
   <script src="scoreboard.js?v=20260918c"></script>
+  <script src="jesse.js?v=20260929a"></script>
 </body>
 </html>

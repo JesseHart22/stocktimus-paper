@@ -1,0 +1,228 @@
+{
+  "ok": true,
+  "feature": "jesse-tab",
+  "at": "2026-09-29T15:55:23.947Z",
+  "url": "http://127.0.0.1:44143/",
+  "numbersSource": "json-files",
+  "inventedPrices": false,
+  "files": [
+    "jesse/cc-tracker.json"
+  ],
+  "outcome": null,
+  "proxySettle": null,
+  "proxyNumericPricePresent": null,
+  "observed": {
+    "title": "Covered Call Income · Jesse",
+    "deskName": "Covered Call Income",
+    "pill": "cc tracker",
+    "asof": "Sep 29, 2026, 8:17 AM PT",
+    "program": "$255,655.50",
+    "covered": "$143,245.00",
+    "uncovered": "$112,410.50",
+    "openPrem": "$4,607.01",
+    "toDate": "$10,834.60",
+    "defaultWeek": "2026-10-02",
+    "switchedWeek": "2026-09-25",
+    "sells": [
+      "CC-013",
+      "CC-014",
+      "CC-015"
+    ],
+    "switchedSells": [
+      "CC-001",
+      "CC-002",
+      "CC-003",
+      "CC-004",
+      "CC-005",
+      "CC-008",
+      "CC-009",
+      "CC-010",
+      "CC-011",
+      "CC-012",
+      "CC-006",
+      "CC-007"
+    ]
+  },
+  "checks": [
+    {
+      "name": "jesse name",
+      "ok": true,
+      "detail": "Covered Call Income"
+    },
+    {
+      "name": "jesse subtitle",
+      "ok": true,
+      "detail": "Jesse"
+    },
+    {
+      "name": "jesse title",
+      "ok": true,
+      "detail": "Covered Call Income · Jesse"
+    },
+    {
+      "name": "jesse tab",
+      "ok": true,
+      "detail": "jesse"
+    },
+    {
+      "name": "source pill cc tracker",
+      "ok": true,
+      "detail": "cc tracker"
+    },
+    {
+      "name": "as_of datetime",
+      "ok": true,
+      "detail": "2026-09-29T08:17:00-07:00"
+    },
+    {
+      "name": "as_of visible",
+      "ok": true,
+      "detail": "Sep 29, 2026, 8:17 AM PT"
+    },
+    {
+      "name": "view class",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "hero hidden",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "hash jesse",
+      "ok": true,
+      "detail": "#jesse"
+    },
+    {
+      "name": "program capital",
+      "ok": true,
+      "detail": "$255,655.50 vs $255,655.50"
+    },
+    {
+      "name": "covered cost",
+      "ok": true,
+      "detail": "$143,245.00 vs $143,245.00"
+    },
+    {
+      "name": "uncovered program",
+      "ok": true,
+      "detail": "$112,410.50 vs $112,410.50"
+    },
+    {
+      "name": "open premium net",
+      "ok": true,
+      "detail": "$4,607.01 vs $4,607.01"
+    },
+    {
+      "name": "to date week pnl",
+      "ok": true,
+      "detail": "$10,834.60 vs $10,834.60"
+    },
+    {
+      "name": "to date week count",
+      "ok": true,
+      "detail": "4 weeks in file · net $10,494.60 · assignment $340.00"
+    },
+    {
+      "name": "week buttons",
+      "ok": true,
+      "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16"
+    },
+    {
+      "name": "default week",
+      "ok": true,
+      "detail": "2026-10-02 vs 2026-10-02"
+    },
+    {
+      "name": "week window",
+      "ok": true,
+      "detail": "2026-09-26…2026-10-02"
+    },
+    {
+      "name": "week net income",
+      "ok": true,
+      "detail": "$3,091.20"
+    },
+    {
+      "name": "week allocations",
+      "ok": true,
+      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+    },
+    {
+      "name": "week sells",
+      "ok": true,
+      "detail": "CC-013,CC-014,CC-015"
+    },
+    {
+      "name": "open covered calls",
+      "ok": true,
+      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+    },
+    {
+      "name": "closed trades",
+      "ok": true,
+      "detail": "CC-001,CC-002,CC-003,CC-005,CC-006,CC-008,CC-009,CC-010"
+    },
+    {
+      "name": "closed section collapsed",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "position tickers",
+      "ok": true,
+      "detail": "ASTS,BABA,CLSK,EOSE,HIMS,MSTY,NKE,ONDS,SE,SLNH,TSLA,WYFI"
+    },
+    {
+      "name": "account number not rendered",
+      "ok": true,
+      "detail": "hidden"
+    },
+    {
+      "name": "week click does not navigate",
+      "ok": true,
+      "detail": "http://127.0.0.1:44143/#jesse"
+    },
+    {
+      "name": "selected week",
+      "ok": true,
+      "detail": "2026-09-25"
+    },
+    {
+      "name": "switched window",
+      "ok": true,
+      "detail": "2026-09-19"
+    },
+    {
+      "name": "switched net income",
+      "ok": true,
+      "detail": "$6,442.66"
+    },
+    {
+      "name": "switched allocations",
+      "ok": true,
+      "detail": "CC-001,CC-002,CC-003,CC-004,CC-005,CC-006,CC-007,CC-008,CC-009,CC-010,CC-011,CC-012,DIV-001"
+    },
+    {
+      "name": "switched sells",
+      "ok": true,
+      "detail": "CC-001,CC-002,CC-003,CC-004,CC-005,CC-008,CC-009,CC-010,CC-011,CC-012,CC-006,CC-007"
+    },
+    {
+      "name": "open book stays put",
+      "ok": true,
+      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+    },
+    {
+      "name": "back to stocktimus",
+      "ok": true,
+      "detail": "Stocktimus hero=grid"
+    },
+    {
+      "name": "stocktimus book restored",
+      "ok": true,
+      "detail": "74 tickets in view"
+    }
+  ]
+}

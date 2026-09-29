@@ -69,7 +69,9 @@
   function deskFromHash() {
     const h = (location.hash || "").replace(/^#/, "").toLowerCase();
     // #scoreboard is the X call tab, not a paper book. Do not add it to DESKS.
+    // #jesse is the covered-call income tracker. It reads jesse/cc-tracker.json only.
     if (h === "scoreboard") return "scoreboard";
+    if (h === "jesse") return "jesse";
     return DESKS[h] ? h : "stocktimus";
   }
 
@@ -1513,9 +1515,33 @@
     }
   }
 
+  function setJesseView(on) {
+    document.documentElement.classList.toggle("view-jesse", on);
+    if (document.body) document.body.classList.toggle("view-jesse", on);
+    const view = document.getElementById("jesse-view");
+    if (view) view.hidden = !on;
+    const api = window.StocktimusJesse;
+    if (!api) return;
+    try {
+      if (on) api.show();
+      else api.hide();
+    } catch (err) {
+      console.warn("jesse view", err);
+    }
+  }
+
   function syncDeskTabs() {
     const name = $("desk-name");
     const sub = $("desk-sub");
+    if (state.desk === "jesse") {
+      if (name) name.textContent = "Covered Call Income";
+      if (sub) sub.textContent = "Jesse";
+      document.title = "Covered Call Income · Jesse";
+      document.querySelectorAll(".desk-tab").forEach((a) => {
+        a.classList.toggle("on", a.getAttribute("data-desk") === "jesse");
+      });
+      return;
+    }
     if (state.desk === "scoreboard") {
       if (name) name.textContent = "Scoreboard";
       if (sub) sub.textContent = "X calls";
@@ -1537,15 +1563,17 @@
   function bind() {
     window.addEventListener("hashchange", () => {
       const next = deskFromHash();
-      if (next === "scoreboard") {
-        state.desk = "scoreboard";
+      if (next === "scoreboard" || next === "jesse") {
+        state.desk = next;
         syncDeskTabs();
-        setScoreboardView(true);
+        setScoreboardView(next === "scoreboard");
+        setJesseView(next === "jesse");
         return;
       }
-      const leavingScoreboard = state.desk === "scoreboard";
-      if (leavingScoreboard) setScoreboardView(false);
-      if (next === state.desk && !leavingScoreboard) return;
+      const leavingSpecial = state.desk === "scoreboard" || state.desk === "jesse";
+      if (state.desk === "scoreboard") setScoreboardView(false);
+      if (state.desk === "jesse") setJesseView(false);
+      if (next === state.desk && !leavingSpecial) return;
       state.desk = next;
       state.filter = "all";
       document.querySelectorAll(".chip").forEach((b) => b.classList.toggle("on", b.getAttribute("data-filter") === "all"));
@@ -1598,6 +1626,10 @@
     syncDeskTabs();
     if (state.desk === "scoreboard") {
       setScoreboardView(true);
+      return;
+    }
+    if (state.desk === "jesse") {
+      setJesseView(true);
       return;
     }
     try {
