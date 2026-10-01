@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-09-29T08:20:00-07:00",
+  "as_of": "2026-10-01T09:15:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -12,7 +12,7 @@
       "stars": 1,
       "called_at": "2026-09-08",
       "example": false,
-      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Quiet through Tue Sep 29 morning. Proxies TLT,IEF,TLH. Not graded."
+      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Still open through 2026-10-01. Age-eligible (\u226514d) but open themes stay out of rank average until closed. MTM equal-weight TLT/IEF/TLH short Sep8\u2192Sep30 close \u2248 +4.33% (info only). Proxies TLT,IEF,TLH."
     },
     {
       "id": "ds-tlt-2026-09-17",
@@ -25,7 +25,8 @@
       "called_at": "2026-09-17",
       "closed_at": "2026-09-22",
       "example": false,
-      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Under 14d \u2014 not graded."
+      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Graded 2026-10-01 monthly rerate: equal-weight TLT/IEF/TLH Sep17 close\u2192Sep22 close; signed_return -0.0005 (-0.05%). Robinhood daily closes (paper-site feed).",
+      "signed_return": -0.0005
     },
     {
       "id": "ds-tlt-2026-09-22",

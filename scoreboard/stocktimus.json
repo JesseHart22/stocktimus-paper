@@ -1,138 +1,149 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-09-28T08:24:41-07:00",
+  "as_of": "2026-10-01T09:02:37-07:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
       "handle": "Zerosumgame33",
       "ticker": "CLMT",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 26,
       "called_at": "2026-09-10",
       "example": false,
-      "note": "First post in the Sep 10\u201316 window. Extra posts collapsed to stars. Under 14 days, not graded."
+      "note": "First post in the Sep 10–16 window. Extra posts collapsed to stars. Graded RH: entry CLMT 56.44 (2026-09-10 close) → end 52.38 (2026-09-30 close).",
+      "signed_return": -0.071935
     },
     {
       "id": "zs-clmt-2026-09-17",
       "handle": "Zerosumgame33",
       "ticker": "CLMT",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 24,
       "called_at": "2026-09-17",
       "example": false,
-      "note": "Window Sep 17\u201323. Prior stars +19 CLMT longs Sep 21\u201323 PT (diesel-ban noise / base-oil / Q3 print). Not graded."
+      "note": "Window Sep 17–23. Prior stars +19 CLMT longs Sep 21–23 PT (diesel-ban noise / base-oil / Q3 print). Graded RH: entry CLMT 59.05 (2026-09-17 close) → end 52.38 (2026-09-30 close).",
+      "signed_return": -0.112955
     },
     {
       "id": "zs-inv-2026-09-11",
       "handle": "Zerosumgame33",
       "ticker": "INV",
       "kind": "zone",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "Hard look $0.50\u2013$0.75. Sep 15 sold placeholder / more downside. No INV posts since Sep 21; delayed mid ~$0.68 back in zone 2026-09-28. Not graded."
+      "note": "Hard look $0.50–$0.75. Zone filled: price touched top $0.75 (2026-09-15 low 0.7435 / 2026-09-16 open 0.75). Graded RH: entry 0.75 (zone top) → end INV 0.5731 (2026-09-30 close).",
+      "signed_return": -0.235867
     },
     {
       "id": "sd-nbis-2026-09-11",
       "handle": "Sandeman52",
       "ticker": "NBIS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 13,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "First window Sep 11\u201317. Later NBIS longs Sep 22+ are new graded call sd-nbis-2026-09-22. Not graded."
+      "note": "First window Sep 11–17. Later NBIS longs Sep 22+ are new graded call sd-nbis-2026-09-22. Graded RH: entry NBIS 224.55 (2026-09-11 close) → end 235.88 (2026-09-30 close).",
+      "signed_return": 0.050456
     },
     {
       "id": "sd-hims-2026-09-16",
       "handle": "Sandeman52",
       "ticker": "HIMS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-16",
       "example": false,
-      "note": "Would moon. No target. Not graded."
+      "note": "Would moon. No target. Graded RH: entry HIMS 28.00 (2026-09-16 close) → end 29.79 (2026-09-30 close).",
+      "signed_return": 0.063929
     },
     {
       "id": "sd-spcx-2026-09-12",
       "handle": "Sandeman52",
       "ticker": "SPCX",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Sign me up, no target. Not graded."
+      "note": "Sign me up, no target. Called Sat; entry last session on/before. Graded RH: entry SPCX 151.21 (2026-09-11 close) → end 150.86 (2026-09-30 close).",
+      "signed_return": -0.002315
     },
     {
       "id": "ls-csiq-2026-09-14",
       "handle": "LucasSacerdote_",
       "ticker": "CSIQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-14",
       "example": false,
-      "note": "First window Sep 14. Sep 24 'too cheap\u2026 adding' opens ls-csiq-2026-09-24. Not graded."
+      "note": "First window Sep 14. Sep 24 'too cheap… adding' opens ls-csiq-2026-09-24. Graded RH: entry CSIQ 12.95 (2026-09-14 close) → end 11.52 (2026-09-30 close).",
+      "signed_return": -0.110425
     },
     {
       "id": "ls-eose-2026-09-14",
       "handle": "LucasSacerdote_",
       "ticker": "EOSE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-14",
       "example": false,
-      "note": "First window Sep 14. Sep 22 Indensity/progress post opens ls-eose-2026-09-22. Not graded."
+      "note": "First window Sep 14. Sep 22 Indensity/progress post opens ls-eose-2026-09-22. Graded RH: entry EOSE 3.82 (2026-09-14 close) → end 3.065 (2026-09-30 close).",
+      "signed_return": -0.197644
     },
     {
       "id": "ct-cls-2026-09-12",
       "handle": "Chartradamus",
       "ticker": "CLS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Friday calls, no strike. Not graded."
+      "note": "Friday calls, no strike. Called Sat; entry last session on/before. Graded RH: entry CLS 346.55 (2026-09-11 close) → end 361.43 (2026-09-30 close).",
+      "signed_return": 0.042938
     },
     {
       "id": "ct-be-2026-09-12",
       "handle": "Chartradamus",
       "ticker": "BE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-12",
       "example": false,
-      "note": "Same post as CLS. No strike. Not graded."
+      "note": "Same post as CLS. No strike. Called Sat; entry last session on/before. Graded RH: entry BE 275.75 (2026-09-11 close) → end 276.98 (2026-09-30 close).",
+      "signed_return": 0.004461
     },
     {
       "id": "ct-spx-2026-09-17",
       "handle": "Chartradamus",
       "ticker": "SPX",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-17",
       "example": false,
-      "note": "Tagged daily 100MA, stalled at daily 20MA and 21EMA. Not graded."
+      "note": "Tagged daily 100MA, stalled at daily 20MA and 21EMA. Graded RH SPX index: entry 7637.76 (2026-09-17 close) → end 7651.54 (2026-09-30 close).",
+      "signed_return": 0.001804
     },
     {
       "id": "zs-clmt-2026-09-24",
@@ -144,7 +155,7 @@
       "stars": 4,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "New 7-day window (\u22657d after Sep 17). First Sep 24 diesel-ban chirp; +4 through Sep 26 hang-tight / base-oil. Not graded."
+      "note": "New 7-day window (≥7d after Sep 17). First Sep 24 diesel-ban chirp; +4 through Sep 26 hang-tight / base-oil. Not graded."
     },
     {
       "id": "zs-eose-2026-09-23",
@@ -204,7 +215,7 @@
       "stars": 0,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Too cheap\u2026 adding; US-China / midterms hedge. No share price. Not graded."
+      "note": "Too cheap… adding; US-China / midterms hedge. No share price. Not graded."
     },
     {
       "id": "ls-lode-2026-09-21",
