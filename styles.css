@@ -25,6 +25,17 @@
   --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --r: 10px;
+  /* Shared KPI card scale. Shell cards (.js-stat) read the same tokens.
+     Desk palettes stay on their own colors; only structure and type match. */
+  --kpi-gap: 8px;
+  --kpi-pad: 10px 12px 9px;
+  --kpi-radius: 10px;
+  --kpi-k-size: 10px;
+  --kpi-k-track: 0.07em;
+  --kpi-v-size: 20px;
+  --kpi-v-track: -0.03em;
+  --kpi-s-size: 11.5px;
+  --kpi-s-lead: 1.35;
 }
 
 * { box-sizing: border-box; }
@@ -61,8 +72,10 @@ button { font: inherit; color: inherit; }
 }
 .desk-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   justify-content: center;
 }
 .desk-tab {
@@ -117,8 +130,22 @@ button { font: inherit; color: inherit; }
   padding: 1px 7px 0;
   border-radius: 999px;
 }
-.top-meta { display: flex; align-items: center; gap: 14px; }
+.top-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
 .source-pill {
+  display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
   font-size: 11px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -128,7 +155,7 @@ button { font: inherit; color: inherit; }
   padding: 4px 8px;
   border-radius: 999px;
 }
-.asof { text-align: right; }
+.asof { flex: 0 0 auto; text-align: right; }
 .asof-label {
   display: block;
   font-size: 10px;
@@ -146,20 +173,23 @@ button { font: inherit; color: inherit; }
 .hero {
   display: grid;
   grid-template-columns: 1.0fr 0.8fr 0.8fr 0.65fr 0.95fr 1.25fr 0.85fr 0.65fr;
-  gap: 8px;
+  gap: var(--kpi-gap);
   margin: 16px 0 10px;
 }
-.hero .stat-v { font-size: 20px; }
+.hero .stat-v {
+  font-size: var(--kpi-v-size);
+  letter-spacing: var(--kpi-v-track);
+}
 .stat {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px 12px 9px;
+  border-radius: var(--kpi-radius);
+  padding: var(--kpi-pad);
   min-width: 0;
 }
 .stat-k {
-  font-size: 10px;
-  letter-spacing: 0.07em;
+  font-size: var(--kpi-k-size);
+  letter-spacing: var(--kpi-k-track);
   text-transform: uppercase;
   color: var(--mute);
   font-weight: 600;
@@ -171,7 +201,12 @@ button { font: inherit; color: inherit; }
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
-.stat-s { margin-top: 6px; font-size: 11.5px; color: var(--mute); }
+.stat-s {
+  margin-top: 6px;
+  font-size: var(--kpi-s-size);
+  line-height: var(--kpi-s-lead);
+  color: var(--mute);
+}
 .up { color: var(--green); }
 .dn { color: var(--red); }
 .flat { color: var(--dim); }
@@ -311,26 +346,30 @@ button { font: inherit; color: inherit; }
 }
 .table-wrap { overflow-x: auto; }
 table.trades {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
-  font-size: 12.5px;
-  min-width: 920px;
+  font-size: 13px;
 }
 table.trades th {
   text-align: left;
-  font-size: 10px;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--mute);
   font-weight: 600;
-  padding: 8px 8px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--line);
   background: var(--elev);
   position: sticky; top: 0;
+  white-space: nowrap;
 }
-table.trades th.num, table.trades td.num { text-align: right; }
+table.trades th.num, table.trades td.num {
+  text-align: right;
+  min-width: 5.25rem;
+}
 table.trades td {
-  padding: 7px 8px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--line);
   white-space: nowrap;
 }

@@ -127,7 +127,25 @@ body.view-scoreboard #scoreboard-view { display: block !important; }
   letter-spacing: 0.04em;
 }
 .sb-stars.is-zero { color: var(--mute, #6d7688); }
-.sb-note-cell { color: var(--dim, #9aa3b5); max-width: 280px; }
+.sb-note-cell { color: var(--dim, #9aa3b5); width: 36ch; max-width: 36ch; }
+.sb-note-details { max-width: 36ch; }
+.sb-note-details summary {
+  cursor: pointer;
+  list-style: none;
+}
+.sb-note-details summary::-webkit-details-marker { display: none; }
+.sb-note-clamp {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 36ch;
+}
+.sb-note-details[open] .sb-note-clamp {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
 .sb-pill {
   display: inline-block;
   font-size: 10px;

@@ -1250,6 +1250,7 @@
     if (state.markKind === "robinhood") src += " · Robinhood live";
     else if (state.markKind === "delayed" || state.liveOk) src += " · delayed";
     pill.textContent = src;
+    pill.title = src;
   }
 
   function confPill(c, reason) {

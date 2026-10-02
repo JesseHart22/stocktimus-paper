@@ -165,6 +165,17 @@
     });
   }
 
+  function noteCell(note) {
+    const text = note ? String(note) : "";
+    if (!text) return '<td class="sb-note-cell"></td>';
+    const safe = escapeHtml(text);
+    return (
+      '<td class="sb-note-cell"><details class="sb-note-details">' +
+      '<summary title="' + safe + '"><span class="sb-note-clamp">' + safe + "</span></summary>" +
+      "</details></td>"
+    );
+  }
+
   function statusLabel(status) {
     if (status === "no_fill") return "no fill";
     if (status === "closed" || status === "open") return status;
@@ -198,7 +209,10 @@
     if (sub) sub.textContent = "X calls";
     doc.title = "Scoreboard · X calls";
     const pill = doc.getElementById("source-pill");
-    if (pill) pill.textContent = "x log";
+    if (pill) {
+      pill.textContent = "x log";
+      pill.title = "x log";
+    }
   }
 
   function renderRank(rows) {
@@ -246,7 +260,7 @@
         '<td><span class="sb-pill st-' + escapeHtml(st) + '">' + escapeHtml(statusLabel(st)) + "</span></td>" +
         '<td class="num ' + pctClass(ret) + '">' + (ret == null ? "—" : fmtPct(ret)) + "</td>" +
         "<td>" + escapeHtml(fmtWhen(call.called_at)) + "</td>" +
-        '<td class="sb-note-cell">' + escapeHtml(call.note || "") + "</td>" +
+        noteCell(call.note) +
         "</tr>"
       );
     }).join("");

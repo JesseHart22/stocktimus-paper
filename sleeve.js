@@ -169,6 +169,7 @@
       if (data) pill.textContent = "sleeve ledger";
       else if (state.error) pill.textContent = "sleeve ledger missing";
       else pill.textContent = "loading";
+      pill.title = pill.textContent;
     }
     const asof = $("asof");
     if (!asof) return;
