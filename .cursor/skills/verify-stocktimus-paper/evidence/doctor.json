@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-09-29T21:02:02.961Z",
-  "url": "http://127.0.0.1:35091/",
+  "at": "2026-10-02T20:27:37.240Z",
+  "url": "http://127.0.0.1:35139/",
   "books": {
     "data.json": {
       "tickets": 74
@@ -202,7 +202,7 @@
     {
       "name": "jesse/cc-tracker.json parses",
       "ok": true,
-      "detail": "16 trades"
+      "detail": "21 trades"
     },
     {
       "name": "jesse desk field",
