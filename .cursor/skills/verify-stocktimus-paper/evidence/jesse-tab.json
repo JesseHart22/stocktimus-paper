@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "jesse-tab",
-  "at": "2026-09-29T21:02:19.199Z",
-  "url": "http://127.0.0.1:35091/",
+  "at": "2026-10-02T20:27:42.706Z",
+  "url": "http://127.0.0.1:35139/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -15,26 +15,27 @@
     "title": "Covered Call Income · Jesse",
     "deskName": "Covered Call Income",
     "pill": "cc tracker",
-    "asof": "Sep 29, 2026, 9:34 AM PT",
-    "program": "$255,655.50",
-    "rocCovered": "+7.33%",
-    "rocProgram": "+4.11%",
+    "asof": "Oct 2, 2026, 1:23 PM PT",
+    "program": "$245,514.00",
+    "rocCovered": "+6.88%",
+    "rocProgram": "+4.45%",
     "summaryWeeks": [
       "2026-09-25",
       "2026-10-02",
       "2026-10-09",
       "2026-10-16"
     ],
-    "covered": "$143,245.00",
-    "uncovered": "$112,410.50",
-    "openPrem": "$4,607.01",
-    "toDate": "$10,834.60",
+    "covered": "$158,965.00",
+    "uncovered": "$86,549.00",
+    "openPrem": "$4,645.66",
+    "toDate": "$10,933.76",
     "defaultWeek": "2026-10-02",
     "switchedWeek": "2026-09-25",
     "sells": [
       "CC-013",
       "CC-014",
-      "CC-015"
+      "CC-015",
+      "CC-016"
     ],
     "switchedSells": [
       "CC-001",
@@ -80,12 +81,12 @@
     {
       "name": "as_of datetime",
       "ok": true,
-      "detail": "2026-09-29T09:34:56-07:00"
+      "detail": "2026-10-02T13:23:49-07:00"
     },
     {
       "name": "as_of visible",
       "ok": true,
-      "detail": "Sep 29, 2026, 9:34 AM PT"
+      "detail": "Oct 2, 2026, 1:23 PM PT"
     },
     {
       "name": "view class",
@@ -125,42 +126,42 @@
     {
       "name": "roc vs covered",
       "ok": true,
-      "detail": "+7.33% vs +7.33%"
+      "detail": "+6.88% vs +6.88%"
     },
     {
       "name": "roc vs program",
       "ok": true,
-      "detail": "+4.11% vs +4.11%"
+      "detail": "+4.45% vs +4.45%"
     },
     {
       "name": "program capital",
       "ok": true,
-      "detail": "$255,655.50 vs $255,655.50"
+      "detail": "$245,514.00 vs $245,514.00"
     },
     {
       "name": "covered cost",
       "ok": true,
-      "detail": "$143,245.00 vs $143,245.00"
+      "detail": "$158,965.00 vs $158,965.00"
     },
     {
       "name": "uncovered program",
       "ok": true,
-      "detail": "$112,410.50 vs $112,410.50"
+      "detail": "$86,549.00 vs $86,549.00"
     },
     {
       "name": "open premium net",
       "ok": true,
-      "detail": "$4,607.01 vs $4,607.01"
+      "detail": "$4,645.66 vs $4,645.66"
     },
     {
       "name": "to date week pnl",
       "ok": true,
-      "detail": "$10,834.60 vs $10,834.60"
+      "detail": "$10,933.76 vs $10,933.76"
     },
     {
       "name": "to date week count",
       "ok": true,
-      "detail": "4 weeks in file · net $10,494.60 · assignment $340.00"
+      "detail": "4 weeks in file · net $10,191.15 · assignment $0.00"
     },
     {
       "name": "week buttons",
@@ -180,22 +181,32 @@
     {
       "name": "week net income",
       "ok": true,
-      "detail": "$3,091.20"
+      "detail": "$3,129.85"
+    },
+    {
+      "name": "week return vs capital",
+      "ok": true,
+      "detail": "+3.13%"
+    },
+    {
+      "name": "week return vs program",
+      "ok": true,
+      "detail": "+1.44%"
     },
     {
       "name": "week allocations",
       "ok": true,
-      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016,DIV-002,DIV-003,OD-001,OD-002"
     },
     {
       "name": "week sells",
       "ok": true,
-      "detail": "CC-013,CC-014,CC-015"
+      "detail": "CC-013,CC-014,CC-015,CC-016"
     },
     {
       "name": "open covered calls",
       "ok": true,
-      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016"
     },
     {
       "name": "closed trades",
@@ -210,7 +221,7 @@
     {
       "name": "position tickers",
       "ok": true,
-      "detail": "ASTS,BABA,CLSK,EOSE,HIMS,MSTY,NKE,ONDS,SE,SLNH,TSLA,WYFI"
+      "detail": "ASTS,BABA,CLSK,EOSE,HIMS,INV,MSTY,NKE,ONDS,SE,SLNH,TSLA,WYFI"
     },
     {
       "name": "account number not rendered",
@@ -220,7 +231,7 @@
     {
       "name": "week click does not navigate",
       "ok": true,
-      "detail": "http://127.0.0.1:35091/#jesse"
+      "detail": "http://127.0.0.1:35139/#jesse"
     },
     {
       "name": "selected week",
@@ -235,7 +246,17 @@
     {
       "name": "switched net income",
       "ok": true,
-      "detail": "$6,442.66"
+      "detail": "$6,100.56"
+    },
+    {
+      "name": "switched return vs capital",
+      "ok": true,
+      "detail": "+3.28%"
+    },
+    {
+      "name": "switched return vs program",
+      "ok": true,
+      "detail": "+2.62%"
     },
     {
       "name": "switched allocations",
@@ -250,7 +271,7 @@
     {
       "name": "open book stays put",
       "ok": true,
-      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015"
+      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016"
     },
     {
       "name": "weekly summary stays on jesse",
@@ -265,7 +286,7 @@
     {
       "name": "roc stays on weekly summary",
       "ok": true,
-      "detail": "+7.33% / +4.11%"
+      "detail": "+6.88% / +4.45%"
     },
     {
       "name": "weekly summary rows",
@@ -273,9 +294,19 @@
       "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16"
     },
     {
+      "name": "weekly summary return headers",
+      "ok": true,
+      "detail": "Week return % (vs capital) | Week return % (vs program)"
+    },
+    {
+      "name": "weekly summary denominators",
+      "ok": true,
+      "detail": "Every Friday on the Excel Weekly Summary. Week return % (vs capital) is combined ÷ capital deployed. Week return % (vs program) is combined ÷ Dashboard program capital."
+    },
+    {
       "name": "week 2026-09-25 premium",
       "ok": true,
-      "detail": "$6,486.69"
+      "detail": "$6,144.59"
     },
     {
       "name": "week 2026-09-25 fees",
@@ -285,7 +316,7 @@
     {
       "name": "week 2026-09-25 net",
       "ok": true,
-      "detail": "$6,442.66"
+      "detail": "$6,100.56"
     },
     {
       "name": "week 2026-09-25 capital",
@@ -295,42 +326,47 @@
     {
       "name": "week 2026-09-25 assignment",
       "ok": true,
-      "detail": "$340.00"
+      "detail": "$0.00"
     },
     {
       "name": "week 2026-09-25 total",
       "ok": true,
-      "detail": "$6,782.66"
+      "detail": "$6,442.66"
     },
     {
-      "name": "week 2026-09-25 return",
+      "name": "week 2026-09-25 return vs capital",
       "ok": true,
-      "detail": "+3.45%"
+      "detail": "+3.28%"
+    },
+    {
+      "name": "week 2026-09-25 return vs program",
+      "ok": true,
+      "detail": "+2.62%"
     },
     {
       "name": "week 2026-09-25 trades",
       "ok": true,
-      "detail": "13"
+      "detail": "12"
     },
     {
       "name": "week 2026-10-02 premium",
       "ok": true,
-      "detail": "$3,099.50"
+      "detail": "$3,139.50"
     },
     {
       "name": "week 2026-10-02 fees",
       "ok": true,
-      "detail": "$8.30"
+      "detail": "$9.65"
     },
     {
       "name": "week 2026-10-02 net",
       "ok": true,
-      "detail": "$3,091.20"
+      "detail": "$3,129.85"
     },
     {
       "name": "week 2026-10-02 capital",
       "ok": true,
-      "detail": "$97,068.50"
+      "detail": "$112,788.50"
     },
     {
       "name": "week 2026-10-02 assignment",
@@ -340,17 +376,22 @@
     {
       "name": "week 2026-10-02 total",
       "ok": true,
-      "detail": "$3,091.20"
+      "detail": "$3,530.36"
     },
     {
-      "name": "week 2026-10-02 return",
+      "name": "week 2026-10-02 return vs capital",
       "ok": true,
-      "detail": "+3.18%"
+      "detail": "+3.13%"
+    },
+    {
+      "name": "week 2026-10-02 return vs program",
+      "ok": true,
+      "detail": "+1.44%"
     },
     {
       "name": "week 2026-10-02 trades",
       "ok": true,
-      "detail": "7"
+      "detail": "8"
     },
     {
       "name": "week 2026-10-09 premium",
@@ -383,9 +424,14 @@
       "detail": "$555.07"
     },
     {
-      "name": "week 2026-10-09 return",
+      "name": "week 2026-10-09 return vs capital",
       "ok": true,
       "detail": "+3.19%"
+    },
+    {
+      "name": "week 2026-10-09 return vs program",
+      "ok": true,
+      "detail": "+0.23%"
     },
     {
       "name": "week 2026-10-09 trades",
@@ -423,9 +469,14 @@
       "detail": "$405.68"
     },
     {
-      "name": "week 2026-10-16 return",
+      "name": "week 2026-10-16 return vs capital",
       "ok": true,
       "detail": "+3.57%"
+    },
+    {
+      "name": "week 2026-10-16 return vs program",
+      "ok": true,
+      "detail": "+0.17%"
     },
     {
       "name": "week 2026-10-16 trades",

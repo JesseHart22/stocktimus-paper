@@ -9,7 +9,7 @@
 }
 .js-roc { grid-template-columns: 1fr 1fr; margin-bottom: 8px; }
 .js-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.js-kpis { grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 10px; }
+.js-kpis { grid-template-columns: repeat(8, minmax(0, 1fr)); margin-top: 10px; }
 .js-roc .js-stat {
   border-color: var(--sh-roc-line, rgba(47, 79, 63, 0.45));
   background: var(--sh-roc-bg, linear-gradient(180deg, rgba(47, 79, 63, 0.1), #fffaf4 48%));

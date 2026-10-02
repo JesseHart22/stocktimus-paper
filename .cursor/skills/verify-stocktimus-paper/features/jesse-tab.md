@@ -8,7 +8,8 @@ Covered-call income tracker. Header reads Covered Call Income / Jesse. Browser t
 - Dashboard uses position `program_capital`, covered cost derived from `cost_basis` and `open_cc_shares`, uncovered program capital (program minus that covered cost), open covered-call `premium_(net)`, and the sum of `weeks[].total_week_pnl`.
 - Return on capital and Return on program are `dashboard.roc_vs_covered` and `dashboard.roc_vs_program`. They are not recomputed in the page. Subtitles read ROC vs Covered and ROC vs Program.
 - Week buttons are `weeks[].week_ending`. The default week is the Saturday–Friday window that contains `as_of`. Choosing a week filters that week’s KPI row, allocation lines, and covered-call sells whose `cc_sell_date` falls in the window. It does not reload the page.
-- **Weekly summary** is a section toggle on this tab, next to Open book. It lists every `weekly_summary` Friday (premium, fees, net, capital, assignment, total week P&L, `week_return_pct`, trade count). It does not follow the single-Friday picker.
+- **Weekly summary** is a section toggle on this tab, next to Open book. It lists every `weekly_summary` Friday (premium, fees, net, capital, assignment, total week P&L, week return % vs capital, week return % vs program, trade count). Vs capital reads `week_return_pct_vs_capital`, falling back to `week_return_pct`. Vs program reads `week_return_pct_vs_program`. It does not follow the single-Friday picker.
+- The open-book week strip adds those same two percentages beside Week P&L. Both use the week row and the same percent format as Return on capital.
 - Open book lists positions and covered calls with `called_away` Open.
 - Closed and assigned (`Yes` and `Expired`) stay in a collapsed section.
 - The file’s account id is not rendered.
@@ -29,7 +30,7 @@ Screenshots: `evidence/jesse-tab.png`, `evidence/jesse-tab-week.png`, `evidence/
 
 ## Gotchas
 
-- Do not invent a mark. Last, market value, premium, and week totals are copied from the file. Covered and uncovered dollars are cost-basis math from `shares`, `open_cc_shares`, `cost_basis`, and `program_capital`. Return on capital and Return on program are the dashboard percents only. Week return uses `week_return_pct` only.
+- Do not invent a mark. Last, market value, premium, and week totals are copied from the file. Covered and uncovered dollars are cost-basis math from `shares`, `open_cc_shares`, `cost_basis`, and `program_capital`. Return on capital and Return on program are the dashboard percents only. Week return % (vs capital) uses `week_return_pct_vs_capital`, then `week_return_pct`. Week return % (vs program) uses `week_return_pct_vs_program` only. The page does not recompute either percent.
 - `covered_capital`, `uncovered_shares`, and `uncovered_capital` on positions are not shown. In this export those three fields do not consistently mean shares or dollars.
 - Open premium is the contracts still marked Open. Week totals already spread premium across `allocations`, so the two figures are not added together.
 - `app.js` does not put `jesse` in `DESKS`. Switching back to a paper tab calls `load()` again.
