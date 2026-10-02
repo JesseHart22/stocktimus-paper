@@ -1138,6 +1138,17 @@ function jesseBook(data) {
   };
 }
 
+function jesseWeekReturnVsCapital(w) {
+  if (!w) return null;
+  const vs = num(w.week_return_pct_vs_capital);
+  return vs != null ? vs : num(w.week_return_pct);
+}
+
+function jesseWeekReturnVsProgram(w) {
+  if (!w) return null;
+  return num(w.week_return_pct_vs_program);
+}
+
 function jesseWeek(data, friday) {
   const week = (data.weeks || []).find((w) => ymdKey(w.week_ending) === friday) || null;
   const allocs = (data.allocations || [])
@@ -1224,6 +1235,8 @@ async function driveJesse(page) {
       weekStart: week ? week.getAttribute("data-start") : "",
       weekEnd: week ? week.getAttribute("data-end") : "",
       kpiNet: text("js-kpi-net"),
+      kpiRetCap: text("js-kpi-ret-capital"),
+      kpiRetProg: text("js-kpi-ret-program"),
       allocs: [...document.querySelectorAll("#js-alloc tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
       sells: [...document.querySelectorAll("#js-sells tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
       openCcs: [...document.querySelectorAll("#js-open-ccs tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
@@ -1264,6 +1277,8 @@ async function driveJesse(page) {
   hard(checks, "default week", snap.weekOn === book.selected, snap.weekOn + " vs " + book.selected);
   hard(checks, "week window", snap.weekStart === expectWeek.start && snap.weekEnd === book.selected, snap.weekStart + "…" + snap.weekEnd);
   hard(checks, "week net income", snap.kpiNet === money(num(expectWeek.week && expectWeek.week.net_income)), snap.kpiNet);
+  hard(checks, "week return vs capital", snap.kpiRetCap === pct(jesseWeekReturnVsCapital(expectWeek.week)), snap.kpiRetCap);
+  hard(checks, "week return vs program", snap.kpiRetProg === pct(jesseWeekReturnVsProgram(expectWeek.week)), snap.kpiRetProg);
   hard(checks, "week allocations", snap.allocs.slice().sort().join(",") === expectWeek.allocs.join(","), snap.allocs.join(","));
   hard(checks, "week sells", snap.sells.join(",") === expectWeek.sells.join(","), snap.sells.join(","));
   hard(checks, "open covered calls", snap.openCcs.join(",") === openIds.join(","), snap.openCcs.join(","));
@@ -1294,6 +1309,8 @@ async function driveJesse(page) {
       weekOn: week ? week.getAttribute("data-week") : "",
       weekStart: week ? week.getAttribute("data-start") : "",
       kpiNet: text("js-kpi-net"),
+      kpiRetCap: text("js-kpi-ret-capital"),
+      kpiRetProg: text("js-kpi-ret-program"),
       allocs: [...document.querySelectorAll("#js-alloc tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
       sells: [...document.querySelectorAll("#js-sells tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
       openCcs: [...document.querySelectorAll("#js-open-ccs tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
@@ -1304,6 +1321,8 @@ async function driveJesse(page) {
   hard(checks, "selected week", switched.weekOn === other, switched.weekOn);
   hard(checks, "switched window", switched.weekStart === otherWeek.start, switched.weekStart);
   hard(checks, "switched net income", switched.kpiNet === money(num(otherWeek.week && otherWeek.week.net_income)), switched.kpiNet);
+  hard(checks, "switched return vs capital", switched.kpiRetCap === pct(jesseWeekReturnVsCapital(otherWeek.week)), switched.kpiRetCap);
+  hard(checks, "switched return vs program", switched.kpiRetProg === pct(jesseWeekReturnVsProgram(otherWeek.week)), switched.kpiRetProg);
   hard(checks, "switched allocations", switched.allocs.slice().sort().join(",") === otherWeek.allocs.join(","), switched.allocs.join(","));
   hard(checks, "switched sells", switched.sells.join(",") === otherWeek.sells.join(","), switched.sells.join(","));
   hard(checks, "open book stays put", switched.openCcs.join(",") === openIds.join(","), switched.openCcs.join(","));
@@ -1324,6 +1343,8 @@ async function driveJesse(page) {
       rocCovered: text("js-roc-covered"),
       rocProgram: text("js-roc-program"),
       weekPicker: !!document.getElementById("js-week"),
+      note: (document.querySelector("#js-weekly-panel .js-note") && document.querySelector("#js-weekly-panel .js-note").textContent.trim()) || "",
+      headers: [...document.querySelectorAll("#js-weekly-panel thead th")].map((th) => th.textContent.trim()),
       rows: [...document.querySelectorAll("#js-weekly tr[data-week]")].map((tr) => ({
         week: tr.getAttribute("data-week"),
         cells: [...tr.querySelectorAll("td")].map((td) => td.textContent.trim()),
@@ -1338,6 +1359,8 @@ async function driveJesse(page) {
   hard(checks, "weekly summary hides week picker", summary.weekPicker === false);
   hard(checks, "roc stays on weekly summary", summary.rocCovered === pct(num(board.roc_vs_covered)) && summary.rocProgram === pct(num(board.roc_vs_program)), summary.rocCovered + " / " + summary.rocProgram);
   hard(checks, "weekly summary rows", summary.rows.map((row) => row.week).join(",") === summaryRows.map((w) => ymdKey(w.week_ending)).join(","), summary.rows.map((row) => row.week).join(","));
+  hard(checks, "weekly summary return headers", summary.headers[7] === "Week return % (vs capital)" && summary.headers[8] === "Week return % (vs program)", (summary.headers[7] || "") + " | " + (summary.headers[8] || ""));
+  hard(checks, "weekly summary denominators", summary.note.includes("combined ÷ capital deployed") && summary.note.includes("combined ÷ Dashboard program capital"), summary.note);
   summaryRows.forEach((w, i) => {
     const cells = summary.rows[i] ? summary.rows[i].cells : [];
     const friday = ymdKey(w.week_ending);
@@ -1347,8 +1370,9 @@ async function driveJesse(page) {
     hard(checks, "week " + friday + " capital", cells[4] === money(num(w.capital_deployed)), cells[4]);
     hard(checks, "week " + friday + " assignment", cells[5] === money(num(w.assignment_pnl)), cells[5]);
     hard(checks, "week " + friday + " total", cells[6] === money(num(w.total_week_pnl)), cells[6]);
-    hard(checks, "week " + friday + " return", cells[7] === pct(num(w.week_return_pct)), cells[7]);
-    hard(checks, "week " + friday + " trades", cells[8] === String(w.trade_count), cells[8]);
+    hard(checks, "week " + friday + " return vs capital", cells[7] === pct(jesseWeekReturnVsCapital(w)), cells[7]);
+    hard(checks, "week " + friday + " return vs program", cells[8] === pct(jesseWeekReturnVsProgram(w)), cells[8]);
+    hard(checks, "week " + friday + " trades", cells[9] === String(w.trade_count), cells[9]);
   });
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: join(EVIDENCE, "jesse-tab-summary.png"), fullPage: true });

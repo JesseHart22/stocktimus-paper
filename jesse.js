@@ -217,6 +217,17 @@
     return weeks(data).find((w) => ymd(w.week_ending) === friday) || null;
   }
 
+  function weekReturnVsCapital(w) {
+    if (!w) return null;
+    const vs = num(w.week_return_pct_vs_capital);
+    return vs != null ? vs : num(w.week_return_pct);
+  }
+
+  function weekReturnVsProgram(w) {
+    if (!w) return null;
+    return num(w.week_return_pct_vs_program);
+  }
+
   function allocsFor(data, friday) {
     return allocations(data)
       .filter((a) => ymd(a.week_ending) === friday)
@@ -347,7 +358,8 @@
     const body = rows.length
       ? rows.map((w) => {
         const friday = ymd(w.week_ending);
-        const ret = num(w.week_return_pct);
+        const retCap = weekReturnVsCapital(w);
+        const retProg = weekReturnVsProgram(w);
         return "<tr data-week=\"" + escapeHtml(friday) + "\">" +
           td(escapeHtml(fmtDay(friday))) +
           td(escapeHtml(money(num(w.premium_allocated))), true) +
@@ -356,14 +368,15 @@
           td(escapeHtml(money(num(w.capital_deployed))), true) +
           td(escapeHtml(money(num(w.assignment_pnl))), true) +
           td(escapeHtml(money(num(w.total_week_pnl))), true) +
-          td(escapeHtml(pct(ret)), true) +
+          td(escapeHtml(pct(retCap)), true) +
+          td(escapeHtml(pct(retProg)), true) +
           td(escapeHtml(w.trade_count == null ? "—" : String(w.trade_count)), true) +
           "</tr>";
       }).join("")
-      : '<tr class="js-empty-row"><td colspan="9">No weeks in the file.</td></tr>';
+      : '<tr class="js-empty-row"><td colspan="10">No weeks in the file.</td></tr>';
     return '<section class="js-panel" id="js-weekly-panel" aria-label="Weekly summary">' +
       "<h2>Weekly summary</h2>" +
-      '<p class="js-note">Every Friday on the Excel Weekly Summary. Week return is the file’s week_return_pct.</p>' +
+      '<p class="js-note">Every Friday on the Excel Weekly Summary. Week return % (vs capital) is combined ÷ capital deployed. Week return % (vs program) is combined ÷ Dashboard program capital.</p>' +
       '<div class="js-wrap"><table class="js-table"><thead>' +
         ths([
           { t: "Week ending" },
@@ -373,7 +386,8 @@
           { t: "Capital deployed", num: true },
           { t: "Assignment P&L", num: true },
           { t: "Total week P&L", num: true },
-          { t: "Week return", num: true },
+          { t: "Week return % (vs capital)", num: true },
+          { t: "Week return % (vs program)", num: true },
           { t: "Trades", num: true },
         ]) +
       '</thead><tbody id="js-weekly">' + body + "</tbody></table></div>" +
@@ -410,6 +424,8 @@
     const capital = row ? num(row.capital_deployed) : null;
     const assign = row ? num(row.assignment_pnl) : null;
     const total = row ? num(row.total_week_pnl) : net;
+    const retCap = weekReturnVsCapital(row);
+    const retProg = weekReturnVsProgram(row);
     const buttons = list.map((key) => {
       const on = key === friday ? " on" : "";
       return '<button type="button" class="js-week' + on + '" data-week="' + escapeHtml(key) + '">' +
@@ -458,6 +474,8 @@
         stat("js-kpi-capital", "Capital deployed", money(capital), row ? "From weeks" : "Not in allocations") +
         stat("js-kpi-assign", "Assignment P&L", money(assign), row ? "From weeks" : "Not in allocations", pnlClass(assign)) +
         stat("js-kpi-total", "Week P&L", money(total), row ? "From weeks" : "Net income", pnlClass(total)) +
+        stat("js-kpi-ret-capital", "Week return % (vs capital)", pct(retCap), row ? "From weeks" : "Not in weeks", pnlClass(retCap)) +
+        stat("js-kpi-ret-program", "Week return % (vs program)", pct(retProg), row ? "From weeks" : "Not in weeks", pnlClass(retProg)) +
       "</div>" +
       "<h3>Allocations</h3>" +
       '<div class="js-wrap"><table class="js-table"><thead>' +
