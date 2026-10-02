@@ -8,6 +8,7 @@ X call log. Header reads Scoreboard / X calls. Browser tab title is `Scoreboard 
 - Note: call log refreshes weekly; rank rerate is monthly when asked on the 1st
 - Rule: first post is the call; a later same-handle, same-ticker, same-direction post inside 7 days adds a star and is not a second graded call; rank is the average signed return of closed graded calls; n < 5 is Provisional; open calls and no-fills stay on the log and out of the average
 - One board per file: Stocktimus, Compounder, Moonshot, Scout. Each board has a rank table and a call log
+- Call-log notes stay on one line (ellipsis). The full note is the summary `title`, and the row expands on click
 - Rows with `example: true` show an **Example data** pill and are excluded from rank
 - Source pill reads `x log`
 

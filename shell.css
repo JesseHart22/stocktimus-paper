@@ -1,20 +1,23 @@
 /* Shared desk shell. Clay & sage is the fallback so Jesse stays the template.
-   Sleeve (and any later live tab) overrides the --sh-* tokens on its view class. */
+   Sleeve (and any later live tab) overrides the --sh-* tokens on its view class.
+   KPI cards use the paper strip scale (--kpi-* in styles.css): same padding,
+   radius, 10px label, 20px value, 11.5px subtitle. Accent fill stays on --sh-*.
+   .js-roc is the two-up return/funding pair at that scale, not a larger hero.
+   .js-kpis stays eight columns for the Jesse week row. */
 .js-roc,
 .js-strip,
 .js-kpis {
   display: grid;
-  gap: 8px;
+  gap: var(--kpi-gap, 8px);
   margin: 16px 0 14px;
 }
 .js-roc { grid-template-columns: 1fr 1fr; margin-bottom: 8px; }
-.js-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.js-strip { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
 .js-kpis { grid-template-columns: repeat(8, minmax(0, 1fr)); margin-top: 10px; }
 .js-roc .js-stat {
   border-color: var(--sh-roc-line, rgba(47, 79, 63, 0.45));
   background: var(--sh-roc-bg, linear-gradient(180deg, rgba(47, 79, 63, 0.1), #fffaf4 48%));
 }
-.js-roc .js-v { font-size: 28px; }
 .js-subnav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
 .js-view {
   font: inherit;
@@ -37,30 +40,31 @@
 .js-stat {
   background: var(--sh-card, #fffaf4);
   border: 1px solid var(--sh-line, #e2d3c2);
-  border-radius: 10px;
-  padding: 10px 12px 9px;
+  border-radius: var(--kpi-radius, 10px);
+  padding: var(--kpi-pad, 10px 12px 9px);
   min-width: 0;
 }
 .js-k {
-  font-size: 10px;
-  letter-spacing: 0.07em;
+  font-size: var(--kpi-k-size, 10px);
+  letter-spacing: var(--kpi-k-track, 0.07em);
   text-transform: uppercase;
   color: var(--sh-mute, #6d7c72);
   font-weight: 600;
 }
 .js-v {
-  margin-top: 4px;
-  font-size: 20px;
+  margin-top: 6px;
+  font-size: var(--kpi-v-size, 20px);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--kpi-v-track, -0.03em);
+  line-height: 1.1;
   color: var(--sh-text, #24352c);
 }
 .js-v.up { color: var(--sh-up, #2f4f3f); }
 .js-v.dn { color: var(--sh-dn, #c65a3a); }
 .js-s {
-  margin-top: 4px;
-  font-size: 11px;
-  line-height: 1.35;
+  margin-top: 6px;
+  font-size: var(--kpi-s-size, 11.5px);
+  line-height: var(--kpi-s-lead, 1.35);
   color: var(--sh-mute, #6d7c72);
 }
 

@@ -84,8 +84,3 @@ html.view-sleeve .brand-text .sub {
 }
 
 .sleeve-view { margin-top: 4px; }
-html.view-sleeve .sl-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-@media (max-width: 1080px) {
-  html.view-sleeve .sl-strip { grid-template-columns: 1fr 1fr; }
-}

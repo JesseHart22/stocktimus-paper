@@ -279,6 +279,7 @@
       if (data) pill.textContent = "cc tracker";
       else if (state.error) pill.textContent = "cc tracker missing";
       else pill.textContent = "loading";
+      pill.title = pill.textContent;
     }
     const asof = $("asof");
     if (!asof) return;
