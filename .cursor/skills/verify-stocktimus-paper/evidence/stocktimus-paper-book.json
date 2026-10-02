@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "stocktimus-paper-book",
-  "at": "2026-09-29T21:03:26.820Z",
-  "url": "http://127.0.0.1:35091/",
+  "at": "2026-10-02T20:42:15.001Z",
+  "url": "http://127.0.0.1:33419/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -18,14 +18,14 @@
     "deskSub": "Paper book",
     "pill": "stocktimus-paper · Robinhood live",
     "bookSub": "74 tickets in view",
-    "pnl": "$2,718.22",
-    "pnlSub": "Open $237.00 · Closed $2,481.22 · Robinhood live",
+    "pnl": "$2,290.22",
+    "pnlSub": "Open −$191.00 · Closed $2,481.22 · Robinhood live",
     "closedPnl": "$2,481.22",
     "openN": "6",
     "invN": "12",
     "outN": "56",
-    "targetK": "Avg $/week vs $3,790.77 goal",
-    "deployedSub": "Idle $226,088.22 of $252,718.22 book · avg $39k",
+    "targetK": "Avg $/week vs $3,784.35 goal",
+    "deployedSub": "Idle $225,660.22 of $252,290.22 book · avg $38k",
     "footer": "Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.",
     "rowCount": 74,
     "drawer": {
@@ -87,12 +87,12 @@
     {
       "name": "deployed subtitle names file account",
       "ok": true,
-      "detail": "Idle $226,088.22 of $252,718.22 book · avg $39k"
+      "detail": "Idle $225,660.22 of $252,290.22 book · avg $38k"
     },
     {
       "name": "weekly goal label",
       "ok": true,
-      "detail": "Avg $/week vs $3,790.77 goal"
+      "detail": "Avg $/week vs $3,784.35 goal"
     },
     {
       "name": "open count",
@@ -117,12 +117,12 @@
     {
       "name": "total P&L matches file",
       "ok": true,
-      "detail": "$2,718.22 vs $2,718.22"
+      "detail": "$2,290.22 vs $2,290.22"
     },
     {
       "name": "robinhood subtitle",
       "ok": true,
-      "detail": "Open $237.00 · Closed $2,481.22 · Robinhood live"
+      "detail": "Open −$191.00 · Closed $2,481.22 · Robinhood live"
     },
     {
       "name": "robinhood pill is not delayed",

@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "jesse-tab",
-  "at": "2026-10-02T20:27:42.706Z",
-  "url": "http://127.0.0.1:35139/",
+  "at": "2026-10-02T20:42:24.489Z",
+  "url": "http://127.0.0.1:33419/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -231,7 +231,7 @@
     {
       "name": "week click does not navigate",
       "ok": true,
-      "detail": "http://127.0.0.1:35139/#jesse"
+      "detail": "http://127.0.0.1:33419/#jesse"
     },
     {
       "name": "selected week",
