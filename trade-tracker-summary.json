@@ -1,99 +1,100 @@
 {
-  "asof_pt": "2026-10-02T13:30:00-07:00",
-  "account": 252679.22,
+  "asof_pt": "2026-10-05T12:20:33-07:00",
+  "account": 256946.22,
   "starting_account": 250000.0,
-  "max_per_trade": 63169.81,
-  "weekly_target": 3790.19,
-  "elapsed_days_from_first_email": 50,
-  "elapsed_weeks": 7.142857142857143,
-  "paper_fill_rules": "PAPER backtest of Stocktimus recommendations, not Jesse's actual fills. Assume each emailed ticket filled at the inventory stock_price and premium_per_share on the email date, sized as printed (CC with no size => 100 sh / 1 call). taken stays proposed except LULU (taken=no, status=out). Invalidation uses completed Yahoo daily CLOSE only (session 2026-09-25 is CLOSED after 1pm PT; today's close MAY be used for invalidation). A. Invalidated stock+CC: stock P&L=(close-entry)*100*contracts; call credit KEPT; no invented buy-to-close (no same-day option print) \u2014 FLAG. A. Invalidated CSP: paper P&L = credit - max(0,strike-close)*100*contracts; time value unknown. A. Invalidated long call: P&L = max(0,close-strike)*100*contracts - debit; time value unknown. B. Still open: CBOE mid=(bid+ask)/2 if both>0 else last if>0 else blank. stock+CC unrealized=(live-entry)*100*n + credit - live_call_mark*100*n. CSP unrealized=credit - live_put_mark*100*n. long call unrealized=live_call_mark*100*n - debit. C. Expiry-day contracts settle intrinsic-only at expiry close (no time value). stock+CC ITM (close>strike): (expiry_close-entry)*100*n + credit - max(0,close-strike)*100*n. If close<=strike (OTM): call expires 0 and credit kept; leftover shares stay OPEN (paper_status=leftover_shares) MTM at live mark \u2014 stock exit is NEXT RTH open (Fri weekly -> Monday open); do NOT use expiry close as final stock exit. CSP expired: credit - max(0,strike-close)*100*n. Long call expired: max(0,close-strike)*100*n - debit. D. LULU already OUT midday 8/17: paper_status=out. If CBOE still lists Aug 21 120c, MTM at live mid. If CBOE no longer lists the expired Aug 21 120c, CARRY Friday 8/21 last real mark: paper_pnl=-298, live_option_mid=1.16, paper_status=out, flag carried Friday 8/21 CBOE mid 1.16 (last real print). Do not leave LULU unscored and do not invent a new premium. E. IREN/NVO/ZETA distinct tickets scored independently. IREN 42.50c 8/19 noon + 8/20 AM are reprints of 8/19 AM \u2014 scored once; credit note 1.17\u21921.42. IREN 8/20 noon 42c is a different strike from 42.50c \u2014 scored independently. IREN 8/21 noon 43c Aug 28 is a NEW overlay \u2014 scored independently. PFE 8/20 28c is an unused-alternative to 8/19 28.50c \u2014 both scored, not both assumed filled. PFE 8/21 noon 28c Aug 28 is a new week overlay \u2014 scored independently of 8/20 AM 28c. CSV ids 1-4 were not in any Stocktimus briefing email \u2014 tracker-only group. Aug 13 noon HIMS 30c / JD 30c / IREN 45c / ASTS 70p are emailed and were missing from the CSV.",
+  "max_per_trade": 64236.56,
+  "weekly_target": 3854.19,
+  "elapsed_days_from_first_email": 53,
+  "elapsed_weeks": 7.571428571428571,
+  "paper_fill_rules": "PAPER backtest of Stocktimus recommendations, not Jesse's actual fills. Assume each emailed ticket filled at the inventory stock_price and premium_per_share on the email date, sized as printed (CC with no size => 100 sh / 1 call). taken stays proposed except LULU (taken=no, status=out). Invalidation uses completed Yahoo daily CLOSE only (session 2026-09-24 is CLOSED after 1pm PT; today's close MAY be used for invalidation). A. Invalidated stock+CC: stock P&L=(close-entry)*100*contracts; call credit KEPT; no invented buy-to-close (no same-day option print) \u2014 FLAG. A. Invalidated CSP: paper P&L = credit - max(0,strike-close)*100*contracts; time value unknown. A. Invalidated long call: P&L = max(0,close-strike)*100*contracts - debit; time value unknown. B. Still open: CBOE mid=(bid+ask)/2 if both>0 else last if>0 else blank. stock+CC unrealized=(live-entry)*100*n + credit - live_call_mark*100*n. CSP unrealized=credit - live_put_mark*100*n. long call unrealized=live_call_mark*100*n - debit. C. Expiry-day contracts settle intrinsic-only at expiry close (no time value). stock+CC ITM (close>strike): (expiry_close-entry)*100*n + credit - max(0,close-strike)*100*n. If close<=strike (OTM): call expires 0 and credit kept; leftover shares stay OPEN (paper_status=leftover_shares) MTM at live mark \u2014 stock exit is NEXT RTH open (Fri weekly -> Monday open); do NOT use expiry close as final stock exit. CSP expired: credit - max(0,strike-close)*100*n. Long call expired: max(0,close-strike)*100*n - debit. D. LULU already OUT midday 8/17: paper_status=out. If CBOE still lists Aug 21 120c, MTM at live mid. If CBOE no longer lists the expired Aug 21 120c, CARRY Friday 8/21 last real mark: paper_pnl=-298, live_option_mid=1.16, paper_status=out, flag carried Friday 8/21 CBOE mid 1.16 (last real print). Do not leave LULU unscored and do not invent a new premium. E. IREN/NVO/ZETA distinct tickets scored independently. IREN 42.50c 8/19 noon + 8/20 AM are reprints of 8/19 AM \u2014 scored once; credit note 1.17\u21921.42. IREN 8/20 noon 42c is a different strike from 42.50c \u2014 scored independently. IREN 8/21 noon 43c Aug 28 is a NEW overlay \u2014 scored independently. PFE 8/20 28c is an unused-alternative to 8/19 28.50c \u2014 both scored, not both assumed filled. PFE 8/21 noon 28c Aug 28 is a new week overlay \u2014 scored independently of 8/20 AM 28c. CSV ids 1-4 were not in any Stocktimus briefing email \u2014 tracker-only group. Aug 13 noon HIMS 30c / JD 30c / IREN 45c / ASTS 70p are emailed and were missing from the CSV.",
   "source_of_truth": "/workspace/tracker-inventory.json",
-  "yahoo_quote_v7": "unused; stock+option marks from Robinhood MCP live",
-  "session_note": "Post-close Oct 2 RH live MTM. as_of=2026-10-02T13:30:00-07:00. Account=250000.0+paper_pnl; weekly_target=1.5% of current account. Settled RKLB/SE Oct2 OTM.",
+  "yahoo_quote_v7": "all tickers HTTP 401 \u2014 live last from Yahoo chart 1m regularMarketPrice / last 1m close",
+  "session_note": "Noon Oct5: added SE 500+5x Oct9 $98c. as_of=2026-10-05T12:20:33-07:00.",
   "paper_totals": {
     "emailed_all_ideas_independent": {
       "label": "emailed_all_ideas",
-      "n_rows": 74,
-      "n_scored": 74,
+      "n_rows": 71,
+      "n_scored": 71,
       "n_unscored": 0,
-      "sum_pnl": 2290.22,
-      "sum_capital": 224436.28,
-      "wins": 47,
-      "losses": 27,
-      "hit_rate": 0.6351351351351351,
-      "avg_pnl": 30.95,
-      "sum_acct_pct": 0.045804399999999995,
+      "sum_pnl": 2614.22,
+      "sum_capital": 212272.78,
+      "wins": 45,
+      "losses": 26,
+      "hit_rate": 0.6338028169014085,
+      "avg_pnl": 36.82,
+      "sum_acct_pct": 0.052284399999999995,
       "vs_weekly_target": {
-        "elapsed_weeks": 7.0,
-        "target_dollars": 26490.45,
-        "sum_pnl": 2290.22,
-        "vs_target": -24200.23,
+        "elapsed_weeks": 6.0,
+        "target_dollars": 4735.26,
+        "sum_pnl": 2614.22,
+        "vs_target": -2121.04,
         "note": "Includes both PFE alternatives independently. Not a simultaneous book."
       }
     },
     "emailed_if_PFE_28_50c_taken": {
       "label": "emailed_if_PFE_28_50c_taken",
-      "n_rows": 73,
-      "n_scored": 73,
+      "n_rows": 70,
+      "n_scored": 70,
       "n_unscored": 0,
-      "sum_pnl": 2236.22,
-      "sum_capital": 221639.28,
-      "wins": 46,
-      "losses": 27,
-      "hit_rate": 0.6301369863013698,
-      "avg_pnl": 30.63,
-      "sum_acct_pct": 0.0447244,
+      "sum_pnl": 2560.22,
+      "sum_capital": 209475.78,
+      "wins": 44,
+      "losses": 26,
+      "hit_rate": 0.6285714285714286,
+      "avg_pnl": 36.57,
+      "sum_acct_pct": 0.0512044,
       "vs_weekly_target": {
-        "elapsed_weeks": 7.0,
-        "target_dollars": 26490.45,
-        "sum_pnl": 2236.22,
-        "vs_target": -24254.23
+        "elapsed_weeks": 6.0,
+        "target_dollars": 4735.26,
+        "sum_pnl": 2560.22,
+        "vs_target": -2175.04
       }
     },
     "emailed_if_PFE_28c_taken": {
       "label": "emailed_if_PFE_28c_taken",
-      "n_rows": 73,
-      "n_scored": 73,
+      "n_rows": 70,
+      "n_scored": 70,
       "n_unscored": 0,
-      "sum_pnl": 2292.22,
-      "sum_capital": 221606.28,
-      "wins": 47,
-      "losses": 26,
-      "hit_rate": 0.6438356164383562,
-      "avg_pnl": 31.4,
-      "sum_acct_pct": 0.045844399999999993,
+      "sum_pnl": 2616.22,
+      "sum_capital": 209442.78,
+      "wins": 45,
+      "losses": 25,
+      "hit_rate": 0.6428571428571429,
+      "avg_pnl": 37.37,
+      "sum_acct_pct": 0.05232439999999999,
       "vs_weekly_target": {
-        "elapsed_weeks": 7.0,
-        "target_dollars": 26490.45,
-        "sum_pnl": 2292.22,
-        "vs_target": -24198.23
+        "elapsed_weeks": 6.0,
+        "target_dollars": 4735.26,
+        "sum_pnl": 2616.22,
+        "vs_target": -2119.04
       }
     },
     "tracker_only_not_emailed": {
       "label": "tracker-only",
-      "n_rows": 0,
-      "n_scored": 0,
-      "n_unscored": 0,
-      "sum_pnl": 0.0,
-      "sum_capital": 0.0,
+      "n_rows": 4,
+      "n_scored": 2,
+      "n_unscored": 2,
+      "sum_pnl": -356.0,
+      "sum_capital": 10600.0,
       "wins": 0,
-      "losses": 0,
-      "hit_rate": null,
-      "avg_pnl": null,
-      "sum_acct_pct": null
+      "losses": 2,
+      "hit_rate": 0.0,
+      "avg_pnl": -178.0,
+      "sum_acct_pct": -0.00712
     },
-    "paper_pnl": 2679.22,
-    "sum_pnl": 2290.22,
-    "account": 252679.22,
+    "paper_pnl": 6946.22,
+    "account": 256946.22,
     "starting_account": 250000.0,
-    "weekly_target": 3790.19,
-    "max_per_trade": 63169.81,
-    "open": 5,
-    "leftover_shares": 3,
-    "expired": 54,
-    "resolved": 69,
-    "wins": 45,
-    "hit_rate": 0.6521739130434783
+    "weekly_target": 3854.19,
+    "max_per_trade": 64236.56,
+    "open": 24,
+    "leftover_shares": 8,
+    "expired": 60,
+    "resolved": 76,
+    "wins": 51,
+    "hit_rate": 0.6710526315789473,
+    "deployed_capital": 222536.5,
+    "free_cash": 34409.72
   },
   "by_structure": {
     "CSP": {
@@ -109,22 +110,22 @@
       "wins": 1
     },
     "stock+CC": {
-      "hit": 0.6666666666666666,
-      "n": 63,
-      "sum_pnl": 2508.72,
-      "wins": 42
+      "hit": 0.6477272727272727,
+      "n": 88,
+      "sum_pnl": 6775.72,
+      "wins": 57
     }
   },
   "by_creator": {
     "Danny": {
-      "hit": 0.75,
-      "n": 8,
-      "sum_pnl": 1569.5,
-      "wins": 6
+      "hit": 0.7368421052631579,
+      "n": 19,
+      "sum_pnl": 5308.5,
+      "wins": 14
     },
     "Danny+TLI": {
-      "hit": 0.5,
-      "n": 2,
+      "hit": 0.3333333333333333,
+      "n": 3,
       "sum_pnl": -9.0,
       "wins": 1
     },
@@ -141,22 +142,28 @@
       "wins": 0
     },
     "Stocktimus": {
-      "hit": 0.7083333333333334,
-      "n": 24,
-      "sum_pnl": 1344.0,
-      "wins": 17
+      "hit": 0.7692307692307693,
+      "n": 26,
+      "sum_pnl": 1685.0,
+      "wins": 20
     },
     "TLI": {
-      "hit": 0.6,
-      "n": 30,
-      "sum_pnl": -327.28,
-      "wins": 18
+      "hit": 0.5277777777777778,
+      "n": 36,
+      "sum_pnl": -210.78,
+      "wins": 19
     },
     "TLI+Danny": {
-      "hit": 0.625,
-      "n": 8,
-      "sum_pnl": 106.0,
+      "hit": 0.5555555555555556,
+      "n": 9,
+      "sum_pnl": -54.0,
       "wins": 5
+    },
+    "The Long Investor": {
+      "hit": 0.75,
+      "n": 4,
+      "sum_pnl": 230.5,
+      "wins": 3
     }
   },
   "by_week": {
@@ -217,71 +224,77 @@
       "n_rows": 4,
       "n_scored": 4,
       "n_unscored": 0,
-      "sum_pnl": 359.0,
+      "sum_pnl": 355.5,
       "sum_capital": 12586.5,
       "wins": 3,
       "losses": 1,
       "hit_rate": 0.75,
-      "avg_pnl": 89.75,
-      "sum_acct_pct": 0.00718
+      "avg_pnl": 88.88,
+      "sum_acct_pct": 0.00711
     },
     "2026-W38": {
       "label": "2026-W38",
       "n_rows": 6,
       "n_scored": 6,
       "n_unscored": 0,
-      "sum_pnl": 541.0,
+      "sum_pnl": 620.5,
       "sum_capital": 43160.5,
       "wins": 4,
       "losses": 2,
       "hit_rate": 0.6666666666666666,
-      "avg_pnl": 90.17,
-      "sum_acct_pct": 0.01082
+      "avg_pnl": 103.42,
+      "sum_acct_pct": 0.01241
     },
     "2026-W39": {
       "label": "2026-W39",
       "n_rows": 7,
       "n_scored": 7,
       "n_unscored": 0,
-      "sum_pnl": -162.78,
+      "sum_pnl": -301.78,
       "sum_capital": 17061.78,
-      "wins": 5,
-      "losses": 2,
-      "hit_rate": 0.7142857142857143,
-      "avg_pnl": -23.25,
-      "sum_acct_pct": -0.0032556
-    },
-    "2026-W40": {
-      "label": "2026-W40",
-      "n_rows": 3,
-      "n_scored": 3,
-      "n_unscored": 0,
-      "sum_pnl": -387.0,
-      "sum_capital": 12163.5,
-      "wins": 1,
-      "losses": 2,
-      "hit_rate": 0.3333333333333333,
-      "avg_pnl": -129.0,
-      "sum_acct_pct": -0.00774
+      "wins": 4,
+      "losses": 3,
+      "hit_rate": 0.5714285714285714,
+      "avg_pnl": -43.11,
+      "sum_acct_pct": -0.0060355999999999995
     }
   },
   "by_paper_status": {
     "open": {
-      "n": 2,
+      "n": 16,
       "ids": [
         "2026-09-21-noon-MRAM",
-        "2026-09-28-AM-MKC"
+        "2026-09-28-AM-MKC",
+        "2026-10-01-AM-NBIS",
+        "2026-10-01-AM-INTC",
+        "2026-10-01-AM-LMND",
+        "2026-10-02-AM-SE",
+        "2026-10-02-AM-HIMS",
+        "2026-10-05-AM-RKLB",
+        "2026-10-05-AM-ASTS",
+        "2026-10-05-AM-BABA",
+        "2026-10-05-AM-DRAM",
+        "2026-10-05-AM-HOOD",
+        "2026-10-05-AM-OSCR",
+        "2026-10-05-AM-SLV",
+        "2026-10-05-AM-NU",
+        "2026-10-05-noon-SE"
       ],
-      "sum_pnl": -179.0
+      "sum_pnl": 622.0
     },
     "leftover_shares": {
-      "n": 3,
+      "n": 8,
       "ids": [
         "2026-09-11-noon-HIMS",
         "2026-09-18-AM-SE",
-        "2026-09-28-AM-RKLB"
+        "2026-09-28-AM-RKLB",
+        "2026-09-29-AM-ASTS",
+        "2026-09-29-AM-BABA",
+        "2026-09-30-AM-DRAM",
+        "2026-09-30-AM-HOOD",
+        "2026-09-30-noon-OSCR"
       ],
-      "sum_pnl": 276.0
+      "sum_pnl": 1065.5
     },
     "invalidated": {
       "n": 12,
@@ -302,16 +315,17 @@
       "sum_pnl": -644.28
     },
     "out": {
-      "n": 3,
+      "n": 4,
       "ids": [
         "2026-08-17-AM-LULU",
         "2026-09-18-AM-BABA",
-        "2026-09-21-AM-NFLX"
+        "2026-09-21-AM-NFLX",
+        "2026-09-30-noon-APP"
       ],
-      "sum_pnl": -143.5
+      "sum_pnl": -432.5
     },
     "expired": {
-      "n": 54,
+      "n": 60,
       "ids": [
         "2026-08-13-noon-JD",
         "2026-08-13-noon-IREN",
@@ -366,9 +380,15 @@
         "2026-09-18-AM-HOOD",
         "2026-09-21-AM-HIMS",
         "2026-09-22-noon-GRRR",
-        "2026-09-28-AM-SE"
+        "2026-09-28-AM-SE",
+        "2026-09-29-AM-RBRK",
+        "2026-09-29-AM-HIMS",
+        "2026-09-29-noon-AMZN",
+        "2026-09-29-noon-NU",
+        "2026-09-30-AM-MRVL",
+        "2026-09-30-AM-AMD"
       ],
-      "sum_pnl": 3370.0
+      "sum_pnl": 6335.5
     },
     "reprint": {
       "n": 0,
@@ -378,16 +398,16 @@
   },
   "by_confidence": {
     "High": {
-      "hit": 0.6,
-      "n": 5,
-      "sum_pnl": 100.0,
+      "hit": 0.5,
+      "n": 6,
+      "sum_pnl": -60.0,
       "wins": 3
     },
     "Medium": {
-      "hit": 0.6515151515151515,
-      "n": 66,
-      "sum_pnl": 2775.22,
-      "wins": 43
+      "hit": 0.6444444444444445,
+      "n": 90,
+      "sum_pnl": 7202.22,
+      "wins": 58
     },
     "Low": {
       "hit": 0.6666666666666666,
@@ -1462,8 +1482,8 @@
       "csv_id": 63,
       "ticker": "HIMS",
       "structure": "stock+CC",
-      "paper_pnl": 240.5,
-      "paper_roc_pct": 0.08827307762892274,
+      "paper_pnl": 295.5,
+      "paper_roc_pct": 0.10846026793907139,
       "paper_status": "leftover_shares",
       "source_group": "emailed",
       "confidence": "Medium",
@@ -1486,8 +1506,8 @@
       "csv_id": 65,
       "ticker": "SE",
       "structure": "stock+CC",
-      "paper_pnl": -175.5,
-      "paper_roc_pct": -0.017506234413965087,
+      "paper_pnl": 70.5,
+      "paper_roc_pct": 0.007032418952618454,
       "paper_status": "leftover_shares",
       "source_group": "emailed",
       "confidence": "Medium",
@@ -1546,8 +1566,8 @@
       "csv_id": 70,
       "ticker": "MRAM",
       "structure": "stock+CC",
-      "paper_pnl": 100.0,
-      "paper_roc_pct": 0.05824111822947,
+      "paper_pnl": 102.0,
+      "paper_roc_pct": 0.059405940594059396,
       "paper_status": "open",
       "source_group": "emailed",
       "confidence": "Medium",
@@ -1674,39 +1694,119 @@
       "confidence_reason": null
     },
     {
-      "id": "2026-09-28-AM-RKLB",
+      "id": "2026-10-05-AM-RKLB",
       "ticker": "RKLB",
+      "creator": "Danny",
       "structure": "stock+CC",
-      "paper_pnl": 211.0,
-      "paper_roc_pct": 0.02882119928971452,
-      "paper_status": "leftover_shares",
-      "source_group": "emailed",
       "confidence": "Medium",
-      "confidence_reason": "Danny Tier3 accumulate $68-$74 this week; single feed; in zone."
-    },
-    {
-      "id": "2026-09-28-AM-MKC",
-      "ticker": "MKC",
-      "structure": "stock+CC",
-      "paper_pnl": -279.0,
-      "paper_roc_pct": -0.057614868353123384,
       "paper_status": "open",
-      "source_group": "emailed",
-      "confidence": "Medium",
-      "confidence_reason": "TLI BUY ZONE $41-$57; no weeklies so next monthly; in zone."
+      "paper_pnl": 0.0,
+      "paper_roc_pct": null,
+      "capital_at_risk": 0.0,
+      "strike": 73.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
     },
     {
-      "id": "2026-09-28-AM-SE",
-      "ticker": "SE",
+      "id": "2026-10-05-AM-ASTS",
+      "ticker": "ASTS",
+      "creator": "TLI",
       "structure": "stock+CC",
-      "paper_pnl": 101.0,
-      "paper_roc_pct": null,
-      "paper_status": "expired",
-      "source_group": "emailed",
       "confidence": "Medium",
-      "confidence_reason": "TLI $98 5th buy/add still live; roll leftover Sep25 OTM shares."
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": null,
+      "capital_at_risk": 0.0,
+      "strike": 60.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-05-AM-BABA",
+      "ticker": "BABA",
+      "creator": "TLI",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": null,
+      "capital_at_risk": 0.0,
+      "strike": 109.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-05-AM-DRAM",
+      "ticker": "DRAM",
+      "creator": "Danny",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": null,
+      "capital_at_risk": 0.0,
+      "strike": 62.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-05-AM-HOOD",
+      "ticker": "HOOD",
+      "creator": "Danny",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": null,
+      "capital_at_risk": 0.0,
+      "strike": 115.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-05-AM-OSCR",
+      "ticker": "OSCR",
+      "creator": "Danny+TLI",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": null,
+      "capital_at_risk": 0.0,
+      "strike": 32.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-05-AM-SLV",
+      "ticker": "SLV",
+      "creator": "TLI",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": 0.0,
+      "capital_at_risk": 55055.0,
+      "strike": 55.5,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-05-AM-NU",
+      "ticker": "NU",
+      "creator": "TLI",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": 0.0,
+      "capital_at_risk": 15365.0,
+      "strike": 15.5,
+      "expiry": "2026-10-09",
+      "lane": "paper"
     }
   ],
-  "marks_source": "robinhood",
-  "quote_quality": "robinhood_live"
+  "max_per_trade_note": "\u224825% of current equity",
+  "marks_source": "rh_equity_mid+rh_option_mid",
+  "quote_quality": "realtime_rh"
 }
