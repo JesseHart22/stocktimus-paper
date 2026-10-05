@@ -2,13 +2,12 @@
   "schema_version": "1.0",
   "account": {
     "nickname": "Agentic",
-    "account_number_masked": "••••5198",
-    "venue": "robinhood_agentic",
-    "account_number": "746345198"
+    "account_number_masked": "\u2022\u2022\u2022\u20225198",
+    "venue": "robinhood_agentic"
   },
   "as_of": "2026-10-05T09:55:56-07:00",
   "sleeve_budget_usd": 25000,
-  "notes": "Broker-sourced Oct 5 morning fills PT. Stocktimus CCs: EOSE 500 / Oct9 3c×5, RKLB 100 / Oct9 73c, LMND 100 / Oct9 48c, DRAM 100 / Oct9 62c. Compounder: SPGI 6 shares. Cash $3497.03; total ~$25015.61; deployed equities $21959.68; CC credits $457. Last marks from RH get_equity_quotes at rebuild.",
+  "notes": "Broker-sourced Oct 5 morning fills PT. Stocktimus CCs: EOSE 500 / Oct9 3c\u00d75, RKLB 100 / Oct9 73c, LMND 100 / Oct9 48c, DRAM 100 / Oct9 62c. Compounder: SPGI 6 shares. Cash $3497.03; total ~$25015.61; deployed equities $21959.68; CC credits $457. Last marks from RH get_equity_quotes at rebuild.",
   "portfolio": {
     "total_value": 25015.61,
     "equity_value": 21976.58,
@@ -40,7 +39,7 @@
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
         "status": "open",
-        "covers": "Oct9 3c ×5"
+        "covers": "Oct9 3c \u00d75"
       },
       {
         "symbol": "RKLB",
