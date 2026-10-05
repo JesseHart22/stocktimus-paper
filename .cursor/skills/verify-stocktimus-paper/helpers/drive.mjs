@@ -1424,28 +1424,34 @@ async function driveJesse(page) {
   };
 }
 
-function sleevePending(data) {
-  const notes = data && data.notes;
-  const text = Array.isArray(notes) ? notes.join(" ") : String(notes || "");
-  const m = text.match(/pending deposit[^$0-9]*\$?\s*([\d,]+(?:\.\d+)?)/i);
-  if (!m) return null;
-  return num(String(m[1]).replace(/,/g, ""));
+function sleeveEquity(data) {
+  const book = data.open_positions || {};
+  return Array.isArray(book.equity) ? book.equity : [];
 }
 
-function sleeveDeployed(data) {
-  const book = data.open_positions || {};
-  const rows = []
-    .concat(Array.isArray(book.equity) ? book.equity : [])
-    .concat(Array.isArray(book.options) ? book.options : []);
+function sleeveSum(rows, pick) {
   let total = 0;
   let any = false;
   for (const row of rows) {
-    const v = num(row.deployed_usd);
+    const v = num(pick(row));
     if (v == null) continue;
     total += v;
     any = true;
   }
   return any ? total : null;
+}
+
+function sleeveDeployed(data) {
+  return sleeveSum(sleeveEquity(data), (row) => row.deployed_usd);
+}
+
+function sleeveUnrealized(data) {
+  return sleeveSum(sleeveEquity(data), (row) => row.unrealized_pnl);
+}
+
+function sleeveWeekRows(data) {
+  const rows = Array.isArray(data.weekly_summary) ? data.weekly_summary : (Array.isArray(data.weeks) ? data.weeks : []);
+  return rows.filter((row) => row && row.week_ending);
 }
 
 async function driveSleeve(page) {
@@ -1487,10 +1493,7 @@ async function driveSleeve(page) {
       hidden: document.getElementById("sleeve-view").hidden,
       heroDisplay: hero ? getComputedStyle(hero).display : "",
       hash: location.hash,
-      pending: text("sl-pending"),
-      pendingSub: (document.querySelector("#sl-pending") && document.querySelector("#sl-pending").parentElement
-        ? document.querySelector("#sl-pending").parentElement.querySelector(".js-s").textContent.trim()
-        : ""),
+      pending: document.getElementById("sl-pending"),
       deployed: text("sl-deployed"),
       budget: text("sl-budget"),
       account: text("sl-account"),
@@ -1498,6 +1501,20 @@ async function driveSleeve(page) {
       unreal: text("sl-unreal"),
       realized: text("sl-real"),
       roc: text("sl-roc"),
+      rocBudget: text("sl-roc-budget"),
+      weekCc: text("sl-week-cc"),
+      weekDiv: text("sl-week-div"),
+      weekScalps: text("sl-week-scalps"),
+      weekAssign: text("sl-week-assign"),
+      weekCombined: text("sl-week-combined"),
+      weekRet: text("sl-week-ret"),
+      weekRetBudget: text("sl-week-ret-budget"),
+      weekOn: (document.querySelector("#sl-income .js-week.on") && document.querySelector("#sl-income .js-week.on").getAttribute("data-week")) || "",
+      allCc: text("sl-all-cc"),
+      allDiv: text("sl-all-div"),
+      allScalps: text("sl-all-scalps"),
+      allAssign: text("sl-all-assign"),
+      allCombined: text("sl-all-combined"),
       openN: text("sl-open-n"),
       fillsN: text("sl-fills"),
       notes: text("sl-notes"),
@@ -1505,7 +1522,11 @@ async function driveSleeve(page) {
       buckets: [...document.querySelectorAll("#sl-equity tr[data-bucket]")].map((tr) => tr.getAttribute("data-bucket")),
       fillIds: [...document.querySelectorAll("#sl-fills tr[data-fill]")].map((tr) => tr.getAttribute("data-fill")),
       optionText: (document.getElementById("sl-options") && document.getElementById("sl-options").textContent.trim()) || "",
+      openCc: [...document.querySelectorAll("#sl-open-ccs tr[data-symbol]")].map((tr) => tr.getAttribute("data-symbol")),
       orderText: (document.getElementById("sl-orders") && document.getElementById("sl-orders").textContent.trim()) || "",
+      dividendCount: (document.querySelector("#sl-dividends .js-count") && document.querySelector("#sl-dividends .js-count").textContent.trim()) || "",
+      scalpCount: (document.querySelector("#sl-scalps .js-count") && document.querySelector("#sl-scalps .js-count").textContent.trim()) || "",
+      assignCount: (document.querySelector("#sl-assignments .js-count") && document.querySelector("#sl-assignments .js-count").textContent.trim()) || "",
       realizedOpen: realizedEl ? realizedEl.open : null,
       summaryBtn: !!document.querySelector('.js-view[data-view="summary"]'),
       tabBg: tab ? getComputedStyle(tab).backgroundColor : "",
@@ -1514,8 +1535,13 @@ async function driveSleeve(page) {
     };
   });
 
-  const pending = sleevePending(data);
   const deployed = sleeveDeployed(data);
+  const unreal = sleeveUnrealized(data);
+  const port = data.portfolio || {};
+  const income = data.income && typeof data.income === "object" ? data.income : {};
+  const week = sleeveWeekRows(data).find((row) => String(row.week_ending) === snap.weekOn) || null;
+  const weekNet = week ? num(week.net_income) : null;
+  const weekRet = week ? (num(week.week_return_pct_vs_capital) != null ? num(week.week_return_pct_vs_capital) : num(week.week_return_pct)) : null;
   hard(checks, "sleeve name", snap.deskName === "Sleeve", snap.deskName);
   hard(checks, "sleeve subtitle", snap.deskSub === "Agentic", snap.deskSub);
   hard(checks, "sleeve title", snap.title === "Sleeve · Agentic", snap.title);
@@ -1525,14 +1551,28 @@ async function driveSleeve(page) {
   hard(checks, "view class", snap.view && snap.hidden === false);
   hard(checks, "hero hidden", snap.heroDisplay === "none", snap.heroDisplay);
   hard(checks, "hash sleeve", snap.hash === "#sleeve", snap.hash);
-  hard(checks, "pending deposits", snap.pending === money(pending), snap.pending + " vs " + money(pending));
-  hard(checks, "pending subtitle", snap.pendingSub.includes("Funding in flight"), snap.pendingSub);
+  hard(checks, "no pending tile", snap.pending == null, String(snap.pending));
+  hard(checks, "no pending copy", !/pending deposit/i.test(snap.bodyText), "body");
+  hard(checks, "account value", snap.account === money(num(port.total_value)), snap.account + " vs " + money(num(port.total_value)));
+  hard(checks, "cash", snap.cash === money(num(port.cash)), snap.cash + " vs " + money(num(port.cash)));
   hard(checks, "deployed", snap.deployed === money(deployed), snap.deployed + " vs " + money(deployed));
   hard(checks, "sleeve budget", snap.budget === money(num(data.sleeve_budget_usd)), snap.budget);
-  hard(checks, "account value absent", snap.account === "—", snap.account);
-  hard(checks, "cash absent", snap.cash === "—", snap.cash);
-  hard(checks, "unrealized absent", snap.unreal === "—", snap.unreal);
-  hard(checks, "return absent", snap.roc === "—", snap.roc);
+  hard(checks, "unrealized from equity", snap.unreal === money(unreal), snap.unreal + " vs " + money(unreal));
+  hard(checks, "return vs deployed", snap.roc === pct(num(income.roc_vs_deployed)), snap.roc);
+  hard(checks, "return vs budget", snap.rocBudget === pct(num(income.roc_vs_budget)), snap.rocBudget);
+  hard(checks, "week selected", !!week, snap.weekOn);
+  hard(checks, "week cc premium net", snap.weekCc === money(weekNet), snap.weekCc);
+  hard(checks, "week dividends", snap.weekDiv === money(week ? num(week.dividends) : null), snap.weekDiv);
+  hard(checks, "week scalps", snap.weekScalps === money(week ? (num(week.scalps_daytrades_pnl) != null ? num(week.scalps_daytrades_pnl) : num(week.daytrade_pnl)) : null), snap.weekScalps);
+  hard(checks, "week assignment", snap.weekAssign === money(week ? num(week.assignment_pnl) : null), snap.weekAssign);
+  hard(checks, "week combined", snap.weekCombined === money(week ? num(week.total_week_pnl) : null), snap.weekCombined);
+  hard(checks, "week return vs deployed", snap.weekRet === pct(weekRet), snap.weekRet);
+  hard(checks, "week return vs budget", snap.weekRetBudget === pct(week ? num(week.week_return_pct_vs_program) : null), snap.weekRetBudget);
+  hard(checks, "all-time cc premium net", snap.allCc === money(num(income.cc_premium_net)), snap.allCc);
+  hard(checks, "all-time dividends", snap.allDiv === money(num(income.dividends)), snap.allDiv);
+  hard(checks, "all-time scalps", snap.allScalps === money(num(income.scalps_daytrades_net)), snap.allScalps);
+  hard(checks, "all-time assignment", snap.allAssign === money(num(income.assignment_pnl)), snap.allAssign);
+  hard(checks, "all-time combined", snap.allCombined === money(num(income.combined_income)), snap.allCombined);
   const realizedTotal = realized.reduce((sum, row) => {
     const v = num(row.realized_pnl_usd != null ? row.realized_pnl_usd : row.realized_pnl);
     return v == null ? sum : sum + v;
@@ -1544,6 +1584,16 @@ async function driveSleeve(page) {
   hard(checks, "equity symbols", snap.symbols.join(",") === equity.map((p) => str(p.symbol)).join(","), snap.symbols.join(","));
   hard(checks, "equity buckets", snap.buckets.join(",") === equity.map((p) => str(p.desk_bucket)).join(","), snap.buckets.join(","));
   hard(checks, "options empty copy", options.length === 0 ? snap.optionText.includes("No open option positions") : snap.optionText.length > 0, snap.optionText);
+  const openCcSymbols = (Array.isArray(data.cc_trades) ? data.cc_trades : [])
+    .filter((row) => {
+      const flag = str(row.called_away || "Open");
+      return flag === "Open" || flag === "open";
+    })
+    .map((row) => str(row.symbol || row.ticker));
+  hard(checks, "open covered calls", snap.openCc.join(",") === openCcSymbols.join(","), snap.openCc.join(","));
+  hard(checks, "dividend rows", snap.dividendCount === String((data.dividends || []).length), snap.dividendCount);
+  hard(checks, "scalp rows", snap.scalpCount === String((data.scalps || data.daytrades || []).length), snap.scalpCount);
+  hard(checks, "assignment rows", snap.assignCount === String((data.assignments || []).length), snap.assignCount);
   hard(checks, "orders empty or listed", orders.length === 0 ? snap.orderText.includes("No open orders") : true, snap.orderText);
   hard(checks, "realized collapsed", snap.realizedOpen === false, String(snap.realizedOpen));
   hard(checks, "weekly summary hidden when empty", weeks.length ? snap.summaryBtn : !snap.summaryBtn, String(snap.summaryBtn));
@@ -1555,6 +1605,28 @@ async function driveSleeve(page) {
 
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: join(EVIDENCE, "sleeve-tab.png"), fullPage: true });
+
+  if (weeks.length) {
+    await page.locator('.js-view[data-view="summary"]').click();
+    await page.waitForFunction(() => document.getElementById("sl-weeks") && location.hash === "#sleeve");
+    const summary = await page.evaluate(() => ({
+      weeks: [...document.querySelectorAll("#sl-weeks tr[data-week]")].map((tr) => ({
+        week: tr.getAttribute("data-week"),
+        text: tr.textContent.trim(),
+      })),
+      equityGone: !document.getElementById("sl-equity"),
+    }));
+    const expectWeeks = sleeveWeekRows(data).map((row) => String(row.week_ending)).sort();
+    hard(checks, "summary weeks", summary.weeks.map((row) => row.week).join(",") === expectWeeks.join(","), summary.weeks.map((row) => row.week).join(","));
+    hard(checks, "summary hides open book", summary.equityGone);
+    for (const row of sleeveWeekRows(data)) {
+      const seen = summary.weeks.find((item) => item.week === String(row.week_ending));
+      const combined = money(num(row.total_week_pnl));
+      const ret = pct(num(row.week_return_pct_vs_capital) != null ? num(row.week_return_pct_vs_capital) : num(row.week_return_pct));
+      hard(checks, "summary " + row.week_ending, !!seen && seen.text.includes(combined) && seen.text.includes(ret), seen ? seen.text : "missing");
+    }
+    await page.screenshot({ path: join(EVIDENCE, "sleeve-tab-summary.png"), fullPage: true });
+  }
 
   await page.locator('.js-view[data-view="blotter"]').click();
   await page.waitForFunction(() => document.getElementById("sl-fills") && location.hash === "#sleeve");
@@ -1600,7 +1672,11 @@ async function driveSleeve(page) {
     observed: {
       title: snap.title,
       pill: snap.pill,
-      pending: snap.pending,
+      account: snap.account,
+      cash: snap.cash,
+      week: snap.weekOn,
+      weekCombined: snap.weekCombined,
+      weekRet: snap.weekRet,
       deployed: snap.deployed,
       openN: snap.openN,
       fillsN: snap.fillsN,

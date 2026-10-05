@@ -84,3 +84,6 @@ html.view-sleeve .brand-text .sub {
 }
 
 .sleeve-view { margin-top: 4px; }
+
+html.view-sleeve .js-table .up { color: var(--sh-up, #34d399); }
+html.view-sleeve .js-table .dn { color: var(--sh-dn, #f87171); }
