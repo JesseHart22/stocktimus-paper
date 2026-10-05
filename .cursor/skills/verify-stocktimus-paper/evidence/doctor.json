@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-10-02T20:42:11.426Z",
-  "url": "http://127.0.0.1:33419/",
+  "at": "2026-10-05T17:13:44.012Z",
+  "url": "http://127.0.0.1:37053/",
   "books": {
     "data.json": {
       "tickets": 74
@@ -10,7 +10,7 @@
       "tickets": 3
     },
     "desks/compounder.json": {
-      "tickets": 7
+      "tickets": 9
     }
   },
   "proxy": {
@@ -122,7 +122,7 @@
     {
       "name": "desks/compounder.json parses",
       "ok": true,
-      "detail": "7 tickets"
+      "detail": "9 tickets"
     },
     {
       "name": "desks/compounder.json unique ids",
@@ -202,7 +202,7 @@
     {
       "name": "jesse/cc-tracker.json parses",
       "ok": true,
-      "detail": "21 trades"
+      "detail": "22 trades"
     },
     {
       "name": "jesse desk field",
@@ -232,7 +232,7 @@
     {
       "name": "sleeve/trades.json parses",
       "ok": true,
-      "detail": "1 fills"
+      "detail": "10 fills"
     },
     {
       "name": "sleeve schema",
@@ -247,7 +247,7 @@
     {
       "name": "sleeve has equity book",
       "ok": true,
-      "detail": "EOSE"
+      "detail": "EOSE,RKLB,LMND,DRAM,SPGI"
     },
     {
       "name": "GET /",
