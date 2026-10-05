@@ -23,7 +23,7 @@ Hash tabs in `nav.desk-tabs`:
 | Stocktimus | `#stocktimus` (also the default when the hash is empty or unknown) | `./data.json`, then `./trade-tracker-paper.json`, then `../trade-tracker-paper.json`. Summary overlay: `./trade-tracker-summary.json`. CSV only if that book has zero tickets. |
 | Moonshot | `#moonshot` | `./desks/moonshot.json` |
 | Compounder | `#compounder` | `./desks/compounder.json` |
-| Sleeve | `#sleeve` | `./sleeve/trades.json`. Robinhood Agentic live ledger. Not a paper book. Steel & Ember while this tab is open. Pending deposits are parsed from `notes`. Deployed is the sum of open-position `deployed_usd`. The file has no marks, so account value, cash, unrealized P&L, and return on deployed stay blank. |
+| Sleeve | `#sleeve` | `./sleeve/trades.json`. Robinhood Agentic live ledger. Not a paper book. Steel & Ember while this tab is open. Account value is `portfolio.total_value` and cash is `portfolio.cash`. Deployed is the sum of open equity `deployed_usd`. Weekly income reads `weekly_summary` (CC premium net, dividends, scalps, assignment, combined, return vs deployed). |
 | Jesse | `#jesse` | `./jesse/cc-tracker.json`. Covered-call income tracker. Not a paper book. Clay & sage while this tab is open. Return on capital and Return on program come from `dashboard`. Weekly summary is a section on this tab, not a desk tab. |
 | Scoreboard | `#scoreboard` | `./scoreboard/stocktimus.json`, `compounder.json`, `moonshot.json`, `scout.json`. This is the X call log, not the paper book. |
 
@@ -97,7 +97,9 @@ Proof files live in `.cursor/skills/verify-stocktimus-paper/evidence/` and are m
 | `evidence/<feature-id>.json` | After a drive. Checks, observed strings, file paths. No proxy price. |
 | `evidence/<feature-id>-hero.png` | Paper desks, viewport of the loaded book |
 | `evidence/<feature-id>-drawer.png` | Paper desks, ticket drawer open |
-| `evidence/<feature-id>.png` | Scoreboard, or the Massive fallback label |
+| `evidence/<feature-id>.png` | Scoreboard, the Massive fallback label, or a Sleeve screenshot |
+| `evidence/sleeve-tab-summary.png` | Sleeve weekly summary |
+| `evidence/sleeve-tab-blotter.png` | Sleeve trade blotter |
 | `evidence/robinhood-mark-label.png` | Routed Robinhood live pill |
 | `evidence/cleanup.json` | After cleanup. Lists files that were present and still present |
 

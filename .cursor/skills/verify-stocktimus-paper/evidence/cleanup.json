@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "at": "2026-10-02T20:42:44.127Z",
+  "at": "2026-10-05T17:14:05.690Z",
   "serverStopped": true,
   "survived": [
     "compounder-desk-drawer.png",
@@ -20,6 +20,7 @@
     "scoreboard-tab.json",
     "scoreboard-tab.png",
     "sleeve-tab-blotter.png",
+    "sleeve-tab-summary.png",
     "sleeve-tab.json",
     "sleeve-tab.png",
     "stocktimus-paper-book-drawer.png",

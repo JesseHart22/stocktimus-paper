@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "sleeve-tab",
-  "at": "2026-10-02T20:42:22.975Z",
-  "url": "http://127.0.0.1:33419/",
+  "at": "2026-10-05T17:13:51.312Z",
+  "url": "http://127.0.0.1:37053/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -14,15 +14,32 @@
   "observed": {
     "title": "Sleeve · Agentic",
     "pill": "sleeve ledger",
-    "pending": "$24,750.00",
-    "deployed": "$32.00",
-    "openN": "1",
-    "fillsN": "1",
+    "account": "$25,015.61",
+    "cash": "$3,497.03",
+    "week": "2026-10-09",
+    "weekCombined": "$456.68",
+    "weekRet": "+2.08%",
+    "deployed": "$21,959.68",
+    "openN": "9",
+    "fillsN": "10",
     "symbols": [
-      "EOSE"
+      "EOSE",
+      "RKLB",
+      "LMND",
+      "DRAM",
+      "SPGI"
     ],
     "fillIds": [
-      "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3"
+      "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3",
+      "6ac3bbc0-e183-42f0-9e7a-d8213ce7b1ba",
+      "6ac3bc36-5b92-479e-9d22-011dcbec8830",
+      "6ac3bd60-3d73-4cd5-8411-3cc9607b43b6",
+      "6ac3bd97-d9b7-493a-bdb9-088e66d7ae54",
+      "6ac3bdb2-c76f-4040-89ec-a5656f9432e4",
+      "ad6342a8-2376-425a-be3e-c37a1b146046",
+      "6ac3bf0e-7b62-407b-a755-1c000b88d5d6",
+      "08916195-da12-40eb-adc7-a1bac1d24e24",
+      "6ac3c12d-fbff-4bff-8970-531147e31a75"
     ]
   },
   "checks": [
@@ -54,7 +71,7 @@
     {
       "name": "as_of datetime",
       "ok": true,
-      "detail": "2026-09-29T13:52:00-07:00"
+      "detail": "2026-10-05T09:55:56-07:00"
     },
     {
       "name": "view class",
@@ -72,19 +89,29 @@
       "detail": "#sleeve"
     },
     {
-      "name": "pending deposits",
+      "name": "no pending tile",
       "ok": true,
-      "detail": "$24,750.00 vs $24,750.00"
+      "detail": "null"
     },
     {
-      "name": "pending subtitle",
+      "name": "no pending copy",
       "ok": true,
-      "detail": "Funding in flight · from notes"
+      "detail": "body"
+    },
+    {
+      "name": "account value",
+      "ok": true,
+      "detail": "$25,015.61 vs $25,015.61"
+    },
+    {
+      "name": "cash",
+      "ok": true,
+      "detail": "$3,497.03 vs $3,497.03"
     },
     {
       "name": "deployed",
       "ok": true,
-      "detail": "$32.00 vs $32.00"
+      "detail": "$21,959.68 vs $21,959.68"
     },
     {
       "name": "sleeve budget",
@@ -92,24 +119,84 @@
       "detail": "$25,000.00"
     },
     {
-      "name": "account value absent",
+      "name": "unrealized from equity",
       "ok": true,
-      "detail": "—"
+      "detail": "$13.15 vs $13.15"
     },
     {
-      "name": "cash absent",
+      "name": "return vs deployed",
       "ok": true,
-      "detail": "—"
+      "detail": "+2.08%"
     },
     {
-      "name": "unrealized absent",
+      "name": "return vs budget",
       "ok": true,
-      "detail": "—"
+      "detail": "+1.83%"
     },
     {
-      "name": "return absent",
+      "name": "week selected",
       "ok": true,
-      "detail": "—"
+      "detail": "2026-10-09"
+    },
+    {
+      "name": "week cc premium net",
+      "ok": true,
+      "detail": "$456.68"
+    },
+    {
+      "name": "week dividends",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week scalps",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week combined",
+      "ok": true,
+      "detail": "$456.68"
+    },
+    {
+      "name": "week return vs deployed",
+      "ok": true,
+      "detail": "+2.08%"
+    },
+    {
+      "name": "week return vs budget",
+      "ok": true,
+      "detail": "+1.83%"
+    },
+    {
+      "name": "all-time cc premium net",
+      "ok": true,
+      "detail": "$456.68"
+    },
+    {
+      "name": "all-time dividends",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "all-time scalps",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "all-time assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "all-time combined",
+      "ok": true,
+      "detail": "$456.68"
     },
     {
       "name": "realized from ledger",
@@ -119,32 +206,52 @@
     {
       "name": "open positions",
       "ok": true,
-      "detail": "1"
+      "detail": "9"
     },
     {
       "name": "filled orders",
       "ok": true,
-      "detail": "1"
+      "detail": "10"
     },
     {
       "name": "notes rendered",
       "ok": true,
-      "detail": "Sleeve bot owns live fills only. Ledger is broker-sourced from Robinhood Agentic"
+      "detail": "Broker-sourced Oct 5 morning fills PT. Stocktimus CCs: EOSE 500 / Oct9 3c×5, RKL"
     },
     {
       "name": "equity symbols",
       "ok": true,
-      "detail": "EOSE"
+      "detail": "EOSE,RKLB,LMND,DRAM,SPGI"
     },
     {
       "name": "equity buckets",
       "ok": true,
-      "detail": "unknown_pre_ledger"
+      "detail": "stocktimus,stocktimus,stocktimus,stocktimus,compounder"
     },
     {
       "name": "options empty copy",
       "ok": true,
-      "detail": "No open option positions."
+      "detail": "RKLBshort1$73.002026-10-09$208.00stocktimusopenLMNDshort1$48.002026-10-09$45.00stocktimusopenDRAMshort1$62.002026-10-09$119.00stocktimusopenEOSEshort5$3.002026-10-09$85.00stocktimusopen"
+    },
+    {
+      "name": "open covered calls",
+      "ok": true,
+      "detail": "RKLB,LMND,DRAM,EOSE"
+    },
+    {
+      "name": "dividend rows",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "name": "scalp rows",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "name": "assignment rows",
+      "ok": true,
+      "detail": "0"
     },
     {
       "name": "orders empty or listed",
@@ -159,7 +266,7 @@
     {
       "name": "weekly summary hidden when empty",
       "ok": true,
-      "detail": "false"
+      "detail": "true"
     },
     {
       "name": "ember tab",
@@ -179,7 +286,22 @@
     {
       "name": "no extra equity symbols",
       "ok": true,
-      "detail": "EOSE"
+      "detail": "EOSE,RKLB,LMND,DRAM,SPGI"
+    },
+    {
+      "name": "summary weeks",
+      "ok": true,
+      "detail": "2026-10-09"
+    },
+    {
+      "name": "summary hides open book",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "summary 2026-10-09",
+      "ok": true,
+      "detail": "Fri, Oct 9, 2026$457.00$0.32$456.68$0.00$0.00$0.00$456.68$21,959.68+2.08%+1.83%4"
     },
     {
       "name": "blotter stays on sleeve",
@@ -194,12 +316,12 @@
     {
       "name": "blotter fill ids",
       "ok": true,
-      "detail": "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3"
+      "detail": "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3,6ac3bbc0-e183-42f0-9e7a-d8213ce7b1ba,6ac3bc36-5b92-479e-9d22-011dcbec8830,6ac3bd60-3d73-4cd5-8411-3cc9607b43b6,6ac3bd97-d9b7-493a-bdb9-088e66d7ae54,6ac3bdb2-c76f-4040-89ec-a5656f9432e4,ad6342a8-2376-425a-be3e-c37a1b146046,6ac3bf0e-7b62-407b-a755-1c000b88d5d6,08916195-da12-40eb-adc7-a1bac1d24e24,6ac3c12d-fbff-4bff-8970-531147e31a75"
     },
     {
       "name": "blotter buckets",
       "ok": true,
-      "detail": "unknown_pre_ledger"
+      "detail": "unknown_pre_ledger,stocktimus,stocktimus,stocktimus,stocktimus,stocktimus,stocktimus,stocktimus,stocktimus,compounder"
     },
     {
       "name": "back to stocktimus",
