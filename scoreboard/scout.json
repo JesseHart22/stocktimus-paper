@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-10-06T08:15:00-07:00",
+  "as_of": "2026-10-06T08:35:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -12,7 +12,7 @@
       "stars": 1,
       "called_at": "2026-09-08",
       "example": false,
-      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Still open through 2026-10-01. Age-eligible (\u226514d) but open themes stay out of rank average until closed. MTM equal-weight TLT/IEF/TLH short Sep8\u2192Sep30 close \u2248 +4.33% (info only). Proxies TLT,IEF,TLH."
+      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Still open through 2026-10-01. Age-eligible (≥14d) but open themes stay out of rank average until closed. MTM equal-weight TLT/IEF/TLH short Sep8→Sep30 close ≈ +4.33% (info only). Proxies TLT,IEF,TLH."
     },
     {
       "id": "ds-tlt-2026-09-17",
@@ -25,7 +25,7 @@
       "called_at": "2026-09-17",
       "closed_at": "2026-09-22",
       "example": false,
-      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Graded 2026-10-01 monthly rerate: equal-weight TLT/IEF/TLH Sep17 close\u2192Sep22 close; signed_return -0.0005 (-0.05%). Robinhood daily closes (paper-site feed).",
+      "note": "Covered tactical bond short; long bonds-in-portfolio. Sep 19 First Principles +1 star. Superseded 2026-09-22 by higher-yields central case. Graded 2026-10-01 monthly rerate: equal-weight TLT/IEF/TLH Sep17 close→Sep22 close; signed_return -0.0005 (-0.05%). Robinhood daily closes (paper-site feed).",
       "signed_return": -0.0005
     },
     {
@@ -39,7 +39,7 @@
       "called_at": "2026-09-22",
       "closed_at": "2026-09-24",
       "example": false,
-      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d \u2014 not graded."
+      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d — not graded."
     },
     {
       "id": "ds-tlt-2026-09-24",
@@ -48,10 +48,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "long",
-      "stars": 4,
+      "stars": 6,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = \u26052. Sep 26 ZB IV/skew sell put spreads buy call = \u26053. Sep 29 LaRoche: still max-long long bonds = \u26054 (same call). Proxies TLT,IEF,TLH,ZB. Under 14d."
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end."
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -63,7 +63,7 @@
       "stars": 1,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = \u26051 restatement. Still open. Proxies SPY,QQQ,IWM. Under 14d."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Still open. Proxies SPY,QQQ,IWM. Under 14d."
     },
     {
       "id": "ds-jpy-2026-09-29",
@@ -75,7 +75,7 @@
       "stars": 0,
       "called_at": "2026-09-29",
       "example": false,
-      "note": "Sep 29 LaRoche: slight long JPY. Proxy FXY frozen ~58.18 as of ~8:20am PT 2026-09-29. Slight sizing \u2014 not a graded trade. Under 14d."
+      "note": "Sep 29 LaRoche: slight long JPY. Proxy FXY frozen ~58.18 as of ~8:20am PT 2026-09-29. Slight sizing — not a graded trade. Under 14d."
     },
     {
       "id": "ds-ltpz-2026-10-01",
@@ -88,18 +88,6 @@
       "called_at": "2026-10-01",
       "example": false,
       "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close (Fri theme log)."
-    },
-    {
-      "id": "ds-tlt-2026-10-06",
-      "handle": "dampedspring",
-      "ticker": "TLT",
-      "kind": "theme",
-      "status": "open",
-      "direction": "long",
-      "stars": 0,
-      "called_at": "2026-10-06",
-      "example": false,
-      "note": "Oct 6: \"max long bonds at the moment\" (step up from improving-bonds case). HY spread widening not real Merton-model stress; flagged $119B 3s/10s/30s supply next 3 days. Proxies TLT,IEF,TLH. Outside 7d of ds-tlt-2026-09-24 \u2192 new graded call."
     }
   ]
 }
