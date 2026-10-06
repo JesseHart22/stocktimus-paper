@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "at": "2026-10-06T17:36:22.597Z",
+  "at": "2026-10-06T18:50:24.781Z",
   "serverStopped": true,
   "survived": [
     "compounder-desk-drawer.png",
@@ -17,6 +17,8 @@
     "moonshot-desk-hero.png",
     "moonshot-desk.json",
     "robinhood-mark-label.png",
+    "scalp-tab.json",
+    "scalp-tab.png",
     "scoreboard-tab.json",
     "scoreboard-tab.png",
     "sleeve-tab-blotter.png",

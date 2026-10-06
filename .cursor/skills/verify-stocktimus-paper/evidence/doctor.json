@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-10-06T17:34:52.237Z",
-  "url": "http://127.0.0.1:37531/",
+  "at": "2026-10-06T18:49:46.928Z",
+  "url": "http://127.0.0.1:40859/",
   "books": {
     "data.json": {
       "tickets": 102
@@ -86,6 +86,21 @@
     },
     {
       "name": "sleeve ledger path",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp ledger path",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app.js scalp hash",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp does not call the quote proxy",
       "ok": true,
       "detail": ""
     },
@@ -202,7 +217,7 @@
     {
       "name": "jesse/cc-tracker.json parses",
       "ok": true,
-      "detail": "22 trades"
+      "detail": "25 trades"
     },
     {
       "name": "jesse desk field",
@@ -248,6 +263,56 @@
       "name": "sleeve has equity book",
       "ok": true,
       "detail": "EOSE,RKLB,LMND,DRAM,SPGI"
+    },
+    {
+      "name": "scalp/scalp.json parses",
+      "ok": true,
+      "detail": "desk=scalp"
+    },
+    {
+      "name": "scalp desk field",
+      "ok": true,
+      "detail": "desk=scalp"
+    },
+    {
+      "name": "scalp mode paper",
+      "ok": true,
+      "detail": "mode=paper"
+    },
+    {
+      "name": "scalp budget and cash",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp open array",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "name": "scalp closed array",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp quote tries array",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp pnl fields",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp playbooks",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "scalp unique ids",
+      "ok": true,
+      "detail": ""
     },
     {
       "name": "GET /",
@@ -316,6 +381,21 @@
     },
     {
       "name": "GET /sleeve.css",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /scalp/scalp.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /scalp.js",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /scalp.css",
       "ok": true,
       "detail": "HTTP 200"
     },
