@@ -1,0 +1,113 @@
+/* Scalp paper book. Clay & sage, scoped so the other desks keep their theme.
+   Shared card / table chrome is in shell.css. */
+#scalp-view { display: none; }
+
+html.view-scalp .hero,
+html.view-scalp .roc-row,
+html.view-scalp .breaks,
+html.view-scalp .books,
+html.view-scalp .foot,
+html.view-scalp .sh-subnav,
+html.view-scalp #paper-book,
+html.view-scalp #paper-summary,
+body.view-scalp .hero,
+body.view-scalp .roc-row,
+body.view-scalp .breaks,
+body.view-scalp .books,
+body.view-scalp .foot,
+body.view-scalp .sh-subnav,
+body.view-scalp #paper-book,
+body.view-scalp #paper-summary { display: none !important; }
+
+html.view-scalp #scalp-view,
+body.view-scalp #scalp-view { display: block !important; }
+
+html.view-scalp {
+  color-scheme: light;
+  --bg: #f4eee4;
+  --bg-2: #e7dccb;
+  --elev: #fbf6ee;
+  --card: #fffaf4;
+  --hover: #f3e7d8;
+  --line: #e2d3c2;
+  --line-2: #c9b49f;
+  --text: #24352c;
+  --dim: #3e5348;
+  --mute: #6d7c72;
+  --green: #2f4f3f;
+  --green-bg: rgba(47, 79, 63, 0.1);
+  --red: #c65a3a;
+  --red-bg: rgba(198, 90, 58, 0.12);
+  --amber: #c65a3a;
+  --chart: #2f4f3f;
+  --chart-dim: rgba(47, 79, 63, 0.12);
+  --orange: #c65a3a;
+  --sage: #2f4f3f;
+  --terracotta: #c65a3a;
+  --linen: #f6f1e7;
+  --sand: #e8dccb;
+}
+
+html.view-scalp,
+html.view-scalp body {
+  background:
+    radial-gradient(900px 420px at 0% -8%, rgba(47, 79, 63, 0.1), transparent 52%),
+    radial-gradient(760px 360px at 100% 0%, rgba(198, 90, 58, 0.1), transparent 48%),
+    linear-gradient(180deg, #f7f1e6 0%, #efe4d4 280px);
+  color: var(--text);
+}
+
+html.view-scalp .topbar { border-bottom-color: #ddcbb8; }
+html.view-scalp .desk-tab.on {
+  color: #fbf7f0;
+  background: #2f4f3f;
+  border-color: transparent;
+}
+html.view-scalp .mark {
+  background: linear-gradient(160deg, #8eaa96 0%, #2f4f3f 58%, #1c3127 100%);
+  box-shadow: 0 0 0 1px rgba(47, 79, 63, 0.28), 0 8px 18px rgba(47, 79, 63, 0.16);
+}
+html.view-scalp .brand-text .sub {
+  color: #c65a3a;
+  background: rgba(198, 90, 58, 0.12);
+  border-color: rgba(198, 90, 58, 0.28);
+}
+
+.scalp-view { margin-top: 4px; }
+#scalp-view .js-tag { margin-left: 0; }
+
+.sc-banner {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(198, 90, 58, 0.35);
+  background: rgba(198, 90, 58, 0.1);
+  color: #c65a3a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sc-plays {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.sc-play {
+  background: var(--sh-card, #fffaf4);
+  border: 1px solid var(--sh-line, #e2d3c2);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.sc-play p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--sh-text, #24352c);
+}
+
+@media (max-width: 720px) {
+  .sc-plays { grid-template-columns: 1fr; }
+}

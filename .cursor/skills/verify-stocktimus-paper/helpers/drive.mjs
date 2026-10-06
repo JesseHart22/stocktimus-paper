@@ -71,6 +71,7 @@ const FEATURES = [
   "delayed-mark-label",
   "jesse-tab",
   "sleeve-tab",
+  "scalp-tab",
 ];
 
 function sleep(ms) {
@@ -451,9 +452,13 @@ async function doctor() {
   hard(checks, "massive fallback gate", app.includes("function needsMassiveFallback()"));
   hard(checks, "no default live poll", !app.includes("startLiveMtm"));
   hard(checks, "footer not advice", index.includes("Not advice"));
-  hard(checks, "desk tabs", ["stocktimus", "moonshot", "compounder", "sleeve", "jesse", "scoreboard"].every((id) => index.includes('data-desk="' + id + '"')));
+  hard(checks, "desk tabs", ["stocktimus", "moonshot", "compounder", "sleeve", "jesse", "scalp", "scoreboard"].every((id) => index.includes('data-desk="' + id + '"')));
   hard(checks, "jesse tracker path", readText("jesse.js").includes('const FILE = "./jesse/cc-tracker.json"'));
   hard(checks, "sleeve ledger path", readText("sleeve.js").includes('const FILE = "./sleeve/trades.json"'));
+  hard(checks, "scalp ledger path", readText("scalp.js").includes('const FILE = "./scalp/scalp.json"'));
+  hard(checks, "app.js scalp hash", app.includes('if (h === "scalp") return "scalp"'));
+  const scalpJs = readText("scalp.js");
+  hard(checks, "scalp does not call the quote proxy", !scalpJs.includes("MASSIVE_DELAYED_PROXY_URL") && !scalpJs.includes("stock-prices-proxy") && !scalpJs.includes("query1.finance.yahoo"));
   hard(checks, "scoreboard redirect", readText("scoreboard.html").includes('location.replace("./#scoreboard")'));
   hard(checks, "scoreboard.js desk files", ["stocktimus", "compounder", "moonshot", "scout"].every((id) => scoreboardJs.includes("./scoreboard/" + id + ".json")));
 
@@ -531,8 +536,29 @@ async function doctor() {
     hard(checks, "sleeve/trades.json parses", false, err.message);
   }
 
+  try {
+    const scalp = readJson("scalp/scalp.json");
+    hard(checks, "scalp/scalp.json parses", true, "desk=" + scalp.desk);
+    hard(checks, "scalp desk field", scalp.desk === "scalp", "desk=" + scalp.desk);
+    hard(checks, "scalp mode paper", scalp.mode === "paper", "mode=" + scalp.mode);
+    hard(checks, "scalp budget and cash", num(scalp.paper_budget) != null && num(scalp.cash) != null);
+    hard(checks, "scalp open array", Array.isArray(scalp.open), String(scalp.open && scalp.open.length));
+    hard(checks, "scalp closed array", Array.isArray(scalp.closed));
+    hard(checks, "scalp quote tries array", Array.isArray(scalp.quote_tries));
+    hard(checks, "scalp pnl fields", num(scalp.daily_pnl) != null && num(scalp.week_pnl) != null);
+    hard(checks, "scalp playbooks", !!(scalp.rules && scalp.rules.playbook_a && scalp.rules.playbook_b));
+    const ids = []
+      .concat(scalp.open || [], scalp.closed || [], scalp.quote_tries || [])
+      .map((row) => str(row && (row.id || row.ticket_id || row.try_id)))
+      .filter(Boolean);
+    const dup = ids.find((id, i) => ids.indexOf(id) !== i);
+    hard(checks, "scalp unique ids", !dup, dup ? "duplicate " + dup : "");
+  } catch (err) {
+    hard(checks, "scalp/scalp.json parses", false, err.message);
+  }
+
   const origin = server.url.replace(/\/$/, "");
-  const routes = ["/", "/data.json", "/desks/moonshot.json", "/desks/compounder.json", "/app.js", "/scoreboard.js", "/scoreboard/stocktimus.json", "/scoreboard/scout.json", "/jesse/cc-tracker.json", "/jesse.js", "/jesse.css", "/sleeve/trades.json", "/sleeve.js", "/sleeve.css", "/shell.css"];
+  const routes = ["/", "/data.json", "/desks/moonshot.json", "/desks/compounder.json", "/app.js", "/scoreboard.js", "/scoreboard/stocktimus.json", "/scoreboard/scout.json", "/jesse/cc-tracker.json", "/jesse.js", "/jesse.css", "/sleeve/trades.json", "/sleeve.js", "/sleeve.css", "/scalp/scalp.json", "/scalp.js", "/scalp.css", "/shell.css"];
   for (const route of routes) {
     try {
       const res = await fetch(origin + route, { cache: "no-store", signal: AbortSignal.timeout(5000) });
@@ -1741,6 +1767,205 @@ async function driveSleeve(page) {
   };
 }
 
+const SCALP_CAPITAL_KEYS = [
+  "capital",
+  "capital_usd",
+  "deployed_usd",
+  "cost_basis",
+  "notional_usd",
+  "risk_usd",
+  "open_risk",
+  "premium_usd",
+  "debit_usd",
+  "credit_usd",
+];
+
+function scalpCapital(row) {
+  if (!row || typeof row !== "object") return null;
+  for (const key of SCALP_CAPITAL_KEYS) {
+    const n = num(row[key]);
+    if (n != null) return n;
+  }
+  return null;
+}
+
+function scalpRisk(rows) {
+  const list = Array.isArray(rows) ? rows : [];
+  if (!list.length) return { value: 0, complete: true, count: 0 };
+  let total = 0;
+  let known = 0;
+  for (const row of list) {
+    const capital = scalpCapital(row);
+    if (capital == null) continue;
+    total += capital;
+    known += 1;
+  }
+  if (known !== list.length) return { value: null, complete: false, count: list.length };
+  return { value: total, complete: true, count: list.length };
+}
+
+function scalpEquity(data) {
+  const cash = num(data && data.cash);
+  const budget = num(data && data.paper_budget);
+  const openRows = Array.isArray(data && data.open) ? data.open : [];
+  const openMissing = !(data && Array.isArray(data.open));
+  const risk = scalpRisk(openRows);
+  if (openMissing || !risk.complete) return { value: null, sub: null };
+  if (cash != null) {
+    const budgetBit = budget == null ? "" : " · paper budget " + money(budget);
+    const sub = risk.count === 0 ? "Cash" + budgetBit : "Cash + open capital";
+    return { value: cash + risk.value, sub };
+  }
+  return { value: null, sub: null };
+}
+
+async function driveScalp(page) {
+  const checks = [];
+  const data = readJson("scalp/scalp.json");
+  const equity = scalpEquity(data);
+  const risk = scalpRisk(data.open);
+  const leaked = [];
+  const onReq = (req) => {
+    const url = req.url();
+    if (/massive|yahoo|robinhood|stock-prices-proxy/i.test(url)) leaked.push(url);
+  };
+  page.on("request", onReq);
+  await page.locator('a.desk-tab[data-desk="scalp"]').click();
+  await page.waitForFunction(() => {
+    const pill = document.getElementById("source-pill");
+    const root = document.getElementById("scalp-root");
+    const text = root ? root.textContent : "";
+    return document.documentElement.classList.contains("view-scalp")
+      && pill && pill.textContent.trim() === "paper ledger"
+      && root && !text.includes("Loading scalp");
+  }, null, { timeout: 20000 });
+  page.off("request", onReq);
+
+  const snap = await page.evaluate(() => {
+    const text = (id) => {
+      const el = document.getElementById(id);
+      return el ? el.textContent.trim() : "";
+    };
+    const sub = (id) => {
+      const el = document.getElementById(id);
+      const card = el && el.parentElement;
+      const note = card ? card.querySelector(".js-s") : null;
+      return note ? note.textContent.trim() : "";
+    };
+    const hero = document.querySelector(".hero");
+    const asof = document.getElementById("asof");
+    const foot = document.querySelector(".foot");
+    return {
+      title: document.title,
+      deskName: text("desk-name"),
+      deskSub: text("desk-sub"),
+      pill: text("source-pill"),
+      asof: asof ? asof.textContent.trim() : "",
+      asofDate: asof ? asof.getAttribute("datetime") || "" : "",
+      tabOn: (document.querySelector(".desk-tab.on") && document.querySelector(".desk-tab.on").getAttribute("data-desk")) || "",
+      view: document.documentElement.classList.contains("view-scalp"),
+      hidden: document.getElementById("scalp-view").hidden,
+      heroDisplay: hero ? getComputedStyle(hero).display : "",
+      footDisplay: foot ? getComputedStyle(foot).display : "",
+      hash: location.hash,
+      banner: text("sc-banner"),
+      equity: text("sc-equity"),
+      equitySub: sub("sc-equity"),
+      cash: text("sc-cash"),
+      risk: text("sc-risk"),
+      riskSub: sub("sc-risk"),
+      daily: text("sc-daily"),
+      week: text("sc-week"),
+      stripAsof: text("sc-asof"),
+      playA: text("sc-play-a"),
+      playB: text("sc-play-b"),
+      open: text("sc-open"),
+      closed: text("sc-closed"),
+      tries: text("sc-tries"),
+      marks: text("sc-marks-note"),
+    };
+  });
+
+  hard(checks, "scalp name", snap.deskName === "Scalp", snap.deskName);
+  hard(checks, "scalp subtitle", snap.deskSub === "Paper only", snap.deskSub);
+  hard(checks, "scalp title", snap.title === "Scalp · Paper", snap.title);
+  hard(checks, "scalp tab", snap.tabOn === "scalp", snap.tabOn);
+  hard(checks, "source pill paper ledger", snap.pill === "paper ledger", snap.pill);
+  hard(checks, "as_of datetime", snap.asofDate === String(data.as_of), snap.asofDate);
+  hard(checks, "as_of visible", snap.asof !== "—" && snap.asof.includes("PT"), snap.asof);
+  hard(checks, "strip as_of matches header", snap.stripAsof === snap.asof, snap.stripAsof);
+  hard(checks, "view class", snap.view && snap.hidden === false);
+  hard(checks, "hero hidden", snap.heroDisplay === "none", snap.heroDisplay);
+  hard(checks, "paper footer hidden", snap.footDisplay === "none", snap.footDisplay);
+  hard(checks, "hash scalp", snap.hash === "#scalp", snap.hash);
+  hard(checks, "paper only banner", snap.banner === "Paper only · never live · never Sleeve", snap.banner);
+  hard(checks, "paper equity", snap.equity === money(equity.value), snap.equity + " vs " + money(equity.value));
+  hard(checks, "paper equity subtitle", snap.equitySub === equity.sub, snap.equitySub);
+  hard(checks, "cash", snap.cash === money(num(data.cash)), snap.cash);
+  const expectRisk = money(risk.complete ? risk.value : null);
+  const expectRiskSub = !risk.complete
+    ? "No capital field on every open ticket"
+    : risk.count === 0
+      ? "No open positions"
+      : "Capital on " + risk.count + " open ticket" + (risk.count === 1 ? "" : "s");
+  hard(checks, "open risk", snap.risk === expectRisk, snap.risk + " vs " + expectRisk);
+  hard(checks, "open risk subtitle", snap.riskSub === expectRiskSub, snap.riskSub);
+  hard(checks, "daily pnl", snap.daily === money(num(data.daily_pnl)), snap.daily);
+  hard(checks, "week pnl", snap.week === money(num(data.week_pnl)), snap.week);
+  hard(checks, "playbook A", snap.playA === String(data.rules.playbook_a), snap.playA);
+  hard(checks, "playbook B", snap.playB === String(data.rules.playbook_b), snap.playB);
+  hard(checks, "open empty", data.open.length === 0 ? snap.open === "No open positions." : snap.open.length > 0, snap.open);
+  hard(checks, "closed empty", data.closed.length === 0 ? snap.closed === "No closed trades." : snap.closed.length > 0, snap.closed);
+  hard(checks, "tries empty", data.quote_tries.length === 0 ? snap.tries === "No quote tries." : snap.tries.length > 0, snap.tries);
+  hard(checks, "marks stay on the ticket", snap.marks.includes("does not fetch quotes"), snap.marks);
+  hard(checks, "no quote fetch from scalp", leaked.length === 0, leaked.join(" "));
+
+  await page.screenshot({ path: join(EVIDENCE, "scalp-tab.png"), fullPage: true });
+
+  await page.locator('a.desk-tab[data-desk="stocktimus"]').click();
+  await page.waitForFunction(() => {
+    const name = document.getElementById("desk-name");
+    const hero = document.querySelector(".hero");
+    return name && name.textContent.trim() === "Stocktimus"
+      && !document.documentElement.classList.contains("view-scalp")
+      && hero && getComputedStyle(hero).display !== "none";
+  }, null, { timeout: 20000 });
+  const back = await page.evaluate(() => {
+    const name = document.getElementById("desk-name");
+    const hero = document.querySelector(".hero");
+    const book = document.getElementById("paper-book");
+    const sub = document.querySelector(".sh-view.on");
+    return {
+      name: name ? name.textContent.trim() : "",
+      view: document.documentElement.classList.contains("view-scalp"),
+      heroDisplay: hero ? getComputedStyle(hero).display : "",
+      bookHidden: book ? book.hidden : null,
+      subOn: sub ? sub.getAttribute("data-paper-view") : "",
+    };
+  });
+  hard(checks, "back to stocktimus", back.name === "Stocktimus" && back.view === false && back.heroDisplay !== "none", back.name + " hero=" + back.heroDisplay);
+  hard(checks, "paper open book restored", back.bookHidden === false && back.subOn === "book", back.subOn);
+
+  return {
+    checks,
+    observed: {
+      title: snap.title,
+      pill: snap.pill,
+      equity: snap.equity,
+      cash: snap.cash,
+      risk: snap.risk,
+      daily: snap.daily,
+      week: snap.week,
+      asof: snap.asof,
+      banner: snap.banner,
+      open: snap.open,
+      closed: snap.closed,
+      tries: snap.tries,
+    },
+    files: ["scalp/scalp.json"],
+  };
+}
+
 async function drive(featureId) {
   if (!FEATURES.includes(featureId)) {
     throw new Error("unknown feature " + featureId + ". Choose: " + FEATURES.join(", "));
@@ -1765,6 +1990,7 @@ async function drive(featureId) {
     else if (featureId === "delayed-mark-label") result = await driveDelayed(page);
     else if (featureId === "jesse-tab") result = await driveJesse(page);
     else if (featureId === "sleeve-tab") result = await driveSleeve(page);
+    else if (featureId === "scalp-tab") result = await driveScalp(page);
     else result = await drivePaper(page, featureId);
   } finally {
     await browser.close();

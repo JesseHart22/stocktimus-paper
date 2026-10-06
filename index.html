@@ -13,13 +13,15 @@
   <link rel="stylesheet" href="shell.css?v=20261002b">
   <link rel="stylesheet" href="jesse.css?v=20260929s">
   <link rel="stylesheet" href="sleeve.css?v=20261006a">
+  <link rel="stylesheet" href="scalp.css?v=20261006s">
   <script>
     (function () {
       var h = (location.hash || "").replace(/^#/, "").toLowerCase();
       if (h === "scoreboard") document.documentElement.classList.add("view-scoreboard");
       if (h === "jesse") document.documentElement.classList.add("view-jesse");
       if (h === "sleeve") document.documentElement.classList.add("view-sleeve");
-      var desk = h === "moonshot" || h === "compounder" || h === "sleeve" || h === "jesse" || h === "scoreboard" ? h : "stocktimus";
+      if (h === "scalp") document.documentElement.classList.add("view-scalp");
+      var desk = h === "moonshot" || h === "compounder" || h === "sleeve" || h === "jesse" || h === "scalp" || h === "scoreboard" ? h : "stocktimus";
       document.documentElement.setAttribute("data-desk", desk);
     })();
   </script>
@@ -40,6 +42,7 @@
         <a class="desk-tab" href="#compounder" data-desk="compounder">Compounder</a>
         <a class="desk-tab" href="#sleeve" data-desk="sleeve">Sleeve</a>
         <a class="desk-tab" href="#jesse" data-desk="jesse">Jesse</a>
+        <a class="desk-tab" href="#scalp" data-desk="scalp">Scalp</a>
         <a class="desk-tab" href="#scoreboard" data-desk="scoreboard">Scoreboard</a>
       </nav>
       <div class="top-meta">
@@ -256,6 +259,12 @@
         <p class="js-empty" id="sleeve-status">Loading sleeve ledger…</p>
       </div>
     </section>
+
+    <section id="scalp-view" class="scalp-view" hidden aria-label="Scalp paper book">
+      <div id="scalp-root">
+        <p class="js-empty" id="scalp-status">Loading scalp ledger…</p>
+      </div>
+    </section>
   </div>
 
   <div class="shade" id="shade" hidden></div>
@@ -274,5 +283,6 @@
   <script src="scoreboard.js?v=20261002b"></script>
   <script src="jesse.js?v=20261002b"></script>
   <script src="sleeve.js?v=20261006a"></script>
+  <script src="scalp.js?v=20261006s"></script>
 </body>
 </html>

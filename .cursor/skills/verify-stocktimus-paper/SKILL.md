@@ -25,6 +25,7 @@ Hash tabs in `nav.desk-tabs`:
 | Compounder | `#compounder` | `./desks/compounder.json` |
 | Sleeve | `#sleeve` | `./sleeve/trades.json`. Robinhood Agentic live ledger. Not a paper book. Steel & Ember while this tab is open. Account value is `portfolio.total_value` and cash is `portfolio.cash`. Deployed is the sum of open equity `deployed_usd`. Weekly income reads `weekly_summary` (CC premium net, dividends, scalps, assignment, combined, return vs deployed). |
 | Jesse | `#jesse` | `./jesse/cc-tracker.json`. Covered-call income tracker. Not a paper book. Clay & sage while this tab is open. Return on capital and Return on program come from `dashboard`. Weekly summary is a section on this tab, not a desk tab. |
+| Scalp | `#scalp` | `./scalp/scalp.json`. $10k paper book. Clay & sage while this tab is open. Paper equity is cash plus known open capital. Marks are `rh_bid`, `rh_ask`, `fill`, and `minute_ts` already on the ticket. This tab does not call the quote proxy. |
 | Scoreboard | `#scoreboard` | `./scoreboard/stocktimus.json`, `compounder.json`, `moonshot.json`, `scout.json`. This is the X call log, not the paper book. |
 
 Paper marks assume fill at the recommended premium. The footer in `index.html` says so, and that it is not Jesse's actual fills and not advice. Published marks are the source of truth. See `MARKS.md`. When top-level `marks_source` contains `robinhood`, or `quote_quality` is `robinhood`, `live`, or `robinhood_live`, the pill and P&L subtitle say `Robinhood live`. When those fields name Massive or a delayed quote, the pill says `delayed` and the subtitle says `delayed MTM`. The page does not invent either field. It calls `MASSIVE_DELAYED_PROXY_URL` (`https://stock-prices-proxy.jessehartung.workers.dev`) only from `needsMassiveFallback`, when an open lot has no file mark and the payload is not a Robinhood success. That worker is delayed. Closed lots keep file `paper_pnl`.
@@ -56,8 +57,8 @@ node .cursor/skills/verify-stocktimus-paper/helpers/drive.mjs doctor
 
 Hard failures (exit 1, written to `evidence/doctor.json`):
 
-- Missing or unparseable `index.html`, `app.js`, `scoreboard.js`, `jesse.js`, `sleeve.js`, desk JSON, scoreboard JSON, `jesse/cc-tracker.json`, or `sleeve/trades.json`
-- Desk file lists in `app.js` no longer match the paths above, the Jesse tab no longer fetches `./jesse/cc-tracker.json`, or the Sleeve tab no longer fetches `./sleeve/trades.json`
+- Missing or unparseable `index.html`, `app.js`, `scoreboard.js`, `jesse.js`, `sleeve.js`, `scalp.js`, desk JSON, scoreboard JSON, `jesse/cc-tracker.json`, `sleeve/trades.json`, or `scalp/scalp.json`
+- Desk file lists in `app.js` no longer match the paths above, the Jesse tab no longer fetches `./jesse/cc-tracker.json`, the Sleeve tab no longer fetches `./sleeve/trades.json`, or the Scalp tab no longer fetches `./scalp/scalp.json`
 - Scoreboard `desk` field does not match its filename
 - Duplicate ticket or call ids inside one file
 - The mark contract is gone from `app.js` (`MASSIVE_DELAYED_PROXY_URL`, ` · delayed`, ` · Robinhood live`, `delayed MTM`, `needsMassiveFallback`, and no `startLiveMtm` poll)
@@ -75,7 +76,7 @@ Harness name: **stocktimus-drive** (`helpers/drive.mjs`).
 node .cursor/skills/verify-stocktimus-paper/helpers/drive.mjs drive stocktimus-paper-book
 ```
 
-Other feature ids: `moonshot-desk`, `compounder-desk`, `scoreboard-tab`, `delayed-mark-label`, `jesse-tab`, `sleeve-tab`.
+Other feature ids: `moonshot-desk`, `compounder-desk`, `scoreboard-tab`, `delayed-mark-label`, `jesse-tab`, `sleeve-tab`, `scalp-tab`.
 
 The driver opens the launched origin in headless Chrome, clicks the desk tab, waits until the loading copy is gone, and checks the DOM against the JSON it just read. It never types a price. Expectations that can move are computed in the helper from those files:
 

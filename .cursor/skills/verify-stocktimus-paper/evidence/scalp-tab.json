@@ -1,0 +1,175 @@
+{
+  "ok": true,
+  "feature": "scalp-tab",
+  "at": "2026-10-06T18:49:49.653Z",
+  "url": "http://127.0.0.1:40859/",
+  "numbersSource": "json-files",
+  "inventedPrices": false,
+  "files": [
+    "scalp/scalp.json"
+  ],
+  "outcome": null,
+  "proxySettle": null,
+  "proxyNumericPricePresent": null,
+  "observed": {
+    "title": "Scalp · Paper",
+    "pill": "paper ledger",
+    "equity": "$10,000.00",
+    "cash": "$10,000.00",
+    "risk": "$0.00",
+    "daily": "$0.00",
+    "week": "$0.00",
+    "asof": "Oct 6, 2026, 11:43 AM PT",
+    "banner": "Paper only · never live · never Sleeve",
+    "open": "No open positions.",
+    "closed": "No closed trades.",
+    "tries": "No quote tries."
+  },
+  "checks": [
+    {
+      "name": "scalp name",
+      "ok": true,
+      "detail": "Scalp"
+    },
+    {
+      "name": "scalp subtitle",
+      "ok": true,
+      "detail": "Paper only"
+    },
+    {
+      "name": "scalp title",
+      "ok": true,
+      "detail": "Scalp · Paper"
+    },
+    {
+      "name": "scalp tab",
+      "ok": true,
+      "detail": "scalp"
+    },
+    {
+      "name": "source pill paper ledger",
+      "ok": true,
+      "detail": "paper ledger"
+    },
+    {
+      "name": "as_of datetime",
+      "ok": true,
+      "detail": "2026-10-06T11:43:00-07:00"
+    },
+    {
+      "name": "as_of visible",
+      "ok": true,
+      "detail": "Oct 6, 2026, 11:43 AM PT"
+    },
+    {
+      "name": "strip as_of matches header",
+      "ok": true,
+      "detail": "Oct 6, 2026, 11:43 AM PT"
+    },
+    {
+      "name": "view class",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "hero hidden",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "paper footer hidden",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "hash scalp",
+      "ok": true,
+      "detail": "#scalp"
+    },
+    {
+      "name": "paper only banner",
+      "ok": true,
+      "detail": "Paper only · never live · never Sleeve"
+    },
+    {
+      "name": "paper equity",
+      "ok": true,
+      "detail": "$10,000.00 vs $10,000.00"
+    },
+    {
+      "name": "paper equity subtitle",
+      "ok": true,
+      "detail": "Cash · paper budget $10,000.00"
+    },
+    {
+      "name": "cash",
+      "ok": true,
+      "detail": "$10,000.00"
+    },
+    {
+      "name": "open risk",
+      "ok": true,
+      "detail": "$0.00 vs $0.00"
+    },
+    {
+      "name": "open risk subtitle",
+      "ok": true,
+      "detail": "No open positions"
+    },
+    {
+      "name": "daily pnl",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week pnl",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "playbook A",
+      "ok": true,
+      "detail": "Thu/Fri ITM near-expiry premium scrapes"
+    },
+    {
+      "name": "playbook B",
+      "ok": true,
+      "detail": "small-lot 5–15 min stock holds"
+    },
+    {
+      "name": "open empty",
+      "ok": true,
+      "detail": "No open positions."
+    },
+    {
+      "name": "closed empty",
+      "ok": true,
+      "detail": "No closed trades."
+    },
+    {
+      "name": "tries empty",
+      "ok": true,
+      "detail": "No quote tries."
+    },
+    {
+      "name": "marks stay on the ticket",
+      "ok": true,
+      "detail": "Each row shows rh_bid, rh_ask, fill, and minute_ts stored on that try. This page does not fetch quotes."
+    },
+    {
+      "name": "no quote fetch from scalp",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "back to stocktimus",
+      "ok": true,
+      "detail": "Stocktimus hero=grid"
+    },
+    {
+      "name": "paper open book restored",
+      "ok": true,
+      "detail": "book"
+    }
+  ]
+}
