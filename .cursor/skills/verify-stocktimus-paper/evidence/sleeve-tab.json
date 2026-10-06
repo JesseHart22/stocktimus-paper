@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "sleeve-tab",
-  "at": "2026-10-05T17:13:51.312Z",
-  "url": "http://127.0.0.1:37053/",
+  "at": "2026-10-06T17:34:57.964Z",
+  "url": "http://127.0.0.1:37531/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -14,7 +14,7 @@
   "observed": {
     "title": "Sleeve · Agentic",
     "pill": "sleeve ledger",
-    "account": "$25,015.61",
+    "account": "$25,100.05",
     "cash": "$3,497.03",
     "week": "2026-10-09",
     "weekCombined": "$456.68",
@@ -71,7 +71,7 @@
     {
       "name": "as_of datetime",
       "ok": true,
-      "detail": "2026-10-05T09:55:56-07:00"
+      "detail": "2026-10-05T16:05:00-07:00"
     },
     {
       "name": "view class",
@@ -101,7 +101,7 @@
     {
       "name": "account value",
       "ok": true,
-      "detail": "$25,015.61 vs $25,015.61"
+      "detail": "$25,100.05 vs $25,100.05"
     },
     {
       "name": "cash",
@@ -121,7 +121,7 @@
     {
       "name": "unrealized from equity",
       "ok": true,
-      "detail": "$13.15 vs $13.15"
+      "detail": "$159.02 vs $159.02"
     },
     {
       "name": "return vs deployed",
@@ -216,7 +216,7 @@
     {
       "name": "notes rendered",
       "ok": true,
-      "detail": "Broker-sourced Oct 5 morning fills PT. Stocktimus CCs: EOSE 500 / Oct9 3c×5, RKL"
+      "detail": "Afternoon refresh Oct 5 PT (RH get_portfolio ~4:05 PM PT). No new fills since th"
     },
     {
       "name": "equity symbols",
@@ -231,7 +231,52 @@
     {
       "name": "options empty copy",
       "ok": true,
-      "detail": "RKLBshort1$73.002026-10-09$208.00stocktimusopenLMNDshort1$48.002026-10-09$45.00stocktimusopenDRAMshort1$62.002026-10-09$119.00stocktimusopenEOSEshort5$3.002026-10-09$85.00stocktimusopen"
+      "detail": "RKLBshort1$73.00$73.06 ITM2026-10-09$208.00stocktimusopenLMNDshort1$48.00$46.67 OTM2026-10-09$45.00stocktimusopenDRAMshort1$62.00$61.60 OTM2026-10-09$119.00stocktimusopenEOSEshort5$3.00$3.28 ITM2026-10-09$85.00stocktimusopen"
+    },
+    {
+      "name": "options above equity",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "name": "options heading first",
+      "ok": true,
+      "detail": "Options,Equity"
+    },
+    {
+      "name": "active shorts first",
+      "ok": true,
+      "detail": "RKLB,LMND,DRAM,EOSE"
+    },
+    {
+      "name": "spot RKLB",
+      "ok": true,
+      "detail": "73.06 itm"
+    },
+    {
+      "name": "spot LMND",
+      "ok": true,
+      "detail": "46.67 otm"
+    },
+    {
+      "name": "spot DRAM",
+      "ok": true,
+      "detail": "61.6 otm"
+    },
+    {
+      "name": "spot EOSE",
+      "ok": true,
+      "detail": "3.28 itm"
+    },
+    {
+      "name": "price refresh button",
+      "ok": true,
+      "detail": "Price refresh"
+    },
+    {
+      "name": "ledger spot label",
+      "ok": true,
+      "detail": "ledger marks · equity last"
     },
     {
       "name": "open covered calls",
