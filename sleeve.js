@@ -7,6 +7,10 @@
   const FILE = "./sleeve/trades.json";
   const TZ = "America/Los_Angeles";
   const BUCKETS = ["stocktimus", "compounder", "moonshot", "unknown_pre_ledger"];
+  /* CNBC's public last is CORS-open. Yahoo's chart API is not, so the
+     browser cannot read it. This is not the Robinhood connector. */
+  const QUOTE_LABEL = "live quotes · CNBC";
+  const QUOTE_URL = "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1&symbols=";
 
   const state = {
     data: null,
@@ -14,6 +18,10 @@
     pane: "book",
     week: null,
     loading: null,
+    quotes: null,
+    quoteLabel: "",
+    quoteError: null,
+    refreshing: false,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -157,6 +165,120 @@
   function optionRows(data) {
     const book = data && data.open_positions;
     return book && Array.isArray(book.options) ? book.options : [];
+  }
+
+  function optionRank(row) {
+    const side = String(row && row.side || "").toLowerCase();
+    const status = String(row && row.status || "open").toLowerCase();
+    const active = status === "open" || status === "active" || status === "";
+    const short = side === "short" || side === "sell" || side === "sto";
+    if (active && short) return 0;
+    if (short) return 1;
+    if (active) return 2;
+    return 3;
+  }
+
+  function orderedOptions(data) {
+    return optionRows(data)
+      .map((row, index) => ({ row: row, index: index, rank: optionRank(row) }))
+      .sort((a, b) => a.rank - b.rank || a.index - b.index)
+      .map((item) => item.row);
+  }
+
+  function symbolKey(symbol) {
+    return String(symbol || "").trim().toUpperCase();
+  }
+
+  function fileSpot(data, symbol) {
+    const key = symbolKey(symbol);
+    if (!key) return null;
+    const row = equityRows(data).find((p) => symbolKey(p.symbol) === key);
+    return row ? num(row.last) : null;
+  }
+
+  function shownSpot(data, symbol) {
+    const key = symbolKey(symbol);
+    if (state.quotes && key && state.quotes[key] != null) return state.quotes[key];
+    return fileSpot(data, symbol);
+  }
+
+  function shortCallCue(row, spot) {
+    const side = String(row && row.side || "").toLowerCase();
+    const type = String(row && row.option_type || "").toLowerCase();
+    const strike = num(row && row.strike);
+    const isShort = side === "short" || side === "sell" || side === "sto";
+    if (!isShort || type !== "call" || spot == null || strike == null) return "";
+    return spot >= strike ? "itm" : "otm";
+  }
+
+  function openSymbols(data) {
+    const seen = [];
+    const add = (symbol) => {
+      const key = symbolKey(symbol);
+      if (!key || seen.indexOf(key) !== -1) return;
+      seen.push(key);
+    };
+    optionRows(data).forEach((row) => add(row.symbol));
+    equityRows(data).forEach((row) => add(row.symbol));
+    return seen;
+  }
+
+  function quoteStatusText() {
+    if (state.refreshing) return "Fetching live quotes…";
+    if (state.quotes) {
+      const base = state.quoteLabel || QUOTE_LABEL;
+      return state.quoteError ? base + " · " + state.quoteError : base;
+    }
+    if (state.quoteError) return state.quoteError + " · ledger marks kept";
+    return "ledger marks · equity last";
+  }
+
+  function fetchLiveQuotes(symbols) {
+    const url = QUOTE_URL + encodeURIComponent(symbols.join("|"));
+    return fetch(url, { cache: "no-store", signal: AbortSignal.timeout(8000) })
+      .then((res) => {
+        if (!res.ok) throw new Error("quotes HTTP " + res.status);
+        return res.json();
+      })
+      .then((body) => {
+        const list = body && body.FormattedQuoteResult && body.FormattedQuoteResult.FormattedQuote;
+        const rows = Array.isArray(list) ? list : [];
+        const wanted = {};
+        symbols.forEach((symbol) => { wanted[symbol] = true; });
+        const out = {};
+        rows.forEach((quote) => {
+          const key = symbolKey(quote && quote.symbol);
+          const last = num(quote && quote.last);
+          if (!key || !wanted[key] || last == null || Number(quote.code) !== 0) return;
+          out[key] = last;
+        });
+        return out;
+      });
+  }
+
+  function refreshPrices() {
+    if (state.refreshing || !state.data) return;
+    const symbols = openSymbols(state.data);
+    if (!symbols.length) return;
+    state.refreshing = true;
+    state.quoteError = null;
+    render();
+    fetchLiveQuotes(symbols)
+      .then((quotes) => {
+        const keys = Object.keys(quotes);
+        if (!keys.length) throw new Error("no quotes");
+        state.quotes = Object.assign({}, state.quotes || {}, quotes);
+        state.quoteLabel = QUOTE_LABEL;
+        const missing = symbols.filter((symbol) => quotes[symbol] == null);
+        state.quoteError = missing.length ? missing.join(", ") + " kept ledger last" : null;
+      })
+      .catch(() => {
+        state.quoteError = state.quotes ? "latest fetch failed" : "Live quotes unavailable";
+      })
+      .then(() => {
+        state.refreshing = false;
+        if (isSleeveHash()) render();
+      });
   }
 
   function fills(data) {
@@ -494,6 +616,12 @@
     return '<tr class="js-empty-row"><td colspan="' + cols + '">' + escapeHtml(msg) + "</td></tr>";
   }
 
+  function equityLastCell(data, symbol) {
+    const shown = shownSpot(data, symbol);
+    const live = state.quotes && state.quotes[symbolKey(symbol)] != null;
+    return '<td class="num sl-equity-last" data-last="' + (shown == null ? "" : String(shown)) + '" data-price-source="' + (live ? "live" : "ledger") + '" title="' + (live ? escapeHtml(QUOTE_LABEL) : "ledger last") + '">' + escapeHtml(price(shown)) + "</td>";
+  }
+
   function renderEquity(data) {
     const rows = equityRows(data);
     const body = rows.length
@@ -510,7 +638,7 @@
           td(escapeHtml(p.side || "—")) +
           td(escapeHtml(shares(p.quantity)), true) +
           td(escapeHtml(price(p.avg_cost)), true) +
-          td(escapeHtml(price(p.last)), true) +
+          equityLastCell(data, p.symbol) +
           td(escapeHtml(money(num(p.deployed_usd))), true) +
           td(unrealHtml, true) +
           td(escapeHtml(p.structure || "—")) +
@@ -530,27 +658,39 @@
   }
 
   function renderOptions(data) {
-    const rows = optionRows(data);
+    const rows = orderedOptions(data);
     const body = rows.length
       ? rows.map((p) => {
         const credit = num(p.credit_usd);
-        return '<tr data-symbol="' + escapeHtml(p.symbol || "") + '" data-bucket="' + escapeHtml(p.desk_bucket || "") + '">' +
+        const spot = shownSpot(data, p.symbol);
+        const cue = shortCallCue(p, spot);
+        const live = state.quotes && state.quotes[symbolKey(p.symbol)] != null;
+        const cueTitle = cue === "itm"
+          ? "Spot is at or above the strike"
+          : cue === "otm"
+            ? "Spot is below the strike"
+            : "";
+        const cueHtml = cue
+          ? ' <span class="sl-cue ' + cue + '" title="' + escapeHtml(cueTitle) + '">' + cue.toUpperCase() + "</span>"
+          : "";
+        return '<tr data-symbol="' + escapeHtml(p.symbol || "") + '" data-side="' + escapeHtml(p.side || "") + '" data-bucket="' + escapeHtml(p.desk_bucket || "") + '" data-cue="' + cue + '">' +
           td(escapeHtml(p.symbol || "—")) +
           td(escapeHtml(p.side || "—")) +
           td(escapeHtml(shares(p.contracts != null ? p.contracts : p.quantity)), true) +
           td(escapeHtml(price(p.strike)), true) +
+          '<td class="num sl-spot' + (cue ? " " + cue : "") + '" data-spot="' + (spot == null ? "" : String(spot)) + '" data-price-source="' + (live ? "live" : "ledger") + '" title="' + (live ? escapeHtml(QUOTE_LABEL) : "ledger equity last") + '">' + escapeHtml(price(spot)) + cueHtml + "</td>" +
           td(escapeHtml(p.expiry || "—")) +
           td(escapeHtml(money(credit)), true) +
           td(escapeHtml(bucketLabel(p.desk_bucket))) +
           td(escapeHtml(p.status || "—")) +
           "</tr>";
       }).join("")
-      : emptyRow(8, "No open option positions.");
+      : emptyRow(9, "No open option positions.");
     return "<h3>Options</h3>" +
       '<div class="js-wrap"><table class="js-table"><thead>' +
       ths([
         { t: "Symbol" }, { t: "Side" }, { t: "Contracts", num: true }, { t: "Strike", num: true },
-        { t: "Expiry" }, { t: "Credit", num: true }, { t: "Desk" }, { t: "Status" },
+        { t: "Spot", num: true }, { t: "Expiry" }, { t: "Credit", num: true }, { t: "Desk" }, { t: "Status" },
       ]) +
       '</thead><tbody id="sl-options">' + body + "</tbody></table></div>";
   }
@@ -717,10 +857,16 @@
 
   function renderBook(data) {
     return '<section class="js-panel" id="sl-open-book" aria-label="Open book">' +
-      "<h2>Open book</h2>" +
-      '<p class="js-note">Positions and working orders from the ledger. Last, unrealized, and option credit are the file’s marks.</p>' +
-      renderEquity(data) +
+      '<header class="js-panel-h">' +
+        "<div><h2>Open book</h2>" +
+        '<p class="js-note">Options sit above equity so active shorts are first. Spot begins as each underlying’s open equity last. Price refresh replaces spot and equity Last in the browser. Unrealized and credit stay the file’s marks.</p></div>' +
+        '<div class="sl-refresh-box">' +
+          '<button type="button" class="sl-refresh" id="sl-price-refresh"' + (state.refreshing ? " disabled" : "") + ">Price refresh</button>" +
+          '<p class="js-note" id="sl-quote-src">' + escapeHtml(quoteStatusText()) + "</p>" +
+        "</div>" +
+      "</header>" +
       renderOptions(data) +
+      renderEquity(data) +
       renderOpenCcs(data) +
       renderOrders(data) +
       "</section>" +
@@ -867,6 +1013,11 @@
     if (!view || view.dataset.bound) return;
     view.dataset.bound = "1";
     view.addEventListener("click", (e) => {
+      const refreshBtn = e.target.closest("#sl-price-refresh");
+      if (refreshBtn && view.contains(refreshBtn)) {
+        refreshPrices();
+        return;
+      }
       const weekBtn = e.target.closest(".js-week");
       if (weekBtn && view.contains(weekBtn)) {
         const nextWeek = weekBtn.getAttribute("data-week");
