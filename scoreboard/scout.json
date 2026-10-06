@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-10-01T09:15:00-07:00",
+  "as_of": "2026-10-06T08:15:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -76,6 +76,30 @@
       "called_at": "2026-09-29",
       "example": false,
       "note": "Sep 29 LaRoche: slight long JPY. Proxy FXY frozen ~58.18 as of ~8:20am PT 2026-09-29. Slight sizing \u2014 not a graded trade. Under 14d."
+    },
+    {
+      "id": "ds-ltpz-2026-10-01",
+      "handle": "dampedspring",
+      "ticker": "LTPZ",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-01",
+      "example": false,
+      "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close (Fri theme log)."
+    },
+    {
+      "id": "ds-tlt-2026-10-06",
+      "handle": "dampedspring",
+      "ticker": "TLT",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-06",
+      "example": false,
+      "note": "Oct 6: \"max long bonds at the moment\" (step up from improving-bonds case). HY spread widening not real Merton-model stress; flagged $119B 3s/10s/30s supply next 3 days. Proxies TLT,IEF,TLH. Outside 7d of ds-tlt-2026-09-24 \u2192 new graded call."
     }
   ]
 }
