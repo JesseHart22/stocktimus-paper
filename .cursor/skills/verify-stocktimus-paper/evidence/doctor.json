@@ -1,10 +1,10 @@
 {
   "ok": true,
-  "at": "2026-10-05T17:13:44.012Z",
-  "url": "http://127.0.0.1:37053/",
+  "at": "2026-10-06T17:34:52.237Z",
+  "url": "http://127.0.0.1:37531/",
   "books": {
     "data.json": {
-      "tickets": 74
+      "tickets": 102
     },
     "desks/moonshot.json": {
       "tickets": 3
@@ -102,7 +102,7 @@
     {
       "name": "data.json parses",
       "ok": true,
-      "detail": "74 tickets"
+      "detail": "102 tickets"
     },
     {
       "name": "data.json unique ids",
@@ -192,7 +192,7 @@
     {
       "name": "scoreboard/scout.json calls array",
       "ok": true,
-      "detail": "6 calls"
+      "detail": "7 calls"
     },
     {
       "name": "scoreboard/scout.json unique call ids",

@@ -1449,6 +1449,26 @@ function sleeveUnrealized(data) {
   return sleeveSum(sleeveEquity(data), (row) => row.unrealized_pnl);
 }
 
+function sleeveOptionRank(row) {
+  const side = str(row && row.side).toLowerCase();
+  const status = str((row && row.status) || "open").toLowerCase();
+  const active = status === "open" || status === "active" || status === "";
+  const short = side === "short" || side === "sell" || side === "sto";
+  if (active && short) return 0;
+  if (short) return 1;
+  if (active) return 2;
+  return 3;
+}
+
+function sleeveShortCallCue(row, spot) {
+  const side = str(row && row.side).toLowerCase();
+  const type = str(row && row.option_type).toLowerCase();
+  const strike = num(row && row.strike);
+  const isShort = side === "short" || side === "sell" || side === "sto";
+  if (!isShort || type !== "call" || spot == null || strike == null) return "";
+  return spot >= strike ? "itm" : "otm";
+}
+
 function sleeveWeekRows(data) {
   const rows = Array.isArray(data.weekly_summary) ? data.weekly_summary : (Array.isArray(data.weeks) ? data.weeks : []);
   return rows.filter((row) => row && row.week_ending);
@@ -1522,6 +1542,21 @@ async function driveSleeve(page) {
       buckets: [...document.querySelectorAll("#sl-equity tr[data-bucket]")].map((tr) => tr.getAttribute("data-bucket")),
       fillIds: [...document.querySelectorAll("#sl-fills tr[data-fill]")].map((tr) => tr.getAttribute("data-fill")),
       optionText: (document.getElementById("sl-options") && document.getElementById("sl-options").textContent.trim()) || "",
+      optionsBeforeEquity: (() => {
+        const opt = document.getElementById("sl-options");
+        const eq = document.getElementById("sl-equity");
+        return !!(opt && eq && (opt.compareDocumentPosition(eq) & Node.DOCUMENT_POSITION_FOLLOWING));
+      })(),
+      bookHeads: [...document.querySelectorAll("#sl-open-book h3")].map((h) => h.textContent.trim()),
+      optionRows: [...document.querySelectorAll("#sl-options tr[data-symbol]")].map((tr) => ({
+        symbol: tr.getAttribute("data-symbol"),
+        side: tr.getAttribute("data-side"),
+        spot: (tr.querySelector("[data-spot]") && tr.querySelector("[data-spot]").getAttribute("data-spot")) || "",
+        source: (tr.querySelector("[data-spot]") && tr.querySelector("[data-spot]").getAttribute("data-price-source")) || "",
+        cue: tr.getAttribute("data-cue") || "",
+      })),
+      refreshLabel: (document.getElementById("sl-price-refresh") && document.getElementById("sl-price-refresh").textContent.trim()) || "",
+      quoteSrc: (document.getElementById("sl-quote-src") && document.getElementById("sl-quote-src").textContent.trim()) || "",
       openCc: [...document.querySelectorAll("#sl-open-ccs tr[data-symbol]")].map((tr) => tr.getAttribute("data-symbol")),
       orderText: (document.getElementById("sl-orders") && document.getElementById("sl-orders").textContent.trim()) || "",
       dividendCount: (document.querySelector("#sl-dividends .js-count") && document.querySelector("#sl-dividends .js-count").textContent.trim()) || "",
@@ -1584,6 +1619,25 @@ async function driveSleeve(page) {
   hard(checks, "equity symbols", snap.symbols.join(",") === equity.map((p) => str(p.symbol)).join(","), snap.symbols.join(","));
   hard(checks, "equity buckets", snap.buckets.join(",") === equity.map((p) => str(p.desk_bucket)).join(","), snap.buckets.join(","));
   hard(checks, "options empty copy", options.length === 0 ? snap.optionText.includes("No open option positions") : snap.optionText.length > 0, snap.optionText);
+  hard(checks, "options above equity", options.length === 0 || snap.optionsBeforeEquity, String(snap.optionsBeforeEquity));
+  hard(checks, "options heading first", options.length === 0 || (snap.bookHeads[0] === "Options" && snap.bookHeads[1] === "Equity"), (snap.bookHeads || []).slice(0, 2).join(","));
+  const lastBySymbol = {};
+  equity.forEach((row) => { lastBySymbol[str(row.symbol).toUpperCase()] = num(row.last); });
+  const expectedOptions = options
+    .map((row, index) => ({ row, index, rank: sleeveOptionRank(row) }))
+    .sort((a, b) => a.rank - b.rank || a.index - b.index)
+    .map((item) => item.row);
+  const expectedOptionSymbols = expectedOptions.map((row) => str(row.symbol)).join(",");
+  hard(checks, "active shorts first", (snap.optionRows || []).map((row) => row.symbol).join(",") === expectedOptionSymbols, (snap.optionRows || []).map((row) => row.symbol).join(","));
+  expectedOptions.forEach((row) => {
+    const seen = (snap.optionRows || []).find((item) => item.symbol === str(row.symbol) && item.side === str(row.side));
+    const spot = lastBySymbol[str(row.symbol).toUpperCase()];
+    const cue = sleeveShortCallCue(row, spot);
+    const spotOk = seen && (spot == null ? seen.spot === "" : Math.abs(Number(seen.spot) - spot) < 1e-6);
+    hard(checks, "spot " + str(row.symbol), !!spotOk && seen.source === "ledger" && seen.cue === cue, seen ? seen.spot + " " + seen.cue : "missing");
+  });
+  hard(checks, "price refresh button", snap.refreshLabel === "Price refresh", snap.refreshLabel);
+  hard(checks, "ledger spot label", snap.quoteSrc === "ledger marks · equity last", snap.quoteSrc);
   const openCcSymbols = (Array.isArray(data.cc_trades) ? data.cc_trades : [])
     .filter((row) => {
       const flag = str(row.called_away || "Open");
