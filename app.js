@@ -72,9 +72,11 @@
     // #scoreboard is the X call tab, not a paper book. Do not add it to DESKS.
     // #jesse is the covered-call income tracker. It reads jesse/cc-tracker.json only.
     // #sleeve is the live Agentic ledger. It reads sleeve/trades.json only.
+    // #scalp is the paper scalp book. It reads scalp/scalp.json only.
     if (h === "scoreboard") return "scoreboard";
     if (h === "jesse") return "jesse";
     if (h === "sleeve") return "sleeve";
+    if (h === "scalp") return "scalp";
     return DESKS[h] ? h : "stocktimus";
   }
 
@@ -1549,6 +1551,21 @@
     }
   }
 
+  function setScalpView(on) {
+    document.documentElement.classList.toggle("view-scalp", on);
+    if (document.body) document.body.classList.toggle("view-scalp", on);
+    const view = document.getElementById("scalp-view");
+    if (view) view.hidden = !on;
+    const api = window.StocktimusScalp;
+    if (!api) return;
+    try {
+      if (on) api.show();
+      else api.hide();
+    } catch (err) {
+      console.warn("scalp view", err);
+    }
+  }
+
   function setPaperPane(pane) {
     state.paperPane = pane === "summary" ? "summary" : "book";
     const book = $("paper-book");
@@ -1593,6 +1610,15 @@
       });
       return;
     }
+    if (state.desk === "scalp") {
+      if (name) name.textContent = "Scalp";
+      if (sub) sub.textContent = "Paper only";
+      document.title = "Scalp · Paper";
+      document.querySelectorAll(".desk-tab").forEach((a) => {
+        a.classList.toggle("on", a.getAttribute("data-desk") === "scalp");
+      });
+      return;
+    }
     const desk = DESKS[state.desk] || DESKS.stocktimus;
     if (name) name.textContent = desk.name;
     if (sub) sub.textContent = desk.sub;
@@ -1613,18 +1639,20 @@
     }
     window.addEventListener("hashchange", () => {
       const next = deskFromHash();
-      if (next === "scoreboard" || next === "jesse" || next === "sleeve") {
+      if (next === "scoreboard" || next === "jesse" || next === "sleeve" || next === "scalp") {
         state.desk = next;
         syncDeskTabs();
         setScoreboardView(next === "scoreboard");
         setJesseView(next === "jesse");
         setSleeveView(next === "sleeve");
+        setScalpView(next === "scalp");
         return;
       }
-      const leavingSpecial = state.desk === "scoreboard" || state.desk === "jesse" || state.desk === "sleeve";
+      const leavingSpecial = state.desk === "scoreboard" || state.desk === "jesse" || state.desk === "sleeve" || state.desk === "scalp";
       if (state.desk === "scoreboard") setScoreboardView(false);
       if (state.desk === "jesse") setJesseView(false);
       if (state.desk === "sleeve") setSleeveView(false);
+      if (state.desk === "scalp") setScalpView(false);
       if (next === state.desk && !leavingSpecial) return;
       state.desk = next;
       state.filter = "all";
@@ -1687,6 +1715,10 @@
     }
     if (state.desk === "sleeve") {
       setSleeveView(true);
+      return;
+    }
+    if (state.desk === "scalp") {
+      setScalpView(true);
       return;
     }
     try {

@@ -1,0 +1,36 @@
+{
+  "desk": "scalp",
+  "mode": "paper",
+  "paper_budget": 10000,
+  "cash": 10000,
+  "open": [],
+  "closed": [],
+  "quote_tries": [],
+  "daily_pnl": 0,
+  "week_pnl": 0,
+  "as_of": "2026-10-06T11:43:00-07:00",
+  "rules": {
+    "never_live": true,
+    "never_sleeve": true,
+    "playbook_a": "Thu/Fri ITM near-expiry premium scrapes",
+    "playbook_b": "small-lot 5–15 min stock holds",
+    "max_new_setups_per_scan": 2,
+    "quotes": "robinhood_live_only",
+    "fills": "proxy_paper_from_rh_bid_ask",
+    "quote_source": "get_equity_quotes / get_option_quotes",
+    "never_invent_marks": true,
+    "never_massive_yahoo_web": true,
+    "never_ask_paperwright": true,
+    "skip_if_rh_fail_or_empty_spread": true,
+    "log_per_try": ["rh_bid", "rh_ask", "fill", "minute_ts"]
+  },
+  "fill_schema": {
+    "rh_bid": "number",
+    "rh_ask": "number",
+    "fill": "number (price-walk off live bid/ask)",
+    "minute_ts": "ISO minute timestamp America/Los_Angeles",
+    "side": "buy|sell",
+    "instrument": "equity|option",
+    "symbol": "string"
+  }
+}
