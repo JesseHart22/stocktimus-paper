@@ -5,17 +5,17 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-10-09T10:12:00-07:00",
+  "as_of": "2026-10-09T16:05:00-07:00",
   "sleeve_budget_usd": 25000,
-  "notes": "Morning refresh Oct 9 PT (RH get_portfolio ~10:11 AM PT). No new fills since Oct 7 (no equity/option orders Oct 8-9); open book unchanged: Stocktimus CCs EOSE 500 / Oct9 3c x5, RKLB 100 / Oct9 73c, LMND 100 / Oct9 48c, DRAM 100 / Oct9 62c (all expire today); Compounder SPGI 6. Cash $3497.03; total $24266.60; deployed equities $21959.68; CC credits $457 (net $456.68). Equity marks = RH last ~10:11 AM PT.",
+  "notes": "Afternoon refresh Oct 9 PT (RH get_portfolio ~4:03 PM PT). No new fills (no equity/option orders since Oct 5). All 4 Oct-9 covered calls (EOSE 3c x5, RKLB 73c, LMND 48c, DRAM 62c) closed OTM (EOSE 2.525, RKLB 68.21, LMND 46.49, DRAM 57.165); RH lists them with pending_expiration_quantity = full size, no pending assignment, shares intact (no holds for options events). Kept as Open/pending_expiration until RH processes expiration (expected overnight); no assignment P&L. Compounder SPGI 6. Cash $3497.03; total $24387.26; deployed equities $21959.68; CC net $456.68 (fully earned if expiry confirms). Equity marks = RH latest incl. after-hours ~4:03 PM PT.",
   "portfolio": {
-    "total_value": 24266.6,
-    "equity_value": 20777.57,
+    "total_value": 24387.26,
+    "equity_value": 20898.23,
     "options_value": -8.0,
     "cash": 3497.03,
     "buying_power": 3497.03,
-    "as_of": "2026-10-09T10:12:00-07:00",
-    "source": "user-Robinhood.get_portfolio (morning refresh)"
+    "as_of": "2026-10-09T16:05:00-07:00",
+    "source": "user-Robinhood.get_portfolio (afternoon refresh)"
   },
   "open_positions": {
     "equity": [
@@ -25,9 +25,9 @@
         "avg_cost": 3.09,
         "side": "long",
         "deployed_usd": 1545.0,
-        "last": 2.49,
-        "market_value": 1245.0,
-        "unrealized_pnl": -300.0,
+        "last": 2.52,
+        "market_value": 1260.0,
+        "unrealized_pnl": -285.0,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
         "status": "open",
@@ -39,9 +39,9 @@
         "avg_cost": 72.66,
         "side": "long",
         "deployed_usd": 7266.0,
-        "last": 67.3599,
-        "market_value": 6735.99,
-        "unrealized_pnl": -530.01,
+        "last": 68.2672,
+        "market_value": 6826.72,
+        "unrealized_pnl": -439.28,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
         "status": "open",
@@ -53,9 +53,9 @@
         "avg_cost": 46.37,
         "side": "long",
         "deployed_usd": 4637.0,
-        "last": 46.61,
-        "market_value": 4661.0,
-        "unrealized_pnl": 24.0,
+        "last": 46.46,
+        "market_value": 4646.0,
+        "unrealized_pnl": 9.0,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
         "status": "open",
@@ -67,9 +67,9 @@
         "avg_cost": 61.85,
         "side": "long",
         "deployed_usd": 6185.0,
-        "last": 57.015,
-        "market_value": 5701.5,
-        "unrealized_pnl": -483.5,
+        "last": 57.2009,
+        "market_value": 5720.09,
+        "unrealized_pnl": -464.91,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
         "status": "open",
@@ -81,9 +81,9 @@
         "avg_cost": 387.78,
         "side": "long",
         "deployed_usd": 2326.68,
-        "last": 405.78,
-        "market_value": 2434.68,
-        "unrealized_pnl": 108.0,
+        "last": 407.57,
+        "market_value": 2445.42,
+        "unrealized_pnl": 118.74,
         "desk_bucket": "compounder",
         "structure": "stock",
         "status": "open",
@@ -103,9 +103,12 @@
         "avg_price": -208.0,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
-        "status": "open",
+        "status": "pending_expiration",
         "underlying_shares": 100,
-        "option_id": "d21d1d3c-5d49-4eb8-af8d-99e20cf8c1fb"
+        "option_id": "d21d1d3c-5d49-4eb8-af8d-99e20cf8c1fb",
+        "rh_pending_expiration_quantity": 1,
+        "underlying_close": 68.21,
+        "moneyness_at_close": "OTM"
       },
       {
         "symbol": "LMND",
@@ -119,9 +122,12 @@
         "avg_price": -45.0,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
-        "status": "open",
+        "status": "pending_expiration",
         "underlying_shares": 100,
-        "option_id": "dd6c3092-272d-416d-8ba9-f1947eaeeabd"
+        "option_id": "dd6c3092-272d-416d-8ba9-f1947eaeeabd",
+        "rh_pending_expiration_quantity": 1,
+        "underlying_close": 46.49,
+        "moneyness_at_close": "OTM"
       },
       {
         "symbol": "DRAM",
@@ -135,9 +141,12 @@
         "avg_price": -119.0,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
-        "status": "open",
+        "status": "pending_expiration",
         "underlying_shares": 100,
-        "option_id": "2591756b-e803-4557-8177-b0be117d9bd1"
+        "option_id": "2591756b-e803-4557-8177-b0be117d9bd1",
+        "rh_pending_expiration_quantity": 1,
+        "underlying_close": 57.165,
+        "moneyness_at_close": "OTM"
       },
       {
         "symbol": "EOSE",
@@ -151,9 +160,12 @@
         "avg_price": -17.0,
         "desk_bucket": "stocktimus",
         "structure": "covered_call",
-        "status": "open",
+        "status": "pending_expiration",
         "underlying_shares": 500,
-        "option_id": "7b4786ff-f467-4802-95f4-fc95989d68eb"
+        "option_id": "7b4786ff-f467-4802-95f4-fc95989d68eb",
+        "rh_pending_expiration_quantity": 5,
+        "underlying_close": 2.525,
+        "moneyness_at_close": "OTM"
       }
     ]
   },
@@ -633,7 +645,10 @@
       "fill_ids": [
         "6ac3bc36-5b92-479e-9d22-011dcbec8830",
         "6ac3bbc0-e183-42f0-9e7a-d8213ce7b1ba"
-      ]
+      ],
+      "rh_status": "pending_expiration",
+      "underlying_close": 68.21,
+      "moneyness_at_close": "OTM"
     },
     {
       "trade_id": "SL-CC-002",
@@ -656,7 +671,10 @@
       "fill_ids": [
         "6ac3bd97-d9b7-493a-bdb9-088e66d7ae54",
         "6ac3bd60-3d73-4cd5-8411-3cc9607b43b6"
-      ]
+      ],
+      "rh_status": "pending_expiration",
+      "underlying_close": 46.49,
+      "moneyness_at_close": "OTM"
     },
     {
       "trade_id": "SL-CC-003",
@@ -679,7 +697,10 @@
       "fill_ids": [
         "ad6342a8-2376-425a-be3e-c37a1b146046",
         "6ac3bdb2-c76f-4040-89ec-a5656f9432e4"
-      ]
+      ],
+      "rh_status": "pending_expiration",
+      "underlying_close": 57.165,
+      "moneyness_at_close": "OTM"
     },
     {
       "trade_id": "SL-CC-004",
@@ -703,7 +724,10 @@
         "08916195-da12-40eb-adc7-a1bac1d24e24",
         "6ab6dcbe-e7b9-4cbf-bae0-70665de4d8a3",
         "6ac3bf0e-7b62-407b-a755-1c000b88d5d6"
-      ]
+      ],
+      "rh_status": "pending_expiration",
+      "underlying_close": 2.525,
+      "moneyness_at_close": "OTM"
     }
   ],
   "dividends": [],
@@ -721,7 +745,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-10-09T10:12:00-07:00"
+    "refreshed_at": "2026-10-09T16:05:00-07:00"
   },
   "schema_fields": {
     "fills[]": [
