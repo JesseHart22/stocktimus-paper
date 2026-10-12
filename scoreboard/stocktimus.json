@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-10-01T09:02:37-07:00",
+  "as_of": "2026-10-12T08:40:00-07:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -252,6 +252,102 @@
       "called_at": "2026-09-22",
       "example": false,
       "note": "Stretched; rubber-band lower; grabbed puts. Not graded."
+    },
+    {
+      "id": "zs-clmt-2026-10-02",
+      "handle": "Zerosumgame33",
+      "ticker": "CLMT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 8,
+      "called_at": "2026-10-02",
+      "example": false,
+      "note": "New 7-day window (Oct 2–8 PT). First: shorts covering / base oil bonanza. +8 CLMT longs Oct 6–8 (API licensing, diesel margins, fair value $100+, 'doubles next year'). Not graded."
+    },
+    {
+      "id": "zs-inv-2026-10-06",
+      "handle": "Zerosumgame33",
+      "ticker": "INV",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 6,
+      "called_at": "2026-10-06",
+      "example": false,
+      "note": "Short: $60M ATM = forced seller, 'FREE MONEY on the short side'. +6 bearish INV posts Oct 7–9 (ATM math, regret no puts, WTI loan covenant). Not graded."
+    },
+    {
+      "id": "zs-eose-2026-10-08",
+      "handle": "Zerosumgame33",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-10-08",
+      "example": false,
+      "note": "New window (≥7d after Sep 23). 'Fully diluted equity worth < $1'. +1 Oct 9 Cerberus Dec lockup 'nail in the coffin'. Not graded."
+    },
+    {
+      "id": "sm-nbis-2026-10-04",
+      "handle": "Sandeman52",
+      "ticker": "NBIS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 12,
+      "called_at": "2026-10-04",
+      "example": false,
+      "note": "New window (≥7d after Sep 22). First 'no big whoop'. +12 NBIS longs Oct 5–11 PT (43 bullish updates, ARR math, 'green face ripper', bought 3x lev Oct 10). Not graded."
+    },
+    {
+      "id": "ls-csiq-2026-10-06",
+      "handle": "LucasSacerdote_",
+      "ticker": "CSIQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 4,
+      "called_at": "2026-10-06",
+      "example": false,
+      "note": "New window (≥7d after Sep 24). OX2 NSW BESS supply. +4 through Oct 12 (Victoria BESS, weekly buy #1, 0.25x book). Not graded."
+    },
+    {
+      "id": "ls-lode-2026-10-08",
+      "handle": "LucasSacerdote_",
+      "ticker": "LODE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-08",
+      "example": false,
+      "note": "Weekly buys list (sized #3). New window (≥7d after Sep 21). Not graded."
+    },
+    {
+      "id": "ls-eose-2026-10-08",
+      "handle": "LucasSacerdote_",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-08",
+      "example": false,
+      "note": "Weekly buys list (sized #4). New window (≥7d after Sep 22). Not graded."
+    },
+    {
+      "id": "ls-agro-2026-10-08",
+      "handle": "LucasSacerdote_",
+      "ticker": "AGRO",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-08",
+      "example": false,
+      "note": "Weekly buys list (sized #6). Not graded."
     }
   ]
 }

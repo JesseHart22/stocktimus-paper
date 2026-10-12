@@ -1,6 +1,6 @@
 {
   "desk": "compounder",
-  "as_of": "2026-09-28T08:23:47-07:00",
+  "as_of": "2026-10-12T08:45:00-07:00",
   "calls": [
     {
       "id": "tli-zeta-2026-09-24",
@@ -38,7 +38,7 @@
       "stars": 3,
       "called_at": "2026-09-25",
       "example": false,
-      "note": "Buy under ascending-triangle breakout / 200 WMA retest (~$4800 path); $9200 coin at $2700. Later: Hold ETH + Tom Lee hold \u2192 +3 stars. Under 14d.",
+      "note": "Buy under ascending-triangle breakout / 200 WMA retest (~$4800 path); $9200 coin at $2700. Later: Hold ETH + Tom Lee hold \u2192 +3 stars. Under 14d. ZONE STATUS 10/12: RH ETH-USD mark $2527.97 @ 8:31 PT, below $2700 context level \u2192 touched (crypto; out of Compounder mandate, log only).",
       "url": "https://x.com/TheLongInvest/status/2103554718471696451"
     },
     {
@@ -51,7 +51,7 @@
       "stars": 0,
       "called_at": "2026-09-25",
       "example": false,
-      "note": "CEO bought $30M at 0.887 Fib $2.70; +50% to 200 WMA $4.00 called a guarantee. Under 14d.",
+      "note": "CEO bought $30M at 0.887 Fib $2.70; +50% to 200 WMA $4.00 called a guarantee. Under 14d. 10/12 RH last $3.145 @ 8:31 PT \u2014 above $2.70 zone, untouched.",
       "url": "https://x.com/TheLongInvest/status/2103465526047727713"
     },
     {
@@ -90,7 +90,7 @@
       "stars": 0,
       "called_at": "2026-09-27",
       "example": false,
-      "note": "Is Shopify a buy at $142? Exceptional business; happily buy under $160/share. Under 14d.",
+      "note": "Is Shopify a buy at $142? Exceptional business; happily buy under $160/share. Under 14d. 10/12 RH last $177.29 @ 8:31 PT \u2014 above $160 zone, untouched.",
       "url": "https://x.com/BrianFeroldi/status/2104049860861460500"
     },
     {
@@ -100,10 +100,10 @@
       "kind": "zone",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 1,
       "called_at": "2026-09-28",
       "example": false,
-      "note": "Excellent buy whenever below 200 WMA; again at 200 WMA (2022 analog $700\u2192$2700). Under 14d.",
+      "note": "Excellent buy whenever below 200 WMA; again at 200 WMA (2022 analog $700\u2192$2700). Under 14d. Oct 5 'all 3 great buys right now' \u2192 +1 star. ZONE TOUCHED: wk of 9/28 low $1668.44 < 200 WMA ~$1742 (RH weekly) \u2192 fill. RH last $1912.84 @ 8:31 PT 10/12, 200 WMA ~$1746.",
       "url": "https://x.com/TheLongInvest/status/2104520122291634554"
     },
     {
@@ -116,8 +116,164 @@
       "stars": 0,
       "called_at": "2026-09-28",
       "example": false,
-      "note": "Add under 200 WMA at ~$84; upside target $274 (+326%). Low-risk buy if $100 captured as support. Under 14d.",
+      "note": "Add under 200 WMA at ~$84; upside target $274 (+326%). Low-risk buy if $100 captured as support. Under 14d. ZONE TOUCHED: RH last $78.06 @ 8:30 PT 10/12 (<$84); wk 9/28 low $77.14. Actual RH 200 WMA ~$95.7 (note's $84 differs).",
       "url": "https://x.com/TheLongInvest/status/2104550215407854002"
+    },
+    {
+      "id": "bf-msft-2026-10-01",
+      "handle": "BrianFeroldi",
+      "ticker": "MSFT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-01",
+      "example": false,
+      "note": "Is Microsoft a buy at $513? Exceptional business, good valuation (tool rating 4.5/4). Under 14d.",
+      "url": "https://x.com/BrianFeroldi/status/2105628813346705591"
+    },
+    {
+      "id": "tli-nu-2026-10-05",
+      "handle": "TheLongInvest",
+      "ticker": "NU",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-05",
+      "example": false,
+      "note": "'All 3 positions are great buys right now' (NU/SE/MELI). >7d after 9/25 call \u2192 new row. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2107036290898432316"
+    },
+    {
+      "id": "tli-se-2026-10-05",
+      "handle": "TheLongInvest",
+      "ticker": "SE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-05",
+      "example": false,
+      "note": "'All 3 great buys right now'; SE tested 200 WMA Fri Oct 2. Oct 6 SE-ready list \u2192 +1 star. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2107036290898432316"
+    },
+    {
+      "id": "tli-eth-2026-10-05",
+      "handle": "TheLongInvest",
+      "ticker": "ETH",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-05",
+      "example": false,
+      "note": "Prediction: ETH runs to $3000 (2.618 Fib subwave 5), then pullback to 200 WMA. >7d after 9/25 \u2192 new row. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2107083354755449038"
+    },
+    {
+      "id": "bf-meta-2026-10-06",
+      "handle": "BrianFeroldi",
+      "ticker": "META",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-06",
+      "example": false,
+      "note": "Is Meta a buy at $744? Exceptional business, good valuation (tool rating 4.5/4). Under 14d.",
+      "url": "https://x.com/BrianFeroldi/status/2107448158649541004"
+    },
+    {
+      "id": "tli-asts-2026-10-06",
+      "handle": "TheLongInvest",
+      "ticker": "ASTS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 2,
+      "called_at": "2026-10-06",
+      "example": false,
+      "note": "Best position to buy right now to hold 5y (NVDA-2021 analog). >7d after 9/26 \u2192 new row. Oct 9 'would you buy AMD 4y ago' + Oct 11 'adding again shortly' \u2192 +2 stars. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2107376136942682605"
+    },
+    {
+      "id": "tli-nflx-2026-10-07",
+      "handle": "TheLongInvest",
+      "ticker": "NFLX",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-07",
+      "example": false,
+      "note": "Below 200 WMA, moving to 0.618 Fib $61; hold there = ideal buy entry; 2-3y target $253. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2107894526421631327"
+    },
+    {
+      "id": "tli-adur-2026-10-09",
+      "handle": "TheLongInvest",
+      "ticker": "ADUR",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-09",
+      "example": false,
+      "note": "Retested $11 breakout support; buy now, Wave 3 $36, Wave 5 $53. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2108516121905451171"
+    },
+    {
+      "id": "tli-pep-2026-10-09",
+      "handle": "TheLongInvest",
+      "ticker": "PEP",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-09",
+      "example": false,
+      "note": "Sitting above 200 monthly MA at ~$125, 4.2% div; buy zone on chart (no $ level in text). Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2108611025000128911"
+    },
+    {
+      "id": "tli-goog-2026-10-11",
+      "handle": "TheLongInvest",
+      "ticker": "GOOG",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-11",
+      "example": false,
+      "note": "Happy to buy at 50 WMA; buy more at 200 WMA $205. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2109326018456752575"
+    },
+    {
+      "id": "tli-hims-2026-10-12",
+      "handle": "TheLongInvest",
+      "ticker": "HIMS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-12",
+      "example": false,
+      "note": "Clean breakout, little resistance back to prior high $40. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2109650139686338928"
+    },
+    {
+      "id": "tli-mu-2026-10-12",
+      "handle": "TheLongInvest",
+      "ticker": "MU",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-12",
+      "example": false,
+      "note": "Bulls should add on lower low test of $660 (50 WMA). Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2109658244813558048"
     }
   ]
 }
