@@ -5,68 +5,29 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-10-13T10:18:00-07:00",
+  "as_of": "2026-10-13T16:00:00-07:00",
   "sleeve_budget_usd": 25000,
-  "notes": "Morning refresh Oct 13 PT (RH get_portfolio ~10:18 AM PT). No new fills (no equity/option orders since Oct 5). No open options (all 4 Oct-9 covered calls expired OTM; no assignment P&L). Equities open: EOSE/RKLB/LMND/DRAM/SPGI. Cash $3497.03; total $23288.15 (-430.88 vs Oct12 PM $23719.03, marks only); deployed equities $21959.68; week 10/09 CC net $456.68 locked; week 10/16 in progress empty. Equity marks = RH last_trade ~10:18 AM PT.",
+  "notes": "Afternoon refresh Oct 13 PT (RH get_portfolio ~4:00 PM PT). New fills: agent-initiated full exits ~12:22-12:23 PM PT of EOSE 500 @ 2.313, DRAM 100 @ 52.51, RKLB 100 @ 64.00; realized equity P&L $-2,188.70 (tracked separately from income). No option orders; no open options. Open equities: LMND 100, SPGI 6. Cash $16,304.25; total $23,276.61 (-$11.54 vs AM $23,288.15); deployed equities $6,963.68; week 10/09 CC net $456.68 locked; week 10/16 income $0. Equity marks = RH latest incl. after-hours ~4:00 PM PT.",
   "portfolio": {
-    "total_value": 23288.15,
-    "equity_value": 19791.12,
+    "total_value": 23276.61,
+    "equity_value": 6972.36,
     "options_value": 0.0,
-    "cash": 3497.03,
-    "buying_power": 3497.03,
-    "as_of": "2026-10-13T10:18:00-07:00",
-    "source": "user-Robinhood.get_portfolio (morning refresh)"
+    "cash": 16304.25,
+    "buying_power": 16304.25,
+    "as_of": "2026-10-13T16:00:00-07:00",
+    "source": "user-Robinhood.get_portfolio (afternoon refresh)"
   },
   "open_positions": {
     "equity": [
-      {
-        "symbol": "EOSE",
-        "quantity": 500,
-        "avg_cost": 3.09,
-        "side": "long",
-        "deployed_usd": 1545.0,
-        "last": 2.34,
-        "market_value": 1170.0,
-        "unrealized_pnl": -375.0,
-        "desk_bucket": "stocktimus",
-        "structure": "stock",
-        "status": "open"
-      },
-      {
-        "symbol": "RKLB",
-        "quantity": 100,
-        "avg_cost": 72.66,
-        "side": "long",
-        "deployed_usd": 7266.0,
-        "last": 63.93,
-        "market_value": 6393.0,
-        "unrealized_pnl": -873.0,
-        "desk_bucket": "stocktimus",
-        "structure": "stock",
-        "status": "open"
-      },
       {
         "symbol": "LMND",
         "quantity": 100,
         "avg_cost": 46.37,
         "side": "long",
         "deployed_usd": 4637.0,
-        "last": 45.075,
-        "market_value": 4507.5,
-        "unrealized_pnl": -129.5,
-        "desk_bucket": "stocktimus",
-        "structure": "stock",
-        "status": "open"
-      },
-      {
-        "symbol": "DRAM",
-        "quantity": 100,
-        "avg_cost": 61.85,
-        "side": "long",
-        "deployed_usd": 6185.0,
-        "last": 52.465,
-        "market_value": 5246.5,
-        "unrealized_pnl": -938.5,
+        "last": 44.94,
+        "market_value": 4494.0,
+        "unrealized_pnl": -143.0,
         "desk_bucket": "stocktimus",
         "structure": "stock",
         "status": "open"
@@ -77,9 +38,9 @@
         "avg_cost": 387.78,
         "side": "long",
         "deployed_usd": 2326.68,
-        "last": 412.52,
-        "market_value": 2475.12,
-        "unrealized_pnl": 148.44,
+        "last": 413.0604,
+        "market_value": 2478.36,
+        "unrealized_pnl": 151.68,
         "desk_bucket": "compounder",
         "structure": "stock",
         "status": "open",
@@ -121,7 +82,7 @@
         "note": "pre-ledger fill; walk not recorded by Sleeve"
       },
       "status": "filled",
-      "open_closed": "open",
+      "open_closed": "closed",
       "realized_pnl_usd": null,
       "created_at": "2026-09-25T20:42:38.590371Z",
       "filled_at": "2026-09-25T20:42:38.725Z"
@@ -158,7 +119,7 @@
         "note": "penny spread; start=ask"
       },
       "status": "filled",
-      "open_closed": "open",
+      "open_closed": "closed",
       "realized_pnl_usd": null,
       "created_at": "2026-10-05T15:01:19.902492Z",
       "filled_at": "2026-10-05T15:01:20.042Z"
@@ -318,7 +279,7 @@
         "note": "penny spread; start=ask"
       },
       "status": "filled",
-      "open_closed": "open",
+      "open_closed": "closed",
       "realized_pnl_usd": null,
       "created_at": "2026-10-05T15:09:38.756724Z",
       "filled_at": "2026-10-05T15:09:38.939Z"
@@ -392,7 +353,7 @@
         "note": "penny spread; start=ask"
       },
       "status": "filled",
-      "open_closed": "open",
+      "open_closed": "closed",
       "realized_pnl_usd": null,
       "created_at": "2026-10-05T15:15:26.772954Z",
       "filled_at": "2026-10-05T15:15:26.95Z"
@@ -478,17 +439,193 @@
       "realized_pnl_usd": null,
       "created_at": "2026-10-05T15:24:29.691751Z",
       "filled_at": "2026-10-05T15:24:29.857Z"
+    },
+    {
+      "fill_id": "6ace851b-c23c-4c83-add6-8b365db7ba7c",
+      "order_id": "6ace8517-bbb1-405b-b21e-d7b7ceab7a1f",
+      "asset_class": "equity",
+      "symbol": "RKLB",
+      "side": "sell",
+      "structure": "stock",
+      "quantity": 100,
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "limit_price": 64.0,
+      "fill_price": 64.0,
+      "credit_debit": "credit",
+      "premium_per_share": null,
+      "notional_usd": 6400.0,
+      "fees": 0.14,
+      "deployed_usd": 0,
+      "desk_bucket": "stocktimus",
+      "lane": "sleeve",
+      "live_gate": "n/a_exit",
+      "ticket_id": "stocktimus-rklb-oct9-73c-primary",
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "regular_hours",
+      "walk": {
+        "start_limit": 64.0,
+        "fill": 64.0,
+        "note": "agent-initiated exit per RH order; walk not recorded"
+      },
+      "status": "filled",
+      "open_closed": "closed",
+      "realized_pnl_usd": -866.54,
+      "created_at": "2026-10-13T19:23:03.848243Z",
+      "filled_at": "2026-10-13T19:23:07.44Z"
+    },
+    {
+      "fill_id": "6ace84fd-dbc4-4741-beac-5fb73dc0c7d5",
+      "order_id": "6ace84fa-85da-4ec5-b07d-cc2341bd48ee",
+      "asset_class": "equity",
+      "symbol": "DRAM",
+      "side": "sell",
+      "structure": "stock",
+      "quantity": 100,
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "limit_price": 52.51,
+      "fill_price": 52.51,
+      "credit_debit": "credit",
+      "premium_per_share": null,
+      "notional_usd": 5251.0,
+      "fees": 0.11,
+      "deployed_usd": 0,
+      "desk_bucket": "stocktimus",
+      "lane": "sleeve",
+      "live_gate": "n/a_exit",
+      "ticket_id": "stocktimus-dram-oct9-62c-optional",
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "regular_hours",
+      "walk": {
+        "start_limit": 52.51,
+        "fill": 52.51,
+        "note": "agent-initiated exit per RH order; walk not recorded"
+      },
+      "status": "filled",
+      "open_closed": "closed",
+      "realized_pnl_usd": -934.1,
+      "created_at": "2026-10-13T19:22:34.200183Z",
+      "filled_at": "2026-10-13T19:22:37.895Z"
+    },
+    {
+      "fill_id": "6ace84f8-764d-4aaa-8e33-a5ab68e365e7",
+      "order_id": "6ace84f8-08d7-4f7b-bd2f-8d93a37605b1",
+      "asset_class": "equity",
+      "symbol": "EOSE",
+      "side": "sell",
+      "structure": "stock",
+      "quantity": 500,
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "limit_price": 2.31,
+      "fill_price": 2.313,
+      "credit_debit": "credit",
+      "premium_per_share": null,
+      "notional_usd": 1156.5,
+      "fees": 0.03,
+      "deployed_usd": 0,
+      "desk_bucket": "stocktimus",
+      "lane": "sleeve",
+      "live_gate": "n/a_exit",
+      "ticket_id": "stocktimus-eose-500-oct9-3c",
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "regular_hours",
+      "walk": {
+        "start_limit": 2.31,
+        "fill": 2.313,
+        "note": "agent-initiated exit per RH order; walk not recorded"
+      },
+      "status": "filled",
+      "open_closed": "closed",
+      "realized_pnl_usd": -388.06,
+      "created_at": "2026-10-13T19:22:32.765628Z",
+      "filled_at": "2026-10-13T19:22:32.868Z"
     }
   ],
   "orders_open": [],
-  "realized_trades": [],
+  "realized_trades": [
+    {
+      "fill_id": "6ace851b-c23c-4c83-add6-8b365db7ba7c",
+      "order_id": "6ace8517-bbb1-405b-b21e-d7b7ceab7a1f",
+      "symbol": "RKLB",
+      "side": "sell",
+      "quantity": 100,
+      "avg_cost": 72.664,
+      "cost_basis_usd": 7266.4,
+      "exit_price": 64.0,
+      "proceeds_usd": 6400.0,
+      "fees": 0.14,
+      "realized_pnl_usd": -866.54,
+      "desk_bucket": "stocktimus",
+      "ticket_ids": [
+        "stocktimus-rklb-oct9-73c-primary"
+      ],
+      "status": "closed",
+      "closed_date": "2026-10-13",
+      "closed_at": "2026-10-13T19:23:07.44Z",
+      "notes": "Full position exit, agent-initiated limit sell (RH placed_agent=agentic). Cost = sum of ledger buy fills."
+    },
+    {
+      "fill_id": "6ace84fd-dbc4-4741-beac-5fb73dc0c7d5",
+      "order_id": "6ace84fa-85da-4ec5-b07d-cc2341bd48ee",
+      "symbol": "DRAM",
+      "side": "sell",
+      "quantity": 100,
+      "avg_cost": 61.8499,
+      "cost_basis_usd": 6184.99,
+      "exit_price": 52.51,
+      "proceeds_usd": 5251.0,
+      "fees": 0.11,
+      "realized_pnl_usd": -934.1,
+      "desk_bucket": "stocktimus",
+      "ticket_ids": [
+        "stocktimus-dram-oct9-62c-optional"
+      ],
+      "status": "closed",
+      "closed_date": "2026-10-13",
+      "closed_at": "2026-10-13T19:22:37.895Z",
+      "notes": "Full position exit, agent-initiated limit sell (RH placed_agent=agentic). Cost = sum of ledger buy fills."
+    },
+    {
+      "fill_id": "6ace84f8-764d-4aaa-8e33-a5ab68e365e7",
+      "order_id": "6ace84f8-08d7-4f7b-bd2f-8d93a37605b1",
+      "symbol": "EOSE",
+      "side": "sell",
+      "quantity": 500,
+      "avg_cost": 3.0891,
+      "cost_basis_usd": 1544.53,
+      "exit_price": 2.313,
+      "proceeds_usd": 1156.5,
+      "fees": 0.03,
+      "realized_pnl_usd": -388.06,
+      "desk_bucket": "stocktimus",
+      "ticket_ids": [
+        "stocktimus-eose-500-oct9-3c"
+      ],
+      "status": "closed",
+      "closed_date": "2026-10-13",
+      "closed_at": "2026-10-13T19:22:32.868Z",
+      "notes": "Full position exit, agent-initiated limit sell (RH placed_agent=agentic). Cost = sum of ledger buy fills."
+    }
+  ],
   "rules": {
     "week_ending": "Friday; Sat-Fri week",
     "cc_premium_net": "STO credit notionals minus BTC debit notionals minus option fees on covered_call fills",
     "capital_deployed": "Sum of open equity deployed_usd (cost). Not portfolio.equity_value.",
     "week_return_vs_capital": "Combined week total / capital_deployed",
     "week_return_vs_budget": "Combined week total / sleeve_budget_usd, stored as week_return_pct_vs_program and income.roc_vs_budget",
-    "refresh": "Twice daily: get_portfolio writes portfolio.total_value and portfolio.cash; roll fills into income, weeks, weekly_summary, and cc_trades. Leave dividends and scalps empty until Robinhood activity has them."
+    "refresh": "Twice daily: get_portfolio writes portfolio.total_value and portfolio.cash; roll fills into income, weeks, weekly_summary, and cc_trades. Leave dividends and scalps empty until Robinhood activity has them.",
+    "realized_equity_pnl": "Stock exits (not CC/dividend/scalp/assignment) are tracked in realized_trades[] and income.realized_equity_pnl / weeks[].realized_equity_pnl; they are NOT folded into combined_income or total_week_pnl."
   },
   "income": {
     "cc_premium_gross": 457.0,
@@ -499,9 +636,10 @@
     "assignment_pnl": 0,
     "combined_income": 456.68,
     "open_premium_net": 0,
-    "capital_deployed": 21959.68,
-    "roc_vs_deployed": 0.0207963,
-    "roc_vs_budget": 0.0182672
+    "capital_deployed": 6963.68,
+    "roc_vs_deployed": 0.0655803,
+    "roc_vs_budget": 0.0182672,
+    "realized_equity_pnl": -2188.7
   },
   "current_week_ending": "2026-10-16",
   "weeks": [
@@ -520,14 +658,15 @@
       "week_return_pct_vs_capital": 0.0207963,
       "week_return_pct_vs_program": 0.0182672,
       "trade_count": 4,
-      "called_away_flags": 0
+      "called_away_flags": 0,
+      "realized_equity_pnl": 0
     },
     {
       "week_ending": "2026-10-16",
       "premium_allocated": 0,
       "fees_allocated": 0,
       "net_income": 0,
-      "capital_deployed": 21959.68,
+      "capital_deployed": 6963.68,
       "dividends": 0,
       "scalps_daytrades_pnl": 0,
       "daytrade_pnl": 0,
@@ -536,8 +675,9 @@
       "week_return_pct": 0,
       "week_return_pct_vs_capital": 0,
       "week_return_pct_vs_program": 0,
-      "trade_count": 0,
-      "called_away_flags": 0
+      "trade_count": 3,
+      "called_away_flags": 0,
+      "realized_equity_pnl": -2188.7
     }
   ],
   "weekly_summary": [
@@ -556,14 +696,15 @@
       "week_return_pct_vs_capital": 0.0207963,
       "week_return_pct_vs_program": 0.0182672,
       "trade_count": 4,
-      "called_away_flags": 0
+      "called_away_flags": 0,
+      "realized_equity_pnl": 0
     },
     {
       "week_ending": "2026-10-16",
       "premium_allocated": 0,
       "fees_allocated": 0,
       "net_income": 0,
-      "capital_deployed": 21959.68,
+      "capital_deployed": 6963.68,
       "dividends": 0,
       "scalps_daytrades_pnl": 0,
       "daytrade_pnl": 0,
@@ -572,8 +713,9 @@
       "week_return_pct": 0,
       "week_return_pct_vs_capital": 0,
       "week_return_pct_vs_program": 0,
-      "trade_count": 0,
-      "called_away_flags": 0
+      "trade_count": 3,
+      "called_away_flags": 0,
+      "realized_equity_pnl": -2188.7
     }
   ],
   "cc_trades": [
@@ -698,7 +840,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-10-13T10:18:00-07:00"
+    "refreshed_at": "2026-10-13T16:00:00-07:00"
   },
   "schema_fields": {
     "fills[]": [
