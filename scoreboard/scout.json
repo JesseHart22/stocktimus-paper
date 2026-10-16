@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-10-12T08:40:00-07:00",
+  "as_of": "2026-10-16T16:02:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -48,10 +48,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "long",
-      "stars": 7,
+      "stars": 8,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end."
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Oct 14: \"long bonds\" = ★8 (same open call, not a new graded row). Oct 15 call overwrite is not a close; position stays net long/open. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end."
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -60,10 +60,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "short",
-      "stars": 2,
+      "stars": 3,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Still open. Proxies SPY,QQQ,IWM. Under 14d."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Oct 14: \"short stocks\" = ★3 restatement of short equities (same open call, not a new graded row). Still open. Proxies SPY,QQQ,IWM. Under 14d."
     },
     {
       "id": "ds-jpy-2026-09-29",
@@ -88,6 +88,18 @@
       "called_at": "2026-10-01",
       "example": false,
       "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close (Fri theme log)."
+    },
+    {
+      "id": "jam-spy-2026-10-02",
+      "handle": "jam_croissant",
+      "ticker": "SPY",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-10-02",
+      "example": false,
+      "note": "Oct 2 1:48pm ET: short US equities. Oct 14 repeat = ★1 (same open call, not a new graded row). Proxies frozen at entry: SPY 769.20, QQQ 749.07. Open/ungraded; grade at October 2026 month-end."
     },
     {
       "id": "jc-siri-2026-10-09",
