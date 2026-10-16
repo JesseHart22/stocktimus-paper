@@ -1,21 +1,21 @@
 {
   "ok": true,
-  "at": "2026-10-06T18:49:46.928Z",
-  "url": "http://127.0.0.1:40859/",
+  "at": "2026-10-16T20:39:56.830Z",
+  "url": "http://127.0.0.1:34887/",
   "books": {
     "data.json": {
-      "tickets": 102
+      "tickets": 115
     },
     "desks/moonshot.json": {
       "tickets": 3
     },
     "desks/compounder.json": {
-      "tickets": 9
+      "tickets": 10
     }
   },
   "proxy": {
     "url": "https://stock-prices-proxy.jessehartung.workers.dev",
-    "symbol": "MRAM",
+    "symbol": "UNH",
     "ok": true,
     "status": 200,
     "numericPricePresent": true,
@@ -117,7 +117,7 @@
     {
       "name": "data.json parses",
       "ok": true,
-      "detail": "102 tickets"
+      "detail": "115 tickets"
     },
     {
       "name": "data.json unique ids",
@@ -137,7 +137,7 @@
     {
       "name": "desks/compounder.json parses",
       "ok": true,
-      "detail": "9 tickets"
+      "detail": "10 tickets"
     },
     {
       "name": "desks/compounder.json unique ids",
@@ -162,7 +162,7 @@
     {
       "name": "scoreboard/stocktimus.json calls array",
       "ok": true,
-      "detail": "20 calls"
+      "detail": "28 calls"
     },
     {
       "name": "scoreboard/stocktimus.json unique call ids",
@@ -192,7 +192,7 @@
     {
       "name": "scoreboard/compounder.json calls array",
       "ok": true,
-      "detail": "9 calls"
+      "detail": "21 calls"
     },
     {
       "name": "scoreboard/compounder.json unique call ids",
@@ -207,7 +207,7 @@
     {
       "name": "scoreboard/scout.json calls array",
       "ok": true,
-      "detail": "7 calls"
+      "detail": "8 calls"
     },
     {
       "name": "scoreboard/scout.json unique call ids",
@@ -217,7 +217,7 @@
     {
       "name": "jesse/cc-tracker.json parses",
       "ok": true,
-      "detail": "25 trades"
+      "detail": "32 trades"
     },
     {
       "name": "jesse desk field",
@@ -247,7 +247,7 @@
     {
       "name": "sleeve/trades.json parses",
       "ok": true,
-      "detail": "10 fills"
+      "detail": "14 fills"
     },
     {
       "name": "sleeve schema",
@@ -262,7 +262,7 @@
     {
       "name": "sleeve has equity book",
       "ok": true,
-      "detail": "EOSE,RKLB,LMND,DRAM,SPGI"
+      "detail": "LMND,SPGI"
     },
     {
       "name": "scalp/scalp.json parses",
