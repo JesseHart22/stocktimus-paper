@@ -1,6 +1,6 @@
 {
   "desk": "compounder",
-  "as_of": "2026-10-12T08:45:00-07:00",
+  "as_of": "2026-10-19T11:35:00-04:00",
   "calls": [
     {
       "id": "tli-zeta-2026-09-24",
@@ -38,7 +38,7 @@
       "stars": 3,
       "called_at": "2026-09-25",
       "example": false,
-      "note": "Buy under ascending-triangle breakout / 200 WMA retest (~$4800 path); $9200 coin at $2700. Later: Hold ETH + Tom Lee hold \u2192 +3 stars. Under 14d. ZONE STATUS 10/12: RH ETH-USD mark $2527.97 @ 8:31 PT, below $2700 context level \u2192 touched (crypto; out of Compounder mandate, log only).",
+      "note": "Buy under ascending-triangle breakout / 200 WMA retest (~$4800 path); $9200 coin at $2700. Later: Hold ETH + Tom Lee hold \u2192 +3 stars. Under 14d. ZONE STATUS 10/12: RH ETH-USD mark $2527.97 @ 8:31 PT, below $2700 context level \u2192 touched (crypto; out of Compounder mandate, log only). ZONE STATUS 10/19: 10/19 RH @ 11:28 ET ETH-USD mark $2412.93 (bid 2390.15/ask 2435.71), below $2700 context level \u2192 still touched. Compounder paper NO: crypto out of mandate, log only.",
       "url": "https://x.com/TheLongInvest/status/2103554718471696451"
     },
     {
@@ -51,7 +51,7 @@
       "stars": 0,
       "called_at": "2026-09-25",
       "example": false,
-      "note": "CEO bought $30M at 0.887 Fib $2.70; +50% to 200 WMA $4.00 called a guarantee. Under 14d. 10/12 RH last $3.145 @ 8:31 PT \u2014 above $2.70 zone, untouched.",
+      "note": "CEO bought $30M at 0.887 Fib $2.70; +50% to 200 WMA $4.00 called a guarantee. Under 14d. 10/12 RH last $3.145 @ 8:31 PT \u2014 above $2.70 zone, untouched. 10/19: 10/19 RH @ 11:28 ET last $2.878 \u2014 above $2.70, untouched.",
       "url": "https://x.com/TheLongInvest/status/2103465526047727713"
     },
     {
@@ -90,7 +90,7 @@
       "stars": 0,
       "called_at": "2026-09-27",
       "example": false,
-      "note": "Is Shopify a buy at $142? Exceptional business; happily buy under $160/share. Under 14d. 10/12 RH last $177.29 @ 8:31 PT \u2014 above $160 zone, untouched.",
+      "note": "Is Shopify a buy at $142? Exceptional business; happily buy under $160/share. Under 14d. 10/12 RH last $177.29 @ 8:31 PT \u2014 above $160 zone, untouched. 10/19: 10/19 RH @ 11:28 ET last $172.415 \u2014 above $160, untouched.",
       "url": "https://x.com/BrianFeroldi/status/2104049860861460500"
     },
     {
@@ -103,7 +103,7 @@
       "stars": 1,
       "called_at": "2026-09-28",
       "example": false,
-      "note": "Excellent buy whenever below 200 WMA; again at 200 WMA (2022 analog $700\u2192$2700). Under 14d. Oct 5 'all 3 great buys right now' \u2192 +1 star. ZONE TOUCHED: wk of 9/28 low $1668.44 < 200 WMA ~$1742 (RH weekly) \u2192 fill. RH last $1912.84 @ 8:31 PT 10/12, 200 WMA ~$1746.",
+      "note": "Excellent buy whenever below 200 WMA; again at 200 WMA (2022 analog $700\u2192$2700). Under 14d. Oct 5 'all 3 great buys right now' \u2192 +1 star. ZONE TOUCHED: wk of 9/28 low $1668.44 < 200 WMA ~$1742 (RH weekly) \u2192 fill. RH last $1912.84 @ 8:31 PT 10/12, 200 WMA ~$1746. 10/19: 10/19 RH @ 11:28 ET last $1841.79, above 200 WMA ~$1756 \u2014 not in zone now.",
       "url": "https://x.com/TheLongInvest/status/2104520122291634554"
     },
     {
@@ -116,7 +116,7 @@
       "stars": 0,
       "called_at": "2026-09-28",
       "example": false,
-      "note": "Add under 200 WMA at ~$84; upside target $274 (+326%). Low-risk buy if $100 captured as support. Under 14d. ZONE TOUCHED: RH last $78.06 @ 8:30 PT 10/12 (<$84); wk 9/28 low $77.14. Actual RH 200 WMA ~$95.7 (note's $84 differs).",
+      "note": "Add under 200 WMA at ~$84; upside target $274 (+326%). Low-risk buy if $100 captured as support. Under 14d. ZONE TOUCHED: RH last $78.06 @ 8:30 PT 10/12 (<$84); wk 9/28 low $77.14. Actual RH 200 WMA ~$95.7 (note's $84 differs). ZONE STATUS 10/19: 10/19 RH @ 11:28 ET last $72.55 (bid 72.51/ask 72.72), still < $84 and < 200 WMA ~$95.8 \u2192 still touched. Compounder paper NO (reconfirmed): high-growth medtech in downtrend, durable profitability unproven; Moonshot lane.",
       "url": "https://x.com/TheLongInvest/status/2104550215407854002"
     },
     {
@@ -256,10 +256,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 2,
       "called_at": "2026-10-12",
       "example": false,
-      "note": "Clean breakout, little resistance back to prior high $40. Under 14d.",
+      "note": "Clean breakout, little resistance back to prior high $40. Under 14d. Oct 16 'institutions accumulate in wedge... and so should you' + Oct 16 peptides 'HIMS would already be above $100' \u2192 +2 stars. 10/19 RH last $28.53.",
       "url": "https://x.com/TheLongInvest/status/2109650139686338928"
     },
     {
@@ -274,6 +274,123 @@
       "example": false,
       "note": "Bulls should add on lower low test of $660 (50 WMA). Under 14d.",
       "url": "https://x.com/TheLongInvest/status/2109658244813558048"
+    },
+    {
+      "id": "tli-asts-2026-10-13",
+      "handle": "TheLongInvest",
+      "ticker": "ASTS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 5,
+      "called_at": "2026-10-13",
+      "note": "'ASTS has completed its ABC correction \u2014 which one are you buying here?' (vs NVDA in Wave 5). 7d after 10/6 call \u2192 new row. Stars: Oct 15 'do to ASTS what we did with HIMS at $14.70', Oct 15 'dip being targeted so institutions can add', Oct 16 'even better entry to add', Oct 16 'adding here', Oct 19 'ASTS is a buy under $60' \u2192 +5. 10/19 RH last $43.00. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2109987837617594860",
+      "example": false
+    },
+    {
+      "id": "tli-unh-2026-10-13",
+      "handle": "TheLongInvest",
+      "ticker": "UNH",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-13",
+      "note": "Post-earnings double beat: 'UNH is moving into Wave 3' while SPY in Wave 5. Same day: 'Wave 3 is next and it's higher than $493' \u2192 +1 star. 10/19 RH last $402.16. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2109950530566922302",
+      "example": false
+    },
+    {
+      "id": "tli-mu-short-2026-10-13",
+      "handle": "TheLongInvest",
+      "ticker": "MU",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 2,
+      "called_at": "2026-10-13",
+      "note": "Bearish: 'MU is going down a lot further.' Oct 14 '$800 drop +95% chance, 200 WMA at Wave C level' + Oct 15 '$800 test now +99%' \u2192 +2 stars. Coexists with 10/12 long zone add at $660. 10/19 RH last $924.44. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2110007197753299083",
+      "example": false
+    },
+    {
+      "id": "bf-v-2026-10-13",
+      "handle": "BrianFeroldi",
+      "ticker": "V",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-13",
+      "note": "Is Visa a buy at $389? Great business, good valuation (4.2/4). Same post repeated 16:00 ET \u2192 +1 star. 10/19 RH last $401.85. Under 14d.",
+      "url": "https://x.com/BrianFeroldi/status/2109977451455549477",
+      "example": false
+    },
+    {
+      "id": "tli-sndk-2026-10-16",
+      "handle": "TheLongInvest",
+      "ticker": "SNDK",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-16",
+      "note": "'SNDK becomes very attractive again at or below $1200' (50 WMA, -50% from June high). 10/19 RH last $1398.34, prev close $1299.30 \u2014 above $1200, untouched. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2111070574579527881",
+      "example": false
+    },
+    {
+      "id": "tli-adur-2026-10-16",
+      "handle": "TheLongInvest",
+      "ticker": "ADUR",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-16",
+      "note": "Triple bottom test and hold; Wave 3 target $36 from ~$10 (+260%). 7d after 10/9 call \u2192 new row. 10/19 RH last $9.955. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2111106736283423093",
+      "example": false
+    },
+    {
+      "id": "tli-eth-2026-10-17",
+      "handle": "TheLongInvest",
+      "ticker": "ETH",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-17",
+      "note": "'Comfortable holding your position here and adding ETH below its 200 WMA' (BTC/ETH opposite cycle to US market). >7d after 10/5 \u2192 new row. Oct 19 'ETH wins' (vs JPM) \u2192 +1 star. 200 WMA $ level not in text and not verified on RH. 10/19 RH ETH-USD mark $2412.93 @ 11:28 ET. Crypto: out of Compounder mandate, log only. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2111409720477262238",
+      "example": false
+    },
+    {
+      "id": "tli-aapl-2026-10-18",
+      "handle": "TheLongInvest",
+      "ticker": "AAPL",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-10-18",
+      "note": "'AAPL is a Sell here' \u2014 limited upside, last Mega Cap to fall; trim. Same day '200 WMA at $220 looking very obvious next' \u2192 +1 star. 10/19 RH last $342.75. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2111851303580426517",
+      "example": false
+    },
+    {
+      "id": "tli-pep-2026-10-19",
+      "handle": "TheLongInvest",
+      "ticker": "PEP",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-19",
+      "note": "Moving to very strong confluence support: 0.5 Fib + 200 monthly MA at $120; 'incredible opportunity', 4.5% div. >7d after 10/9 PEP row \u2192 new row. 10/19 RH last $132.48 \u2014 above $120, untouched. Under 14d.",
+      "url": "https://x.com/TheLongInvest/status/2112137971440762942",
+      "example": false
     }
   ]
 }
