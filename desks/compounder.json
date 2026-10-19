@@ -1,10 +1,10 @@
 {
   "desk": "compounder",
-  "as_of": "2026-10-15T07:25:38-07:00",
+  "as_of": "2026-10-19T11:31:29-04:00",
   "account": 250000.0,
   "weekly_target": 0,
   "source": "compounder",
-  "note": "Compounder $250k paper. Max 25%/name. Confidence High|Medium|Low on every ticket. \u226510%/yr floor; LEAPs \u226512mo on pullbacks only (none open). Marks Robinhood realtime (get_equity_quotes). lane=paper (NOT sleeve). Not live.",
+  "note": "Compounder $250k paper. Max 25%/name. Confidence High|Medium|Low on every ticket. \u226510%/yr floor; LEAPs \u226512mo on pullbacks only (none open). Marks Robinhood realtime (get_equity_quotes). lane=paper (NOT sleeve). Not live. Mid-month scrub 2026-10-19: GOOGL High\u2192Medium; all other opens still_valid; no adds.",
   "cash": 147860.83,
   "summary": {
     "paper_pnl": 5403.98,
@@ -88,7 +88,7 @@
       "capital_at_risk": 8459.0,
       "hard_exit": 280.0,
       "invalidation": "Thesis-break daily close under $280; or durable Search monetization break / Cloud failing to earn AI spend.",
-      "notes": "Core GOOGL lot kept under 25% book rule. Hard exit close under $280. Massive 1m entry.",
+      "notes": "Core GOOGL lot kept under 25% book rule. Hard exit close under $280. Massive 1m entry. | Scrub 2026-10-19T11:31:29-04:00: High\u2192Medium.",
       "new_vs_carry": "new",
       "live_stock": 350.805,
       "live_stock_source": "robinhood_realtime",
@@ -105,8 +105,8 @@
       "entry_at": "2026-09-08T13:00:00-07:00",
       "entry_asof": "2026-09-08T13:00:00-07:00",
       "fill_source": "massive_minute_agg",
-      "confidence": "High",
-      "confidence_reason": "Quality Search/Cloud compounder at attractive trailing multiple; hard exit $280; size 16.9% \u226425%.",
+      "confidence": "Medium",
+      "confidence_reason": "Mid-month scrub 2026-10-19: FCF near zero H1 (capex ~matches OCF); debt + equity issuance funding AI spend; Q2 NI distorted by ~$98B non-op gains; still valid long-term, demote High\u2192Medium. Hard exit close <$280 unchanged. No add before Oct 28 earnings.",
       "lane": "paper"
     },
     {
