@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-10-12T08:40:00-07:00",
+  "as_of": "2026-10-19T08:31:16-07:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -348,6 +348,126 @@
       "called_at": "2026-10-08",
       "example": false,
       "note": "Weekly buys list (sized #6). Not graded."
+    },
+    {
+      "id": "ct-cls-2026-10-16",
+      "handle": "Chartradamus",
+      "ticker": "CLS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-16",
+      "example": false,
+      "note": "'Starting a position in each of $CLS $NBIS', keen into CLS earnings (~Oct 26); short-term trade, no strike/zone. (CLS also on Oct 14 shortlist, not counted.) Ref RH close CLS 303.81 (2026-10-16). Not graded."
+    },
+    {
+      "id": "ct-nbis-2026-10-16",
+      "handle": "Chartradamus",
+      "ticker": "NBIS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-16",
+      "example": false,
+      "note": "Same post as CLS: starting NBIS position, short-term trade, no strike/zone. ALIGNMENT w/ Sandeman NBIS long. Momentum cluster — never LIVE GATE. Ref RH close NBIS 165.47 (2026-10-16). Not graded."
+    },
+    {
+      "id": "ct-qqq-2026-10-16",
+      "handle": "Chartradamus",
+      "ticker": "QQQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-16",
+      "example": false,
+      "note": "5 red days; relief Mon/Tue; very small starter in QQQ calls for next week. +1 same-day reply: $715 strike, 0.5% of account. Opposite direction to ct-qqq-2026-09-22 (short). Ref RH close QQQ 709.80 (2026-10-16). Not graded."
+    },
+    {
+      "id": "ct-iwm-2026-10-14",
+      "handle": "Chartradamus",
+      "ticker": "IWM",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-10-14",
+      "example": false,
+      "note": "IWM 🔴: B-wave snapback possible but horrible on higher timeframe; August major top playing out. +1 Oct 15 (snapback came; assumes temporary, additional leg lower). Ref RH close IWM 271.37 (2026-10-14). Not graded."
+    },
+    {
+      "id": "ct-spx-2026-10-14",
+      "handle": "Chartradamus",
+      "ticker": "SPX",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 2,
+      "called_at": "2026-10-14",
+      "example": false,
+      "note": "Monitoring $7620; lost daily 20MA/21EMA, 'sign of pain to come'. +2 Oct 18 PT: sell into strength, $7730/$7790 cap upside; 'more pain to come' on higher timeframe if bulls fail. Call-time SPX mark not frozen (index; left blank). Not graded."
+    },
+    {
+      "id": "zs-clmt-2026-10-16",
+      "handle": "Zerosumgame33",
+      "ticker": "CLMT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 5,
+      "called_at": "2026-10-16",
+      "example": false,
+      "note": "New 7-day window (≥7d after Oct 2). First in pull: '$100+ in 1H 27' if base-oil crack ~$5/gal holds + debt paydown. +5: deleveraging cadence, Shell Pearl GTL watch, debt-redemption schedule, '~all of my capital' in CLMT (Oct 16), fundamentals+technicals (Oct 17). Target only, no buy zone. Ref RH close CLMT 57.75 (2026-10-16). ZS pull capped at 25 posts (covers Oct 16 05:03 PT→Oct 19); Oct 12–15 posts not read. Watch-only. Not graded."
+    },
+    {
+      "id": "zs-eose-2026-10-16",
+      "handle": "Zerosumgame33",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 2,
+      "called_at": "2026-10-16",
+      "example": false,
+      "note": "New window (≥7d after Oct 8). '$1 going to sub $1'. +2: 'Its a zero' (Oct 16), Q3 pre-release negative gross margin / low-end guide (Oct 19). Ref RH close EOSE 1.82 (2026-10-16). ZS pull capped at 25 posts (covers Oct 16 05:03 PT→Oct 19); Oct 12–15 posts not read. Watch-only. Not graded."
+    },
+    {
+      "id": "ls-csiq-2026-10-13",
+      "handle": "LucasSacerdote_",
+      "ticker": "CSIQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 6,
+      "called_at": "2026-10-13",
+      "example": false,
+      "note": "New window (≥7d after Oct 6). 'CSIQ is my biggest position'. +6: TAN volume/'CSIQ watch out' (Oct 13), fundamentals never stronger, UBS PT $16 note, analyst track record (Oct 14), Recurrent sale SOTP ~$10/sh + mfg '+$40/sh', US mfg platform (Oct 17). Targets only, no buy zone. Ref RH close CSIQ 11.21 (2026-10-13). Lucas pull starts Oct 13 07:56 PT. Watch-only. Not graded."
+    },
+    {
+      "id": "ls-tan-2026-10-13",
+      "handle": "LucasSacerdote_",
+      "ticker": "TAN",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-13",
+      "example": false,
+      "note": "'I like the trade going into midterms' (TAN ~3-4x avg volume). +1 same day: expect a bid before election day. No zone. Ref RH close TAN 44.38 (2026-10-13). Watch-only. Not graded."
+    },
+    {
+      "id": "sd-nbis-2026-10-16",
+      "handle": "Sandeman52",
+      "ticker": "NBIS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-10-16",
+      "example": false,
+      "note": "New window (≥7d after Oct 4). First in pull: director-buy confirm post. +3: 'good read for NBIS holders' (Oct 16), weak hands 'flushed' (Oct 17), 'Nothing has changed' (Oct 17). Ref RH close NBIS 165.47 (2026-10-16). Sandeman pull capped at 25 (covers Oct 16 10:12 PT→Oct 19); Oct 12–16 AM not read. Sandeman demoted. Not graded."
     }
   ]
 }
