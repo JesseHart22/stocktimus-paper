@@ -5,17 +5,17 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-10-19T10:05:00-07:00",
+  "as_of": "2026-10-19T16:00:00-07:00",
   "sleeve_budget_usd": 25000,
-  "notes": "Morning refresh Oct 19 PT (RH get_portfolio ~10:05 AM PT). No new fills or orders since the Oct 16 PM refresh (last fill: ZETA Oct-23 32P STO 0.95 on 10/15 ~7:07 AM PT). Open: LMND 100 (43.28), SPGI 6 (427.62), ZETA -1 Oct-23 32P (mark 0.74; ZETA 32.48 vs 31.50 out-if; $3,200 collateral). Premium tracked as open_premium_net $94.95 (expiry 10/23), not yet in week income. Cash $16,399.20; buying power $13,199.20 (put collateral held); total $23,216.67 (-$36.53 vs Oct 16 PM $23,253.20, marks only). Deployed equities $6,963.68; week 10/09 CC net $456.68 locked; week 10/16 closed with $0 realized income; new week 10/23 opened at $0. Realized equity P&L -$2,188.70 (Oct 13 exits, tracked separately). Marks = RH live last trade / adjusted option mark ~10:05 AM PT.",
+  "notes": "Afternoon refresh Oct 19 PT (RH get_portfolio ~4:00 PM PT). No new fills or orders since the Oct 16 PM refresh (last fill: ZETA Oct-23 32P STO 0.95 on 10/15 ~7:07 AM PT). Open: LMND 100 (43.80), SPGI 6 (427.83), ZETA -1 Oct-23 32P (mark 0.68; ZETA 32.56 vs 31.50 out-if; $3,200 collateral). Premium tracked as open_premium_net $94.95 (expiry 10/23), not yet in week income. Cash $16,399.20; buying power $13,199.20 (put collateral held); total $23,278.18 (+$61.51 vs Oct 19 AM $23,216.67, marks only). Deployed equities $6,963.68; week 10/09 CC net $456.68 locked; week 10/16 closed with $0 realized income; week 10/23 at $0 so far. Realized equity P&L -$2,188.70 (Oct 13 exits, tracked separately). Marks = RH live after-hours last trade (matches RH equity_value) / option mark at 4:00 PM ET close.",
   "portfolio": {
-    "total_value": 23216.67,
-    "equity_value": 6891.47,
-    "options_value": -74.0,
+    "total_value": 23278.18,
+    "equity_value": 6946.98,
+    "options_value": -68.0,
     "cash": 16399.2,
     "buying_power": 13199.2,
-    "as_of": "2026-10-19T10:05:00-07:00",
-    "source": "user-Robinhood.get_portfolio (morning refresh)"
+    "as_of": "2026-10-19T16:00:00-07:00",
+    "source": "user-Robinhood.get_portfolio (afternoon refresh)"
   },
   "open_positions": {
     "equity": [
@@ -25,9 +25,9 @@
         "avg_cost": 46.37,
         "side": "long",
         "deployed_usd": 4637.0,
-        "last": 43.28,
-        "market_value": 4328.0,
-        "unrealized_pnl": -309.0,
+        "last": 43.8,
+        "market_value": 4380.0,
+        "unrealized_pnl": -257.0,
         "desk_bucket": "stocktimus",
         "structure": "stock",
         "status": "open"
@@ -38,9 +38,9 @@
         "avg_cost": 387.78,
         "side": "long",
         "deployed_usd": 2326.68,
-        "last": 427.615,
-        "market_value": 2565.69,
-        "unrealized_pnl": 239.01,
+        "last": 427.83,
+        "market_value": 2566.98,
+        "unrealized_pnl": 240.3,
         "desk_bucket": "compounder",
         "structure": "stock",
         "status": "open",
@@ -61,10 +61,10 @@
         "credit_usd": 95.0,
         "fees": 0.05,
         "credit_net_usd": 94.95,
-        "mark": 0.74,
-        "market_value": -74.0,
-        "unrealized_pnl": 21.0,
-        "underlying_last": 32.48,
+        "mark": 0.68,
+        "market_value": -68.0,
+        "unrealized_pnl": 27.0,
+        "underlying_last": 32.56,
         "collateral_usd": 3200.0,
         "desk_bucket": "stocktimus",
         "ticket_id": "stocktimus-zeta-oct23-32p",
@@ -957,7 +957,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-10-19T10:05:00-07:00"
+    "refreshed_at": "2026-10-19T16:00:00-07:00"
   },
   "schema_fields": {
     "fills[]": [
