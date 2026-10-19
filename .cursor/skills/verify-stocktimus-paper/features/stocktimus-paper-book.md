@@ -5,7 +5,10 @@ Default desk. Browser tab title becomes `Stocktimus · Paper book`. The header r
 ## Sub-features
 
 - Hero snapshot: total, open, and closed paper P&L, weeks running, deployed now with idle cash, average dollars per week versus the file weekly goal, open / inv / out counts, hit rate
-- Section nav: **Open book** (default) and **Summary**. Summary holds cumulative return on average deployed, with a weekly table (week, $ P&L, avg dep, % dep), plus breakdown panels by structure, creator, and confidence
+- Section nav: **Open book** (default), **Summary**, and **Rules**. Summary holds cumulative return on average deployed, with a weekly table (week, $ P&L, avg dep, % dep), plus breakdown panels by structure, creator, and confidence. Rules is Stocktimus-only
+- Rules badge under the hero: `Trading on rules <label> (since <Mon D>)`, from `rules/versions.json` field `current`. It links to `#rules`
+- Stocktimus trade rows show a Rules tag. The tag is the latest version whose `effective` date is on or before the entry date (`date_opened`). Moonshot and Compounder do not show the column
+- Rules pane: a By rules version table (one row per version, including empty versions) and `rules/CHANGELOG.md` rendered as markdown. The table uses each ticket’s paper P&L and capital. It does not show account size or the weekly goal
 - Open book uses the same pill section nav, card padding, and table header scale as the Jesse tab. Moonshot and Compounder keep that shell and swap the header accent
 - Trade filters: All, This week, High, Medium, Low
 - Open trades and closed trades tables. A row click opens the ticket drawer (notes, invalidation, paper P&L). Close with ×, the shade, or Escape

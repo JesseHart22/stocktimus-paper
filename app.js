@@ -65,14 +65,24 @@
     liveOk: false,
     liveAsOf: null,
     paperPane: "book",
+    rulesDoc: null,
+    rulesChangelog: "",
+    rulesList: [],
+    pendingPane: null,
   };
 
+  function hashName() {
+    return (location.hash || "").replace(/^#/, "").toLowerCase();
+  }
+
   function deskFromHash() {
-    const h = (location.hash || "").replace(/^#/, "").toLowerCase();
+    const h = hashName();
+    // #rules stays on the Stocktimus book. It is a section, not a desk.
     // #scoreboard is the X call tab, not a paper book. Do not add it to DESKS.
     // #jesse is the covered-call income tracker. It reads jesse/cc-tracker.json only.
     // #sleeve is the live Agentic ledger. It reads sleeve/trades.json only.
     // #scalp is the paper scalp book. It reads scalp/scalp.json only.
+    if (h === "rules" || h === "changelog") return "stocktimus";
     if (h === "scoreboard") return "scoreboard";
     if (h === "jesse") return "jesse";
     if (h === "sleeve") return "sleeve";
@@ -157,6 +167,15 @@
     const s = String(v).trim();
     const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
     return m ? m[1] : null;
+  }
+  function todayKey() {
+    const fmt = new Intl.DateTimeFormat("en-CA", {
+      timeZone: TZ,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return fmt.format(new Date());
   }
   function nextDateKey(key) {
     const d = parseDate(key);
@@ -1057,6 +1076,30 @@
     state.liveAsOf = null;
     state.summary = computeSummary(trades, incomingSummary);
     state.deployed = computeDeployedRoc(trades, account, asOf);
+    if (deskId === "stocktimus") await loadRulesDoc();
+    else {
+      state.rulesDoc = null;
+      state.rulesChangelog = "";
+    }
+  }
+
+  async function loadRulesDoc() {
+    state.rulesDoc = null;
+    state.rulesChangelog = "";
+    try {
+      const res = await fetch("./rules/versions.json", { cache: "no-store" });
+      if (res.ok) state.rulesDoc = JSON.parse(await res.text());
+    } catch (err) {
+      console.warn("rules versions", err);
+      state.rulesDoc = null;
+    }
+    try {
+      const res = await fetch("./rules/CHANGELOG.md", { cache: "no-store" });
+      if (res.ok) state.rulesChangelog = await res.text();
+    } catch (err) {
+      console.warn("rules changelog", err);
+      state.rulesChangelog = "";
+    }
   }
 
   function filtered() {
@@ -1349,14 +1392,22 @@
           pct(t.paper_pct) + "</td>" +
         "<td><span class=\"pill " + escapeHtml(st.toLowerCase()) + "\">" +
           escapeHtml(st) + "</span></td>" +
+        rulesCell(t) +
       "</tr>"
     );
+  }
+
+  function rulesCell(t) {
+    const label = state.desk === "stocktimus" ? t.rules_label : "";
+    if (!label) return '<td class="rules-col"><span class="pill rules">—</span></td>';
+    return '<td class="rules-col"><span class="pill rules" title="' + escapeHtml(t.rules_version || label) + '">' +
+      escapeHtml(label) + "</span></td>";
   }
 
   function fillTradeBody(tb, rows, emptyMsg) {
     if (!tb) return;
     if (!rows.length) {
-      tb.innerHTML = '<tr class="empty-row"><td colspan="14">' + emptyMsg + "</td></tr>";
+      tb.innerHTML = '<tr class="empty-row"><td colspan="15">' + emptyMsg + "</td></tr>";
       return;
     }
     tb.innerHTML = rows.map(tradeRowHtml).join("");
@@ -1465,6 +1516,7 @@
       '<div class="dl">' +
         cell("Date", fmtDate(t.date)) +
         cell("Status", t.status || "—") +
+        (state.desk === "stocktimus" ? cell("Rules", t.rules_label || "—") : "") +
         cell("Confidence", t.confidence || "—") +
         cell("Why", t.confidence_reason || "—") +
         cell("Strike / exp", strikeExp(t)) +
@@ -1567,16 +1619,38 @@
   }
 
   function setPaperPane(pane) {
-    state.paperPane = pane === "summary" ? "summary" : "book";
+    let next = pane === "summary" || pane === "rules" ? pane : "book";
+    if (next === "rules" && state.desk !== "stocktimus") next = "book";
+    state.paperPane = next;
     const book = $("paper-book");
     const summary = $("paper-summary");
-    if (book) book.hidden = state.paperPane !== "book";
-    if (summary) summary.hidden = state.paperPane !== "summary";
+    const rules = $("paper-rules");
+    if (book) book.hidden = next !== "book";
+    if (summary) summary.hidden = next !== "summary";
+    if (rules) rules.hidden = next !== "rules";
     document.querySelectorAll("[data-paper-view]").forEach((btn) => {
-      const on = btn.getAttribute("data-paper-view") === state.paperPane;
+      const on = btn.getAttribute("data-paper-view") === next;
       btn.classList.toggle("on", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
+  }
+
+  function applyHashPane() {
+    if (state.desk !== "stocktimus") return;
+    const h = hashName();
+    if (state.pendingPane && h !== "rules" && h !== "changelog") {
+      const pane = state.pendingPane;
+      state.pendingPane = null;
+      setPaperPane(pane);
+      return;
+    }
+    if (h === "rules" || h === "changelog") {
+      setPaperPane("rules");
+      const el = $("paper-rules");
+      if (el) el.scrollIntoView({ block: "start" });
+      return;
+    }
+    if (state.paperPane === "rules") setPaperPane("book");
   }
 
   function syncDeskTabs() {
@@ -1634,13 +1708,26 @@
       paperNav.addEventListener("click", (e) => {
         const btn = e.target.closest("[data-paper-view]");
         if (!btn) return;
-        setPaperPane(btn.getAttribute("data-paper-view"));
+        const view = btn.getAttribute("data-paper-view") || "book";
+        if (view === "rules") {
+          if (state.desk !== "stocktimus") return;
+          if (hashName() === "rules") setPaperPane("rules");
+          else location.hash = "rules";
+          return;
+        }
+        if ((hashName() === "rules" || hashName() === "changelog") && state.desk === "stocktimus") {
+          state.pendingPane = view === "summary" ? "summary" : "book";
+          location.hash = "stocktimus";
+          return;
+        }
+        setPaperPane(view);
       });
     }
     window.addEventListener("hashchange", () => {
       const next = deskFromHash();
       if (next === "scoreboard" || next === "jesse" || next === "sleeve" || next === "scalp") {
         state.desk = next;
+        state.pendingPane = null;
         syncDeskTabs();
         setScoreboardView(next === "scoreboard");
         setJesseView(next === "jesse");
@@ -1653,7 +1740,10 @@
       if (state.desk === "jesse") setJesseView(false);
       if (state.desk === "sleeve") setSleeveView(false);
       if (state.desk === "scalp") setScalpView(false);
-      if (next === state.desk && !leavingSpecial) return;
+      if (next === state.desk && !leavingSpecial) {
+        applyHashPane();
+        return;
+      }
       state.desk = next;
       state.filter = "all";
       setPaperPane("book");
@@ -1662,6 +1752,7 @@
       load()
         .then(async () => {
           render();
+          applyHashPane();
           if (needsMassiveFallback()) {
             await refreshLiveMarks();
             render();
@@ -1692,8 +1783,220 @@
     });
   }
 
+  function rulesVersionsSorted() {
+    const doc = state.rulesDoc;
+    if (!doc || !Array.isArray(doc.versions)) return [];
+    return doc.versions
+      .filter((v) => v && v.id && v.effective)
+      .map((v) => ({
+        id: String(v.id),
+        label: str(v.label) || String(v.id),
+        effective: dateKey(v.effective),
+      }))
+      .filter((v) => v.effective)
+      .sort((a, b) => (a.effective < b.effective ? -1 : a.effective > b.effective ? 1 : 0));
+  }
+
+  function versionForEntry(entryKey, versions) {
+    if (!entryKey) return null;
+    let found = null;
+    for (const v of versions) {
+      if (v.effective <= entryKey) found = v;
+    }
+    return found;
+  }
+
+  function assignRulesVersions() {
+    const versions = state.desk === "stocktimus" ? rulesVersionsSorted() : [];
+    state.rulesList = versions;
+    for (const t of state.trades) {
+      const hit = versionForEntry(lotOpened(t), versions);
+      t.rules_version = hit ? hit.id : null;
+      t.rules_label = hit ? hit.label : null;
+    }
+  }
+
+  // Calendar days from effective → next effective (or today for the current
+  // version), divided by 7. Shorter than a week still counts as one week.
+  function rulesActiveWeeks(version, versions) {
+    const idx = versions.findIndex((v) => v.id === version.id);
+    const next = idx >= 0 ? versions[idx + 1] : null;
+    const currentId = state.rulesDoc && state.rulesDoc.current;
+    const end = version.id === currentId || !next ? todayKey() : next.effective;
+    const a = parseDate(version.effective);
+    const b = parseDate(end);
+    if (!a || !b) return 1;
+    const days = Math.max(0, Math.round((b.getTime() - a.getTime()) / 86400000));
+    return Math.max(1, days / 7);
+  }
+
+  function aggregateRules(versions, trades) {
+    const rows = versions.map((v) => ({
+      id: v.id,
+      label: v.label,
+      effective: v.effective,
+      trades: 0,
+      wins: 0,
+      closed: 0,
+      closedPnl: 0,
+      openPnl: 0,
+      capital: 0,
+      pnl: 0,
+      weeks: rulesActiveWeeks(v, versions),
+    }));
+    const byId = new Map(rows.map((r) => [r.id, r]));
+    for (const t of trades) {
+      const row = t.rules_version ? byId.get(t.rules_version) : null;
+      if (!row) continue;
+      row.trades += 1;
+      if (t.capital != null) row.capital += t.capital;
+      if (t.paper_pnl == null) continue;
+      row.pnl += t.paper_pnl;
+      if (isClosedBucket(t.status)) {
+        row.closed += 1;
+        row.closedPnl += t.paper_pnl;
+        if (t.paper_pnl > 0) row.wins += 1;
+      } else {
+        row.openPnl += t.paper_pnl;
+      }
+    }
+    return rows;
+  }
+
+  function renderRulesBadge() {
+    const row = $("rules-badge-row");
+    const link = $("rules-badge");
+    if (!row || !link) return;
+    const currentId = state.rulesDoc && state.rulesDoc.current;
+    const current = (state.rulesList || []).find((v) => v.id === currentId) || null;
+    if (state.desk !== "stocktimus" || !current) {
+      row.hidden = true;
+      link.textContent = "";
+      return;
+    }
+    link.textContent = "Trading on rules " + current.label + " (since " + fmtDate(current.effective) + ")";
+    row.hidden = false;
+  }
+
+  function renderRulesTable() {
+    const body = $("rules-version-body");
+    if (!body) return;
+    const versions = state.desk === "stocktimus" ? state.rulesList || [] : [];
+    if (!versions.length) {
+      body.innerHTML = '<tr class="empty-row"><td colspan="7">Rules versions unavailable.</td></tr>';
+      return;
+    }
+    const currentId = state.rulesDoc && state.rulesDoc.current;
+    const rows = aggregateRules(versions, state.trades);
+    body.innerHTML = rows.map((row) => {
+      const roc = row.capital ? row.pnl / row.capital : null;
+      const avg = row.pnl / row.weeks;
+      const hit = row.closed ? row.wins / row.closed : null;
+      const hitText = hit == null ? "—" : pct(hit) + " · " + row.wins + "/" + row.closed;
+      const current = row.id === currentId;
+      return (
+        '<tr data-rules-id="' + escapeHtml(row.id) + '"' + (current ? ' class="is-current"' : "") + ">" +
+          '<td><div class="rules-ver">' + escapeHtml(row.label) +
+            (current ? ' <span class="rules-current">current</span>' : "") +
+            '</div><div class="rules-since">since ' + escapeHtml(fmtDate(row.effective)) + "</div></td>" +
+          '<td class="num mono">' + row.trades + "</td>" +
+          '<td class="num mono">' + hitText + "</td>" +
+          '<td class="num mono ' + clsPnL(row.closedPnl) + '">' + money(row.closedPnl, "$0.00") + "</td>" +
+          '<td class="num mono ' + clsPnL(row.openPnl) + '">' + money(row.openPnl, "$0.00") + "</td>" +
+          '<td class="num mono ' + clsPnL(roc) + '">' + pct(roc) + "</td>" +
+          '<td class="num mono ' + clsPnL(avg) + '" title="' + escapeHtml(row.weeks.toFixed(3)) + ' weeks">' +
+            money(avg, "$0.00") + "</td>" +
+        "</tr>"
+      );
+    }).join("");
+  }
+
+  let changelogRendered = null;
+  function renderRulesChangelog() {
+    const el = $("rules-changelog");
+    if (!el) return;
+    const src = state.desk === "stocktimus" ? (state.rulesChangelog || "") : "";
+    if (changelogRendered === src) return;
+    changelogRendered = src;
+    el.innerHTML = src
+      ? renderMarkdown(src)
+      : '<p class="rules-empty">Changelog unavailable.</p>';
+  }
+
+  function sanitizeUrl(url) {
+    const raw = String(url || "").replace(/&amp;/g, "&");
+    if (/^(https?:|mailto:)/i.test(raw)) return escapeHtml(raw);
+    if (/^(\.\/|\.\.\/|#|\/)/.test(raw) && !raw.startsWith("//")) return escapeHtml(raw);
+    return "";
+  }
+
+  function inlineMd(text) {
+    let s = escapeHtml(text);
+    s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, label, url) => {
+      const safe = sanitizeUrl(url);
+      if (!safe) return label;
+      return '<a href="' + safe + '" rel="noopener noreferrer">' + label + "</a>";
+    });
+    return s;
+  }
+
+  function renderMarkdown(src) {
+    const lines = String(src || "").replace(/\r\n/g, "\n").split("\n");
+    let html = "";
+    let list = false;
+    const para = [];
+    function flushPara() {
+      if (!para.length) return;
+      html += "<p>" + inlineMd(para.join(" ")) + "</p>";
+      para.length = 0;
+    }
+    function closeList() {
+      if (!list) return;
+      html += "</ul>";
+      list = false;
+    }
+    for (const line of lines) {
+      const t = line.trim();
+      if (!t) {
+        flushPara();
+        closeList();
+        continue;
+      }
+      const heading = t.match(/^(#{1,3})\s+(.*)$/);
+      if (heading) {
+        flushPara();
+        closeList();
+        const level = heading[1].length;
+        html += "<h" + level + ">" + inlineMd(heading[2]) + "</h" + level + ">";
+        continue;
+      }
+      const item = t.match(/^[-*]\s+(.*)$/);
+      if (item) {
+        flushPara();
+        if (!list) {
+          html += "<ul>";
+          list = true;
+        }
+        html += "<li>" + inlineMd(item[1]) + "</li>";
+        continue;
+      }
+      closeList();
+      para.push(t);
+    }
+    flushPara();
+    closeList();
+    return html;
+  }
+
   function render() {
+    assignRulesVersions();
     renderHero();
+    renderRulesBadge();
+    renderRulesTable();
+    renderRulesChangelog();
     const preferS = ["CSP", "stock+CC", "long call"];
     renderBreak($("by-structure"), (state.summary && state.summary.by_structure) || {}, preferS);
     renderBreak($("by-creator"), (state.summary && state.summary.by_creator) || {}, null);
@@ -1731,6 +2034,7 @@
       state.source = "stub";
     }
     render();
+    applyHashPane();
     try {
       if (needsMassiveFallback()) {
         await refreshLiveMarks();

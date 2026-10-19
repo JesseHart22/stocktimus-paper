@@ -20,7 +20,7 @@ Hash tabs in `nav.desk-tabs`:
 
 | Tab | Hash | What loads |
 | --- | --- | --- |
-| Stocktimus | `#stocktimus` (also the default when the hash is empty or unknown) | `./data.json`, then `./trade-tracker-paper.json`, then `../trade-tracker-paper.json`. Summary overlay: `./trade-tracker-summary.json`. CSV only if that book has zero tickets. |
+| Stocktimus | `#stocktimus` (also the default when the hash is empty or unknown) | `./data.json`, then `./trade-tracker-paper.json`, then `../trade-tracker-paper.json`. Summary overlay: `./trade-tracker-summary.json`. CSV only if that book has zero tickets. `#rules` opens the Rules pane on this desk (`./rules/versions.json`, `./rules/CHANGELOG.md`). |
 | Moonshot | `#moonshot` | `./desks/moonshot.json` |
 | Compounder | `#compounder` | `./desks/compounder.json` |
 | Sleeve | `#sleeve` | `./sleeve/trades.json`. Robinhood Agentic live ledger. Not a paper book. Steel & Ember while this tab is open. Account value is `portfolio.total_value` and cash is `portfolio.cash`. Deployed is the sum of open equity `deployed_usd`. Weekly income reads `weekly_summary` (CC premium net, dividends, scalps, assignment, combined, return vs deployed). |
