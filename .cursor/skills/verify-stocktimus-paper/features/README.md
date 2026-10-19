@@ -6,7 +6,7 @@ Numbers on screen come from the JSON files listed here. A `delayed` suffix is ei
 
 | Feature | Id | How a user opens it | Data |
 | --- | --- | --- | --- |
-| [Stocktimus paper book](stocktimus-paper-book.md) | `stocktimus-paper-book` | Site root, or the Stocktimus tab | `data.json` (summary overlay `trade-tracker-summary.json`) |
+| [Stocktimus paper book](stocktimus-paper-book.md) | `stocktimus-paper-book` | Site root, or the Stocktimus tab. `#rules` opens the rules pane | `data.json` (summary overlay `trade-tracker-summary.json`). Rules pane: `rules/versions.json`, `rules/CHANGELOG.md` |
 | [Moonshot desk](moonshot-desk.md) | `moonshot-desk` | Moonshot tab | `desks/moonshot.json` |
 | [Compounder desk](compounder-desk.md) | `compounder-desk` | Compounder tab | `desks/compounder.json` |
 | [Scoreboard tab](scoreboard-tab.md) | `scoreboard-tab` | Scoreboard tab, or `scoreboard.html` | `scoreboard/*.json` |

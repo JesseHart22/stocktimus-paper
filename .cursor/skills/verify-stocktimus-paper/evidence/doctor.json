@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "at": "2026-10-16T20:39:56.830Z",
-  "url": "http://127.0.0.1:34887/",
+  "at": "2026-10-19T12:15:29.544Z",
+  "url": "http://127.0.0.1:37795/",
   "books": {
     "data.json": {
       "tickets": 115
@@ -96,6 +96,16 @@
     },
     {
       "name": "app.js scalp hash",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "rules versions fetch",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "rules changelog fetch",
       "ok": true,
       "detail": ""
     },
@@ -207,7 +217,7 @@
     {
       "name": "scoreboard/scout.json calls array",
       "ok": true,
-      "detail": "8 calls"
+      "detail": "9 calls"
     },
     {
       "name": "scoreboard/scout.json unique call ids",
@@ -315,6 +325,16 @@
       "detail": ""
     },
     {
+      "name": "rules/versions.json parses",
+      "ok": true,
+      "detail": "5 versions"
+    },
+    {
+      "name": "rules/CHANGELOG.md present",
+      "ok": true,
+      "detail": "# Stocktimus rules changelog\n\nEach trade"
+    },
+    {
       "name": "GET /",
       "ok": true,
       "detail": "HTTP 200"
@@ -401,6 +421,16 @@
     },
     {
       "name": "GET /shell.css",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /rules/versions.json",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "GET /rules/CHANGELOG.md",
       "ok": true,
       "detail": "HTTP 200"
     }

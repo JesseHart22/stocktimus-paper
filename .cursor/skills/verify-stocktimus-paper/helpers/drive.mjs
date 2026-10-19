@@ -457,6 +457,8 @@ async function doctor() {
   hard(checks, "sleeve ledger path", readText("sleeve.js").includes('const FILE = "./sleeve/trades.json"'));
   hard(checks, "scalp ledger path", readText("scalp.js").includes('const FILE = "./scalp/scalp.json"'));
   hard(checks, "app.js scalp hash", app.includes('if (h === "scalp") return "scalp"'));
+  hard(checks, "rules versions fetch", app.includes('fetch("./rules/versions.json"'));
+  hard(checks, "rules changelog fetch", app.includes('fetch("./rules/CHANGELOG.md"'));
   const scalpJs = readText("scalp.js");
   hard(checks, "scalp does not call the quote proxy", !scalpJs.includes("MASSIVE_DELAYED_PROXY_URL") && !scalpJs.includes("stock-prices-proxy") && !scalpJs.includes("query1.finance.yahoo"));
   hard(checks, "scoreboard redirect", readText("scoreboard.html").includes('location.replace("./#scoreboard")'));
@@ -557,8 +559,22 @@ async function doctor() {
     hard(checks, "scalp/scalp.json parses", false, err.message);
   }
 
+  try {
+    const rules = readJson("rules/versions.json");
+    const n = Array.isArray(rules.versions) ? rules.versions.length : 0;
+    hard(checks, "rules/versions.json parses", n > 0 && !!rules.current, n + " versions");
+  } catch (err) {
+    hard(checks, "rules/versions.json parses", false, err.message);
+  }
+  try {
+    const changelog = readText("rules/CHANGELOG.md");
+    hard(checks, "rules/CHANGELOG.md present", changelog.startsWith("# "), changelog.slice(0, 40));
+  } catch (err) {
+    hard(checks, "rules/CHANGELOG.md present", false, err.message);
+  }
+
   const origin = server.url.replace(/\/$/, "");
-  const routes = ["/", "/data.json", "/desks/moonshot.json", "/desks/compounder.json", "/app.js", "/scoreboard.js", "/scoreboard/stocktimus.json", "/scoreboard/scout.json", "/jesse/cc-tracker.json", "/jesse.js", "/jesse.css", "/sleeve/trades.json", "/sleeve.js", "/sleeve.css", "/scalp/scalp.json", "/scalp.js", "/scalp.css", "/shell.css"];
+  const routes = ["/", "/data.json", "/desks/moonshot.json", "/desks/compounder.json", "/app.js", "/scoreboard.js", "/scoreboard/stocktimus.json", "/scoreboard/scout.json", "/jesse/cc-tracker.json", "/jesse.js", "/jesse.css", "/sleeve/trades.json", "/sleeve.js", "/sleeve.css", "/scalp/scalp.json", "/scalp.js", "/scalp.css", "/shell.css", "/rules/versions.json", "/rules/CHANGELOG.md"];
   for (const route of routes) {
     try {
       const res = await fetch(origin + route, { cache: "no-store", signal: AbortSignal.timeout(5000) });

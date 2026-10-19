@@ -629,6 +629,71 @@ table.trades tbody tr.active td { background: #1c2433; }
 }
 #paper-summary { margin-top: 2px; }
 #paper-summary .books-h { margin-bottom: 10px; }
+#paper-rules { margin-top: 2px; }
+#paper-rules .books-h { margin-bottom: 10px; }
+#paper-rules .book { margin-bottom: 12px; }
+
+.rules-badge-row { margin: 12px 0 0; }
+.rules-badge {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--chart);
+  background: var(--chart-dim);
+  border: 1px solid rgba(200, 240, 77, 0.18);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.rules-badge:hover { color: var(--text); border-color: var(--chart); }
+html:not([data-desk="stocktimus"]) .rules-only,
+html:not([data-desk="stocktimus"]) .rules-col { display: none !important; }
+
+.pill.rules {
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--blue);
+  background: var(--blue-bg);
+  border-color: rgba(122, 162, 255, 0.25);
+}
+table.rules-table tbody tr { cursor: default; }
+table.rules-table tbody tr.is-current td:first-child { box-shadow: inset 2px 0 0 var(--chart); }
+.rules-ver { font-weight: 600; }
+.rules-current {
+  margin-left: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chart);
+}
+.rules-since { margin-top: 2px; font-size: 11px; color: var(--mute); }
+.rules-md {
+  padding: 4px 16px 16px;
+  color: var(--dim);
+  font-size: 13.5px;
+  line-height: 1.5;
+  max-width: 78ch;
+}
+.rules-md h1 { margin: 12px 0 8px; font-size: 18px; letter-spacing: -0.02em; color: var(--text); }
+.rules-md h2 { margin: 16px 0 6px; font-size: 15px; letter-spacing: -0.02em; color: var(--text); }
+.rules-md h3 { margin: 14px 0 6px; font-size: 13px; color: var(--text); }
+.rules-md p { margin: 8px 0; }
+.rules-md ul { margin: 6px 0 10px; padding-left: 1.2em; }
+.rules-md li { margin: 4px 0; }
+.rules-md code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  background: #1a2030;
+  border: 1px solid var(--line);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.rules-md a { color: var(--blue); }
+.rules-empty { color: var(--mute); font-size: 12.5px; padding: 8px 0; }
 
 html[data-desk="moonshot"] {
   --chart: #c4b5fd;

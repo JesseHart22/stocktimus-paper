@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261002b">
+  <link rel="stylesheet" href="styles.css?v=20261019a">
   <link rel="stylesheet" href="scoreboard.css?v=20261002b">
   <link rel="stylesheet" href="shell.css?v=20261002b">
   <link rel="stylesheet" href="jesse.css?v=20260929s">
@@ -102,9 +102,14 @@
       </article>
     </section>
 
+    <p class="rules-badge-row rules-only" id="rules-badge-row" hidden>
+      <a class="rules-badge" id="rules-badge" href="#rules"></a>
+    </p>
+
     <nav class="sh-subnav" id="paper-subnav" aria-label="Desk sections">
       <button type="button" class="sh-view on" data-paper-view="book" aria-pressed="true">Open book</button>
       <button type="button" class="sh-view" data-paper-view="summary" aria-pressed="false">Summary</button>
+      <button type="button" class="sh-view rules-only" data-paper-view="rules" aria-pressed="false">Rules</button>
     </nav>
 
     <div id="paper-book">
@@ -148,10 +153,11 @@
               <th class="num">Paper P&amp;L</th>
               <th class="num">Paper %</th>
               <th>Status</th>
+              <th class="rules-col">Rules</th>
             </tr>
             </thead>
             <tbody id="tbody-open">
-              <tr class="empty-row"><td colspan="14">Loading book…</td></tr>
+              <tr class="empty-row"><td colspan="15">Loading book…</td></tr>
             </tbody>
           </table>
         </div>
@@ -182,10 +188,11 @@
               <th class="num">Paper P&amp;L</th>
               <th class="num">Paper %</th>
               <th>Status</th>
+              <th class="rules-col">Rules</th>
             </tr>
             </thead>
             <tbody id="tbody-closed">
-              <tr class="empty-row"><td colspan="14">Loading book…</td></tr>
+              <tr class="empty-row"><td colspan="15">Loading book…</td></tr>
             </tbody>
           </table>
         </div>
@@ -237,6 +244,50 @@
       </section>
     </div>
 
+    <div id="paper-rules" class="rules-only" hidden>
+      <header class="books-h">
+        <div>
+          <h2>Rules</h2>
+          <p class="book-sub">Read at load from <span class="mono">rules/versions.json</span> and <span class="mono">rules/CHANGELOG.md</span>. A trade takes the latest version whose effective date is on or before its entry date.</p>
+        </div>
+      </header>
+      <section class="book" aria-label="By rules version">
+        <header class="book-h">
+          <div>
+            <h2>By rules version</h2>
+            <p class="book-sub" id="rules-table-sub">Hit rate is closed winners over closed trades. Return is total P&amp;L divided by entry capital. Avg $/week divides total P&amp;L by weeks from that version’s effective date to the next version, or to today, and is at least one week.</p>
+          </div>
+        </header>
+        <div class="table-wrap">
+          <table class="trades rules-table" id="rules-version-table">
+            <thead>
+              <tr>
+                <th>Version</th>
+                <th class="num">Trades</th>
+                <th class="num">Hit rate</th>
+                <th class="num">Closed P&amp;L</th>
+                <th class="num">Open P&amp;L</th>
+                <th class="num">Return on deployed</th>
+                <th class="num">Avg $/week</th>
+              </tr>
+            </thead>
+            <tbody id="rules-version-body">
+              <tr class="empty-row"><td colspan="7">Loading rules…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="book rules-log" aria-label="Rules changelog">
+        <header class="book-h">
+          <div>
+            <h2>Changelog</h2>
+            <p class="book-sub">Rendered from <span class="mono">rules/CHANGELOG.md</span>.</p>
+          </div>
+        </header>
+        <div class="rules-md" id="rules-changelog"></div>
+      </section>
+    </div>
+
     <footer class="foot">
       Paper marks assume fill at the recommended premium. Not Jesse’s actual fills. Not advice.
     </footer>
@@ -279,7 +330,7 @@
     <div class="drawer-body" id="drawer-body"></div>
   </aside>
 
-  <script src="app.js?v=20261002b"></script>
+  <script src="app.js?v=20261019a"></script>
   <script src="scoreboard.js?v=20261002b"></script>
   <script src="jesse.js?v=20261002b"></script>
   <script src="sleeve.js?v=20261006a"></script>
