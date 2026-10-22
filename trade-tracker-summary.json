@@ -1,15 +1,15 @@
 {
-  "asof_pt": "2026-10-21T13:26:50-07:00",
-  "account": 238328.72,
+  "asof_pt": "2026-10-22T12:21:00-07:00",
+  "account": 234005.72,
   "starting_account": 250000.0,
-  "max_per_trade": 59582.18,
-  "weekly_target": 3574.93,
-  "elapsed_days_from_first_email": 69,
-  "elapsed_weeks": 9.857142857142858,
+  "max_per_trade": 58501.43,
+  "weekly_target": 3510.09,
+  "elapsed_days_from_first_email": 70,
+  "elapsed_weeks": 10.0,
   "paper_fill_rules": "PAPER backtest of Stocktimus recommendations, not Jesse's actual fills. Assume each emailed ticket filled at the inventory stock_price and premium_per_share on the email date, sized as printed (CC with no size => 100 sh / 1 call). taken stays proposed except LULU (taken=no, status=out). Invalidation uses completed Yahoo daily CLOSE only (session 2026-09-24 is CLOSED after 1pm PT; today's close MAY be used for invalidation). A. Invalidated stock+CC: stock P&L=(close-entry)*100*contracts; call credit KEPT; no invented buy-to-close (no same-day option print) \u2014 FLAG. A. Invalidated CSP: paper P&L = credit - max(0,strike-close)*100*contracts; time value unknown. A. Invalidated long call: P&L = max(0,close-strike)*100*contracts - debit; time value unknown. B. Still open: CBOE mid=(bid+ask)/2 if both>0 else last if>0 else blank. stock+CC unrealized=(live-entry)*100*n + credit - live_call_mark*100*n. CSP unrealized=credit - live_put_mark*100*n. long call unrealized=live_call_mark*100*n - debit. C. Expiry-day contracts settle intrinsic-only at expiry close (no time value). stock+CC ITM (close>strike): (expiry_close-entry)*100*n + credit - max(0,close-strike)*100*n. If close<=strike (OTM): call expires 0 and credit kept; leftover shares stay OPEN (paper_status=leftover_shares) MTM at live mark \u2014 stock exit is NEXT RTH open (Fri weekly -> Monday open); do NOT use expiry close as final stock exit. CSP expired: credit - max(0,strike-close)*100*n. Long call expired: max(0,close-strike)*100*n - debit. D. LULU already OUT midday 8/17: paper_status=out. If CBOE still lists Aug 21 120c, MTM at live mid. If CBOE no longer lists the expired Aug 21 120c, CARRY Friday 8/21 last real mark: paper_pnl=-298, live_option_mid=1.16, paper_status=out, flag carried Friday 8/21 CBOE mid 1.16 (last real print). Do not leave LULU unscored and do not invent a new premium. E. IREN/NVO/ZETA distinct tickets scored independently. IREN 42.50c 8/19 noon + 8/20 AM are reprints of 8/19 AM \u2014 scored once; credit note 1.17\u21921.42. IREN 8/20 noon 42c is a different strike from 42.50c \u2014 scored independently. IREN 8/21 noon 43c Aug 28 is a NEW overlay \u2014 scored independently. PFE 8/20 28c is an unused-alternative to 8/19 28.50c \u2014 both scored, not both assumed filled. PFE 8/21 noon 28c Aug 28 is a new week overlay \u2014 scored independently of 8/20 AM 28c. CSV ids 1-4 were not in any Stocktimus briefing email \u2014 tracker-only group. Aug 13 noon HIMS 30c / JD 30c / IREN 45c / ASTS 70p are emailed and were missing from the CSV.",
   "source_of_truth": "/workspace/tracker-inventory.json",
   "yahoo_quote_v7": "all tickers HTTP 401 \u2014 live last from Yahoo chart 1m regularMarketPrice / last 1m close",
-  "session_note": "Oct21 cash-close MTM. as_of=2026-10-21T13:26:50-07:00. Account=250000.0+paper_pnl; weekly_target=1.5% of current account. Marks robinhood_live.",
+  "session_note": "Midday Oct22: +1 ticket 2026-10-22-noon-ASTS-CSP; open lots re-marked from RH midday marks ~12:19 PT. as_of=2026-10-22T12:21:00-07:00. rules=v0.5-beta.",
   "paper_totals": {
     "emailed_all_ideas_independent": {
       "label": "emailed_all_ideas",
@@ -82,26 +82,26 @@
       "avg_pnl": -178.0,
       "sum_acct_pct": -0.00712
     },
-    "paper_pnl": -11671.28,
-    "account": 238328.72,
+    "paper_pnl": -15994.28,
+    "account": 234005.72,
     "starting_account": 250000.0,
-    "weekly_target": 3574.93,
-    "max_per_trade": 59582.18,
-    "open": 13,
-    "leftover_shares": 4,
+    "weekly_target": 3510.09,
+    "max_per_trade": 58501.43,
+    "open": 12,
+    "leftover_shares": 3,
     "expired": 76,
-    "resolved": 110,
-    "wins": 71,
-    "hit_rate": 0.6454545454545455,
-    "deployed_capital": 207298.0,
-    "free_cash": 31030.72
+    "resolved": 112,
+    "wins": 72,
+    "hit_rate": 0.6428571428571429,
+    "deployed_capital": 203007.0,
+    "free_cash": 30998.72
   },
   "by_structure": {
     "CSP": {
-      "hit": 0.8,
-      "n": 10,
-      "sum_pnl": -100.0,
-      "wins": 8
+      "hit": 0.6363636363636364,
+      "n": 11,
+      "sum_pnl": -1902.0,
+      "wins": 7
     },
     "long call": {
       "hit": 0.16666666666666666,
@@ -110,17 +110,17 @@
       "wins": 1
     },
     "stock+CC": {
-      "hit": 0.6355140186915887,
+      "hit": 0.6448598130841121,
       "n": 107,
-      "sum_pnl": -11410.78,
-      "wins": 68
+      "sum_pnl": -13931.78,
+      "wins": 69
     }
   },
   "by_creator": {
     "Danny": {
       "hit": 0.5769230769230769,
       "n": 26,
-      "sum_pnl": -3973.0,
+      "sum_pnl": -5415.5,
       "wins": 15
     },
     "Danny+TLI": {
@@ -148,9 +148,9 @@
       "wins": 19
     },
     "TLI": {
-      "hit": 0.6226415094339622,
-      "n": 53,
-      "sum_pnl": -6714.28,
+      "hit": 0.6111111111111112,
+      "n": 54,
+      "sum_pnl": -9594.78,
       "wins": 33
     },
     "TLI+Danny": {
@@ -266,24 +266,23 @@
         "2026-10-14-AM-UNH-CSP",
         "2026-10-15-AM-GOOGL-CSP",
         "2026-10-19-AM-LMND-roll",
-        "2026-10-19-AM-NFLX-roll",
         "2026-10-19-AM-SLV-roll",
         "2026-10-19-AM-MKC-roll",
         "2026-10-20-AM-UPS-CSP",
         "2026-10-20-AM-AMZN-CSP",
-        "2026-10-20-AM-ASTS-CSP"
+        "2026-10-20-AM-ASTS-CSP",
+        "2026-10-22-noon-ASTS-CSP"
       ],
-      "sum_pnl": 47.5
+      "sum_pnl": -2303.0
     },
     "leftover_shares": {
-      "n": 4,
+      "n": 3,
       "ids": [
         "2026-09-28-AM-MKC",
         "2026-10-01-AM-LMND",
-        "2026-10-05-AM-SLV",
-        "2026-10-12-AM-NFLX"
+        "2026-10-05-AM-SLV"
       ],
-      "sum_pnl": -3268.0
+      "sum_pnl": -5046.5
     },
     "invalidated": {
       "n": 12,
@@ -304,7 +303,7 @@
       "sum_pnl": -644.28
     },
     "out": {
-      "n": 22,
+      "n": 24,
       "ids": [
         "2026-08-17-AM-LULU",
         "2026-09-11-noon-HIMS",
@@ -322,14 +321,16 @@
         "2026-10-05-noon-SE",
         "2026-10-06-AM-GNRC",
         "2026-10-12-AM-NOW",
+        "2026-10-12-AM-NFLX",
         "2026-10-12-AM-TOST",
         "2026-10-12-AM-HIMS-roll",
         "2026-10-12-AM-ASTS-roll",
         "2026-10-12-AM-HOOD-roll",
         "2026-10-12-AM-GNRC-roll",
-        "2026-10-19-AM-SE-roll"
+        "2026-10-19-AM-SE-roll",
+        "2026-10-19-AM-NFLX-roll"
       ],
-      "sum_pnl": -17712.0
+      "sum_pnl": -17906.0
     },
     "expired": {
       "n": 76,
@@ -427,16 +428,16 @@
       "wins": 3
     },
     "Medium": {
-      "hit": 0.6283185840707964,
+      "hit": 0.6371681415929203,
       "n": 113,
-      "sum_pnl": -9956.28,
-      "wins": 71
+      "sum_pnl": -14108.28,
+      "wins": 72
     },
     "Low": {
-      "hit": 0.75,
-      "n": 4,
-      "sum_pnl": -161.5,
-      "wins": 3
+      "hit": 0.4,
+      "n": 5,
+      "sum_pnl": -332.5,
+      "wins": 2
     }
   },
   "iren_overlays": {
@@ -1807,8 +1808,8 @@
       "structure": "stock+CC",
       "confidence": "Medium",
       "paper_status": "leftover_shares",
-      "paper_pnl": -2220.0,
-      "paper_roc_pct": -0.04032331305058578,
+      "paper_pnl": -5195.0,
+      "paper_roc_pct": -0.09436018526927618,
       "capital_at_risk": 55055.0,
       "strike": 55.5,
       "expiry": "2026-10-09",
@@ -1848,9 +1849,9 @@
       "creator": "Danny",
       "structure": "stock+CC",
       "confidence": "Medium",
-      "paper_status": "leftover_shares",
-      "paper_pnl": -978.5,
-      "paper_roc_pct": -0.06895215277288422,
+      "paper_status": "out",
+      "paper_pnl": -706.0,
+      "paper_roc_pct": -0.04974984144880558,
       "capital_at_risk": 14191.0,
       "strike": 71.0,
       "expiry": "2026-10-16",
@@ -1989,8 +1990,8 @@
       "structure": "CSP",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": 514.0,
-      "paper_roc_pct": 0.013437908496732025,
+      "paper_pnl": 519.0,
+      "paper_roc_pct": 0.013568627450980392,
       "capital_at_risk": 38250.0,
       "strike": 382.5,
       "expiry": "2026-10-23",
@@ -2003,8 +2004,8 @@
       "structure": "CSP",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": -910.0,
-      "paper_roc_pct": -0.026,
+      "paper_pnl": -2095.0,
+      "paper_roc_pct": -0.05985714285714286,
       "capital_at_risk": 35000.0,
       "strike": 350.0,
       "expiry": "2026-10-23",
@@ -2031,7 +2032,7 @@
       "structure": "stock+CC",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": -27.5,
+      "paper_pnl": -10.0,
       "paper_roc_pct": null,
       "capital_at_risk": 0.0,
       "strike": 46.0,
@@ -2044,8 +2045,8 @@
       "creator": "Danny",
       "structure": "stock+CC",
       "confidence": "Medium",
-      "paper_status": "open",
-      "paper_pnl": 511.0,
+      "paper_status": "out",
+      "paper_pnl": 512.0,
       "paper_roc_pct": null,
       "capital_at_risk": 0.0,
       "strike": 71.0,
@@ -2059,7 +2060,7 @@
       "structure": "stock+CC",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": 15.0,
+      "paper_pnl": 25.0,
       "paper_roc_pct": null,
       "capital_at_risk": 0.0,
       "strike": 55.5,
@@ -2073,7 +2074,7 @@
       "structure": "stock+CC",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": -20.0,
+      "paper_pnl": -85.0,
       "paper_roc_pct": null,
       "capital_at_risk": 0.0,
       "strike": 50.0,
@@ -2087,8 +2088,8 @@
       "structure": "CSP",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": 8.0,
-      "paper_roc_pct": 0.0004210526315789474,
+      "paper_pnl": 107.0,
+      "paper_roc_pct": 0.005631578947368421,
       "capital_at_risk": 19000.0,
       "strike": 95.0,
       "expiry": "2026-10-30",
@@ -2101,8 +2102,8 @@
       "structure": "CSP",
       "confidence": "Medium",
       "paper_status": "open",
-      "paper_pnl": -77.5,
-      "paper_roc_pct": -0.0031,
+      "paper_pnl": -627.5,
+      "paper_roc_pct": -0.0251,
       "capital_at_risk": 25000.0,
       "strike": 250.0,
       "expiry": "2026-10-30",
@@ -2115,11 +2116,25 @@
       "structure": "CSP",
       "confidence": "Low",
       "paper_status": "open",
-      "paper_pnl": 34.5,
-      "paper_roc_pct": 0.0030263157894736843,
+      "paper_pnl": -136.5,
+      "paper_roc_pct": -0.011973684210526315,
       "capital_at_risk": 11400.0,
       "strike": 38.0,
       "expiry": "2026-10-23",
+      "lane": "paper"
+    },
+    {
+      "id": "2026-10-22-noon-ASTS-CSP",
+      "ticker": "ASTS",
+      "creator": "TLI",
+      "structure": "CSP",
+      "confidence": "Low",
+      "paper_status": "open",
+      "paper_pnl": 0.0,
+      "paper_roc_pct": 0.0,
+      "capital_at_risk": 9900.0,
+      "strike": 33.0,
+      "expiry": "2026-10-30",
       "lane": "paper"
     }
   ],
