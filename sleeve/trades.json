@@ -5,17 +5,17 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-10-22T15:56:00-07:00",
+  "as_of": "2026-10-23T09:57:00-07:00",
   "sleeve_budget_usd": 25000,
-  "notes": "Afternoon refresh Oct 22 PT (RH get_portfolio ~3:56 PM PT, after hours). No new fills or orders since the Oct 16 PM refresh (last fill: ZETA Oct-23 32P STO 0.95 on 10/15 ~7:07 AM PT). Open: LMND 100 (45.37 AH; 45.41 cash close), SPGI 6 (452.50 AH; 452.96 cash close), ZETA -1 Oct-23 32P (adjusted mark 0.16, bid 0.04 / ask 0.28 at the close; ZETA 33.24 AH / 33.54 cash close vs 31.50 out-if; $3,200 collateral; expires tomorrow 10/23). Premium tracked as open_premium_net $94.95 (expiry 10/23), not yet in week income. Cash $16,399.20; buying power $13,199.20 (put collateral held); total $23,635.25 (-$26.04 vs Oct 22 AM $23,661.29, marks only). Deployed equities $6,963.68; week 10/09 CC net $456.68 locked; week 10/16 closed with $0 realized income; week 10/23 at $0 so far. Realized equity P&L -$2,188.70 (Oct 13 exits, tracked separately). Marks = RH after-hours last trade / option adjusted mark, ~3:56 PM PT.",
+  "notes": "Morning refresh Oct 23 PT (RH get_portfolio ~9:57 AM PT, regular session). No new fills or orders since the Oct 16 PM refresh (last fill: ZETA Oct-23 32P STO 0.95 on 10/15 ~7:07 AM PT). Open: LMND 100 (45.14), SPGI 6 (449.465), ZETA -1 Oct-23 32P (adjusted mark 0.01, bid 0.00 / ask 0.03; ZETA 33.81 vs 32 strike; $3,200 collateral; expires today 10/23). Premium tracked as open_premium_net $94.95 (expiry 10/23), not yet in week income until expiry/close posts. Cash $16,399.20; buying power $13,199.20 (put collateral held); total $23,608.99 (-$26.26 vs Oct 22 PM $23,635.25, marks only). Deployed equities $6,963.68; week 10/09 CC net $456.68 locked; week 10/16 closed with $0 realized income; week 10/23 at $0 so far. Realized equity P&L -$2,188.70 (Oct 13 exits, tracked separately). Marks = RH live last trade / option adjusted mark, ~9:57 AM PT.",
   "portfolio": {
-    "total_value": 23635.25,
-    "equity_value": 7252.05,
-    "options_value": -16.0,
+    "total_value": 23608.99,
+    "equity_value": 7210.79,
+    "options_value": -1.0,
     "cash": 16399.2,
     "buying_power": 13199.2,
-    "as_of": "2026-10-22T15:56:00-07:00",
-    "source": "user-Robinhood.get_portfolio (afternoon refresh)"
+    "as_of": "2026-10-23T09:57:00-07:00",
+    "source": "user-Robinhood.get_portfolio (morning refresh)"
   },
   "open_positions": {
     "equity": [
@@ -25,9 +25,9 @@
         "avg_cost": 46.37,
         "side": "long",
         "deployed_usd": 4637.0,
-        "last": 45.37,
-        "market_value": 4537.0,
-        "unrealized_pnl": -100.0,
+        "last": 45.14,
+        "market_value": 4514.0,
+        "unrealized_pnl": -123.0,
         "desk_bucket": "stocktimus",
         "structure": "stock",
         "status": "open"
@@ -38,9 +38,9 @@
         "avg_cost": 387.78,
         "side": "long",
         "deployed_usd": 2326.68,
-        "last": 452.5,
-        "market_value": 2715.0,
-        "unrealized_pnl": 388.32,
+        "last": 449.465,
+        "market_value": 2696.79,
+        "unrealized_pnl": 370.11,
         "desk_bucket": "compounder",
         "structure": "stock",
         "status": "open",
@@ -61,10 +61,10 @@
         "credit_usd": 95.0,
         "fees": 0.05,
         "credit_net_usd": 94.95,
-        "mark": 0.16,
-        "market_value": -16.0,
-        "unrealized_pnl": 79.0,
-        "underlying_last": 33.24,
+        "mark": 0.01,
+        "market_value": -1.0,
+        "unrealized_pnl": 94.0,
+        "underlying_last": 33.81,
         "collateral_usd": 3200.0,
         "desk_bucket": "stocktimus",
         "ticket_id": "stocktimus-zeta-oct23-32p",
@@ -957,7 +957,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-10-22T15:56:00-07:00"
+    "refreshed_at": "2026-10-23T09:57:00-07:00"
   },
   "schema_fields": {
     "fills[]": [
