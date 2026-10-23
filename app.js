@@ -1371,6 +1371,32 @@
       .replace(/"/g, "&quot;");
   }
 
+  // "Hold day N" label from trade.hold_status (paper hold rule). Safe when absent/malformed.
+  function holdInfo(t) {
+    const h = t && t.raw && t.raw.hold_status;
+    if (!h || typeof h !== "object") return null;
+    const day = num(h.hold_day);
+    if (day == null || day < 1) return null;
+    const max = num(h.max_day);
+    const parts = ["Hold day " + day + (max != null && max >= day ? " of " + max : "")];
+    if (h.day5_date) parts.push("day " + (max != null ? max : 5) + " " + str(h.day5_date));
+    if (h.earnings) parts.push("earnings " + str(h.earnings));
+    if (num(h.trigger_close) != null && num(h.out) != null) {
+      parts.push("trigger close " + num(h.trigger_close) + " vs out " + num(h.out));
+    }
+    if (num(h.hold_line_3pct) != null) parts.push("3% line " + num(h.hold_line_3pct));
+    if (num(h.cut_line_5pct) != null) parts.push("5% cut line " + num(h.cut_line_5pct));
+    return { day, title: parts.join(" \u00b7 ") };
+  }
+
+  function holdPill(t) {
+    const h = holdInfo(t);
+    if (!h) return "";
+    return ' <span class="pill hold" title="' + escapeHtml(h.title) +
+      '" style="color:var(--amber);background:var(--amber-bg);border-color:rgba(232,180,76,.22);margin-left:4px">Hold day ' +
+      escapeHtml(h.day) + "</span>";
+  }
+
   function tradeRowHtml(t) {
     const st = str(t.status) || "open";
     const active = state.selected != null && String(state.selected) === String(t.id) ? " active" : "";
@@ -1391,7 +1417,7 @@
         '<td class="num mono ' + clsPnL(t.paper_pct != null ? t.paper_pct : t.paper_pnl) + '">' +
           pct(t.paper_pct) + "</td>" +
         "<td><span class=\"pill " + escapeHtml(st.toLowerCase()) + "\">" +
-          escapeHtml(st) + "</span></td>" +
+          escapeHtml(st) + "</span>" + holdPill(t) + "</td>" +
         rulesCell(t) +
       "</tr>"
     );
@@ -1516,6 +1542,7 @@
       '<div class="dl">' +
         cell("Date", fmtDate(t.date)) +
         cell("Status", t.status || "—") +
+        (holdInfo(t) ? cell("Hold", holdInfo(t).title) : "") +
         (state.desk === "stocktimus" ? cell("Rules", t.rules_label || "—") : "") +
         cell("Confidence", t.confidence || "—") +
         cell("Why", t.confidence_reason || "—") +
