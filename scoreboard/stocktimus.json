@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-10-19T08:31:16-07:00",
+  "as_of": "2026-10-26T08:20:00-07:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -38,7 +38,7 @@
       "stars": 0,
       "called_at": "2026-09-11",
       "example": false,
-      "note": "Hard look $0.50–$0.75. Zone filled: price touched top $0.75 (2026-09-15 low 0.7435 / 2026-09-16 open 0.75). Graded RH: entry 0.75 (zone top) → end INV 0.5731 (2026-09-30 close).",
+      "note": "Hard look $0.50–$0.75. Zone filled: price touched top $0.75 (2026-09-15 low 0.7435 / 2026-09-16 open 0.75). Graded RH: entry 0.75 (zone top) → end INV 0.5731 (2026-09-30 close). Zone check 2026-10-26 (Oct 26 refresh): BELOW ZONE — RH last 0.3336 at 08:14 PT (prev close 0.3167 on 10-23), ~33% under the $0.50 bottom. No paper trade: no refreshed ZS long thesis (his live INV view is short, zs-inv-2026-10-06; no INV posts in Oct 24–25 pull), sub-$1 has no CSP structure, no out within ~7% under v0.6-beta. Row stays closed; grade unchanged.",
       "signed_return": -0.235867
     },
     {
@@ -356,10 +356,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 1,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "'Starting a position in each of $CLS $NBIS', keen into CLS earnings (~Oct 26); short-term trade, no strike/zone. (CLS also on Oct 14 shortlist, not counted.) Ref RH close CLS 303.81 (2026-10-16). Not graded."
+      "note": "'Starting a position in each of $CLS $NBIS', keen into CLS earnings (~Oct 26); short-term trade, no strike/zone. (CLS also on Oct 14 shortlist, not counted.) Ref RH close CLS 303.81 (2026-10-16). Not graded. +1 Oct 22 PT (Oct 26 refresh): CLS/COHR 'preferred asymmetric, long-term opportunities', floor 'non-existent'."
     },
     {
       "id": "ct-nbis-2026-10-16",
@@ -440,10 +440,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 6,
+      "stars": 9,
       "called_at": "2026-10-13",
       "example": false,
-      "note": "New window (≥7d after Oct 6). 'CSIQ is my biggest position'. +6: TAN volume/'CSIQ watch out' (Oct 13), fundamentals never stronger, UBS PT $16 note, analyst track record (Oct 14), Recurrent sale SOTP ~$10/sh + mfg '+$40/sh', US mfg platform (Oct 17). Targets only, no buy zone. Ref RH close CSIQ 11.21 (2026-10-13). Lucas pull starts Oct 13 07:56 PT. Watch-only. Not graded."
+      "note": "New window (≥7d after Oct 6). 'CSIQ is my biggest position'. +6: TAN volume/'CSIQ watch out' (Oct 13), fundamentals never stronger, UBS PT $16 note, analyst track record (Oct 14), Recurrent sale SOTP ~$10/sh + mfg '+$40/sh', US mfg platform (Oct 17). Targets only, no buy zone. Ref RH close CSIQ 11.21 (2026-10-13). Lucas pull starts Oct 13 07:56 PT. Watch-only. Not graded. +3 Oct 19 PT (Oct 26 refresh): FSLR lawsuit 'Bullish $CSIQ', MS ~$1/W value creation 'deep into extreme value', $64b private transition funds 'very bullish for $CSIQ' (Recurrent sale)."
     },
     {
       "id": "ls-tan-2026-10-13",
@@ -464,10 +464,154 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 3,
+      "stars": 4,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "New window (≥7d after Oct 4). First in pull: director-buy confirm post. +3: 'good read for NBIS holders' (Oct 16), weak hands 'flushed' (Oct 17), 'Nothing has changed' (Oct 17). Ref RH close NBIS 165.47 (2026-10-16). Sandeman pull capped at 25 (covers Oct 16 10:12 PT→Oct 19); Oct 12–16 AM not read. Sandeman demoted. Not graded."
+      "note": "New window (≥7d after Oct 4). First in pull: director-buy confirm post. +3: 'good read for NBIS holders' (Oct 16), weak hands 'flushed' (Oct 17), 'Nothing has changed' (Oct 17). Ref RH close NBIS 165.47 (2026-10-16). Sandeman pull capped at 25 (covers Oct 16 10:12 PT→Oct 19); Oct 12–16 AM not read. Sandeman demoted. Not graded. +1 Oct 22 PT (Oct 26 refresh): 'Already bought NBIS and bought back covered calls I sold.'"
+    },
+    {
+      "id": "zs-clmt-2026-10-24",
+      "handle": "Zerosumgame33",
+      "ticker": "CLMT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-24",
+      "example": false,
+      "note": "New 7-day window (≥7d after Oct 16). First: '$CLMT 👀 Calumet raises solvent prices 5c/lb eff 10/30 ≈ ~$50M incremental annual cash flow'. +1 Oct 24 '$49 $CLMT' (buying the dip). Not starred (no ticker named): ~7 Oct 24–25 CLMT/MRL thesis-defense replies (12–15x levered FCF, 'variant perception' = $5 base-oil crack + $3.50 RD index for 9–12 mo, MRL not for sale under $6b, '$58 to $49 routine pullback'). No buy zone. Ref RH close CLMT 49.305 (2026-10-23). ZS pull capped at 25 (covers Oct 24 10:51 PT→Oct 25); Oct 19–24 AM not read. Watch-only. Not graded."
+    },
+    {
+      "id": "zs-wulf-2026-10-25",
+      "handle": "Zerosumgame33",
+      "ticker": "WULF",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-25",
+      "example": false,
+      "note": "'Digging into $WULF': at ~$11 the stock covers NPV of existing leases with zero terminal value; market afraid of Anthropic as anchor tenant. Research stage, no position stated. Same-day replies ('Could be a 5x', 'WULF is the landlord', 'need to do work') not starred. Ref RH close WULF 11.32 (2026-10-23). Watch-only. Not graded."
+    },
+    {
+      "id": "ct-rsp-2026-10-20",
+      "handle": "Chartradamus",
+      "ticker": "RSP",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 1,
+      "called_at": "2026-10-20",
+      "example": false,
+      "note": "RSP strength vs SPY/QQQ (leadership rotation to RSP/IWM); IWM temporary rally, 'think 2025 but less severe'. +1 Oct 22 '$RSP $IWM vs $QQQ $SPY — no words needed'. Relative-strength theme, no level. Ref RH close RSP 215.86 (2026-10-20). Not graded."
+    },
+    {
+      "id": "ct-spx-2026-10-22",
+      "handle": "Chartradamus",
+      "ticker": "SPX",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 0,
+      "called_at": "2026-10-22",
+      "example": false,
+      "note": "New window (≥7d after Oct 14). Rejected off resistance; bulls failed key level $7790; may deny upside inside Bearish Rising Wedge since June. (Oct 21 PT valuations-more-attractive post and Oct 25 'not the ultimate low' read as context, not stars.) Call-time SPX mark not frozen (index; left blank). Not graded."
+    },
+    {
+      "id": "ct-cohr-2026-10-22",
+      "handle": "Chartradamus",
+      "ticker": "COHR",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-22",
+      "example": false,
+      "note": "Same post as CLS +1: 'two of my preferred asymmetric, long-term opportunities'; valuation stretched to 'extremely fair' but floor 'non-existent', no reversal signal yet. Long-term, no zone. (Oct 25 R/R shortlist CLS/BE/GLW/COHR/CRDO not counted.) Ref RH close COHR 207.82 (2026-10-22). Not graded."
+    },
+    {
+      "id": "ct-qqq-2026-10-25",
+      "handle": "Chartradamus",
+      "ticker": "QQQ",
+      "kind": "theme",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-25",
+      "example": false,
+      "note": "New window (≥7d after Oct 16). '$QQQ $IXIC $SMH $SOXX 🟡 Relief Inbound?' after semis Wave 3 major top played out; same day: compelling case for a reversal but not convinced it is the ultimate low, additional leg lower possible. Relief-bounce theme only. Ref RH close QQQ 704.40 (2026-10-23). Not graded."
+    },
+    {
+      "id": "ct-cls-2026-10-25",
+      "handle": "Chartradamus",
+      "ticker": "CLS",
+      "kind": "theme",
+      "status": "open",
+      "direction": "short",
+      "stars": 0,
+      "called_at": "2026-10-25",
+      "example": false,
+      "note": "'$CLS 🟡 Earnings Watch': confirms Bear Case — Primary Wave 5 overextension invalidated, broke down with semis/AVGO, 'subject to a Major Top'. Opposite direction to ct-cls-2026-10-16 (long, +1). Ref RH close CLS 260.01 (2026-10-23). Not graded."
+    },
+    {
+      "id": "ct-mu-2026-10-25",
+      "handle": "Chartradamus",
+      "ticker": "MU",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-25",
+      "example": false,
+      "note": "'Nothing has changed': bottomed in the $730–$750 zone called in July; question is holding the late-July local low. Quotes Jul 17 LT Wave 5 PT $1530+. Level $730–$750 (already held). Ref RH close MU 877.55 (2026-10-23). Not graded."
+    },
+    {
+      "id": "ls-csiq-2026-10-21",
+      "handle": "LucasSacerdote_",
+      "ticker": "CSIQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 2,
+      "called_at": "2026-10-21",
+      "example": false,
+      "note": "New window (≥7d after Oct 13). '$CSIQ Tegus interview' (Apex Clean Energy praise on COD execution). +2: '$EOSE $CSIQ' Megapack-demand quote (Oct 22), '$CSIQ $TAN' oil-elevated renewables incentive (Oct 23). No zone. Ref RH close CSIQ 9.83 (2026-10-21). Watch-only. Not graded."
+    },
+    {
+      "id": "ls-tan-2026-10-23",
+      "handle": "LucasSacerdote_",
+      "ticker": "TAN",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-23",
+      "example": false,
+      "note": "New window (≥7d after Oct 13). '👀 $CSIQ $TAN — as oil stays elevated, incentives to move to renewables increase'. No zone. Ref RH close TAN 41.07 (2026-10-23). Watch-only. Not graded."
+    },
+    {
+      "id": "ls-eose-2026-10-22",
+      "handle": "LucasSacerdote_",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-22",
+      "example": false,
+      "note": "New window (≥7d after Oct 8). '$EOSE $CSIQ' quoting Megapack production push; same-day Indensity ramp question (no ticker, not starred). Still long vs ZS short. Ref RH close EOSE 1.71 (2026-10-22). Watch-only. Not graded."
+    },
+    {
+      "id": "sd-nbis-2026-10-25",
+      "handle": "Sandeman52",
+      "ticker": "NBIS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-10-25",
+      "example": false,
+      "note": "New window (≥7d after Oct 16). First: '$NBIS the winners will absorb the demand the losers can't deliver' (vs Musk neocloud financing warning). +3 Oct 25 PT: '…ahem…$NBIS' ($3.5B Citi facility = S tier), '$NBIS should pump tomorrow', 'if you are worried about $NBIS' model $25B 2027 exit ARR. Ref RH close NBIS 158.74 (2026-10-23). Sandeman pull capped at 25 (covers Oct 22 11:56 PT→Oct 26); Oct 19–22 AM not read. Sandeman demoted. Momentum cluster. Not graded."
     }
   ]
 }
