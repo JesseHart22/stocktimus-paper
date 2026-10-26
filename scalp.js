@@ -121,6 +121,133 @@
     return { text: String(wins) + " / " + String(losses), sub: "Closed trades" };
   }
 
+  function tradePnl(row) {
+    if (!row || typeof row !== "object") return null;
+    if (row.realized_pnl != null && row.realized_pnl !== "") {
+      const realized = num(row.realized_pnl);
+      if (realized != null) return realized;
+    }
+    return num(row.pnl);
+  }
+
+  function laYmd(iso) {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return null;
+    const bag = {};
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      weekday: "short",
+    }).formatToParts(d);
+    for (const part of parts) bag[part.type] = part.value;
+    const year = Number(bag.year);
+    const month = Number(bag.month);
+    const day = Number(bag.day);
+    if (!year || !month || !day || !bag.weekday) return null;
+    return { year: year, month: month, day: day, weekday: bag.weekday };
+  }
+
+  const WEEKDAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+
+  function fridayKey(ymd) {
+    const dow = WEEKDAY_INDEX[ymd.weekday];
+    if (dow == null) return null;
+    const add = (5 - dow + 7) % 7;
+    const utc = new Date(Date.UTC(ymd.year, ymd.month - 1, ymd.day + add));
+    const month = String(utc.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(utc.getUTCDate()).padStart(2, "0");
+    return utc.getUTCFullYear() + "-" + month + "-" + day;
+  }
+
+  function weekLabel(key) {
+    const bits = key.split("-").map(Number);
+    const utc = new Date(Date.UTC(bits[0], bits[1] - 1, bits[2]));
+    return utc.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+  }
+
+  function addMoney(sum, value) {
+    return Math.round((sum + value) * 100) / 100;
+  }
+
+  function displayCents(n) {
+    const sign = n < 0 ? -1 : 1;
+    return sign * Math.round(Math.abs(n) * 100);
+  }
+
+  function winPct(wins, trades) {
+    if (!trades) return "—";
+    const pct = Math.round((wins / trades) * 1000) / 10;
+    const body = Math.abs(pct - Math.round(pct)) < 1e-9 ? String(Math.round(pct)) : pct.toFixed(1);
+    return body + "%";
+  }
+
+  function trendMark(avg, prior) {
+    if (avg == null || prior == null) return "";
+    const diff = displayCents(avg) - displayCents(prior);
+    if (!diff) return "";
+    const up = diff > 0;
+    const label = up ? "Up versus the prior week" : "Down versus the prior week";
+    return '<span class="sc-trend ' + (up ? "up" : "dn") + '" title="' + label + '" aria-label="' + label + '">' + (up ? "↑" : "↓") + "</span>";
+  }
+
+  function weekBuckets(rows) {
+    const map = new Map();
+    for (const row of rows) {
+      const exit = legOf(row, "exit");
+      const minute = exit && exit.minute_ts;
+      if (minute == null || minute === "") continue;
+      const ymd = laYmd(minute);
+      const key = ymd ? fridayKey(ymd) : null;
+      if (!key) continue;
+      let bucket = map.get(key);
+      if (!bucket) {
+        bucket = {
+          key: key,
+          trades: 0,
+          wins: 0,
+          losses: 0,
+          pnl: 0,
+          aPnl: 0,
+          aN: 0,
+          bPnl: 0,
+          bN: 0,
+        };
+        map.set(key, bucket);
+      }
+      bucket.trades += 1;
+      const pnl = tradePnl(row);
+      if (pnl != null) {
+        bucket.pnl = addMoney(bucket.pnl, pnl);
+        if (pnl > 0) bucket.wins += 1;
+        else if (pnl < 0) bucket.losses += 1;
+      }
+      const tag = playbookOf(row, null);
+      if (tag && tag.label === "A") {
+        bucket.aN += 1;
+        if (pnl != null) bucket.aPnl = addMoney(bucket.aPnl, pnl);
+      } else if (tag && tag.label === "B") {
+        bucket.bN += 1;
+        if (pnl != null) bucket.bPnl = addMoney(bucket.bPnl, pnl);
+      }
+    }
+    const list = Array.from(map.values()).sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0));
+    let cum = 0;
+    for (let i = 0; i < list.length; i += 1) {
+      cum = addMoney(cum, list[i].pnl);
+      list[i].cum = cum;
+      list[i].avg = list[i].trades ? list[i].pnl / list[i].trades : null;
+      list[i].priorAvg = i === 0 ? null : list[i - 1].avg;
+    }
+    return list.reverse();
+  }
+
   function lastFill(row) {
     const fills = row && Array.isArray(row.fills) ? row.fills : [];
     for (let i = fills.length - 1; i >= 0; i -= 1) {
@@ -381,6 +508,52 @@
       '</thead><tbody id="' + id + '">' + body + "</tbody></table></div>";
   }
 
+  function pnlTd(n, extra) {
+    if (n == null || !Number.isFinite(n)) return td("—", true);
+    const cls = pnlClass(n);
+    return '<td class="num' + (cls ? " " + cls : "") + '">' + escapeHtml(money(n)) + (extra || "") + "</td>";
+  }
+
+  function playPnlCell(sum, n) {
+    if (!n) return td("—", true);
+    return pnlTd(sum, " (" + n + ")");
+  }
+
+  function renderWeeks(closed) {
+    const buckets = closed.missing ? [] : weekBuckets(closed.rows);
+    const body = buckets.length
+      ? buckets.map((bucket) => {
+        return '<tr data-week="' + escapeHtml(bucket.key) + '">' +
+          td(escapeHtml(weekLabel(bucket.key))) +
+          td(escapeHtml(String(bucket.trades)), true) +
+          td(escapeHtml(String(bucket.wins) + " / " + String(bucket.losses)), true) +
+          td(escapeHtml(winPct(bucket.wins, bucket.trades)), true) +
+          pnlTd(bucket.pnl) +
+          pnlTd(bucket.avg, trendMark(bucket.avg, bucket.priorAvg)) +
+          playPnlCell(bucket.aPnl, bucket.aN) +
+          playPnlCell(bucket.bPnl, bucket.bN) +
+          pnlTd(bucket.cum) +
+          "</tr>";
+      }).join("")
+      : '<tr class="js-empty-row"><td colspan="9">' + escapeHtml(closed.missing ? "closed is not an array in the file." : "No closed trades.") + "</td></tr>";
+    return '<section class="js-panel" id="sc-weeks-panel" aria-label="By week">' +
+      "<h2>By week</h2>" +
+      '<p class="js-note" id="sc-weeks-note">Weeks use the exit time in Pacific time and end on Friday. Saturday and Sunday roll forward to the next Friday. P&amp;L reads realized_pnl, then pnl. The arrow compares average P&amp;L per trade with the prior week.</p>' +
+      '<div class="js-wrap"><table class="js-table" id="sc-weeks"><thead>' +
+      ths([
+        { t: "Week ending" },
+        { t: "Trades", num: true },
+        { t: "Wins/Losses", num: true },
+        { t: "Win %", num: true },
+        { t: "Realized P&L", num: true },
+        { t: "Avg P&L per trade", num: true },
+        { t: "Playbook A P&L (n)", num: true },
+        { t: "Playbook B P&L (n)", num: true },
+        { t: "Cumulative P&L", num: true },
+      ]) +
+      "</thead><tbody>" + body + "</tbody></table></div></section>";
+  }
+
   function renderBook(data) {
     const rules = data && data.rules && typeof data.rules === "object" ? data.rules : {};
     const open = rowsOf(data, "open");
@@ -394,6 +567,7 @@
         missing: "open is not an array in the file.",
       })) +
       "</section>" +
+      renderWeeks(closed) +
       '<section class="js-panel" id="sc-closed-panel" aria-label="Recent closed">' +
       "<h2>Recent closed <span class=\"js-count\">" + closed.rows.length + "</span></h2>" +
       '<p class="js-note">Playbook A or B is tagged only when the ticket has that field. The labels above are the ledger rules.</p>' +

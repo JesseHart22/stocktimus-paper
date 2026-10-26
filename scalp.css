@@ -111,3 +111,13 @@ html.view-scalp .brand-text .sub {
 @media (max-width: 720px) {
   .sc-plays { grid-template-columns: 1fr; }
 }
+
+#scalp-view .js-table td.up { color: var(--green, #2f4f3f); }
+#scalp-view .js-table td.dn { color: var(--red, #c65a3a); }
+#scalp-view .sc-trend {
+  margin-left: 0.35em;
+  font-size: 0.85em;
+  font-weight: 700;
+}
+#scalp-view .sc-trend.up { color: var(--green, #2f4f3f); }
+#scalp-view .sc-trend.dn { color: var(--red, #c65a3a); }
