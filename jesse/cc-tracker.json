@@ -1,7 +1,7 @@
 {
   "desk": "jesse",
   "title": "Covered Call Income",
-  "as_of": "2026-10-26T08:38:11-07:00",
+  "as_of": "2026-10-26T08:49:52-07:00",
   "source": "fidelity_positions_csv + covered-call-income-tracker.xlsx",
   "theme": "clay_sage",
   "rules": {
@@ -12,7 +12,7 @@
     "program_eligibility": "RH option chain AND Shares \u2265 100",
     "metrics_split": "Since 2026-10-26: Income = CC net + daytrades + dividends (excl. assignment); Assignment P&L separate, booked in called-away week; Overall = Income + Assignment",
     "return_on_program_cost_basis": "Income \u00f7 Program capital (cost basis of program positions). Weekly = week Income \u00f7 Program capital; all-time = all Income \u00f7 Program capital; avg weekly = completed-week average",
-    "return_on_program_start_value": "Week Income \u00f7 Jesse Fidelity account value net of margin at the start of the week (positions CSV total incl. Pending activity, file closest to the prior Friday close, searched Friday through Monday of the week). No file in that window (within 3 days of the start) = null (n/a). All-time = sum of weekly returns over completed weeks with a value; avg weekly = their mean",
+    "return_on_program_start_value": "Week Income \u00f7 market value of PROGRAM stock held at the Monday open (same membership as Program capital; shares = Fidelity positions CSV adjusted by activity CSVs to the Monday open; price = Robinhood regular-session open that Monday, source robinhood_historical). Margin, cash, pending activity, non-program stock and options excluded. Not reconstructable = null (n/a). All-time = sum of weekly returns over completed weeks with a value; avg weekly = their mean",
     "removed_2026_10_26": "ROC vs Covered, ROC vs Active, capital-deployed return and their averages are no longer published"
   },
   "positions": [
@@ -2003,10 +2003,39 @@
       "called_away_flags": 12,
       "return_on_program_cost_basis": 0.028049,
       "income_return_pct_vs_program": 0.028049,
-      "start_of_week_value": null,
-      "return_on_program_start_value": null,
-      "start_value_status": "n/a \u2014 no positions snapshot from prior Friday through Monday (within 3 days of week start)",
-      "start_value_source": null
+      "start_of_week_value": 75784.0,
+      "return_on_program_start_value": 0.085013,
+      "start_value_status": "ok \u2014 no second CSV to cross-check",
+      "start_value_source": {
+        "monday": "2026-09-21",
+        "program_symbols": 3,
+        "price_source": "robinhood_historical daily open 2026-09-21",
+        "base_positions_csv": "22f9843df1f0a7425a6f5e2ec8765183dd9ae67b6264d4401fc56dcf33f4bec2.csv (22f9843d, dl Sep-25-2026 1:15 p.m ET)",
+        "adjustments": "BABA -100 (bought Mon 9/21 in session (after open); activity b7aaecf3); ASTS -1,000 (bought Mon 9/21 in session; activity b7aaecf3); HIMS -1,000 (bought Mon 9/21 in session; activity b7aaecf3); SLNH -7,500 (bought Mon 9/21 in session; activity b7aaecf3); MSTY -1,000 (bought Mon 9/21 in session; activity b7aaecf3); WYFI -600 (bought Mon 9/21 in session; activity b7aaecf3); CLSK -800 (bought Tue 9/22; activity b7aaecf3); ONDS -2,000 (bought Wed 9/23; activity b7aaecf3). Rolled back from Fri 9/25 1:15 PM ET positions using the 9/21-9/25 activity CSV (downloaded 9/25 10:06 AM PT, 9 min before the positions file). BABA/SPCX calls assigned as of Fri 9/18 were already out before the open. No earlier positions CSV exists to cross-check. Excluded (not program): EOSE 32,500, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "HIMS",
+          "shares": 1000.0,
+          "open_price": 28.5,
+          "value": 28500.0,
+          "price_source": "robinhood_historical daily open 2026-09-21"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 35.524,
+          "value": 35524.0,
+          "price_source": "robinhood_historical daily open 2026-09-21"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 600.0,
+          "open_price": 19.6,
+          "value": 11760.0,
+          "price_source": "robinhood_historical daily open 2026-09-21"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-02",
@@ -2027,15 +2056,67 @@
       "called_away_flags": 8,
       "return_on_program_cost_basis": 0.01537,
       "income_return_pct_vs_program": 0.01537,
-      "start_of_week_value": 315318.09,
-      "return_on_program_start_value": 0.011196,
-      "start_value_status": "ok \u2014 prior Friday (close-of-week snapshot)",
+      "start_of_week_value": 173467.0,
+      "return_on_program_start_value": 0.020352,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV bf6ebfe8",
       "start_value_source": {
-        "snapshot_downloaded": "Sep-25-2026 1:15 p.m ET",
-        "snapshot_date": "2026-09-25",
-        "source_csv": "22f9843df1f0a7425a6f5e2ec8765183dd9ae67b6264d4401fc56dcf33f4bec2.csv",
-        "source_sha256_8": "22f9843d"
-      }
+        "monday": "2026-09-28",
+        "program_symbols": 7,
+        "price_source": "robinhood_historical daily open 2026-09-28",
+        "base_positions_csv": "22f9843df1f0a7425a6f5e2ec8765183dd9ae67b6264d4401fc56dcf33f4bec2.csv (22f9843d, dl Sep-25-2026 1:15 p.m ET)",
+        "adjustments": "HIMS -2,000 (HIMS $28 + $29 calls assigned as of Fri 9/25 (2 x 1,000 sh); activity a2d0792f). Fri 9/25 1:15 PM ET positions + 9/25 assignments; matches the Mon 9/28 10:48 AM ET positions exactly (SE/HIMS buys came later that day). Excluded (not program): EOSE 32,500, SLNH 7,500, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 61.125,
+          "value": 61125.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 109.64,
+          "value": 10964.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 800.0,
+          "open_price": 13.81,
+          "value": 11048.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 16.47,
+          "value": 16470.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 35.46,
+          "value": 35460.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 7.53,
+          "value": 15060.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 19.45,
+          "value": 23340.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-09",
@@ -2056,15 +2137,88 @@
       "called_away_flags": 9,
       "return_on_program_cost_basis": 0.014485,
       "income_return_pct_vs_program": 0.014485,
-      "start_of_week_value": 278647.92,
-      "return_on_program_start_value": 0.01194,
-      "start_value_status": "ok \u2014 prior Friday (close-of-week snapshot)",
+      "start_of_week_value": 230551.0,
+      "return_on_program_start_value": 0.014431,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV 40d00486",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-02-2026 3:09 p.m ET",
-        "snapshot_date": "2026-10-02",
-        "source_csv": "fidelity-positions-2026-10-02.csv",
-        "source_sha256_8": "f1940e2a"
-      }
+        "monday": "2026-10-05",
+        "program_symbols": 10,
+        "price_source": "robinhood_historical daily open 2026-10-05",
+        "base_positions_csv": "fidelity-positions-2026-10-02.csv (f1940e2a, dl Oct-02-2026 3:09 p.m ET)",
+        "adjustments": "none. Fri 10/2 3:09 PM ET positions; no stock activity before the Mon open (10/2-10/5 activity CSVs); SLNH +500 bought 10/5 in session. Matches the Mon 10/5 9:48 AM ET positions exactly. Excluded (not program): EOSE 32,500, SLNH 7,500, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 58.69,
+          "value": 58690.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 107.45,
+          "value": 10745.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 800.0,
+          "open_price": 12.895,
+          "value": 10316.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "HIMS",
+          "shares": 500.0,
+          "open_price": 28.91,
+          "value": 14455.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "INV",
+          "shares": 1000.0,
+          "open_price": 0.5,
+          "value": 500.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 16.8,
+          "value": 16800.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 33.82,
+          "value": 33820.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 7.625,
+          "value": 15250.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "SE",
+          "shares": 500.0,
+          "open_price": 96.75,
+          "value": 48375.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 18.0,
+          "value": 21600.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-16",
@@ -2085,15 +2239,74 @@
       "called_away_flags": 8,
       "return_on_program_cost_basis": 0.006723,
       "income_return_pct_vs_program": 0.006723,
-      "start_of_week_value": 210769.49,
-      "return_on_program_start_value": 0.007327,
-      "start_value_status": "ok \u2014 Mon 08:12 ET (pre-market = Friday close prices)",
+      "start_of_week_value": 155862.0,
+      "return_on_program_start_value": 0.009908,
+      "start_value_status": "ok \u2014 no second CSV to cross-check",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-12-2026 8:12 a.m ET",
-        "snapshot_date": "2026-10-12",
-        "source_csv": "56a68e9df930dd15b6d07506516bbeaa6fa032c7c5ad296b1b5f7d38162e59f2.csv",
-        "source_sha256_8": "56a68e9d"
-      }
+        "monday": "2026-10-12",
+        "program_symbols": 8,
+        "price_source": "robinhood_historical daily open 2026-10-12",
+        "base_positions_csv": "56a68e9df930dd15b6d07506516bbeaa6fa032c7c5ad296b1b5f7d38162e59f2.csv (56a68e9d, dl Oct-12-2026 8:12 a.m ET)",
+        "adjustments": "none. Mon 10/12 8:12 AM ET pre-market positions (after the Fri 10/9 EOSE sale and HIMS/SE assignments). CLMT/CLSK/NKE/INV buys on 10/12 were in session. Consistent with 10/6 positions + 10/9 activity. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 53.26,
+          "value": 53260.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 110.14,
+          "value": 11014.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 800.0,
+          "open_price": 10.4,
+          "value": 8320.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "INV",
+          "shares": 1000.0,
+          "open_price": 0.273,
+          "value": 273.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 15.635,
+          "value": 15635.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 34.7,
+          "value": 34700.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 7.06,
+          "value": 14120.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 15.45,
+          "value": 18540.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-23",
@@ -2114,15 +2327,81 @@
       "called_away_flags": 4,
       "return_on_program_cost_basis": 0.004746,
       "income_return_pct_vs_program": 0.004746,
-      "start_of_week_value": 152729.13,
-      "return_on_program_start_value": 0.007137,
-      "start_value_status": "ok \u2014 Mon 13:48 ET",
+      "start_of_week_value": 175033.5,
+      "return_on_program_start_value": 0.006228,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-19-2026 1:48 p.m ET",
-        "snapshot_date": "2026-10-19",
-        "source_csv": "01M5AMH500SR6D9NCT9F8E88DN.csv",
-        "source_sha256_8": "d843c1a4"
-      }
+        "monday": "2026-10-19",
+        "program_symbols": 9,
+        "price_source": "robinhood_historical daily open 2026-10-19",
+        "base_positions_csv": "01M506GRW4VXXRP8KNM70GRNSY.csv (f01376b2, dl Oct-15-2026 12:31 p.m ET)",
+        "adjustments": "NKE -500 (NKE $36 (400 sh) + $37 (100 sh) calls assigned as of Fri 10/16; activity dd11fda5). Thu 10/15 12:31 PM ET positions + 10/16 assignments; matches the Mon 10/19 1:48 PM ET positions less the BABA +100 bought 10/19 in session. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 42.33,
+          "value": 42330.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 110.145,
+          "value": 11014.5,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "CLMT",
+          "shares": 500.0,
+          "open_price": 57.5,
+          "value": 28750.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 2000.0,
+          "open_price": 8.76,
+          "value": 17520.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "INV",
+          "shares": 2500.0,
+          "open_price": 0.33,
+          "value": 825.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 14.1,
+          "value": 14100.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 900.0,
+          "open_price": 37.16,
+          "value": 33444.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 6.205,
+          "value": 12410.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 12.2,
+          "value": 14640.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-30",
@@ -2143,15 +2422,81 @@
       "called_away_flags": 0,
       "return_on_program_cost_basis": 0.000261,
       "income_return_pct_vs_program": 0.000261,
-      "start_of_week_value": 125695.44,
-      "return_on_program_start_value": 0.000477,
-      "start_value_status": "ok \u2014 Mon 10:40 ET",
+      "start_of_week_value": 171994.5,
+      "return_on_program_start_value": 0.000348,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-26-2026 10:40 a.m ET",
-        "snapshot_date": "2026-10-26",
-        "source_csv": "01M5WARK4ZM8226EFSRN6VM3R1.csv",
-        "source_sha256_8": "94472448"
-      }
+        "monday": "2026-10-26",
+        "program_symbols": 9,
+        "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET",
+        "base_positions_csv": "01M5WARK4ZM8226EFSRN6VM3R1.csv (94472448, dl Oct-26-2026 10:40 a.m ET)",
+        "adjustments": "none. Mon 10/26 10:40 AM ET positions; activity CSV 10/20-10/26 has no stock buys, sells or assignments (10/23 calls expired). Identical to the 10/19 positions. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 39.75,
+          "value": 39750.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 200.0,
+          "open_price": 99.8775,
+          "value": 19975.5,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "CLMT",
+          "shares": 500.0,
+          "open_price": 48.83,
+          "value": 24415.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 2000.0,
+          "open_price": 7.63,
+          "value": 15260.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "INV",
+          "shares": 2500.0,
+          "open_price": 0.3116,
+          "value": 779.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 14.075,
+          "value": 14075.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 900.0,
+          "open_price": 37.48,
+          "value": 33732.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 6.16,
+          "value": 12320.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 9.74,
+          "value": 11688.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        }
+      ]
     },
     {
       "week_ending": "2026-11-06",
@@ -2175,7 +2520,8 @@
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null
+      "start_value_source": null,
+      "start_value_holdings": null
     },
     {
       "week_ending": "2026-11-13",
@@ -2199,7 +2545,8 @@
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null
+      "start_value_source": null,
+      "start_value_holdings": null
     },
     {
       "week_ending": "2026-11-20",
@@ -2223,7 +2570,8 @@
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null
+      "start_value_source": null,
+      "start_value_holdings": null
     }
   ],
   "dashboard": {
@@ -2253,10 +2601,10 @@
     "completed_weeks": 5,
     "return_on_program_cost_basis": 0.070418,
     "avg_weekly_return_on_program_cost_basis": 0.013875,
-    "return_on_program_start_value": 0.0376,
-    "avg_weekly_return_on_program_start_value": 0.0094,
-    "start_value_weeks_covered": 4,
-    "current_week_start_value": 125695.44
+    "return_on_program_start_value": 0.135932,
+    "avg_weekly_return_on_program_start_value": 0.027186,
+    "start_value_weeks_covered": 5,
+    "current_week_start_value": 171994.5
   },
   "weekly_summary": [
     {
@@ -2278,10 +2626,39 @@
       "called_away_flags": 12,
       "return_on_program_cost_basis": 0.028049,
       "income_return_pct_vs_program": 0.028049,
-      "start_of_week_value": null,
-      "return_on_program_start_value": null,
-      "start_value_status": "n/a \u2014 no positions snapshot from prior Friday through Monday (within 3 days of week start)",
-      "start_value_source": null
+      "start_of_week_value": 75784.0,
+      "return_on_program_start_value": 0.085013,
+      "start_value_status": "ok \u2014 no second CSV to cross-check",
+      "start_value_source": {
+        "monday": "2026-09-21",
+        "program_symbols": 3,
+        "price_source": "robinhood_historical daily open 2026-09-21",
+        "base_positions_csv": "22f9843df1f0a7425a6f5e2ec8765183dd9ae67b6264d4401fc56dcf33f4bec2.csv (22f9843d, dl Sep-25-2026 1:15 p.m ET)",
+        "adjustments": "BABA -100 (bought Mon 9/21 in session (after open); activity b7aaecf3); ASTS -1,000 (bought Mon 9/21 in session; activity b7aaecf3); HIMS -1,000 (bought Mon 9/21 in session; activity b7aaecf3); SLNH -7,500 (bought Mon 9/21 in session; activity b7aaecf3); MSTY -1,000 (bought Mon 9/21 in session; activity b7aaecf3); WYFI -600 (bought Mon 9/21 in session; activity b7aaecf3); CLSK -800 (bought Tue 9/22; activity b7aaecf3); ONDS -2,000 (bought Wed 9/23; activity b7aaecf3). Rolled back from Fri 9/25 1:15 PM ET positions using the 9/21-9/25 activity CSV (downloaded 9/25 10:06 AM PT, 9 min before the positions file). BABA/SPCX calls assigned as of Fri 9/18 were already out before the open. No earlier positions CSV exists to cross-check. Excluded (not program): EOSE 32,500, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "HIMS",
+          "shares": 1000.0,
+          "open_price": 28.5,
+          "value": 28500.0,
+          "price_source": "robinhood_historical daily open 2026-09-21"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 35.524,
+          "value": 35524.0,
+          "price_source": "robinhood_historical daily open 2026-09-21"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 600.0,
+          "open_price": 19.6,
+          "value": 11760.0,
+          "price_source": "robinhood_historical daily open 2026-09-21"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-02",
@@ -2302,15 +2679,67 @@
       "called_away_flags": 8,
       "return_on_program_cost_basis": 0.01537,
       "income_return_pct_vs_program": 0.01537,
-      "start_of_week_value": 315318.09,
-      "return_on_program_start_value": 0.011196,
-      "start_value_status": "ok \u2014 prior Friday (close-of-week snapshot)",
+      "start_of_week_value": 173467.0,
+      "return_on_program_start_value": 0.020352,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV bf6ebfe8",
       "start_value_source": {
-        "snapshot_downloaded": "Sep-25-2026 1:15 p.m ET",
-        "snapshot_date": "2026-09-25",
-        "source_csv": "22f9843df1f0a7425a6f5e2ec8765183dd9ae67b6264d4401fc56dcf33f4bec2.csv",
-        "source_sha256_8": "22f9843d"
-      }
+        "monday": "2026-09-28",
+        "program_symbols": 7,
+        "price_source": "robinhood_historical daily open 2026-09-28",
+        "base_positions_csv": "22f9843df1f0a7425a6f5e2ec8765183dd9ae67b6264d4401fc56dcf33f4bec2.csv (22f9843d, dl Sep-25-2026 1:15 p.m ET)",
+        "adjustments": "HIMS -2,000 (HIMS $28 + $29 calls assigned as of Fri 9/25 (2 x 1,000 sh); activity a2d0792f). Fri 9/25 1:15 PM ET positions + 9/25 assignments; matches the Mon 9/28 10:48 AM ET positions exactly (SE/HIMS buys came later that day). Excluded (not program): EOSE 32,500, SLNH 7,500, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 61.125,
+          "value": 61125.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 109.64,
+          "value": 10964.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 800.0,
+          "open_price": 13.81,
+          "value": 11048.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 16.47,
+          "value": 16470.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 35.46,
+          "value": 35460.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 7.53,
+          "value": 15060.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 19.45,
+          "value": 23340.0,
+          "price_source": "robinhood_historical daily open 2026-09-28"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-09",
@@ -2331,15 +2760,88 @@
       "called_away_flags": 9,
       "return_on_program_cost_basis": 0.014485,
       "income_return_pct_vs_program": 0.014485,
-      "start_of_week_value": 278647.92,
-      "return_on_program_start_value": 0.01194,
-      "start_value_status": "ok \u2014 prior Friday (close-of-week snapshot)",
+      "start_of_week_value": 230551.0,
+      "return_on_program_start_value": 0.014431,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV 40d00486",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-02-2026 3:09 p.m ET",
-        "snapshot_date": "2026-10-02",
-        "source_csv": "fidelity-positions-2026-10-02.csv",
-        "source_sha256_8": "f1940e2a"
-      }
+        "monday": "2026-10-05",
+        "program_symbols": 10,
+        "price_source": "robinhood_historical daily open 2026-10-05",
+        "base_positions_csv": "fidelity-positions-2026-10-02.csv (f1940e2a, dl Oct-02-2026 3:09 p.m ET)",
+        "adjustments": "none. Fri 10/2 3:09 PM ET positions; no stock activity before the Mon open (10/2-10/5 activity CSVs); SLNH +500 bought 10/5 in session. Matches the Mon 10/5 9:48 AM ET positions exactly. Excluded (not program): EOSE 32,500, SLNH 7,500, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 58.69,
+          "value": 58690.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 107.45,
+          "value": 10745.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 800.0,
+          "open_price": 12.895,
+          "value": 10316.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "HIMS",
+          "shares": 500.0,
+          "open_price": 28.91,
+          "value": 14455.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "INV",
+          "shares": 1000.0,
+          "open_price": 0.5,
+          "value": 500.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 16.8,
+          "value": 16800.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 33.82,
+          "value": 33820.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 7.625,
+          "value": 15250.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "SE",
+          "shares": 500.0,
+          "open_price": 96.75,
+          "value": 48375.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 18.0,
+          "value": 21600.0,
+          "price_source": "robinhood_historical daily open 2026-10-05"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-16",
@@ -2360,15 +2862,74 @@
       "called_away_flags": 8,
       "return_on_program_cost_basis": 0.006723,
       "income_return_pct_vs_program": 0.006723,
-      "start_of_week_value": 210769.49,
-      "return_on_program_start_value": 0.007327,
-      "start_value_status": "ok \u2014 Mon 08:12 ET (pre-market = Friday close prices)",
+      "start_of_week_value": 155862.0,
+      "return_on_program_start_value": 0.009908,
+      "start_value_status": "ok \u2014 no second CSV to cross-check",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-12-2026 8:12 a.m ET",
-        "snapshot_date": "2026-10-12",
-        "source_csv": "56a68e9df930dd15b6d07506516bbeaa6fa032c7c5ad296b1b5f7d38162e59f2.csv",
-        "source_sha256_8": "56a68e9d"
-      }
+        "monday": "2026-10-12",
+        "program_symbols": 8,
+        "price_source": "robinhood_historical daily open 2026-10-12",
+        "base_positions_csv": "56a68e9df930dd15b6d07506516bbeaa6fa032c7c5ad296b1b5f7d38162e59f2.csv (56a68e9d, dl Oct-12-2026 8:12 a.m ET)",
+        "adjustments": "none. Mon 10/12 8:12 AM ET pre-market positions (after the Fri 10/9 EOSE sale and HIMS/SE assignments). CLMT/CLSK/NKE/INV buys on 10/12 were in session. Consistent with 10/6 positions + 10/9 activity. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 53.26,
+          "value": 53260.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 110.14,
+          "value": 11014.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 800.0,
+          "open_price": 10.4,
+          "value": 8320.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "INV",
+          "shares": 1000.0,
+          "open_price": 0.273,
+          "value": 273.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 15.635,
+          "value": 15635.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 1000.0,
+          "open_price": 34.7,
+          "value": 34700.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 7.06,
+          "value": 14120.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 15.45,
+          "value": 18540.0,
+          "price_source": "robinhood_historical daily open 2026-10-12"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-23",
@@ -2389,15 +2950,81 @@
       "called_away_flags": 4,
       "return_on_program_cost_basis": 0.004746,
       "income_return_pct_vs_program": 0.004746,
-      "start_of_week_value": 152729.13,
-      "return_on_program_start_value": 0.007137,
-      "start_value_status": "ok \u2014 Mon 13:48 ET",
+      "start_of_week_value": 175033.5,
+      "return_on_program_start_value": 0.006228,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-19-2026 1:48 p.m ET",
-        "snapshot_date": "2026-10-19",
-        "source_csv": "01M5AMH500SR6D9NCT9F8E88DN.csv",
-        "source_sha256_8": "d843c1a4"
-      }
+        "monday": "2026-10-19",
+        "program_symbols": 9,
+        "price_source": "robinhood_historical daily open 2026-10-19",
+        "base_positions_csv": "01M506GRW4VXXRP8KNM70GRNSY.csv (f01376b2, dl Oct-15-2026 12:31 p.m ET)",
+        "adjustments": "NKE -500 (NKE $36 (400 sh) + $37 (100 sh) calls assigned as of Fri 10/16; activity dd11fda5). Thu 10/15 12:31 PM ET positions + 10/16 assignments; matches the Mon 10/19 1:48 PM ET positions less the BABA +100 bought 10/19 in session. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 42.33,
+          "value": 42330.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 100.0,
+          "open_price": 110.145,
+          "value": 11014.5,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "CLMT",
+          "shares": 500.0,
+          "open_price": 57.5,
+          "value": 28750.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 2000.0,
+          "open_price": 8.76,
+          "value": 17520.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "INV",
+          "shares": 2500.0,
+          "open_price": 0.33,
+          "value": 825.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 14.1,
+          "value": 14100.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 900.0,
+          "open_price": 37.16,
+          "value": 33444.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 6.205,
+          "value": 12410.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 12.2,
+          "value": 14640.0,
+          "price_source": "robinhood_historical daily open 2026-10-19"
+        }
+      ]
     },
     {
       "week_ending": "2026-10-30",
@@ -2418,15 +3045,81 @@
       "called_away_flags": 0,
       "return_on_program_cost_basis": 0.000261,
       "income_return_pct_vs_program": 0.000261,
-      "start_of_week_value": 125695.44,
-      "return_on_program_start_value": 0.000477,
-      "start_value_status": "ok \u2014 Mon 10:40 ET",
+      "start_of_week_value": 171994.5,
+      "return_on_program_start_value": 0.000348,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
       "start_value_source": {
-        "snapshot_downloaded": "Oct-26-2026 10:40 a.m ET",
-        "snapshot_date": "2026-10-26",
-        "source_csv": "01M5WARK4ZM8226EFSRN6VM3R1.csv",
-        "source_sha256_8": "94472448"
-      }
+        "monday": "2026-10-26",
+        "program_symbols": 9,
+        "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET",
+        "base_positions_csv": "01M5WARK4ZM8226EFSRN6VM3R1.csv (94472448, dl Oct-26-2026 10:40 a.m ET)",
+        "adjustments": "none. Mon 10/26 10:40 AM ET positions; activity CSV 10/20-10/26 has no stock buys, sells or assignments (10/23 calls expired). Identical to the 10/19 positions. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 39.75,
+          "value": 39750.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 200.0,
+          "open_price": 99.8775,
+          "value": 19975.5,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "CLMT",
+          "shares": 500.0,
+          "open_price": 48.83,
+          "value": 24415.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 2000.0,
+          "open_price": 7.63,
+          "value": 15260.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "INV",
+          "shares": 2500.0,
+          "open_price": 0.3116,
+          "value": 779.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 14.075,
+          "value": 14075.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "NKE",
+          "shares": 900.0,
+          "open_price": 37.48,
+          "value": 33732.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 6.16,
+          "value": 12320.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 9.74,
+          "value": 11688.0,
+          "price_source": "robinhood_historical 1-min open 2026-10-26 09:30 ET"
+        }
+      ]
     },
     {
       "week_ending": "2026-11-06",
@@ -2450,7 +3143,8 @@
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null
+      "start_value_source": null,
+      "start_value_holdings": null
     },
     {
       "week_ending": "2026-11-13",
@@ -2474,7 +3168,8 @@
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null
+      "start_value_source": null,
+      "start_value_holdings": null
     },
     {
       "week_ending": "2026-11-20",
@@ -2498,7 +3193,8 @@
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null
+      "start_value_source": null,
+      "start_value_holdings": null
     }
   ],
   "current_week_ending": "2026-10-30",
