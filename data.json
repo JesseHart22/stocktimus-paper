@@ -12785,7 +12785,7 @@
       "taken": "proposed",
       "ticker": "GOOGL",
       "creator": "Danny",
-      "structure": "CSP",
+      "structure": "stock+CC",
       "strike": 350.0,
       "expiry": "2026-10-23",
       "right": "put",
@@ -12859,7 +12859,8 @@
       "assigned_date": "2026-10-23",
       "assigned_price": 350.0,
       "net_cost_basis": 343.8,
-      "out_level": 325.0
+      "out_level": 325.0,
+      "structure_note": "CSP assigned Oct 23 at $343.80 net; now 100 sh stock with the Oct30 $345 call (see 2026-10-26-AM-GOOGL-roll)"
     },
     {
       "id": "2026-10-19-AM-SE-roll",

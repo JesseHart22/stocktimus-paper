@@ -1384,8 +1384,12 @@
     if (num(h.trigger_close) != null && num(h.out) != null) {
       parts.push("trigger close " + num(h.trigger_close) + " vs out " + num(h.out));
     }
-    if (num(h.hold_line_3pct) != null) parts.push("3% line " + num(h.hold_line_3pct));
-    if (num(h.cut_line_5pct) != null) parts.push("5% cut line " + num(h.cut_line_5pct));
+    let cut = num(h.cut_line);
+    if (cut == null) cut = num(h.cut_line_5pct);
+    if (cut == null) cut = num(h.hold_line_3pct);
+    if (cut != null) parts.push("cut " + cut);
+    const day2 = num(h.day2_close);
+    if (day2 != null) parts.push("day-2 close " + day2);
     return { day, title: parts.join(" \u00b7 ") };
   }
 
