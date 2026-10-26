@@ -1,20 +1,10 @@
 /* Scalp paper book. Figures come from scalp/scalp.json only.
+   The summary is realized P&L. It does not read cash or paper_budget.
    Marks are rh_bid, rh_ask, fill, and minute_ts already stored on a ticket. */
 (() => {
   const FILE = "./scalp/scalp.json";
   const TZ = "America/Los_Angeles";
-  const CAPITAL_KEYS = [
-    "capital",
-    "capital_usd",
-    "deployed_usd",
-    "cost_basis",
-    "notional_usd",
-    "risk_usd",
-    "open_risk",
-    "premium_usd",
-    "debit_usd",
-    "credit_usd",
-  ];
+  const TRADE_COLS = 14;
 
   const state = {
     data: null,
@@ -99,51 +89,36 @@
     return { rows: data[key], missing: false };
   }
 
-  function ticketCapital(row) {
-    if (!row || typeof row !== "object") return null;
-    for (const key of CAPITAL_KEYS) {
-      const n = num(row[key]);
-      if (n != null) return n;
-    }
-    return null;
-  }
-
-  function openRisk(rows) {
-    const list = Array.isArray(rows) ? rows : [];
-    if (!list.length) return { value: 0, complete: true, count: 0 };
-    let total = 0;
+  function allTimeRealized(data) {
+    const hasField = data && Object.prototype.hasOwnProperty.call(data, "all_time_realized_pnl");
+    const direct = hasField ? num(data.all_time_realized_pnl) : null;
+    if (direct != null) return { value: direct, sub: "all_time_realized_pnl" };
+    const closed = rowsOf(data, "closed");
+    if (closed.missing) return { value: null, sub: "Not in the file" };
+    let sum = 0;
     let known = 0;
-    for (const row of list) {
-      const capital = ticketCapital(row);
-      if (capital == null) continue;
-      total += capital;
+    for (const row of closed.rows) {
+      const n = num(row && row.realized_pnl);
+      if (n == null) continue;
+      sum += n;
       known += 1;
     }
-    if (known !== list.length) return { value: null, complete: false, count: list.length };
-    return { value: total, complete: true, count: list.length };
+    if (!known) return { value: null, sub: "No realized_pnl on closed trades" };
+    return { value: sum, sub: "Sum of closed realized_pnl" };
   }
 
-  function paperEquity(data) {
-    const cash = num(data && data.cash);
-    const budget = num(data && data.paper_budget);
-    const open = rowsOf(data, "open");
-    const risk = openRisk(open.rows);
-    if (open.missing || !risk.complete) {
-      return {
-        value: null,
-        sub: cash == null ? "Cash not in the file" : "Cash is in the file. Open capital is not on every ticket.",
-      };
-    }
-    if (cash != null) {
-      const budgetBit = budget == null ? "" : " · paper budget " + money(budget);
-      const sub = risk.count === 0 ? "Cash" + budgetBit : "Cash + open capital";
-      return { value: cash + risk.value, sub };
-    }
+  function winLoss(data) {
     const closed = rowsOf(data, "closed");
-    if (budget != null && risk.count === 0 && !closed.missing && closed.rows.length === 0) {
-      return { value: budget, sub: "Paper budget · cash not in the file" };
+    if (closed.missing) return { text: "—", sub: "closed is not an array" };
+    let wins = 0;
+    let losses = 0;
+    for (const row of closed.rows) {
+      const n = num(row && row.realized_pnl);
+      if (n == null || n === 0) continue;
+      if (n > 0) wins += 1;
+      else losses += 1;
     }
-    return { value: null, sub: "Cash not in the file" };
+    return { text: String(wins) + " / " + String(losses), sub: "Closed trades" };
   }
 
   function lastFill(row) {
@@ -251,32 +226,17 @@
   }
 
   function renderStrip(data) {
-    const equity = paperEquity(data);
-    const cash = num(data.cash);
-    const open = rowsOf(data, "open");
-    const risk = openRisk(open.rows);
+    const all = allTimeRealized(data);
     const daily = num(data.daily_pnl);
     const week = num(data.week_pnl);
-    let riskText = "—";
-    let riskSub = "No capital field on every open ticket";
-    if (open.missing) riskSub = "open is not an array in the file";
-    else if (risk.complete && risk.count === 0) {
-      riskText = money(0);
-      riskSub = "No open positions";
-    } else if (risk.complete) {
-      riskText = money(risk.value);
-      riskSub = "Capital on " + risk.count + " open ticket" + (risk.count === 1 ? "" : "s");
-    }
+    const record = winLoss(data);
     const dailySub = Object.prototype.hasOwnProperty.call(data, "daily_pnl") ? "daily_pnl" : "Not in the file";
     const weekSub = Object.prototype.hasOwnProperty.call(data, "week_pnl") ? "week_pnl" : "Not in the file";
-    const asofText = data.as_of ? fmtWhen(data.as_of) : "—";
-    return '<section class="js-strip" id="sc-strip" aria-label="Scalp summary">' +
-      stat("sc-equity", "Paper equity", money(equity.value), equity.sub) +
-      stat("sc-cash", "Cash", money(cash), "Ledger cash") +
-      stat("sc-risk", "Open risk", riskText, riskSub) +
-      stat("sc-daily", "Daily P&L", money(daily), dailySub, pnlClass(daily)) +
+    return '<section class="js-strip" id="sc-strip" aria-label="Scalp P&L">' +
+      stat("sc-all", "All-time P&L", money(all.value), all.sub, pnlClass(all.value)) +
       stat("sc-week", "Week P&L", money(week), weekSub, pnlClass(week)) +
-      stat("sc-asof", "As of", asofText, "Ledger as_of") +
+      stat("sc-daily", "Day P&L", money(daily), dailySub, pnlClass(daily)) +
+      stat("sc-record", "Wins / losses", record.text, record.sub) +
       "</section>";
   }
 
@@ -349,6 +309,78 @@
       '</thead><tbody id="' + id + '">' + body + "</tbody></table></div>";
   }
 
+  function legOf(row, key) {
+    const leg = row && row[key];
+    return leg && typeof leg === "object" ? leg : null;
+  }
+
+  function entryLeg(row) {
+    const nested = legOf(row, "entry");
+    if (nested) return nested;
+    if (row && (row.rh_bid != null || row.rh_ask != null || row.fill != null || row.minute_ts)) return row;
+    return lastFill(row);
+  }
+
+  function markCells(leg) {
+    const source = leg && typeof leg === "object" ? leg : {};
+    const minute = source.minute_ts ? fmtWhen(source.minute_ts) : "—";
+    return td(escapeHtml(price(source.rh_bid)), true) +
+      td(escapeHtml(price(source.rh_ask)), true) +
+      td(escapeHtml(price(source.fill)), true) +
+      td(escapeHtml(minute));
+  }
+
+  function realizedCell(row) {
+    const n = num(row && row.realized_pnl);
+    const cls = pnlClass(n);
+    return '<td class="num' + (cls ? " " + cls : "") + '">' + escapeHtml(n == null ? "—" : money(n)) + "</td>";
+  }
+
+  function renderTradeRows(list, rules, empty) {
+    if (!list.rows.length) {
+      const msg = list.missing ? empty.missing : empty.empty;
+      return '<tr class="js-empty-row"><td colspan="' + TRADE_COLS + '">' + escapeHtml(msg) + "</td></tr>";
+    }
+    return list.rows.map((row) => {
+      const ticket = row || {};
+      const entry = entryLeg(ticket);
+      const side = pick(ticket, ["side"]) ?? pick(entry, ["side"]);
+      const instrument = pick(ticket, ["instrument"]) ?? pick(entry, ["instrument"]);
+      const symbol = pick(ticket, ["symbol", "ticker"]) ?? pick(entry, ["symbol", "ticker"]);
+      return "<tr>" +
+        playbookCell(ticket, rules) +
+        td(symbol == null || symbol === "" ? "—" : escapeHtml(String(symbol))) +
+        td(side == null || side === "" ? "—" : escapeHtml(String(side))) +
+        td(instrument == null || instrument === "" ? "—" : escapeHtml(String(instrument))) +
+        markCells(entry) +
+        markCells(legOf(ticket, "exit")) +
+        realizedCell(ticket) +
+        td(noteOf(ticket)) +
+        "</tr>";
+    }).join("");
+  }
+
+  function tradeTable(id, body) {
+    return '<div class="js-wrap"><table class="js-table"><thead>' +
+      ths([
+        { t: "Playbook" },
+        { t: "Symbol" },
+        { t: "Side" },
+        { t: "Instrument" },
+        { t: "Entry bid", num: true },
+        { t: "Entry ask", num: true },
+        { t: "Entry fill", num: true },
+        { t: "Entry time" },
+        { t: "Exit bid", num: true },
+        { t: "Exit ask", num: true },
+        { t: "Exit fill", num: true },
+        { t: "Exit time" },
+        { t: "Realized P&L", num: true },
+        { t: "Note" },
+      ]) +
+      '</thead><tbody id="' + id + '">' + body + "</tbody></table></div>";
+  }
+
   function renderBook(data) {
     const rules = data && data.rules && typeof data.rules === "object" ? data.rules : {};
     const open = rowsOf(data, "open");
@@ -356,8 +388,8 @@
     const tries = rowsOf(data, "quote_tries");
     return '<section class="js-panel" id="sc-open-panel" aria-label="Open positions">' +
       "<h2>Open positions <span class=\"js-count\">" + open.rows.length + "</span></h2>" +
-      '<p class="js-note">Capital in the summary is a dollar field on the ticket. Bid, ask, and fill stay prices.</p>' +
-      table("sc-open", renderRows(open, rules, {
+      '<p class="js-note">Entry and exit show the bid, ask, fill, and time stored on the ticket. Realized P&L is realized_pnl.</p>' +
+      tradeTable("sc-open", renderTradeRows(open, rules, {
         empty: "No open positions.",
         missing: "open is not an array in the file.",
       })) +
@@ -365,7 +397,7 @@
       '<section class="js-panel" id="sc-closed-panel" aria-label="Recent closed">' +
       "<h2>Recent closed <span class=\"js-count\">" + closed.rows.length + "</span></h2>" +
       '<p class="js-note">Playbook A or B is tagged only when the ticket has that field. The labels above are the ledger rules.</p>' +
-      table("sc-closed", renderRows(closed, rules, {
+      tradeTable("sc-closed", renderTradeRows(closed, rules, {
         empty: "No closed trades.",
         missing: "closed is not an array in the file.",
       })) +
