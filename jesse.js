@@ -243,7 +243,8 @@
   }
 
   // Return on Program, Income only. Cost basis = Income ÷ program cost basis.
-  // Start value = market value of program stock held at the Monday open (Robinhood open prices); null = not reconstructable (n/a).
+  // Start value = Monday-open value plus same-week buys at cost: program stock held at the Monday open (Robinhood open prices)
+  // + program stock bought that week at cost; mid-week sells not subtracted. null = not reconstructable (n/a).
   function weekRopCost(w) {
     if (!w) return null;
     const direct = num(w.return_on_program_cost_basis);
@@ -265,8 +266,10 @@
   function startSourceText(w) {
     const src = w && w.start_value_source;
     if (!src || typeof src !== "object") return "Program holdings at the Monday open not available";
-    return "Program stock at Mon " + String(src.monday || "") + " open · " + String(src.program_symbols || "") +
-      " symbols · Robinhood open prices";
+    const openV = num(w.start_value_monday_open), buysV = num(w.start_value_added_buys);
+    const split = openV != null && buysV != null ? " (" + money(openV) + " at open + " + money(buysV) + " bought that week)" : "";
+    return "Monday-open value plus same-week buys at cost" + split + " · Mon " + String(src.monday || "") + " · " +
+      String(src.program_symbols || "") + " symbols · Robinhood open prices";
   }
 
   function pickFresh(obj, key, legacyKey) {
@@ -403,7 +406,7 @@
     const costSub = "Avg weekly " + pct(ropCostAvg) + " · " + (doneTxt || "completed weeks") + " · Income ÷ program cost basis";
     const startSub = "Avg weekly " + pctOrNa(ropStartAvg) + " · " +
       (startCovered != null ? String(startCovered) + " of " + doneCount + " completed weeks" : "completed weeks") +
-      " · Income ÷ program value at Monday open";
+      " · Income ÷ Monday-open value plus same-week buys at cost";
     return '<section class="js-roc" aria-label="Return on program">' +
       stat("js-rop-cost", "Return on program · cost basis", pct(ropCost), ropCost == null ? "Not in file" : costSub, pnlClass(ropCost)) +
       stat("js-rop-start", "Return on program · start-of-week value", pctOrNa(ropStart), ropStart == null ? "Not in file" : startSub, pnlClass(ropStart)) +
@@ -469,7 +472,7 @@
       : '<tr class="js-empty-row"><td colspan="14">No weeks in the file.</td></tr>';
     return '<section class="js-panel" id="js-weekly-panel" aria-label="Weekly summary">' +
       "<h2>Weekly summary</h2>" +
-      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Return on program (start value) is that income ÷ the market value of program stock held at the Monday open, priced at Robinhood’s Monday opening prices (margin, cash, non-program stock and options excluded); n/a means the Monday holdings could not be rebuilt. Return on program (cost basis) is that income ÷ program cost basis. Assignment P&L is booked in the called-away week. Overall is income plus assignment.</p>' +
+      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Return on program (start value) is that income ÷ the Monday-open value plus same-week buys at cost: program stock held at the Monday open, priced at Robinhood’s Monday opening prices, plus program stock bought later that week at what it cost (shares sold mid-week are not subtracted; margin, cash, non-program stock and options excluded); n/a means the Monday holdings could not be rebuilt. Return on program (cost basis) is that income ÷ program cost basis. Assignment P&L is booked in the called-away week. Overall is income plus assignment.</p>' +
       '<div class="js-wrap"><table class="js-table"><thead>' +
         ths([
           { t: "Week ending" },
@@ -477,7 +480,7 @@
           { t: "Fees", num: true },
           { t: "Net income", num: true },
           { t: "Income", num: true },
-          { t: "Program value (Mon open)", num: true },
+          { t: "Start value (Mon open + buys)", num: true },
           { t: "RoP (start value)", num: true },
           { t: "RoP (cost basis)", num: true },
           { t: "Assignment P&L", num: true },
@@ -569,9 +572,9 @@
       '<div class="js-kpis" id="js-week-kpis">' +
         stat("js-kpi-premium", "Premium allocated", money(prem), row ? "From weeks" : "Sum of allocations") +
         stat("js-kpi-fees", "Fees allocated", money(fees), row ? "From weeks" : "Sum of allocations") +
-        stat("js-kpi-start", "Program value · Monday open", moneyOrNa(startVal), row ? startSourceText(row) : "Not in weeks") +
+        stat("js-kpi-start", "Start value · Mon open + same-week buys", moneyOrNa(startVal), row ? startSourceText(row) : "Not in weeks") +
         stat("js-kpi-income", "Income", money(income), row ? (incomeFresh ? INCOME_ONLY : "From weeks") : "Premium minus fees", pnlClass(income)) +
-        stat("js-kpi-rop-start", "Return on program (start value)", pctOrNa(ropStartWk), row ? (ropStartWk != null ? "Income ÷ program value at Monday open" : "Monday holdings not available") : "Not in weeks", pnlClass(ropStartWk)) +
+        stat("js-kpi-rop-start", "Return on program (start value)", pctOrNa(ropStartWk), row ? (ropStartWk != null ? "Income ÷ Monday-open value plus same-week buys at cost" : "Monday holdings not available") : "Not in weeks", pnlClass(ropStartWk)) +
         stat("js-kpi-assign", "Assignment P&L", money(assign), row ? "From weeks" : "Not in allocations", pnlClass(assign)) +
         stat("js-kpi-overall", "Overall", money(overall), row ? "Income + assignment" : "Income", pnlClass(overall)) +
         stat("js-kpi-rop-cost", "Return on program (cost basis)", pct(ropCostWk), row ? "Income ÷ program cost basis" : "Not in weeks", pnlClass(ropCostWk)) +
