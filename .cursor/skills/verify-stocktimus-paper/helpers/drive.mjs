@@ -1191,6 +1191,77 @@ function jesseWeekReturnVsProgram(w) {
   return num(w.week_return_pct_vs_program);
 }
 
+function jessePct(v) {
+  if (v == null || Number.isNaN(Number(v))) return "—";
+  const n = Number(v);
+  if (!Number.isFinite(n)) return "—";
+  const p = n * 100;
+  const sign = p > 0 ? "+" : p < 0 ? "−" : "";
+  return sign + Math.abs(p).toFixed(2) + "%";
+}
+
+function jesseWeekIncome(w) {
+  if (!w) return null;
+  const direct = num(w.income_total);
+  if (direct != null) return direct;
+  const net = num(w.net_income);
+  const day = num(w.daytrade_pnl);
+  const div = num(w.dividends);
+  if (net != null || day != null || div != null) return (net || 0) + (day || 0) + (div || 0);
+  const total = num(w.total_week_pnl);
+  const assign = num(w.assignment_pnl);
+  if (total != null && assign != null) return total - assign;
+  return null;
+}
+
+function jesseWeekOverall(w) {
+  if (!w) return null;
+  const direct = num(w.overall_total);
+  return direct != null ? direct : num(w.total_week_pnl);
+}
+
+function jesseIncomeReturnVsCapital(w) {
+  if (!w) return null;
+  const direct = num(w.income_return_pct_vs_capital);
+  return direct != null ? direct : jesseWeekReturnVsCapital(w);
+}
+
+function jesseIncomeReturnVsProgram(w) {
+  if (!w) return null;
+  const direct = num(w.income_return_pct_vs_program);
+  return direct != null ? direct : jesseWeekReturnVsProgram(w);
+}
+
+function jessePick(board, key, legacy) {
+  if (!board) return { value: null, fresh: false };
+  const direct = num(board[key]);
+  if (direct != null) return { value: direct, fresh: true };
+  if (!legacy) return { value: null, fresh: false };
+  return { value: num(board[legacy]), fresh: false };
+}
+
+function jesseCumulatives(rows) {
+  let runIncome = 0;
+  let runAssign = 0;
+  let runOverall = 0;
+  let seenIncome = false;
+  let seenAssign = false;
+  let seenOverall = false;
+  return rows.map((w) => {
+    const income = jesseWeekIncome(w);
+    const assign = num(w.assignment_pnl);
+    const overall = jesseWeekOverall(w);
+    if (income != null) { runIncome += income; seenIncome = true; }
+    if (assign != null) { runAssign += assign; seenAssign = true; }
+    if (overall != null) { runOverall += overall; seenOverall = true; }
+    return {
+      income: num(w.cumulative_income) != null ? num(w.cumulative_income) : (seenIncome ? runIncome : null),
+      assign: num(w.cumulative_assignment_pnl) != null ? num(w.cumulative_assignment_pnl) : (seenAssign ? runAssign : null),
+      overall: num(w.cumulative_overall) != null ? num(w.cumulative_overall) : (seenOverall ? runOverall : null),
+    };
+  });
+}
+
 function jesseWeek(data, friday) {
   const week = (data.weeks || []).find((w) => ymdKey(w.week_ending) === friday) || null;
   const allocs = (data.allocations || [])
@@ -1268,16 +1339,31 @@ async function driveJesse(page) {
       covered: text("js-covered"),
       uncovered: text("js-uncovered"),
       openPrem: text("js-open-prem"),
-      toDate: text("js-todate"),
-      toDateSub: (document.querySelector("#js-todate") && document.querySelector("#js-todate").parentElement
-        ? document.querySelector("#js-todate").parentElement.querySelector(".js-s").textContent.trim()
+      income: text("js-income"),
+      incomeSub: (document.querySelector("#js-income") && document.querySelector("#js-income").parentElement
+        ? document.querySelector("#js-income").parentElement.querySelector(".js-s").textContent.trim()
         : ""),
+      assignment: text("js-assignment"),
+      overall: text("js-overall"),
+      overallSub: (document.querySelector("#js-overall") && document.querySelector("#js-overall").parentElement
+        ? document.querySelector("#js-overall").parentElement.querySelector(".js-s").textContent.trim()
+        : ""),
+      avgIncome: text("js-avg-income"),
+      avgIncomeSub: (document.querySelector("#js-avg-income") && document.querySelector("#js-avg-income").parentElement
+        ? document.querySelector("#js-avg-income").parentElement.querySelector(".js-s").textContent.trim()
+        : ""),
+      avgIncomeRet: text("js-avg-income-ret"),
+      avgRocCovered: text("js-avg-roc-covered"),
+      avgRocProgram: text("js-avg-roc-program"),
+      rocActive: text("js-roc-active"),
       weeks: [...document.querySelectorAll(".js-week")].map((b) => b.getAttribute("data-week")),
       weekOn: week ? week.getAttribute("data-week") : "",
       weekStart: week ? week.getAttribute("data-start") : "",
       weekEnd: week ? week.getAttribute("data-end") : "",
-      kpiNet: text("js-kpi-net"),
-      kpiRetCap: text("js-kpi-ret-capital"),
+      kpiIncome: text("js-kpi-income"),
+      kpiIncomeRet: text("js-kpi-income-ret"),
+      kpiAssign: text("js-kpi-assign"),
+      kpiOverall: text("js-kpi-overall"),
       kpiRetProg: text("js-kpi-ret-program"),
       allocs: [...document.querySelectorAll("#js-alloc tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
       sells: [...document.querySelectorAll("#js-sells tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
@@ -1303,24 +1389,50 @@ async function driveJesse(page) {
   hard(checks, "hero hidden", snap.heroDisplay === "none", snap.heroDisplay);
   hard(checks, "hash jesse", snap.hash === "#jesse", snap.hash);
   const board = data.dashboard || {};
+  const incomeOnly = "income only (excl. assignment)";
+  const rocCoveredPick = jessePick(board, "income_roc_vs_covered", "roc_vs_covered");
+  const rocProgramPick = jessePick(board, "income_roc_vs_program", "roc_vs_program");
+  const rocActivePick = jessePick(board, "income_roc_vs_active", "roc_vs_active");
+  const avgIncomePick = jessePick(board, "avg_weekly_income_only", "avg_weekly_income");
+  const avgIncomeRetPick = jessePick(board, "avg_weekly_income_return_pct", "avg_weekly_roc");
+  const avgRocCoveredPick = jessePick(board, "avg_weekly_income_roc_vs_covered", "avg_weekly_roc_vs_covered");
+  const avgRocProgramPick = jessePick(board, "avg_weekly_income_roc_vs_program", "avg_weekly_roc_vs_program");
+  const incomePick = jessePick(board, "income_total", "net_premium_daytrades_dividends");
+  const incomeTotal = incomePick.value != null ? incomePick.value : (book.weekRows.length ? book.weekRows.reduce((s, w) => s + (jesseWeekIncome(w) || 0), 0) : null);
+  const assignDirect = num(board.total_assignment_pnl);
+  const assignTotal = assignDirect != null ? assignDirect : (book.weekRows.length ? book.weekRows.reduce((s, w) => s + (num(w.assignment_pnl) || 0), 0) : null);
+  const overallPick = jessePick(board, "overall_total", "combined_income");
+  const overallTotal = overallPick.value != null ? overallPick.value : book.toDate;
   hard(checks, "return on capital label", snap.rocCoveredLabel === "Return on capital", snap.rocCoveredLabel);
   hard(checks, "return on program label", snap.rocProgramLabel === "Return on program", snap.rocProgramLabel);
-  hard(checks, "roc vs covered subtitle", snap.rocCoveredSub === "ROC vs Covered", snap.rocCoveredSub);
-  hard(checks, "roc vs program subtitle", snap.rocProgramSub === "ROC vs Program", snap.rocProgramSub);
-  hard(checks, "roc vs covered", snap.rocCovered === pct(num(board.roc_vs_covered)), snap.rocCovered + " vs " + pct(num(board.roc_vs_covered)));
-  hard(checks, "roc vs program", snap.rocProgram === pct(num(board.roc_vs_program)), snap.rocProgram + " vs " + pct(num(board.roc_vs_program)));
+  hard(checks, "roc vs covered subtitle", snap.rocCoveredSub === (rocCoveredPick.fresh ? incomeOnly : (rocCoveredPick.value != null ? "ROC vs Covered" : "Not in file")), snap.rocCoveredSub);
+  hard(checks, "roc vs program subtitle", snap.rocProgramSub === (rocProgramPick.fresh ? incomeOnly : (rocProgramPick.value != null ? "ROC vs Program" : "Not in file")), snap.rocProgramSub);
+  hard(checks, "roc vs covered", snap.rocCovered === jessePct(rocCoveredPick.value), snap.rocCovered + " vs " + jessePct(rocCoveredPick.value));
+  hard(checks, "roc vs program", snap.rocProgram === jessePct(rocProgramPick.value), snap.rocProgram + " vs " + jessePct(rocProgramPick.value));
+  hard(checks, "income total", snap.income === money(incomeTotal), snap.income + " vs " + money(incomeTotal));
+  hard(checks, "income total label", snap.incomeSub.includes(incomeOnly), snap.incomeSub);
+  hard(checks, "assignment total", snap.assignment === money(assignTotal), snap.assignment + " vs " + money(assignTotal));
+  hard(checks, "overall total", snap.overall === money(overallTotal), snap.overall + " vs " + money(overallTotal));
+  hard(checks, "overall week count", snap.overallSub.includes(book.weekRows.length + " weeks in file"), snap.overallSub);
+  hard(checks, "avg weekly income", snap.avgIncome === money(avgIncomePick.value), snap.avgIncome + " vs " + money(avgIncomePick.value));
+  hard(checks, "avg weekly income label", avgIncomePick.fresh ? snap.avgIncomeSub.includes(incomeOnly) : true, snap.avgIncomeSub);
+  hard(checks, "avg weekly income return", snap.avgIncomeRet === jessePct(avgIncomeRetPick.value), snap.avgIncomeRet);
+  hard(checks, "avg roc vs covered", snap.avgRocCovered === jessePct(avgRocCoveredPick.value), snap.avgRocCovered);
+  hard(checks, "avg roc vs program", snap.avgRocProgram === jessePct(avgRocProgramPick.value), snap.avgRocProgram);
+  hard(checks, "return on active", snap.rocActive === jessePct(rocActivePick.value), snap.rocActive);
   hard(checks, "program capital", snap.program === money(book.program), snap.program + " vs " + money(book.program));
   hard(checks, "covered cost", snap.covered === money(book.covered), snap.covered + " vs " + money(book.covered));
   hard(checks, "uncovered program", snap.uncovered === money(book.uncovered), snap.uncovered + " vs " + money(book.uncovered));
   hard(checks, "open premium net", snap.openPrem === money(book.openPrem), snap.openPrem + " vs " + money(book.openPrem));
-  hard(checks, "to date week pnl", snap.toDate === money(book.toDate), snap.toDate + " vs " + money(book.toDate));
-  hard(checks, "to date week count", snap.toDateSub.includes(book.weekRows.length + " weeks in file"), snap.toDateSub);
+  hard(checks, "no undefined or NaN", !snap.bodyText.includes("undefined") && !snap.bodyText.includes("NaN"));
   hard(checks, "week buttons", snap.weeks.join(",") === book.fridays.join(","), snap.weeks.join(","));
   hard(checks, "default week", snap.weekOn === book.selected, snap.weekOn + " vs " + book.selected);
   hard(checks, "week window", snap.weekStart === expectWeek.start && snap.weekEnd === book.selected, snap.weekStart + "…" + snap.weekEnd);
-  hard(checks, "week net income", snap.kpiNet === money(num(expectWeek.week && expectWeek.week.net_income)), snap.kpiNet);
-  hard(checks, "week return vs capital", snap.kpiRetCap === pct(jesseWeekReturnVsCapital(expectWeek.week)), snap.kpiRetCap);
-  hard(checks, "week return vs program", snap.kpiRetProg === pct(jesseWeekReturnVsProgram(expectWeek.week)), snap.kpiRetProg);
+  hard(checks, "week income", snap.kpiIncome === money(jesseWeekIncome(expectWeek.week)), snap.kpiIncome);
+  hard(checks, "week income return", snap.kpiIncomeRet === jessePct(jesseIncomeReturnVsCapital(expectWeek.week)), snap.kpiIncomeRet);
+  hard(checks, "week assignment", snap.kpiAssign === money(num(expectWeek.week && expectWeek.week.assignment_pnl)), snap.kpiAssign);
+  hard(checks, "week overall", snap.kpiOverall === money(jesseWeekOverall(expectWeek.week)), snap.kpiOverall);
+  hard(checks, "week income return vs program", snap.kpiRetProg === jessePct(jesseIncomeReturnVsProgram(expectWeek.week)), snap.kpiRetProg);
   hard(checks, "week allocations", snap.allocs.slice().sort().join(",") === expectWeek.allocs.join(","), snap.allocs.join(","));
   hard(checks, "week sells", snap.sells.join(",") === expectWeek.sells.join(","), snap.sells.join(","));
   hard(checks, "open covered calls", snap.openCcs.join(",") === openIds.join(","), snap.openCcs.join(","));
@@ -1350,8 +1462,10 @@ async function driveJesse(page) {
       hash: location.hash,
       weekOn: week ? week.getAttribute("data-week") : "",
       weekStart: week ? week.getAttribute("data-start") : "",
-      kpiNet: text("js-kpi-net"),
-      kpiRetCap: text("js-kpi-ret-capital"),
+      kpiIncome: text("js-kpi-income"),
+      kpiIncomeRet: text("js-kpi-income-ret"),
+      kpiAssign: text("js-kpi-assign"),
+      kpiOverall: text("js-kpi-overall"),
       kpiRetProg: text("js-kpi-ret-program"),
       allocs: [...document.querySelectorAll("#js-alloc tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
       sells: [...document.querySelectorAll("#js-sells tr[data-trade]")].map((tr) => tr.getAttribute("data-trade")),
@@ -1362,9 +1476,11 @@ async function driveJesse(page) {
   hard(checks, "week click does not navigate", page.url() === urlBefore && switched.hash === "#jesse", page.url());
   hard(checks, "selected week", switched.weekOn === other, switched.weekOn);
   hard(checks, "switched window", switched.weekStart === otherWeek.start, switched.weekStart);
-  hard(checks, "switched net income", switched.kpiNet === money(num(otherWeek.week && otherWeek.week.net_income)), switched.kpiNet);
-  hard(checks, "switched return vs capital", switched.kpiRetCap === pct(jesseWeekReturnVsCapital(otherWeek.week)), switched.kpiRetCap);
-  hard(checks, "switched return vs program", switched.kpiRetProg === pct(jesseWeekReturnVsProgram(otherWeek.week)), switched.kpiRetProg);
+  hard(checks, "switched income", switched.kpiIncome === money(jesseWeekIncome(otherWeek.week)), switched.kpiIncome);
+  hard(checks, "switched income return", switched.kpiIncomeRet === jessePct(jesseIncomeReturnVsCapital(otherWeek.week)), switched.kpiIncomeRet);
+  hard(checks, "switched assignment", switched.kpiAssign === money(num(otherWeek.week && otherWeek.week.assignment_pnl)), switched.kpiAssign);
+  hard(checks, "switched overall", switched.kpiOverall === money(jesseWeekOverall(otherWeek.week)), switched.kpiOverall);
+  hard(checks, "switched income return vs program", switched.kpiRetProg === jessePct(jesseIncomeReturnVsProgram(otherWeek.week)), switched.kpiRetProg);
   hard(checks, "switched allocations", switched.allocs.slice().sort().join(",") === otherWeek.allocs.join(","), switched.allocs.join(","));
   hard(checks, "switched sells", switched.sells.join(",") === otherWeek.sells.join(","), switched.sells.join(","));
   hard(checks, "open book stays put", switched.openCcs.join(",") === openIds.join(","), switched.openCcs.join(","));
@@ -1399,22 +1515,28 @@ async function driveJesse(page) {
     .sort((a, b) => ymdKey(a.week_ending).localeCompare(ymdKey(b.week_ending)));
   hard(checks, "weekly summary stays on jesse", summary.hash === "#jesse" && page.url() === urlBefore, summary.hash);
   hard(checks, "weekly summary hides week picker", summary.weekPicker === false);
-  hard(checks, "roc stays on weekly summary", summary.rocCovered === pct(num(board.roc_vs_covered)) && summary.rocProgram === pct(num(board.roc_vs_program)), summary.rocCovered + " / " + summary.rocProgram);
+  hard(checks, "roc stays on weekly summary", summary.rocCovered === jessePct(rocCoveredPick.value) && summary.rocProgram === jessePct(rocProgramPick.value), summary.rocCovered + " / " + summary.rocProgram);
   hard(checks, "weekly summary rows", summary.rows.map((row) => row.week).join(",") === summaryRows.map((w) => ymdKey(w.week_ending)).join(","), summary.rows.map((row) => row.week).join(","));
-  hard(checks, "weekly summary return headers", summary.headers[7] === "Week return % (vs capital)" && summary.headers[8] === "Week return % (vs program)", (summary.headers[7] || "") + " | " + (summary.headers[8] || ""));
-  hard(checks, "weekly summary denominators", summary.note.includes("combined ÷ capital deployed") && summary.note.includes("combined ÷ Dashboard program capital"), summary.note);
+  hard(checks, "weekly summary split headers", summary.headers[5] === "Income" && summary.headers[6] === "Income return %" && summary.headers[7] === "Assignment P&L" && summary.headers[8] === "Overall", summary.headers.slice(5, 9).join(" | "));
+  hard(checks, "weekly summary cumulative headers", summary.headers[9] === "Cum. income" && summary.headers[10] === "Cum. assignment" && summary.headers[11] === "Cum. overall", summary.headers.slice(9, 12).join(" | "));
+  hard(checks, "weekly summary split note", summary.note.includes("excluding assignment") && summary.note.includes("income ÷ capital deployed") && summary.note.includes("Overall is income plus assignment") && !summary.note.includes("combined ÷"), summary.note);
+  const cumulatives = jesseCumulatives(summaryRows);
   summaryRows.forEach((w, i) => {
     const cells = summary.rows[i] ? summary.rows[i].cells : [];
     const friday = ymdKey(w.week_ending);
+    const cum = cumulatives[i] || {};
     hard(checks, "week " + friday + " premium", cells[1] === money(num(w.premium_allocated)), cells[1]);
     hard(checks, "week " + friday + " fees", cells[2] === money(num(w.fees_allocated)), cells[2]);
     hard(checks, "week " + friday + " net", cells[3] === money(num(w.net_income)), cells[3]);
     hard(checks, "week " + friday + " capital", cells[4] === money(num(w.capital_deployed)), cells[4]);
-    hard(checks, "week " + friday + " assignment", cells[5] === money(num(w.assignment_pnl)), cells[5]);
-    hard(checks, "week " + friday + " total", cells[6] === money(num(w.total_week_pnl)), cells[6]);
-    hard(checks, "week " + friday + " return vs capital", cells[7] === pct(jesseWeekReturnVsCapital(w)), cells[7]);
-    hard(checks, "week " + friday + " return vs program", cells[8] === pct(jesseWeekReturnVsProgram(w)), cells[8]);
-    hard(checks, "week " + friday + " trades", cells[9] === String(w.trade_count), cells[9]);
+    hard(checks, "week " + friday + " income", cells[5] === money(jesseWeekIncome(w)), cells[5]);
+    hard(checks, "week " + friday + " income return", cells[6] === jessePct(jesseIncomeReturnVsCapital(w)), cells[6]);
+    hard(checks, "week " + friday + " assignment", cells[7] === money(num(w.assignment_pnl)), cells[7]);
+    hard(checks, "week " + friday + " overall", cells[8] === money(jesseWeekOverall(w)), cells[8]);
+    hard(checks, "week " + friday + " cum income", cells[9] === money(cum.income), cells[9]);
+    hard(checks, "week " + friday + " cum assignment", cells[10] === money(cum.assign), cells[10]);
+    hard(checks, "week " + friday + " cum overall", cells[11] === money(cum.overall), cells[11]);
+    hard(checks, "week " + friday + " trades", cells[12] === String(w.trade_count), cells[12]);
   });
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: join(EVIDENCE, "jesse-tab-summary.png"), fullPage: true });
@@ -1456,7 +1578,9 @@ async function driveJesse(page) {
       covered: snap.covered,
       uncovered: snap.uncovered,
       openPrem: snap.openPrem,
-      toDate: snap.toDate,
+      income: snap.income,
+      assignment: snap.assignment,
+      overall: snap.overall,
       defaultWeek: snap.weekOn,
       switchedWeek: switched.weekOn,
       sells: snap.sells,

@@ -1,10 +1,10 @@
 {
   "ok": true,
-  "at": "2026-10-19T12:15:29.544Z",
-  "url": "http://127.0.0.1:37795/",
+  "at": "2026-10-26T15:13:24.862Z",
+  "url": "http://127.0.0.1:37391/",
   "books": {
     "data.json": {
-      "tickets": 115
+      "tickets": 127
     },
     "desks/moonshot.json": {
       "tickets": 3
@@ -15,7 +15,7 @@
   },
   "proxy": {
     "url": "https://stock-prices-proxy.jessehartung.workers.dev",
-    "symbol": "UNH",
+    "symbol": "MKC",
     "ok": true,
     "status": 200,
     "numericPricePresent": true,
@@ -127,7 +127,7 @@
     {
       "name": "data.json parses",
       "ok": true,
-      "detail": "115 tickets"
+      "detail": "127 tickets"
     },
     {
       "name": "data.json unique ids",
@@ -172,7 +172,7 @@
     {
       "name": "scoreboard/stocktimus.json calls array",
       "ok": true,
-      "detail": "28 calls"
+      "detail": "38 calls"
     },
     {
       "name": "scoreboard/stocktimus.json unique call ids",
@@ -202,7 +202,7 @@
     {
       "name": "scoreboard/compounder.json calls array",
       "ok": true,
-      "detail": "21 calls"
+      "detail": "30 calls"
     },
     {
       "name": "scoreboard/compounder.json unique call ids",
@@ -227,7 +227,7 @@
     {
       "name": "jesse/cc-tracker.json parses",
       "ok": true,
-      "detail": "32 trades"
+      "detail": "39 trades"
     },
     {
       "name": "jesse desk field",
@@ -242,7 +242,7 @@
     {
       "name": "jesse weeks",
       "ok": true,
-      "detail": "4"
+      "detail": "9"
     },
     {
       "name": "jesse dashboard roc",
@@ -252,7 +252,7 @@
     {
       "name": "jesse weekly summary",
       "ok": true,
-      "detail": "4"
+      "detail": "9"
     },
     {
       "name": "sleeve/trades.json parses",
@@ -327,7 +327,7 @@
     {
       "name": "rules/versions.json parses",
       "ok": true,
-      "detail": "5 versions"
+      "detail": "6 versions"
     },
     {
       "name": "rules/CHANGELOG.md present",

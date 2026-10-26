@@ -24,7 +24,7 @@ Hash tabs in `nav.desk-tabs`:
 | Moonshot | `#moonshot` | `./desks/moonshot.json` |
 | Compounder | `#compounder` | `./desks/compounder.json` |
 | Sleeve | `#sleeve` | `./sleeve/trades.json`. Robinhood Agentic live ledger. Not a paper book. Steel & Ember while this tab is open. Account value is `portfolio.total_value` and cash is `portfolio.cash`. Deployed is the sum of open equity `deployed_usd`. Weekly income reads `weekly_summary` (CC premium net, dividends, scalps, assignment, combined, return vs deployed). |
-| Jesse | `#jesse` | `./jesse/cc-tracker.json`. Covered-call income tracker. Not a paper book. Clay & sage while this tab is open. Return on capital and Return on program come from `dashboard`. Weekly summary is a section on this tab, not a desk tab. |
+| Jesse | `#jesse` | `./jesse/cc-tracker.json`. Covered-call income tracker. Not a paper book. Clay & sage while this tab is open. Return on capital and Return on program come from `dashboard.income_roc_*` (legacy `roc_vs_*` if absent), labeled income only. Weekly summary splits Income, Assignment P&L, and Overall. It is a section on this tab, not a desk tab. |
 | Scalp | `#scalp` | `./scalp/scalp.json`. $10k paper book. Clay & sage while this tab is open. Paper equity is cash plus known open capital. Marks are `rh_bid`, `rh_ask`, `fill`, and `minute_ts` already on the ticket. This tab does not call the quote proxy. |
 | Scoreboard | `#scoreboard` | `./scoreboard/stocktimus.json`, `compounder.json`, `moonshot.json`, `scout.json`. This is the X call log, not the paper book. |
 
