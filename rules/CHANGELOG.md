@@ -2,6 +2,15 @@
 
 Each trade is tagged with the rules version in effect on its entry date. Versions before v0.5 were reconstructed from desk notes on 2026-10-19.
 
+## v0.6 beta (effective 2026-10-26)
+Why: Oct 19-23 self-score. The paper book fell about 4.6% on the week. The SE cut, the SLV leftover, and two Danny mega-cap CSPs (GOOGL, AMZN) did most of the damage. Small OTM CSPs (UNH, UPS, ASTS) and the call rolls all came in green.
+- A CSP's daily-close out must sit at or below its strike. If the source's invalidation sits above the strike, choose a lower strike or label it Low. (AMZN's $250 put had a $255.22 out, so it behaved like long stock.)
+- When Fear & Greed is under 30, mega-cap CSPs need a strike at least ~7% out of the money to stay Medium. Otherwise they are Low.
+- When earnings fall inside the expiry, a CSP stays Medium only with a strike at least ~8% out of the money, or at or below the bottom of the source's zone. Otherwise it is Low, or it waits until after the print.
+- Every stock lot, leftover lots included, needs a numeric daily-close out. A thesis-only out ("leave TLI silver thesis") is Low and gets a numeric out at the next brief. SLV gets one on Oct 26.
+- When the hold rule applies, the cut line is a close more than 5% under the out. A close 3-5% under the out does not start a hold; it is a cut.
+- Unchanged: v0.5 hold rule, CSP-over-stock preference, LIVE GATE, momentum-cluster exclusions.
+
 ## v0.5 beta (effective 2026-10-19)
 Why: Oct 12-16 drawdown week (paper about -4%) and the Oct 17 backtests (`/workspace/briefs/backtest_hold_avgdown_2026-10-17.csv`, `backtest_breakeven_scan_2026-10-17.csv`).
 - Prefer a CSP at or below the bottom of a source's stated zone over buying stock. TLI zones are CSP strikes at the zone bottom.

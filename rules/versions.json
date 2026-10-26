@@ -1,7 +1,36 @@
-{"current":"v0.5-beta","versions":[
-{"id":"v0.1","label":"v0.1","effective":"2026-08-13"},
-{"id":"v0.2","label":"v0.2","effective":"2026-09-30"},
-{"id":"v0.3","label":"v0.3","effective":"2026-10-07"},
-{"id":"v0.4","label":"v0.4","effective":"2026-10-14"},
-{"id":"v0.5-beta","label":"v0.5 beta","effective":"2026-10-19"}],
-"tag_rule":"Each trade gets the latest version whose effective date is on or before its entry date. Stocktimus owns this file and CHANGELOG.md; Paperwright renders them."}
+{
+"current": "v0.6-beta",
+"versions": [
+{
+"id": "v0.1",
+"label": "v0.1",
+"effective": "2026-08-13"
+},
+{
+"id": "v0.2",
+"label": "v0.2",
+"effective": "2026-09-30"
+},
+{
+"id": "v0.3",
+"label": "v0.3",
+"effective": "2026-10-07"
+},
+{
+"id": "v0.4",
+"label": "v0.4",
+"effective": "2026-10-14"
+},
+{
+"id": "v0.5-beta",
+"label": "v0.5 beta",
+"effective": "2026-10-19"
+},
+{
+"id": "v0.6-beta",
+"label": "v0.6 beta",
+"effective": "2026-10-26"
+}
+],
+"tag_rule": "Each trade gets the latest version whose effective date is on or before its entry date. Stocktimus owns this file and CHANGELOG.md; Paperwright renders them."
+}
