@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-10-23T08:20:00-07:00",
+  "as_of": "2026-10-26T08:16:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -112,6 +112,30 @@
       "called_at": "2026-10-09",
       "example": false,
       "note": "Oct 9 ~2:00pm PT thread with Eagle Point Capital: \"$SIRI seems very cheap at 6.5x FCF, a 15% free cash flow yield\"; satellite capex wind-down boosts FCF, deleveraging nearly done, buybacks ramping, 4.1% dividend, spare 2.3 GHz S-band spectrum, YouTube audio ad deal, 11% short interest. Source x.com/jam_croissant/status/2108663820428202167. Under 14d."
+    },
+    {
+      "id": "ds-btc-2026-10-26",
+      "handle": "dampedspring",
+      "ticker": "BTC",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-26",
+      "example": false,
+      "note": "Oct 26 10:00am ET: \"Increased my bid back up to 69,420 from 42,069\" with own meme image captioned \"WHEN ANDY BUYS 1% OF HIS AUM IN BTC AT 69,420\" (x.com/dampedspring/status/2114718932980334641). Resting buy zone: BTC 69,420, ~1% AUM. Bid, not a confirmed fill; proxy (IBIT/BTC spot) not frozen. Buy zone logged for owning desk: Compounder (default; no desk has a crypto lane, CoS to confirm). Under 14d."
+    },
+    {
+      "id": "ds-gld-2026-10-26",
+      "handle": "dampedspring",
+      "ticker": "GLD",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-26",
+      "example": false,
+      "note": "Oct 26 10:11am ET own reply to @fejau_inc (\"curious why?\" about his BTC bid): \"For similar reasons to why I want to buy more gold at $3500.\" (x.com/dampedspring/status/2114721572506230919). Resting buy zone: gold $3,500/oz (\"more\" implies existing long). Conditional add, not a fill; proxies GLD,IAU,GC not frozen. Buy zone logged for owning desk: Compounder. Under 14d."
     }
   ]
 }
