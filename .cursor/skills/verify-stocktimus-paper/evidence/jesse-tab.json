@@ -1,8 +1,8 @@
 {
   "ok": true,
   "feature": "jesse-tab",
-  "at": "2026-10-02T20:42:24.489Z",
-  "url": "http://127.0.0.1:33419/",
+  "at": "2026-10-26T15:15:48.931Z",
+  "url": "http://127.0.0.1:37391/",
   "numbersSource": "json-files",
   "inventedPrices": false,
   "files": [
@@ -15,28 +15,30 @@
     "title": "Covered Call Income · Jesse",
     "deskName": "Covered Call Income",
     "pill": "cc tracker",
-    "asof": "Oct 2, 2026, 1:23 PM PT",
-    "program": "$245,514.00",
-    "rocCovered": "+6.88%",
-    "rocProgram": "+4.45%",
+    "asof": "Oct 26, 2026, 8:02 AM PT",
+    "program": "$229,689.00",
+    "rocCovered": "+286.27%",
+    "rocProgram": "+7.04%",
     "summaryWeeks": [
       "2026-09-25",
       "2026-10-02",
       "2026-10-09",
-      "2026-10-16"
+      "2026-10-16",
+      "2026-10-23",
+      "2026-10-30",
+      "2026-11-06",
+      "2026-11-13",
+      "2026-11-20"
     ],
-    "covered": "$158,965.00",
-    "uncovered": "$86,549.00",
-    "openPrem": "$4,645.66",
-    "toDate": "$10,933.76",
-    "defaultWeek": "2026-10-02",
+    "covered": "$5,650.00",
+    "uncovered": "$224,039.00",
+    "openPrem": "$299.64",
+    "income": "$16,174.14",
+    "assignment": "−$1,355.00",
+    "overall": "$14,819.14",
+    "defaultWeek": "2026-10-30",
     "switchedWeek": "2026-09-25",
-    "sells": [
-      "CC-013",
-      "CC-014",
-      "CC-015",
-      "CC-016"
-    ],
+    "sells": [],
     "switchedSells": [
       "CC-001",
       "CC-002",
@@ -81,12 +83,12 @@
     {
       "name": "as_of datetime",
       "ok": true,
-      "detail": "2026-10-02T13:23:49-07:00"
+      "detail": "2026-10-26T08:02:48-07:00"
     },
     {
       "name": "as_of visible",
       "ok": true,
-      "detail": "Oct 2, 2026, 1:23 PM PT"
+      "detail": "Oct 26, 2026, 8:02 AM PT"
     },
     {
       "name": "view class",
@@ -116,102 +118,162 @@
     {
       "name": "roc vs covered subtitle",
       "ok": true,
-      "detail": "ROC vs Covered"
+      "detail": "income only (excl. assignment)"
     },
     {
       "name": "roc vs program subtitle",
       "ok": true,
-      "detail": "ROC vs Program"
+      "detail": "income only (excl. assignment)"
     },
     {
       "name": "roc vs covered",
       "ok": true,
-      "detail": "+6.88% vs +6.88%"
+      "detail": "+286.27% vs +286.27%"
     },
     {
       "name": "roc vs program",
       "ok": true,
-      "detail": "+4.45% vs +4.45%"
+      "detail": "+7.04% vs +7.04%"
+    },
+    {
+      "name": "income total",
+      "ok": true,
+      "detail": "$16,174.14 vs $16,174.14"
+    },
+    {
+      "name": "income total label",
+      "ok": true,
+      "detail": "income only (excl. assignment)"
+    },
+    {
+      "name": "assignment total",
+      "ok": true,
+      "detail": "−$1,355.00 vs −$1,355.00"
+    },
+    {
+      "name": "overall total",
+      "ok": true,
+      "detail": "$14,819.14 vs $14,819.14"
+    },
+    {
+      "name": "overall week count",
+      "ok": true,
+      "detail": "Income + assignment · 9 weeks in file"
+    },
+    {
+      "name": "avg weekly income",
+      "ok": true,
+      "detail": "$3,186.89 vs $3,186.89"
+    },
+    {
+      "name": "avg weekly income label",
+      "ok": true,
+      "detail": "income only (excl. assignment) · 5 completed weeks"
+    },
+    {
+      "name": "avg weekly income return",
+      "ok": true,
+      "detail": "+2.17%"
+    },
+    {
+      "name": "avg roc vs covered",
+      "ok": true,
+      "detail": "+56.41%"
+    },
+    {
+      "name": "avg roc vs program",
+      "ok": true,
+      "detail": "+1.39%"
+    },
+    {
+      "name": "return on active",
+      "ok": true,
+      "detail": "+2.92%"
     },
     {
       "name": "program capital",
       "ok": true,
-      "detail": "$245,514.00 vs $245,514.00"
+      "detail": "$229,689.00 vs $229,689.00"
     },
     {
       "name": "covered cost",
       "ok": true,
-      "detail": "$158,965.00 vs $158,965.00"
+      "detail": "$5,650.00 vs $5,650.00"
     },
     {
       "name": "uncovered program",
       "ok": true,
-      "detail": "$86,549.00 vs $86,549.00"
+      "detail": "$224,039.00 vs $224,039.00"
     },
     {
       "name": "open premium net",
       "ok": true,
-      "detail": "$4,645.66 vs $4,645.66"
+      "detail": "$299.64 vs $299.64"
     },
     {
-      "name": "to date week pnl",
+      "name": "no undefined or NaN",
       "ok": true,
-      "detail": "$10,933.76 vs $10,933.76"
-    },
-    {
-      "name": "to date week count",
-      "ok": true,
-      "detail": "4 weeks in file · net $10,191.15 · assignment $0.00"
+      "detail": ""
     },
     {
       "name": "week buttons",
       "ok": true,
-      "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16"
+      "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16,2026-10-23,2026-10-30,2026-11-06,2026-11-13,2026-11-20"
     },
     {
       "name": "default week",
       "ok": true,
-      "detail": "2026-10-02 vs 2026-10-02"
+      "detail": "2026-10-30 vs 2026-10-30"
     },
     {
       "name": "week window",
       "ok": true,
-      "detail": "2026-09-26…2026-10-02"
+      "detail": "2026-10-24…2026-10-30"
     },
     {
-      "name": "week net income",
+      "name": "week income",
       "ok": true,
-      "detail": "$3,129.85"
+      "detail": "$59.93"
     },
     {
-      "name": "week return vs capital",
+      "name": "week income return",
       "ok": true,
-      "detail": "+3.13%"
+      "detail": "+5.30%"
     },
     {
-      "name": "week return vs program",
+      "name": "week assignment",
       "ok": true,
-      "detail": "+1.44%"
+      "detail": "$0.00"
+    },
+    {
+      "name": "week overall",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week income return vs program",
+      "ok": true,
+      "detail": "+0.03%"
     },
     {
       "name": "week allocations",
       "ok": true,
-      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016,DIV-002,DIV-003,OD-001,OD-002"
+      "detail": "CC-029"
     },
     {
       "name": "week sells",
       "ok": true,
-      "detail": "CC-013,CC-014,CC-015,CC-016"
+      "detail": ""
     },
     {
       "name": "open covered calls",
       "ok": true,
-      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016"
+      "detail": "CC-029"
     },
     {
       "name": "closed trades",
       "ok": true,
-      "detail": "CC-001,CC-002,CC-003,CC-005,CC-006,CC-008,CC-009,CC-010"
+      "detail": "CC-001,CC-002,CC-003,CC-004,CC-005,CC-006,CC-007,CC-008,CC-009,CC-010,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016,CC-017,CC-018,CC-019,CC-020,CC-021,CC-022,CC-023,CC-024,CC-025,CC-026,CC-027,CC-028,CC-030,CC-031"
     },
     {
       "name": "closed section collapsed",
@@ -221,7 +283,7 @@
     {
       "name": "position tickers",
       "ok": true,
-      "detail": "ASTS,BABA,CLSK,EOSE,HIMS,INV,MSTY,NKE,ONDS,SE,SLNH,TSLA,WYFI"
+      "detail": "ASTS,BABA,CLMT,CLSK,EOSE,INV,MSTY,NKE,ONDS,SLNH,TSLA,WYFI"
     },
     {
       "name": "account number not rendered",
@@ -231,7 +293,7 @@
     {
       "name": "week click does not navigate",
       "ok": true,
-      "detail": "http://127.0.0.1:33419/#jesse"
+      "detail": "http://127.0.0.1:37391/#jesse"
     },
     {
       "name": "selected week",
@@ -244,19 +306,29 @@
       "detail": "2026-09-19"
     },
     {
-      "name": "switched net income",
+      "name": "switched income",
       "ok": true,
-      "detail": "$6,100.56"
+      "detail": "$6,442.66"
     },
     {
-      "name": "switched return vs capital",
+      "name": "switched income return",
       "ok": true,
       "detail": "+3.28%"
     },
     {
-      "name": "switched return vs program",
+      "name": "switched assignment",
       "ok": true,
-      "detail": "+2.62%"
+      "detail": "$340.00"
+    },
+    {
+      "name": "switched overall",
+      "ok": true,
+      "detail": "$6,782.66"
+    },
+    {
+      "name": "switched income return vs program",
+      "ok": true,
+      "detail": "+2.80%"
     },
     {
       "name": "switched allocations",
@@ -271,7 +343,7 @@
     {
       "name": "open book stays put",
       "ok": true,
-      "detail": "CC-004,CC-007,CC-011,CC-012,CC-013,CC-014,CC-015,CC-016"
+      "detail": "CC-029"
     },
     {
       "name": "weekly summary stays on jesse",
@@ -286,22 +358,27 @@
     {
       "name": "roc stays on weekly summary",
       "ok": true,
-      "detail": "+6.88% / +4.45%"
+      "detail": "+286.27% / +7.04%"
     },
     {
       "name": "weekly summary rows",
       "ok": true,
-      "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16"
+      "detail": "2026-09-25,2026-10-02,2026-10-09,2026-10-16,2026-10-23,2026-10-30,2026-11-06,2026-11-13,2026-11-20"
     },
     {
-      "name": "weekly summary return headers",
+      "name": "weekly summary split headers",
       "ok": true,
-      "detail": "Week return % (vs capital) | Week return % (vs program)"
+      "detail": "Income | Income return % | Assignment P&L | Overall"
     },
     {
-      "name": "weekly summary denominators",
+      "name": "weekly summary cumulative headers",
       "ok": true,
-      "detail": "Every Friday on the Excel Weekly Summary. Week return % (vs capital) is combined ÷ capital deployed. Week return % (vs program) is combined ÷ Dashboard program capital."
+      "detail": "Cum. income | Cum. assignment | Cum. overall"
+    },
+    {
+      "name": "weekly summary split note",
+      "ok": true,
+      "detail": "Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Income return % is that income ÷ capital deployed. Assignment P&L is booked in the called-away week. Overall is income plus assignment."
     },
     {
       "name": "week 2026-09-25 premium",
@@ -324,29 +401,44 @@
       "detail": "$196,620.50"
     },
     {
-      "name": "week 2026-09-25 assignment",
-      "ok": true,
-      "detail": "$0.00"
-    },
-    {
-      "name": "week 2026-09-25 total",
+      "name": "week 2026-09-25 income",
       "ok": true,
       "detail": "$6,442.66"
     },
     {
-      "name": "week 2026-09-25 return vs capital",
+      "name": "week 2026-09-25 income return",
       "ok": true,
       "detail": "+3.28%"
     },
     {
-      "name": "week 2026-09-25 return vs program",
+      "name": "week 2026-09-25 assignment",
       "ok": true,
-      "detail": "+2.62%"
+      "detail": "$340.00"
+    },
+    {
+      "name": "week 2026-09-25 overall",
+      "ok": true,
+      "detail": "$6,782.66"
+    },
+    {
+      "name": "week 2026-09-25 cum income",
+      "ok": true,
+      "detail": "$6,442.66"
+    },
+    {
+      "name": "week 2026-09-25 cum assignment",
+      "ok": true,
+      "detail": "$340.00"
+    },
+    {
+      "name": "week 2026-09-25 cum overall",
+      "ok": true,
+      "detail": "$6,782.66"
     },
     {
       "name": "week 2026-09-25 trades",
       "ok": true,
-      "detail": "12"
+      "detail": "13"
     },
     {
       "name": "week 2026-10-02 premium",
@@ -369,119 +461,464 @@
       "detail": "$112,788.50"
     },
     {
+      "name": "week 2026-10-02 income",
+      "ok": true,
+      "detail": "$3,530.36"
+    },
+    {
+      "name": "week 2026-10-02 income return",
+      "ok": true,
+      "detail": "+3.13%"
+    },
+    {
       "name": "week 2026-10-02 assignment",
       "ok": true,
       "detail": "$0.00"
     },
     {
-      "name": "week 2026-10-02 total",
+      "name": "week 2026-10-02 overall",
       "ok": true,
       "detail": "$3,530.36"
     },
     {
-      "name": "week 2026-10-02 return vs capital",
+      "name": "week 2026-10-02 cum income",
       "ok": true,
-      "detail": "+3.13%"
+      "detail": "$9,973.02"
     },
     {
-      "name": "week 2026-10-02 return vs program",
+      "name": "week 2026-10-02 cum assignment",
       "ok": true,
-      "detail": "+1.44%"
+      "detail": "$340.00"
+    },
+    {
+      "name": "week 2026-10-02 cum overall",
+      "ok": true,
+      "detail": "$10,313.02"
     },
     {
       "name": "week 2026-10-02 trades",
       "ok": true,
-      "detail": "8"
+      "detail": "12"
     },
     {
       "name": "week 2026-10-09 premium",
       "ok": true,
-      "detail": "$557.50"
+      "detail": "$3,095.50"
     },
     {
       "name": "week 2026-10-09 fees",
       "ok": true,
-      "detail": "$2.43"
+      "detail": "$12.94"
     },
     {
       "name": "week 2026-10-09 net",
       "ok": true,
-      "detail": "$555.07"
+      "detail": "$3,082.56"
     },
     {
       "name": "week 2026-10-09 capital",
       "ok": true,
-      "detail": "$17,410.50"
+      "detail": "$169,980.50"
+    },
+    {
+      "name": "week 2026-10-09 income",
+      "ok": true,
+      "detail": "$3,327.06"
+    },
+    {
+      "name": "week 2026-10-09 income return",
+      "ok": true,
+      "detail": "+1.96%"
     },
     {
       "name": "week 2026-10-09 assignment",
       "ok": true,
-      "detail": "$0.00"
+      "detail": "−$1,825.00"
     },
     {
-      "name": "week 2026-10-09 total",
+      "name": "week 2026-10-09 overall",
       "ok": true,
-      "detail": "$555.07"
+      "detail": "$1,502.06"
     },
     {
-      "name": "week 2026-10-09 return vs capital",
+      "name": "week 2026-10-09 cum income",
       "ok": true,
-      "detail": "+3.19%"
+      "detail": "$13,300.08"
     },
     {
-      "name": "week 2026-10-09 return vs program",
+      "name": "week 2026-10-09 cum assignment",
       "ok": true,
-      "detail": "+0.23%"
+      "detail": "−$1,485.00"
+    },
+    {
+      "name": "week 2026-10-09 cum overall",
+      "ok": true,
+      "detail": "$11,815.08"
     },
     {
       "name": "week 2026-10-09 trades",
       "ok": true,
-      "detail": "4"
+      "detail": "10"
     },
     {
       "name": "week 2026-10-16 premium",
       "ok": true,
-      "detail": "$407.50"
+      "detail": "$1,304.50"
     },
     {
       "name": "week 2026-10-16 fees",
       "ok": true,
-      "detail": "$1.83"
+      "detail": "$7.64"
     },
     {
       "name": "week 2026-10-16 net",
       "ok": true,
-      "detail": "$405.68"
+      "detail": "$1,296.87"
     },
     {
       "name": "week 2026-10-16 capital",
       "ok": true,
-      "detail": "$11,355.50"
+      "detail": "$86,920.50"
+    },
+    {
+      "name": "week 2026-10-16 income",
+      "ok": true,
+      "detail": "$1,544.27"
+    },
+    {
+      "name": "week 2026-10-16 income return",
+      "ok": true,
+      "detail": "+1.78%"
     },
     {
       "name": "week 2026-10-16 assignment",
       "ok": true,
-      "detail": "$0.00"
+      "detail": "$130.00"
     },
     {
-      "name": "week 2026-10-16 total",
+      "name": "week 2026-10-16 overall",
       "ok": true,
-      "detail": "$405.68"
+      "detail": "$1,674.27"
     },
     {
-      "name": "week 2026-10-16 return vs capital",
+      "name": "week 2026-10-16 cum income",
       "ok": true,
-      "detail": "+3.57%"
+      "detail": "$14,844.34"
     },
     {
-      "name": "week 2026-10-16 return vs program",
+      "name": "week 2026-10-16 cum assignment",
       "ok": true,
-      "detail": "+0.17%"
+      "detail": "−$1,355.00"
+    },
+    {
+      "name": "week 2026-10-16 cum overall",
+      "ok": true,
+      "detail": "$13,489.34"
     },
     {
       "name": "week 2026-10-16 trades",
       "ok": true,
-      "detail": "3"
+      "detail": "9"
+    },
+    {
+      "name": "week 2026-10-23 premium",
+      "ok": true,
+      "detail": "$933.00"
+    },
+    {
+      "name": "week 2026-10-23 fees",
+      "ok": true,
+      "detail": "$10.01"
+    },
+    {
+      "name": "week 2026-10-23 net",
+      "ok": true,
+      "detail": "$922.99"
+    },
+    {
+      "name": "week 2026-10-23 capital",
+      "ok": true,
+      "detail": "$149,406.00"
+    },
+    {
+      "name": "week 2026-10-23 income",
+      "ok": true,
+      "detail": "$1,090.09"
+    },
+    {
+      "name": "week 2026-10-23 income return",
+      "ok": true,
+      "detail": "+0.73%"
+    },
+    {
+      "name": "week 2026-10-23 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-10-23 overall",
+      "ok": true,
+      "detail": "$1,090.09"
+    },
+    {
+      "name": "week 2026-10-23 cum income",
+      "ok": true,
+      "detail": "$15,934.43"
+    },
+    {
+      "name": "week 2026-10-23 cum assignment",
+      "ok": true,
+      "detail": "−$1,355.00"
+    },
+    {
+      "name": "week 2026-10-23 cum overall",
+      "ok": true,
+      "detail": "$14,579.43"
+    },
+    {
+      "name": "week 2026-10-23 trades",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "week 2026-10-30 premium",
+      "ok": true,
+      "detail": "$60.00"
+    },
+    {
+      "name": "week 2026-10-30 fees",
+      "ok": true,
+      "detail": "$0.07"
+    },
+    {
+      "name": "week 2026-10-30 net",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-10-30 capital",
+      "ok": true,
+      "detail": "$1,130.00"
+    },
+    {
+      "name": "week 2026-10-30 income",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-10-30 income return",
+      "ok": true,
+      "detail": "+5.30%"
+    },
+    {
+      "name": "week 2026-10-30 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-10-30 overall",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-10-30 cum income",
+      "ok": true,
+      "detail": "$15,994.36"
+    },
+    {
+      "name": "week 2026-10-30 cum assignment",
+      "ok": true,
+      "detail": "−$1,355.00"
+    },
+    {
+      "name": "week 2026-10-30 cum overall",
+      "ok": true,
+      "detail": "$14,639.36"
+    },
+    {
+      "name": "week 2026-10-30 trades",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "week 2026-11-06 premium",
+      "ok": true,
+      "detail": "$60.00"
+    },
+    {
+      "name": "week 2026-11-06 fees",
+      "ok": true,
+      "detail": "$0.07"
+    },
+    {
+      "name": "week 2026-11-06 net",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-06 capital",
+      "ok": true,
+      "detail": "$1,130.00"
+    },
+    {
+      "name": "week 2026-11-06 income",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-06 income return",
+      "ok": true,
+      "detail": "+5.30%"
+    },
+    {
+      "name": "week 2026-11-06 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-11-06 overall",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-06 cum income",
+      "ok": true,
+      "detail": "$16,054.28"
+    },
+    {
+      "name": "week 2026-11-06 cum assignment",
+      "ok": true,
+      "detail": "−$1,355.00"
+    },
+    {
+      "name": "week 2026-11-06 cum overall",
+      "ok": true,
+      "detail": "$14,699.28"
+    },
+    {
+      "name": "week 2026-11-06 trades",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "week 2026-11-13 premium",
+      "ok": true,
+      "detail": "$60.00"
+    },
+    {
+      "name": "week 2026-11-13 fees",
+      "ok": true,
+      "detail": "$0.07"
+    },
+    {
+      "name": "week 2026-11-13 net",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-13 capital",
+      "ok": true,
+      "detail": "$1,130.00"
+    },
+    {
+      "name": "week 2026-11-13 income",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-13 income return",
+      "ok": true,
+      "detail": "+5.30%"
+    },
+    {
+      "name": "week 2026-11-13 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-11-13 overall",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-13 cum income",
+      "ok": true,
+      "detail": "$16,114.21"
+    },
+    {
+      "name": "week 2026-11-13 cum assignment",
+      "ok": true,
+      "detail": "−$1,355.00"
+    },
+    {
+      "name": "week 2026-11-13 cum overall",
+      "ok": true,
+      "detail": "$14,759.21"
+    },
+    {
+      "name": "week 2026-11-13 trades",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "week 2026-11-20 premium",
+      "ok": true,
+      "detail": "$60.00"
+    },
+    {
+      "name": "week 2026-11-20 fees",
+      "ok": true,
+      "detail": "$0.07"
+    },
+    {
+      "name": "week 2026-11-20 net",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-20 capital",
+      "ok": true,
+      "detail": "$1,130.00"
+    },
+    {
+      "name": "week 2026-11-20 income",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-20 income return",
+      "ok": true,
+      "detail": "+5.30%"
+    },
+    {
+      "name": "week 2026-11-20 assignment",
+      "ok": true,
+      "detail": "$0.00"
+    },
+    {
+      "name": "week 2026-11-20 overall",
+      "ok": true,
+      "detail": "$59.93"
+    },
+    {
+      "name": "week 2026-11-20 cum income",
+      "ok": true,
+      "detail": "$16,174.14"
+    },
+    {
+      "name": "week 2026-11-20 cum assignment",
+      "ok": true,
+      "detail": "−$1,355.00"
+    },
+    {
+      "name": "week 2026-11-20 cum overall",
+      "ok": true,
+      "detail": "$14,819.14"
+    },
+    {
+      "name": "week 2026-11-20 trades",
+      "ok": true,
+      "detail": "1"
     },
     {
       "name": "back to stocktimus",
@@ -491,7 +928,7 @@
     {
       "name": "stocktimus book restored",
       "ok": true,
-      "detail": "74 tickets in view"
+      "detail": "127 tickets in view"
     }
   ]
 }

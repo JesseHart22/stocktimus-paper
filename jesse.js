@@ -35,7 +35,9 @@
   function pct(v) {
     if (v == null || Number.isNaN(v)) return "—";
     const n = Number(v);
-    const p = Math.abs(n) <= 2 ? n * 100 : n;
+    if (!Number.isFinite(n)) return "—";
+    // Tracker rates are fractions. 2.86 is a 286% ROC, not 2.86%.
+    const p = n * 100;
     const sign = p > 0 ? "+" : p < 0 ? "−" : "";
     return sign + Math.abs(p).toFixed(2) + "%";
   }
@@ -228,6 +230,53 @@
     return num(w.week_return_pct_vs_program);
   }
 
+  const INCOME_ONLY = "income only (excl. assignment)";
+
+  function weekIncome(w) {
+    if (!w) return null;
+    const direct = num(w.income_total);
+    if (direct != null) return direct;
+    const net = num(w.net_income);
+    const day = num(w.daytrade_pnl);
+    const div = num(w.dividends);
+    if (net != null || day != null || div != null) return (net || 0) + (day || 0) + (div || 0);
+    const total = num(w.total_week_pnl);
+    const assign = num(w.assignment_pnl);
+    if (total != null && assign != null) return total - assign;
+    return null;
+  }
+
+  function weekOverall(w) {
+    if (!w) return null;
+    const direct = num(w.overall_total);
+    return direct != null ? direct : num(w.total_week_pnl);
+  }
+
+  function weekIncomeReturnVsCapital(w) {
+    if (!w) return null;
+    const direct = num(w.income_return_pct_vs_capital);
+    return direct != null ? direct : weekReturnVsCapital(w);
+  }
+
+  function weekIncomeReturnVsProgram(w) {
+    if (!w) return null;
+    const direct = num(w.income_return_pct_vs_program);
+    return direct != null ? direct : weekReturnVsProgram(w);
+  }
+
+  function pickFresh(obj, key, legacyKey) {
+    if (!obj) return { value: null, fresh: false };
+    const direct = num(obj[key]);
+    if (direct != null) return { value: direct, fresh: true };
+    if (!legacyKey) return { value: null, fresh: false };
+    return { value: num(obj[legacyKey]), fresh: false };
+  }
+
+  function rateSub(picked, legacyLabel) {
+    if (!picked || picked.value == null) return "Not in file";
+    return picked.fresh ? INCOME_ONLY : legacyLabel;
+  }
+
   function allocsFor(data, friday) {
     return allocations(data)
       .filter((a) => ymd(a.week_ending) === friday)
@@ -321,27 +370,48 @@
       return num(t["premium_(net)"]);
     });
     const fileWeeks = weeks(data);
-    const toDate = sumNum(fileWeeks, (w) => num(w.total_week_pnl));
-    const net = sumNum(fileWeeks, (w) => num(w.net_income));
-    const assign = sumNum(fileWeeks, (w) => num(w.assignment_pnl));
-    const toSub = fileWeeks.length
-      ? fileWeeks.length + " weeks in file · net " + money(net) + " · assignment " + money(assign)
-      : "No weeks in the file";
     const coveredSub = (coveredSh == null ? "—" : shares(coveredSh) + " shares") +
       " · cost basis on open CC shares";
     const board = dashboard(data);
-    const rocCovered = board ? num(board.roc_vs_covered) : null;
-    const rocProgram = board ? num(board.roc_vs_program) : null;
+    const rocCovered = pickFresh(board, "income_roc_vs_covered", "roc_vs_covered");
+    const rocProgram = pickFresh(board, "income_roc_vs_program", "roc_vs_program");
+    const rocActive = pickFresh(board, "income_roc_vs_active", "roc_vs_active");
+    const avgIncome = pickFresh(board, "avg_weekly_income_only", "avg_weekly_income");
+    const avgIncomeRet = pickFresh(board, "avg_weekly_income_return_pct", "avg_weekly_roc");
+    const avgRocCovered = pickFresh(board, "avg_weekly_income_roc_vs_covered", "avg_weekly_roc_vs_covered");
+    const avgRocProgram = pickFresh(board, "avg_weekly_income_roc_vs_program", "avg_weekly_roc_vs_program");
+    const incomePick = pickFresh(board, "income_total", "net_premium_daytrades_dividends");
+    const incomeTotal = incomePick.value != null ? incomePick.value : sumNum(fileWeeks, weekIncome);
+    const assignPick = board ? num(board.total_assignment_pnl) : null;
+    const assignTotal = assignPick != null ? assignPick : sumNum(fileWeeks, (w) => num(w.assignment_pnl));
+    const overallPick = pickFresh(board, "overall_total", "combined_income");
+    const overallTotal = overallPick.value != null
+      ? overallPick.value
+      : sumNum(fileWeeks, weekOverall);
+    const done = board ? num(board.completed_weeks) : null;
+    const doneTxt = done != null ? String(done) + " completed weeks" : "";
+    function avgSub(picked) {
+      const base = rateSub(picked, "Legacy combined");
+      return doneTxt && picked && picked.value != null ? base + " · " + doneTxt : base;
+    }
+    const weekCount = fileWeeks.length ? fileWeeks.length + " weeks in file" : "No weeks in the file";
     return '<section class="js-roc" aria-label="Return">' +
-      stat("js-roc-covered", "Return on capital", pct(rocCovered), "ROC vs Covered", pnlClass(rocCovered)) +
-      stat("js-roc-program", "Return on program", pct(rocProgram), "ROC vs Program", pnlClass(rocProgram)) +
+      stat("js-roc-covered", "Return on capital", pct(rocCovered.value), rateSub(rocCovered, "ROC vs Covered"), pnlClass(rocCovered.value)) +
+      stat("js-roc-program", "Return on program", pct(rocProgram.value), rateSub(rocProgram, "ROC vs Program"), pnlClass(rocProgram.value)) +
       "</section>" +
       '<section class="js-strip" aria-label="Program">' +
+      stat("js-income", "Income total", money(incomeTotal), incomePick.fresh || incomeTotal != null ? INCOME_ONLY : "Not in file", pnlClass(incomeTotal)) +
+      stat("js-assignment", "Assignment P&L total", money(assignTotal), "Booked in the called-away week", pnlClass(assignTotal)) +
+      stat("js-overall", "Overall total", money(overallTotal), "Income + assignment · " + weekCount, pnlClass(overallTotal)) +
+      stat("js-avg-income", "Avg weekly income", money(avgIncome.value), avgSub(avgIncome), pnlClass(avgIncome.value)) +
+      stat("js-avg-income-ret", "Avg weekly income return", pct(avgIncomeRet.value), avgSub(avgIncomeRet), pnlClass(avgIncomeRet.value)) +
+      stat("js-avg-roc-covered", "Avg ROC vs covered", pct(avgRocCovered.value), avgSub(avgRocCovered), pnlClass(avgRocCovered.value)) +
+      stat("js-avg-roc-program", "Avg ROC vs program", pct(avgRocProgram.value), avgSub(avgRocProgram), pnlClass(avgRocProgram.value)) +
+      stat("js-roc-active", "Return on active", pct(rocActive.value), rateSub(rocActive, "ROC vs active"), pnlClass(rocActive.value)) +
       stat("js-program", "Program capital", money(program), "Sum of position program capital") +
       stat("js-covered", "Covered", money(covered), coveredSub) +
       stat("js-uncovered", "Uncovered", money(uncovered), "Program capital minus covered cost") +
       stat("js-open-prem", "Open premium net", money(openPrem), "Open covered calls · premium net", pnlClass(openPrem)) +
-      stat("js-todate", "To date", money(toDate), toSub, pnlClass(toDate)) +
       "</section>";
   }
 
@@ -356,28 +426,44 @@
 
   function renderSummary(data) {
     const rows = summaryWeeks(data);
+    let runIncome = 0;
+    let runAssign = 0;
+    let runOverall = 0;
+    let seenIncome = false;
+    let seenAssign = false;
+    let seenOverall = false;
     const body = rows.length
       ? rows.map((w) => {
         const friday = ymd(w.week_ending);
-        const retCap = weekReturnVsCapital(w);
-        const retProg = weekReturnVsProgram(w);
+        const income = weekIncome(w);
+        const assign = num(w.assignment_pnl);
+        const overall = weekOverall(w);
+        if (income != null) { runIncome += income; seenIncome = true; }
+        if (assign != null) { runAssign += assign; seenAssign = true; }
+        if (overall != null) { runOverall += overall; seenOverall = true; }
+        const cumIncome = num(w.cumulative_income) != null ? num(w.cumulative_income) : (seenIncome ? runIncome : null);
+        const cumAssign = num(w.cumulative_assignment_pnl) != null ? num(w.cumulative_assignment_pnl) : (seenAssign ? runAssign : null);
+        const cumOverall = num(w.cumulative_overall) != null ? num(w.cumulative_overall) : (seenOverall ? runOverall : null);
         return "<tr data-week=\"" + escapeHtml(friday) + "\">" +
           td(escapeHtml(fmtDay(friday))) +
           td(escapeHtml(money(num(w.premium_allocated))), true) +
           td(escapeHtml(money(num(w.fees_allocated))), true) +
           td(escapeHtml(money(num(w.net_income))), true) +
           td(escapeHtml(money(num(w.capital_deployed))), true) +
-          td(escapeHtml(money(num(w.assignment_pnl))), true) +
-          td(escapeHtml(money(num(w.total_week_pnl))), true) +
-          td(escapeHtml(pct(retCap)), true) +
-          td(escapeHtml(pct(retProg)), true) +
+          td(escapeHtml(money(income)), true) +
+          td(escapeHtml(pct(weekIncomeReturnVsCapital(w))), true) +
+          td(escapeHtml(money(assign)), true) +
+          td(escapeHtml(money(overall)), true) +
+          td(escapeHtml(money(cumIncome)), true) +
+          td(escapeHtml(money(cumAssign)), true) +
+          td(escapeHtml(money(cumOverall)), true) +
           td(escapeHtml(w.trade_count == null ? "—" : String(w.trade_count)), true) +
           "</tr>";
       }).join("")
-      : '<tr class="js-empty-row"><td colspan="10">No weeks in the file.</td></tr>';
+      : '<tr class="js-empty-row"><td colspan="13">No weeks in the file.</td></tr>';
     return '<section class="js-panel" id="js-weekly-panel" aria-label="Weekly summary">' +
       "<h2>Weekly summary</h2>" +
-      '<p class="js-note">Every Friday on the Excel Weekly Summary. Week return % (vs capital) is combined ÷ capital deployed. Week return % (vs program) is combined ÷ Dashboard program capital.</p>' +
+      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Income return % is that income ÷ capital deployed. Assignment P&L is booked in the called-away week. Overall is income plus assignment.</p>' +
       '<div class="js-wrap"><table class="js-table"><thead>' +
         ths([
           { t: "Week ending" },
@@ -385,10 +471,13 @@
           { t: "Fees", num: true },
           { t: "Net income", num: true },
           { t: "Capital deployed", num: true },
+          { t: "Income", num: true },
+          { t: "Income return %", num: true },
           { t: "Assignment P&L", num: true },
-          { t: "Total week P&L", num: true },
-          { t: "Week return % (vs capital)", num: true },
-          { t: "Week return % (vs program)", num: true },
+          { t: "Overall", num: true },
+          { t: "Cum. income", num: true },
+          { t: "Cum. assignment", num: true },
+          { t: "Cum. overall", num: true },
           { t: "Trades", num: true },
         ]) +
       '</thead><tbody id="js-weekly">' + body + "</tbody></table></div>" +
@@ -424,9 +513,12 @@
     const net = row ? num(row.net_income) : (prem != null && fees != null ? prem - fees : null);
     const capital = row ? num(row.capital_deployed) : null;
     const assign = row ? num(row.assignment_pnl) : null;
-    const total = row ? num(row.total_week_pnl) : net;
-    const retCap = weekReturnVsCapital(row);
-    const retProg = weekReturnVsProgram(row);
+    const income = row ? weekIncome(row) : net;
+    const overall = row ? weekOverall(row) : income;
+    const incomeRet = weekIncomeReturnVsCapital(row);
+    const incomeRetProg = weekIncomeReturnVsProgram(row);
+    const incomeFresh = row && num(row.income_total) != null;
+    const incomeRetFresh = row && num(row.income_return_pct_vs_capital) != null;
     const buttons = list.map((key) => {
       const on = key === friday ? " on" : "";
       return '<button type="button" class="js-week' + on + '" data-week="' + escapeHtml(key) + '">' +
@@ -471,12 +563,12 @@
       '<div class="js-kpis" id="js-week-kpis">' +
         stat("js-kpi-premium", "Premium allocated", money(prem), row ? "From weeks" : "Sum of allocations") +
         stat("js-kpi-fees", "Fees allocated", money(fees), row ? "From weeks" : "Sum of allocations") +
-        stat("js-kpi-net", "Net income", money(net), row ? "From weeks" : "Premium minus fees", pnlClass(net)) +
         stat("js-kpi-capital", "Capital deployed", money(capital), row ? "From weeks" : "Not in allocations") +
+        stat("js-kpi-income", "Income", money(income), row ? (incomeFresh ? INCOME_ONLY : "From weeks") : "Premium minus fees", pnlClass(income)) +
+        stat("js-kpi-income-ret", "Income return %", pct(incomeRet), row ? (incomeRetFresh ? INCOME_ONLY : "From weeks") : "Not in weeks", pnlClass(incomeRet)) +
         stat("js-kpi-assign", "Assignment P&L", money(assign), row ? "From weeks" : "Not in allocations", pnlClass(assign)) +
-        stat("js-kpi-total", "Week P&L", money(total), row ? "From weeks" : "Net income", pnlClass(total)) +
-        stat("js-kpi-ret-capital", "Week return % (vs capital)", pct(retCap), row ? "From weeks" : "Not in weeks", pnlClass(retCap)) +
-        stat("js-kpi-ret-program", "Week return % (vs program)", pct(retProg), row ? "From weeks" : "Not in weeks", pnlClass(retProg)) +
+        stat("js-kpi-overall", "Overall", money(overall), row ? "Income + assignment" : "Income", pnlClass(overall)) +
+        stat("js-kpi-ret-program", "Income return % (vs program)", pct(incomeRetProg), row ? (num(row.income_return_pct_vs_program) != null ? INCOME_ONLY : "From weeks") : "Not in weeks", pnlClass(incomeRetProg)) +
       "</div>" +
       "<h3>Allocations</h3>" +
       '<div class="js-wrap"><table class="js-table"><thead>' +
