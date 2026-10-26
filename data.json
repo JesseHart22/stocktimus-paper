@@ -1,13 +1,13 @@
 {
- "as_of": "2026-10-26T12:18:00-07:00",
- "account": 233159.22,
- "weekly_target": 3497.39,
+ "as_of": "2026-10-26T13:26:30-07:00",
+ "account": 233044.22,
+ "weekly_target": 3495.66,
  "starting_account": 250000.0,
  "source": "stocktimus-paper",
  "marks_source": "robinhood",
  "quote_quality": "robinhood_live",
- "note": "Mon Oct26 AM tickets (v0.6-beta): +1 paper ticket 2026-10-26-AM-UNH-CSP (sold 1x UNH Nov20 $360p at RH bid 0.50 @ 07:32 PT, Medium, out daily close < $355). AMD Oct30 $470p skipped (cash floor / daily deploy cap). Open lots re-marked from RH ~07:32 PT (equity mid / option mark). Earlier AM: Oct23 expiries settled, GOOGL assigned, GOOGL/AMZN hold day 2 (cut < 315.25 / 247.56), SLV out < $47.00, GOOGL/LMND rolls. Free cash 18.8% of book; cluster 4.2%. Lane=paper. No live. Not advice.",
- "max_per_trade": 58289.81,
+ "note": "Mon Oct26 cash-close MTM (base=Oct26 midday re-mark, main de0ee4c4) (RH regular-session last trade + RH option closing NBBO mid; adjusted mark where bid=0). marks_source=robinhood, quote_quality=robinhood_live. Lane=paper. No live. Not advice.",
+ "max_per_trade": 58261.06,
  "summary": {
   "account_pct": -0.07,
   "by_confidence": {
@@ -20,13 +20,13 @@
    "Medium": {
     "hit": 0.6293103448275862,
     "n": 116,
-    "sum_pnl": -15239.78,
+    "sum_pnl": -15369.78,
     "wins": 73
    },
    "Low": {
     "hit": 0.8,
     "n": 5,
-    "sum_pnl": -47.5,
+    "sum_pnl": -32.5,
     "wins": 4
    }
   },
@@ -34,7 +34,7 @@
    "Danny": {
     "hit": 0.5714285714285714,
     "n": 28,
-    "sum_pnl": -5733.5,
+    "sum_pnl": -5997.0,
     "wins": 16
    },
    "Danny+TLI": {
@@ -64,7 +64,7 @@
    "TLI": {
     "hit": 0.6363636363636364,
     "n": 55,
-    "sum_pnl": -10123.28,
+    "sum_pnl": -9974.78,
     "wins": 35
    },
    "TLI+Danny": {
@@ -82,9 +82,9 @@
   },
   "by_structure": {
    "CSP": {
-    "hit": 0.75,
-    "n": 12,
-    "sum_pnl": -1831.5,
+    "hit": 0.8181818181818182,
+    "n": 11,
+    "sum_pnl": 494.5,
     "wins": 9
    },
    "long call": {
@@ -94,9 +94,9 @@
     "wins": 1
    },
    "stock+CC": {
-    "hit": 0.6422018348623854,
-    "n": 109,
-    "sum_pnl": -14848.78,
+    "hit": 0.6363636363636364,
+    "n": 110,
+    "sum_pnl": -17289.78,
     "wins": 70
    }
   },
@@ -106,12 +106,12 @@
   "leftover_shares": 4,
   "open": 11,
   "out": 24,
-  "paper_pnl": -16840.78,
+  "paper_pnl": -16955.78,
   "paper_roc": null,
   "resolved": 116,
   "wins": 76,
   "deployed_capital": 189357.0,
-  "free_cash": 43802.22
+  "free_cash": 43687.22
  },
  "trades": [
   {
@@ -158,7 +158,7 @@
    "option_path_pnl": 83.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-21 C30",
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-08-18 Yahoo close=27.389999389648438 vs {'kind': 'daily', 'price': 27.5, 'raw': 'daily close under $27.50'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -296,7 +296,7 @@
     }
    ],
    "cboe_stock": 29.3608,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed Stocktimus CC at the printed $27.50 zone, 100sh under the cap."
   },
@@ -475,7 +475,7 @@
     }
    ],
    "cboe_stock": 26.53,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed Stocktimus CC under the cap at a printed idea."
   },
@@ -662,7 +662,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "First IREN CC is Stocktimus-only with no printed support, so not High; 100sh under the cap."
   },
@@ -710,7 +710,7 @@
    "option_path_pnl": 96.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: ASTS 2026-08-21 P70",
-    "ASTS cash $7,000 stated \u2014 over the $6,250 cap; still scored as emailed",
+    "ASTS cash $7,000 stated — over the $6,250 cap; still scored as emailed",
     "settled at expiry-close intrinsic (no time value); close=68.6500015258789 strike=70"
    ],
    "price_asof": "2026-09-24 13:24:20 PT",
@@ -844,7 +844,7 @@
     }
    ],
    "cboe_stock": 61.85,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Low",
    "confidence_reason": "Conflicted name and $7,000 cash over the $6,250 cap."
   },
@@ -1023,7 +1023,7 @@
     }
    ],
    "cboe_stock": 2.58,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CC at the printed 200 WMA / $2.68 zone, sized under the cap."
   },
@@ -1071,7 +1071,7 @@
    "option_path_pnl": 85.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: GRAB 2026-08-21 C3.5",
-    "invalidation not numeric \u2014 cannot auto-check: lose the reclaim / bottom trendline",
+    "invalidation not numeric — cannot auto-check: lose the reclaim / bottom trendline",
     "settled at expiry-close intrinsic (no time value); close=3.4800000190734863 strike=3.5",
     "close<=strike: call expires worthless, credit kept",
     "historical OTM settled at expiry close=3.4800000190734863 (next open 2026-08-24 already passed); credit kept"
@@ -1203,7 +1203,7 @@
     }
    ],
    "cboe_stock": 3.16,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CC at the reclaim / bottom-trendline zone, sized under the cap."
   },
@@ -1380,9 +1380,9 @@
     }
    ],
    "cboe_stock": 29.76,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI+Danny overlap but not at the TLI $26 add zone \u2014 put sold above, do not buy shares."
+   "confidence_reason": "TLI+Danny overlap but not at the TLI $26 add zone — put sold above, do not buy shares."
   },
   {
    "id": "2026-08-14-noon-IREN",
@@ -1563,7 +1563,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI and Danny overlap but extended vs the $41 support, so not High."
   },
@@ -1741,7 +1741,7 @@
     }
    ],
    "cboe_stock": 101.022,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Low",
    "confidence_reason": "Long call with only 4 days to expiry."
   },
@@ -1918,9 +1918,9 @@
     }
    ],
    "cboe_stock": 71.1,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "Cap-correct long-call structure at the Danny 75\u201378 zone (CSP does not fit $6,250)."
+   "confidence_reason": "Cap-correct long-call structure at the Danny 75–78 zone (CSP does not fit $6,250)."
   },
   {
    "id": "2026-08-17-AM-OSCR",
@@ -2093,7 +2093,7 @@
     }
    ],
    "cboe_stock": 29.66,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "High",
    "confidence_reason": "TLI and Danny overlap at a stated zone, 100sh under the $6,250 cap."
   },
@@ -2271,7 +2271,7 @@
     }
    ],
    "cboe_stock": 38.695,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed Stocktimus CC at the printed $41.53 zone, 100sh under the cap."
   },
@@ -2319,7 +2319,7 @@
    "option_path_pnl": 40.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: GRRR 2026-08-21 P14",
-    "GRRR noon email did not print a last \u2014 spot_at_idea left blank (not invented)",
+    "GRRR noon email did not print a last — spot_at_idea left blank (not invented)",
     "settled at expiry-close intrinsic (no time value); close=16.059999465942383 strike=14"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -2445,7 +2445,7 @@
     }
    ],
    "cboe_stock": 14.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CSP at the printed $13.50 buy zone, under the cap."
   },
@@ -2616,7 +2616,7 @@
     }
    ],
    "cboe_stock": 10.99,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed Lucas CC at the printed $14 zone, 100sh under the cap."
   },
@@ -2643,7 +2643,7 @@
    "credit_or_debit_side": "credit",
    "capital_at_risk": 5500.0,
    "invalidation": "closes under $52.65",
-   "notes": "if assigned basis ~$54.11, inside Danny $50\u201356. Cash $5,500. One lot only.",
+   "notes": "if assigned basis ~$54.11, inside Danny $50–56. Cash $5,500. One lot only.",
    "new_vs_carry": "new",
    "live_stock": 61.91,
    "live_stock_source": "yahoo-1m meta.regularMarketPrice",
@@ -2785,9 +2785,9 @@
     }
    ],
    "cboe_stock": 61.91,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "Single-feed CSP at the stated Danny $50\u201356 zone, one lot under the cap."
+   "confidence_reason": "Single-feed CSP at the stated Danny $50–56 zone, one lot under the cap."
   },
   {
    "id": "2026-08-18-AM-NKE",
@@ -2959,7 +2959,7 @@
     }
    ],
    "cboe_stock": 35.78,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed Stocktimus CC at the printed $38 zone, 100sh under the cap."
   },
@@ -3129,7 +3129,7 @@
     }
    ],
    "cboe_stock": 29.76,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed Stocktimus CC at the printed $26.50 zone, 100sh under the cap."
   },
@@ -3304,7 +3304,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
   },
@@ -3470,7 +3470,7 @@
     }
    ],
    "cboe_stock": 12.65,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CC at the printed $15 hold, 100sh under the cap."
   },
@@ -3644,9 +3644,9 @@
     }
    ],
    "cboe_stock": 9.33,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Low",
-   "confidence_reason": "No real buy/support zone \u2014 only a loose $10 kill far under spot."
+   "confidence_reason": "No real buy/support zone — only a loose $10 kill far under spot."
   },
   {
    "id": "2026-08-19-AM-IREN-4250c",
@@ -3816,7 +3816,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "IREN overlay at the $41.70 support, single feed, under the cap."
   },
@@ -3865,7 +3865,7 @@
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: NVO 2026-08-28 P45.5",
     "settled at expiry-close intrinsic (no time value); close=45.61000061035156 strike=45.5",
-    "email: skip if already long NVO from Mon midday stock+CC \u2014 scored independently as its own idea"
+    "email: skip if already long NVO from Mon midday stock+CC — scored independently as its own idea"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
@@ -3986,7 +3986,7 @@
     }
    ],
    "cboe_stock": 38.695,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CSP at the printed buy zone below $45.46, under the cap."
   },
@@ -4037,7 +4037,7 @@
     "settled at expiry-close intrinsic (no time value); close=27.959999084472656 strike=28.5",
     "close<=strike: call expires worthless, credit kept",
     "historical OTM settled at expiry close=27.959999084472656 (next open 2026-08-31 already passed); credit kept",
-    "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled"
+    "PFE 8/19 $28.50c and 8/20 $28c are alternatives — do not assume both filled"
    ],
    "price_asof": "2026-09-24 13:25:24 PT",
    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
@@ -4150,7 +4150,7 @@
     }
    ],
    "cboe_stock": 28.6415,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CC at the safe-haven zone, 100sh under the cap."
   },
@@ -4201,7 +4201,7 @@
     "settled at expiry-close intrinsic (no time value); close=27.959999084472656 strike=28.0",
     "close<=strike: call expires worthless, credit kept",
     "historical OTM settled at expiry close=27.959999084472656 (next open 2026-08-31 already passed); credit kept",
-    "PFE 8/19 $28.50c and 8/20 $28c are alternatives \u2014 do not assume both filled"
+    "PFE 8/19 $28.50c and 8/20 $28c are alternatives — do not assume both filled"
    ],
    "price_asof": "2026-09-24 13:25:24 PT",
    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
@@ -4310,7 +4310,7 @@
     }
    ],
    "cboe_stock": 28.6415,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Single-feed TLI CC alternative at the same $27 zone, 100sh under the cap."
   },
@@ -4361,7 +4361,7 @@
     "settled at expiry-close intrinsic (no time value); close=41.880001068115234 strike=42",
     "close<=strike: call expires worthless, credit kept",
     "historical OTM settled at expiry close=41.880001068115234 (next open 2026-08-24 already passed); credit kept",
-    "IREN 8/20 noon $42c is a different strike from $42.50c \u2014 scored independently; not a reprint"
+    "IREN 8/20 noon $42c is a different strike from $42.50c — scored independently; not a reprint"
    ],
    "price_asof": "2026-09-25 13:30:31 PT",
    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
@@ -4478,7 +4478,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "IREN overlay at the $41.70 support, single feed, 100sh under the cap."
   },
@@ -4637,7 +4637,7 @@
     }
    ],
    "cboe_stock": 29.66,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny ribbon + TLI still likes OSCR; stock under $32-33 resistance, not in $28-30 zone."
   },
@@ -4792,7 +4792,7 @@
     }
    ],
    "cboe_stock": 26.53,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI buy zone at the 0.618. Single feed."
   },
@@ -4950,7 +4950,7 @@
     }
    ],
    "cboe_stock": 52.54,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Zero Sum hold. Next monthly, no weekly. Under cap."
   },
@@ -5113,7 +5113,7 @@
     }
    ],
    "cboe_stock": 38.695,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI Top 10 in the $46-47 dip. Next add $48."
   },
@@ -5161,9 +5161,9 @@
    "option_path_pnl": 220.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: IREN 2026-08-28 C43",
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-08-24 Yahoo close=39.810001373291016 vs {'kind': 'daily', 'price': 40.77, 'raw': 'daily close under $40.77'}",
-    "IREN 8/21 noon $43c Aug 28 is a NEW overlay \u2014 scored independently; 8/20 42.50c reprints stay unscored; 8/20 noon 42c is independent"
+    "IREN 8/21 noon $43c Aug 28 is a NEW overlay — scored independently; 8/20 42.50c reprints stay unscored; 8/20 noon 42c is independent"
    ],
    "price_asof": "2026-09-25 13:30:31 PT",
    "mtm_asof": "2026-09-25T13:33:12.772954-07:00",
@@ -5276,7 +5276,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI at the $40.77 0.5 Fib retest. Single feed. Under the cap."
   },
@@ -5432,7 +5432,7 @@
     }
    ],
    "cboe_stock": 28.6415,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI safe haven at $28 / $28.80 Wave 3 line. Single feed."
   },
@@ -5587,7 +5587,7 @@
     }
    ],
    "cboe_stock": 27.98,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny weekly red candle + TLI Wave 3. Under the cap. Not a fresh dual add zone."
   },
@@ -5742,7 +5742,7 @@
     }
    ],
    "cboe_stock": 2.58,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI 200 WMA / buy under $5. Single feed."
   },
@@ -5897,9 +5897,9 @@
     }
    ],
    "cboe_stock": 16.55,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "Danny red ribbon at the top of $15.9\u201318.8 support. Single feed."
+   "confidence_reason": "Danny red ribbon at the top of $15.9–18.8 support. Single feed."
   },
   {
    "id": "2026-08-25-AM-HIMS",
@@ -5945,7 +5945,7 @@
    "option_path_pnl": 65.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: HIMS 2026-08-28 C32",
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-08-26 Yahoo close=29.829999923706055 vs {'kind': 'daily', 'price': 30.0, 'raw': 'daily close under $30'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -6051,9 +6051,9 @@
     }
    ],
    "cboe_stock": 29.3608,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "High",
-   "confidence_reason": "TLI $30\u201331 and Danny $30 support, both at the zone, under the cap."
+   "confidence_reason": "TLI $30–31 and Danny $30 support, both at the zone, under the cap."
   },
   {
    "id": "2026-08-25-AM-ADUR",
@@ -6099,7 +6099,7 @@
    "option_path_pnl": 150.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: ADUR 2026-09-18 C15",
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-08-27 Yahoo close=15.09000015258789 vs {'kind': 'daily', 'price': 15.15, 'raw': 'daily close under $15.15'}"
    ],
    "price_asof": "2026-09-24 13:21:12 PT",
@@ -6197,7 +6197,7 @@
     }
    ],
    "cboe_stock": 12.65,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI 0.38 tests and Chemelot visit. Next monthly, no weekly. Single feed."
   },
@@ -6348,7 +6348,7 @@
     }
    ],
    "cboe_stock": 1.6687,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI wedge-break entry at $2. Single feed. Under the cap."
   },
@@ -6503,7 +6503,7 @@
     }
    ],
    "cboe_stock": 7.6582,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI third buy zone at $8. Single feed."
   },
@@ -6653,7 +6653,7 @@
     }
    ],
    "cboe_stock": 14.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI hold / Wave 3 sitting on the $13.55 add. Single feed. Skip if already four live."
   },
@@ -6800,7 +6800,7 @@
     }
    ],
    "cboe_stock": 8.455,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny daily at the $8.23 resume line. Single feed. Under the cap."
   },
@@ -6947,7 +6947,7 @@
     }
    ],
    "cboe_stock": 11.26,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI triangle under the $12.15 50-DMA. Next monthly. Single feed."
   },
@@ -6995,7 +6995,7 @@
    "option_path_pnl": 105.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: HIMS 2026-09-04 C30.5",
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-08-28 Yahoo close=28.84000015258789 vs {'kind': 'daily', 'price': 29.62, 'raw': 'daily close under $29.62'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -7093,7 +7093,7 @@
     }
    ],
    "cboe_stock": 29.3608,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "High",
    "confidence_reason": "TLI $30 and Danny yellow, both at the zone, under the cap."
   },
@@ -7232,7 +7232,7 @@
     }
    ],
    "cboe_stock": 23.63,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI safe-haven at the $24 0.5 Fib / 50-WMA. Single feed. Under the cap."
   },
@@ -7370,7 +7370,7 @@
     }
    ],
    "cboe_stock": 29.76,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "High",
    "confidence_reason": "TLI hold/flip $30 and Danny red candle at $30 / invalid $28.80, both at the zone, under the cap."
   },
@@ -7512,7 +7512,7 @@
     }
    ],
    "cboe_stock": 38.695,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI BUY ALERT @ $46. Single feed. Under the cap."
   },
@@ -7651,7 +7651,7 @@
     }
    ],
    "cboe_stock": 14.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI support-range hold (200-DMA / 0.5 Fib to amber $16.25). Single feed. Under the cap."
   },
@@ -7786,9 +7786,9 @@
     }
    ],
    "cboe_stock": 16.55,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "Danny Stage 1 base $14\u2013$18, stock inside the base, under the cap. TLI still wants $25 \u2014 not overlap. One lot."
+   "confidence_reason": "Danny Stage 1 base $14–$18, stock inside the base, under the cap. TLI still wants $25 — not overlap. One lot."
   },
   {
    "id": "2026-08-31-AM-OSCR",
@@ -7920,9 +7920,9 @@
     }
    ],
    "cboe_stock": 29.66,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "Danny nearby support $28\u2013$30 and TLI $28\u2013$30 healthy pullback, both at the hold range, under the cap. TLI's actual buy zone is still $21\u2013$25, so this is not High. One lot."
+   "confidence_reason": "Danny nearby support $28–$30 and TLI $28–$30 healthy pullback, both at the hold range, under the cap. TLI's actual buy zone is still $21–$25, so this is not High. One lot."
   },
   {
    "id": "2026-08-31-AM-PFE",
@@ -8052,7 +8052,7 @@
     }
    ],
    "cboe_stock": 28.6415,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI safe-haven retest of the bull-case line $27.45, +6.1% div, under the cap. Single feed. One lot."
   },
@@ -8187,7 +8187,7 @@
     }
    ],
    "cboe_stock": 7.6582,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "High",
    "confidence_reason": "TLI in the buy zone and wants $7 to hold; Danny support $6 / $6.60 / $7.20; under the cap. One lot."
   },
@@ -8317,7 +8317,7 @@
     }
    ],
    "cboe_stock": 10.3502,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny $9.80 support (day low $9.82). Single feed. Under the cap. One lot."
   },
@@ -8365,7 +8365,7 @@
    "option_path_pnl": -243.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: BABA 2026-09-11 C113.0",
-    "long-call invalidation: valued at intrinsic only \u2014 time value unknown FLAG",
+    "long-call invalidation: valued at intrinsic only — time value unknown FLAG",
     "first invalidation close 2026-09-02 Yahoo close=111.80999755859375 vs {'kind': 'daily', 'price': 112.0, 'raw': 'daily close under $112'}"
    ],
    "price_asof": "2026-09-25 13:25:58 PT",
@@ -8447,9 +8447,9 @@
     }
    ],
    "cboe_stock": 109.74,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI rotate-INTO + add zone $112\u2013117; stock in the zone. Over the share cap so long call. One lot."
+   "confidence_reason": "TLI rotate-INTO + add zone $112–117; stock in the zone. Over the share cap so long call. One lot."
   },
   {
    "id": "2026-09-02-AM-UPS",
@@ -8495,7 +8495,7 @@
    "option_path_pnl": -106.0,
    "flags": [
     "missing CBOE contract: contract not in CBOE chain: UPS 2026-09-11 C104.0",
-    "long-call invalidation: valued at intrinsic only \u2014 time value unknown FLAG",
+    "long-call invalidation: valued at intrinsic only — time value unknown FLAG",
     "first invalidation close 2026-09-08 Yahoo close=100.4800033569336 vs {'kind': 'daily', 'price': 102.0, 'raw': 'daily close under $102'}"
    ],
    "price_asof": "2026-09-24 13:21:56 PT",
@@ -8577,7 +8577,7 @@
     }
    ],
    "cboe_stock": 93.96,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI holding 50 WMA $102 ~3 weeks; open/add; 6.2% div. Over the share cap so long call. One lot."
   },
@@ -8706,7 +8706,7 @@
     }
    ],
    "cboe_stock": 201.7395,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny vol hole marked the low; bullish red ribbon; stock in the $162 support area. Over the share cap so long call. One lot."
   },
@@ -8817,7 +8817,7 @@
     }
    ],
    "cboe_stock": 29.76,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny consolidating $30-$32 sitting on $30 support; single feed; under the cap. One lot."
   },
@@ -8924,7 +8924,7 @@
     }
    ],
    "cboe_stock": 23.63,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI Buy Zone / 50 WMA at $24.22; stock tested the zone; single feed; under the cap. One lot."
   },
@@ -9030,7 +9030,7 @@
     }
    ],
    "cboe_stock": 38.695,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI Buy Zone ~$43.48 (0.5 Fib); stock now in/under zone; single feed; under the cap. One lot."
   },
@@ -9138,9 +9138,9 @@
     }
    ],
    "cboe_stock": 29.3608,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "Danny $27 support / $27\u201332 range; stock at support; single feed; under the cap. One lot."
+   "confidence_reason": "Danny $27 support / $27–32 range; stock at support; single feed; under the cap. One lot."
   },
   {
    "id": "2026-09-18-AM-TOST",
@@ -9223,7 +9223,7 @@
     }
    ],
    "cboe_stock": 30.845,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI ~$30 support (200DMA/0.5 Fib); stock at the zone. One lot under cap."
   },
@@ -9274,7 +9274,7 @@
     "close<=strike: call expires worthless, credit kept",
     "RH live MTM Oct19 AM; equity_mid=88.94; option_mid=0.0",
     "OTM CC leftover shares OPEN; MTM mark=88.485; RH Oct19 cash-close last",
-    "EXIT AM Oct20; Mon Oct19 RH close 88.47 under out 97.0 (8.8% under; >3% hold window \u2192 cut); 100 sh sold at RH bid 82.87 @ 2026-10-20T07:24:00-07:00; prior_mtm_pnl=-849.0; realized_pnl=-1410.5; ref 9:30 ET open print 85.58; rules=v0.5-beta"
+    "EXIT AM Oct20; Mon Oct19 RH close 88.47 under out 97.0 (8.8% under; >3% hold window → cut); 100 sh sold at RH bid 82.87 @ 2026-10-20T07:24:00-07:00; prior_mtm_pnl=-849.0; realized_pnl=-1410.5; ref 9:30 ET open print 85.58; rules=v0.5-beta"
    ],
    "price_asof": "2026-10-20T07:27:45-07:00",
    "mtm_asof": "2026-10-20T07:27:45-07:00",
@@ -9311,7 +9311,7 @@
     }
    ],
    "cboe_stock": 99.955,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI BUY ALERT $106; stock ~$100 under alert. One lot under $12.5k cap.",
    "fill_source": "RH equity bid",
@@ -9400,7 +9400,7 @@
     }
    ],
    "cboe_stock": 109.74,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI tradeable: still in buy zone after $107 Fib test; next $117. One lot under cap."
   },
@@ -9485,7 +9485,7 @@
     }
    ],
    "cboe_stock": 118.66,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Danny reclaim $112.20; stock just above. Support $108/$100. One lot under cap."
   },
@@ -9532,7 +9532,7 @@
    "stock_path_pnl": -29.5,
    "option_path_pnl": 127.0,
    "flags": [
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-09-18 Yahoo close=71.79000091552734 vs {'kind': 'daily', 'price': 72.0, 'raw': 'daily close under $72'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -9570,9 +9570,9 @@
     }
    ],
    "cboe_stock": 71.1,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI buy if $72\u2013$74 holds; AM was under (~$71.4), noon prints in zone."
+   "confidence_reason": "TLI buy if $72–$74 holds; AM was under (~$71.4), noon prints in zone."
   },
   {
    "id": "2026-09-18-noon-EOSE",
@@ -9617,7 +9617,7 @@
    "stock_path_pnl": -36.0,
    "option_path_pnl": 16.0,
    "flags": [
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-09-23 Yahoo close=3.5799999237060547 vs {'kind': 'daily', 'price': 3.8, 'raw': 'daily close under $3.80'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -9655,7 +9655,7 @@
     }
    ],
    "cboe_stock": 3.1996,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "Rabbit's Cave: $3.80 weekly / $3.91 cloud-Fib / ~$3.88 purple support; stock at the shelf."
   },
@@ -9733,7 +9733,7 @@
     }
    ],
    "cboe_stock": 18.7102,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI hold above $16.35 toward $20.87. No weeklies; next monthly. One lot under cap.",
    "option_instrument_id": "56d1a218-e74f-494b-8372-ddab3d9d33b7"
@@ -9781,7 +9781,7 @@
    "stock_path_pnl": -112.0,
    "option_path_pnl": 172.0,
    "flags": [
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-09-24 Yahoo close=46.150001525878906 vs {'kind': 'daily', 'price': 47.0, 'raw': 'daily close under $47'}"
    ],
    "price_asof": "2026-09-25 13:30:31 PT",
@@ -9815,7 +9815,7 @@
     }
    ],
    "cboe_stock": 44.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI break/hold $47 toward $67. One lot under cap."
   },
@@ -9897,9 +9897,9 @@
     }
    ],
    "cboe_stock": 71.1,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI buy zone $69\u2013$72; stock at the top. Prior Fri lot invalidated. One lot under cap."
+   "confidence_reason": "TLI buy zone $69–$72; stock at the top. Prior Fri lot invalidated. One lot under cap."
   },
   {
    "id": "2026-09-21-AM-HIMS",
@@ -9979,9 +9979,9 @@
     }
    ],
    "cboe_stock": 29.3608,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI hold/flip $28; roll leftovers instead of selling. Covered-call roll \u2014 share capital stays on parent."
+   "confidence_reason": "TLI hold/flip $28; roll leftovers instead of selling. Covered-call roll — share capital stays on parent."
   },
   {
    "id": "2026-09-22-AM-ADBE",
@@ -10026,7 +10026,7 @@
    "stock_path_pnl": 0.0,
    "option_path_pnl": -422.5,
    "flags": [
-    "long-call invalidation: valued at intrinsic only \u2014 time value unknown FLAG",
+    "long-call invalidation: valued at intrinsic only — time value unknown FLAG",
     "first invalidation close 2026-09-22 Yahoo close=238.25 vs {'kind': 'daily', 'price': 242.0, 'raw': 'daily close under $242'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -10056,9 +10056,9 @@
     }
    ],
    "cboe_stock": 235.29,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI starter $242\u2013$251 when $242 Fib holds; share lot over max/cash so long call. One lot."
+   "confidence_reason": "TLI starter $242–$251 when $242 Fib holds; share lot over max/cash so long call. One lot."
   },
   {
    "id": "2026-09-22-AM-CLSK",
@@ -10103,7 +10103,7 @@
    "stock_path_pnl": -49.28,
    "option_path_pnl": 52.0,
    "flags": [
-    "invalidation: stock path only, call assumed expired/kept \u2014 FLAG (no same-day option print)",
+    "invalidation: stock path only, call assumed expired/kept — FLAG (no same-day option print)",
     "first invalidation close 2026-09-23 Yahoo close=14.460000038146973 vs {'kind': 'daily', 'price': 14.5, 'raw': 'daily close under $14.50'}"
    ],
    "price_asof": "2026-09-25 13:00:00 PT",
@@ -10133,7 +10133,7 @@
     }
    ],
    "cboe_stock": 13.95,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
    "confidence_reason": "TLI reclaim/hold $15 as support (Sep21 noon); stock still at the level. One lot under remaining cash."
   },
@@ -10207,9 +10207,9 @@
     }
    ],
    "cboe_stock": 14.14,
-   "yahoo_quote_v7": "HTTP 401 Unauthorized \u2014 unused; live last from yahoo chart 1m/1d",
+   "yahoo_quote_v7": "HTTP 401 Unauthorized — unused; live last from yahoo chart 1m/1d",
    "confidence": "Medium",
-   "confidence_reason": "TLI breakout above $13.56\u2013$13.70 50/200-day MA confluence; Wave 3 confirm $16.50 / Bull $18.20. One lot fits remaining cash."
+   "confidence_reason": "TLI breakout above $13.56–$13.70 50/200-day MA confluence; Wave 3 confirm $16.50 / Bull $18.20. One lot fits remaining cash."
   },
   {
    "id": "2026-09-28-AM-RKLB",
@@ -10300,11 +10300,11 @@
    "source_group": "emailed",
    "new_vs_carry": "new",
    "paper_status": "leftover_shares",
-   "paper_pnl": 49.5,
-   "paper_roc_pct": 0.015384615384615385,
-   "paper_acct_pct": 0.000298,
-   "live_stock": 47.92,
-   "live_stock_source": "robinhood equity mid=47.92 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": 56.5,
+   "paper_roc_pct": 0.011667527103768715,
+   "paper_acct_pct": 0.000226,
+   "live_stock": 47.99,
+   "live_stock_source": "robinhood last_trade_price=47.99 (cash close) bid=47.62 ask=48.49 asof=2026-10-26T13:26:30-07:00",
    "live_option_mid": 0.0,
    "live_option_bid": null,
    "live_option_ask": null,
@@ -10312,21 +10312,21 @@
    "live_option_symbol": null,
    "cboe_stock": null,
    "quote_quality": "robinhood_live",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "first_invalidation_date": null,
    "daily_closes_completed": 0,
    "flags": [
     "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)",
     "EXPIRY Oct16 OTM leftover; close=46.35 strike=50.0; credit kept; shares OPEN",
-    "OTM CC leftover shares OPEN; MTM mark=48.13; RH Oct23 cash-close last",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=48.17; option_mark=0.0"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=48.17; option_mark=0.0",
+    "OTM CC leftover shares OPEN; MTM mark=47.99; RH Oct26 cash-close last"
    ],
    "sources": {
     "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
    },
    "yahoo_quote_v7": null,
-   "stock_path_pnl": -50.5,
+   "stock_path_pnl": -43.5,
    "option_path_pnl": 100.0,
    "max_close_since": null,
    "min_close_since": null,
@@ -10415,7 +10415,7 @@
    "credit_or_debit_side": "credit",
    "capital_at_risk": 6116.5,
    "invalidation": "daily close under $58",
-   "notes": "Buy 100 + sell Oct2 $65c. Credit mid 0.81 (RH). Stock mid $61.165 RH 2026-09-29 07:42 PT. ~1.3%/wk on cash. TLI Buy Zone $61 / hold $63; Danny $60\u2013$65.",
+   "notes": "Buy 100 + sell Oct2 $65c. Credit mid 0.81 (RH). Stock mid $61.165 RH 2026-09-29 07:42 PT. ~1.3%/wk on cash. TLI Buy Zone $61 / hold $63; Danny $60–$65.",
    "new_vs_carry": "new",
    "live_stock": 43.82,
    "live_stock_source": "robinhood equity mid=43.82 asof=2026-10-14T07:21:00-07:00 (AM exit fill)",
@@ -10428,7 +10428,7 @@
    "paper_status": "out",
    "paper_pnl": -1653.5,
    "confidence": "High",
-   "confidence_reason": "TLI Buy Zone at $61 plus Danny $60\u2013$65 range overlap at spot.",
+   "confidence_reason": "TLI Buy Zone at $61 plus Danny $60–$65 range overlap at spot.",
    "lane": "paper",
    "flags": [
     "settled at expiry-close intrinsic (no time value); close=58.45 strike=65.0",
@@ -10619,7 +10619,7 @@
    "notes": "Buy 100 + sell Oct2 $250c. Credit mid 1.85 (proxy). Stock mid $248.52 proxy 2026-09-29T12:24:12-07:00. ~1.7%/wk on cash. TLI clear BUY at/below 200 WMA; Wave5 $573. RH crosscheck stock mid ~247.305, call mid ~1.845.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "TLI alone \u2014 clear BUY at/below 200 WMA (Wave1 2021 retest); no Danny overlap.",
+   "confidence_reason": "TLI alone — clear BUY at/below 200 WMA (Wave1 2021 retest); no Danny overlap.",
    "sources": [
     "TLI"
    ],
@@ -10672,7 +10672,7 @@
    "notes": "Buy 100 + sell Oct2 $12.50c. Credit mid 0.13 (proxy). Stock mid $12.38 proxy 2026-09-29T12:24:12-07:00. ~2.4%/wk on cash. TLI load-the-boat zone; target $31. RH crosscheck stock mid ~12.385, call mid ~0.16.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "TLI alone \u2014 load-the-boat buy zone after acquisition selloff; confluence zone; no Danny overlap.",
+   "confidence_reason": "TLI alone — load-the-boat buy zone after acquisition selloff; confluence zone; no Danny overlap.",
    "sources": [
     "TLI"
    ],
@@ -10725,7 +10725,7 @@
    "notes": "Buy 100 + sell Oct2 $62.5c. Credit mid 0.83 (RH mark; proxy OCC 1.12 stale). Stock mid $60.60 proxy 2026-09-30T07:49:07-07:00. ~4.8%/wk on cash. Danny uptrend intact; supports $54/$57/$60. Lane=paper.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 spot at $60 support; uptrend intact; no TLI overlap.",
+   "confidence_reason": "Danny alone — spot at $60 support; uptrend intact; no TLI overlap.",
    "sources": [
     "Danny"
    ],
@@ -10781,7 +10781,7 @@
    "notes": "Buy 100 + sell Oct2 $260c. Credit mid 4.75 (RH mark; proxy OCC 8.45 stale). Stock mid $257.78 proxy 2026-09-30T07:49:07-07:00. ~6.4%/wk on cash. Danny accumulate/breakout watch; supports $223/$235/$254. Lane=paper.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 near $254 support after pullback from $263; no TLI overlap.",
+   "confidence_reason": "Danny alone — near $254 support after pullback from $263; no TLI overlap.",
    "sources": [
     "Danny"
    ],
@@ -10834,7 +10834,7 @@
    "notes": "Buy 100 + sell Oct2 $115c. Credit mid 2.27 (RH mark; proxy OCC 3.80 stale). Stock mid $114.20 proxy 2026-09-30T07:49:07-07:00. ~7.0%/wk on cash. Danny every small pullback is a chance to add; supports $95/$104/$108. Lane=paper.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
+   "confidence_reason": "Danny alone — pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
    "sources": [
     "Danny"
    ],
@@ -10888,10 +10888,10 @@
    "credit_or_debit_side": "credit",
    "capital_at_risk": 60415.0,
    "invalidation": "daily close under $587 (leave hole / $600 support zone)",
-   "notes": "Buy 100 + sell Oct2 $610c. Credit mid 8.10 (RH mark; proxy OCC 11.15 stale). Stock mid $604.15 proxy 2026-09-30T07:49:07-07:00. ~4.7%/wk on cash. Danny accumulate at $584/$600; hole $587\u2013$648. Lane=paper.",
+   "notes": "Buy 100 + sell Oct2 $610c. Credit mid 8.10 (RH mark; proxy OCC 11.15 stale). Stock mid $604.15 proxy 2026-09-30T07:49:07-07:00. ~4.7%/wk on cash. Danny accumulate at $584/$600; hole $587–$648. Lane=paper.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 spot at $600 support inside $587\u2013$648 hole; accumulate zone; no TLI overlap.",
+   "confidence_reason": "Danny alone — spot at $600 support inside $587–$648 hole; accumulate zone; no TLI overlap.",
    "sources": [
     "Danny"
    ],
@@ -10953,7 +10953,7 @@
    "flags": [
     "settled at expiry-close intrinsic (no time value); close=268.22 strike=295.0",
     "close<=strike: call expires worthless, credit kept",
-    "APP EXIT AM Oct5 at mid=284.75; failed TLI $291 Fib fill extended against \u2014 tighten post-fill invalidation; free cash for zone tickets; prior_mtm_pnl=-394.0; realized_pnl=-289.0; fill_source=robinhood_equity_mid"
+    "APP EXIT AM Oct5 at mid=284.75; failed TLI $291 Fib fill extended against — tighten post-fill invalidation; free cash for zone tickets; prior_mtm_pnl=-394.0; realized_pnl=-289.0; fill_source=robinhood_equity_mid"
    ],
    "live_stock": 284.75,
    "live_option_mid": 0.0,
@@ -11049,7 +11049,7 @@
    "notes": "Danny Tier3 supports $218/$223/$235; Sandeman Inferize/MU read-through. Paper lane. Oct9 $235c mid.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
+   "confidence_reason": "Danny alone — pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
    "sources": [
     "Danny"
    ],
@@ -11109,7 +11109,7 @@
    "notes": "Danny trending constructive; supports $100/$120, resistance $127. Paper lane. Oct9 $120c mark.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
+   "confidence_reason": "Danny alone — pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
    "sources": [
     "Danny"
    ],
@@ -11166,24 +11166,24 @@
    "credit_or_debit_side": "credit",
    "capital_at_risk": 4559.5,
    "invalidation": "daily close under $43 (Danny key support)",
-   "notes": "Danny trending; supports $38\u2013$40/$43, resistance $48/$53. Above $43. Paper lane. Oct9 $48c mid.",
+   "notes": "Danny trending; supports $38–$40/$43, resistance $48/$53. Above $43. Paper lane. Oct9 $48c mid.",
    "new_vs_carry": "new",
    "confidence": "Medium",
-   "confidence_reason": "Danny alone \u2014 pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
+   "confidence_reason": "Danny alone — pullback-add thesis; spot above $108/$104 supports, under $118 resistance; no TLI overlap.",
    "sources": [
     "Danny"
    ],
    "lane": "paper",
    "paper_status": "leftover_shares",
-   "paper_pnl": -17.0,
-   "live_stock": 44.75,
-   "live_stock_source": "robinhood equity mid=44.75 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": 14.0,
+   "live_stock": 45.06,
+   "live_stock_source": "robinhood last_trade_price=45.06 (cash close) bid=44.66 ask=46.3 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
    "live_option_mid": 0.0,
    "live_option_symbol": "O:LMND261009C00048000",
-   "price_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
    "fill_source": "rh_equity_mid+rh_option_mark",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-01T07:33:23-07:00",
    "ticket_return_pct": 0.014804,
    "live_option_bid": null,
@@ -11193,13 +11193,13 @@
    "flags": [
     "settled at expiry-close intrinsic (no time value); close=46.46 strike=48.0",
     "close<=strike: call expires worthless, credit kept",
-    "OTM CC leftover shares OPEN; MTM mark=44.94; RH Oct23 cash-close last",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=44.11; option_mark=0.0"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=44.11; option_mark=0.0",
+    "OTM CC leftover shares OPEN; MTM mark=45.06; RH Oct26 cash-close last"
    ],
-   "stock_path_pnl": -84.5,
+   "stock_path_pnl": -53.5,
    "option_path_pnl": 67.5,
-   "paper_roc_pct": -0.01776510582300691,
-   "paper_acct_pct": -0.000324
+   "paper_roc_pct": 0.0030705121175567496,
+   "paper_acct_pct": 5.6e-05
   },
   {
    "id": "2026-10-02-AM-SE",
@@ -11338,10 +11338,10 @@
    "credit_or_debit": 208.0,
    "credit_or_debit_side": "credit",
    "capital_at_risk": 0.0,
-   "invalidation": "daily close under $65 or leave $68\u2013$74 accumulation thesis",
+   "invalidation": "daily close under $65 or leave $68–$74 accumulation thesis",
    "confidence": "Medium",
-   "confidence_reason": "Danny Tier3 buy order $68\u2013$74; roll leftover after Oct2 CC; Medium single-feed at zone.",
-   "thesis": "Danny Tier3 accumulate $68\u2013$74; roll leftover Oct9 $73c.",
+   "confidence_reason": "Danny Tier3 buy order $68–$74; roll leftover after Oct2 CC; Medium single-feed at zone.",
+   "thesis": "Danny Tier3 accumulate $68–$74; roll leftover Oct9 $73c.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
    "lane": "paper",
@@ -11707,12 +11707,12 @@
    "capital_at_risk": 55055.0,
    "invalidation": "daily close under $47.00 (SLV proxy for TLI silver $53 0.618 Fib buy-zone floor; break targets TLI next support silver ~$49 = SLV ~$43.5)",
    "confidence": "Medium",
-   "confidence_reason": "Single-feed TLI at zone \u2014 'Silver is a Buy right now\u2026 We have added' (key level $61 silver, now $62).",
+   "confidence_reason": "Single-feed TLI at zone — 'Silver is a Buy right now… We have added' (key level $61 silver, now $62).",
    "thesis": "TLI silver buy; buy 1000 SLV + sell 10x Oct9 $55.50c ATM.",
    "expected_roc": 0.0104,
    "expected_roc_note": "credit/cash to Oct9 expiry (not annualized)",
    "lane": "paper",
-   "notes": "Buy 1000 SLV + sell 10x Oct9 $55.5c (ATM at/just above). Credit mid 0.575 \u00d710 = $575.0 (RH mid). Stock mid $55.055 RH 2026-10-05T07:38:06-07:00. Ticket % 1.04% on cash to expiry (not annualized). Lane=paper. No live.",
+   "notes": "Buy 1000 SLV + sell 10x Oct9 $55.5c (ATM at/just above). Credit mid 0.575 ×10 = $575.0 (RH mid). Stock mid $55.055 RH 2026-10-05T07:38:06-07:00. Ticket % 1.04% on cash to expiry (not annualized). Lane=paper. No live.",
    "new_vs_carry": "new",
    "sources": [
     "The Long Investor"
@@ -11720,7 +11720,7 @@
    "paper_status": "leftover_shares",
    "paper_pnl": -5815.0,
    "live_stock": 48.665,
-   "live_stock_source": "robinhood equity mid=48.665 asof=2026-10-26T12:18:00-07:00",
+   "live_stock_source": "robinhood last_trade_price=48.665 (cash close) bid=48.66 ask=48.68 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
    "live_option_mid": 0.0,
    "live_option_bid": null,
@@ -11728,24 +11728,24 @@
    "live_option_last": null,
    "live_option_symbol": "O:SLV261009C00055500",
    "option_instrument_id": "6d677dd0-f8d4-42ab-99a8-eeec9c2db201",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-05T07:38:06-07:00",
    "fill_source": "rh_equity_mid+rh_option_mid",
    "flags": [
     "AM Oct5 paper fill; RH mid equity+option; 10 contracts",
     "settled at expiry-close intrinsic (no time value); close=54.78 strike=55.5",
     "close<=strike: call expires worthless, credit kept",
-    "OTM CC leftover shares OPEN; MTM mark=48.72; RH Oct23 cash-close last",
     "NUMERIC OUT Oct26 (v0.6 every stock lot needs a numeric daily-close out): SLV daily close < $47.00; Fri close 48.72 (3.66% above); SLV/silver ratio ~0.888 from entry (SLV 55.055 vs silver ~$62) -> silver $53 = SLV ~$47.1, silver $49 = SLV ~$43.5; rules=v0.6-beta",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=48.475; option_mark=0.0"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=48.475; option_mark=0.0",
+    "OTM CC leftover shares OPEN; MTM mark=48.665; RH Oct26 cash-close last"
    ],
    "stock_path_pnl": -6390.0,
    "option_path_pnl": 575.0,
-   "paper_roc_pct": -0.1090727454363818,
-   "paper_acct_pct": -0.02402,
+   "paper_roc_pct": -0.10562165107619653,
+   "paper_acct_pct": -0.02326,
    "ticket_return_pct": 0.0104,
-   "invalidation_original": "leave TLI silver buy / key level thesis (silver ~$61\u2013$62)",
+   "invalidation_original": "leave TLI silver buy / key level thesis (silver ~$61–$62)",
    "out_level": 47.0
   },
   {
@@ -11778,7 +11778,7 @@
    "expected_roc": 0.0225,
    "expected_roc_note": "credit/cash to Oct9 expiry (not annualized)",
    "lane": "paper",
-   "notes": "Buy 1000 NU + sell 10x Oct9 $15.5c. Credit mid 0.345 \u00d710 = $345.0 (RH mid). Stock mid $15.365 RH 2026-10-05T07:38:06-07:00. Ticket % 2.25% on cash to expiry (not annualized). Lane=paper. No live.",
+   "notes": "Buy 1000 NU + sell 10x Oct9 $15.5c. Credit mid 0.345 ×10 = $345.0 (RH mid). Stock mid $15.365 RH 2026-10-05T07:38:06-07:00. Ticket % 2.25% on cash to expiry (not annualized). Lane=paper. No live.",
    "new_vs_carry": "new",
    "sources": [
     "The Long Investor"
@@ -11835,8 +11835,8 @@
    "capital_at_risk": 48585.0,
    "invalidation": "daily close under $93 (bottom of TLI aggressive add range / 200 WMA)",
    "confidence": "Medium",
-   "confidence_reason": "TLI feed + Announcements (same creator): '$SE is still a buy, in the buy zone\u2026 $94\u2013$98 a very nice area to add\u2026 considering one more buy'; stock $97.17 inside zone; single-feed Medium. Adds to existing 100-sh leftover (total SE ~$58k < 25% cap).",
-   "thesis": "TLI SE add at $94\u2013$98; buy 500 + sell 5x Oct9 $98c (TLI flip level).",
+   "confidence_reason": "TLI feed + Announcements (same creator): '$SE is still a buy, in the buy zone… $94–$98 a very nice area to add… considering one more buy'; stock $97.17 inside zone; single-feed Medium. Adds to existing 100-sh leftover (total SE ~$58k < 25% cap).",
+   "thesis": "TLI SE add at $94–$98; buy 500 + sell 5x Oct9 $98c (TLI flip level).",
    "expected_roc": 0.0164,
    "expected_roc_note": "credit/cash to Oct9 expiry (not annualized)",
    "lane": "paper",
@@ -11867,7 +11867,7 @@
     "RH live MTM Oct19 AM; equity_mid=88.94; option_mid=0.0",
     "OTM CC leftover shares OPEN; MTM mark=88.485; RH Oct19 cash-close last",
     "OUT TRIGGER: Oct19 close 88.485 < out 93 (daily close under $93 (bottom of TLI aggressive add range / 200 WMA)); status unchanged pending desk exit decision",
-    "EXIT AM Oct20; Mon Oct19 RH close 88.47 under out 93.0 (4.9% under; >3% hold window \u2192 cut); 500 sh sold at RH bid 82.87 @ 2026-10-20T07:24:00-07:00; prior_mtm_pnl=-3547.5; realized_pnl=-6355.0; ref 9:30 ET open print 85.58; rules=v0.5-beta"
+    "EXIT AM Oct20; Mon Oct19 RH close 88.47 under out 93.0 (4.9% under; >3% hold window → cut); 500 sh sold at RH bid 82.87 @ 2026-10-20T07:24:00-07:00; prior_mtm_pnl=-3547.5; realized_pnl=-6355.0; ref 9:30 ET open print 85.58; rules=v0.5-beta"
    ],
    "stock_path_pnl": -7150.0,
    "option_path_pnl": 795.0,
@@ -11902,7 +11902,7 @@
    "capital_at_risk": 22205.5,
    "invalidation": "daily close under $215 (TLI 50 WMA flip level)",
    "confidence": "Medium",
-   "confidence_reason": "TLI post (~3h): 'back above 50 WMA at $215 \u2026 should encourage members to add and start a position'; HH >$232; stock $222.06 above the level. Single-feed Medium; up ~3% today so 100-share size only.",
+   "confidence_reason": "TLI post (~3h): 'back above 50 WMA at $215 … should encourage members to add and start a position'; HH >$232; stock $222.06 above the level. Single-feed Medium; up ~3% today so 100-share size only.",
    "thesis": "TLI GNRC start-position above 50 WMA $215; buy 100 + sell 1x Oct9 $225c.",
    "expected_roc": 0.0145,
    "expected_roc_note": "credit/cash to Oct9 expiry (not annualized)",
@@ -12029,8 +12029,8 @@
    "capital_at_risk": 14241.0,
    "invalidation": "daily close under $139",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI named flip at zone; Danny overlap on supports but not identical flip level.",
-   "thesis": "TLI 200 WMA flip $143 \u2192 W3 $184; Danny supports $139/$129, res $149. Buy 100 + sell 1x Oct16 $145c.",
+   "confidence_reason": "Medium — TLI named flip at zone; Danny overlap on supports but not identical flip level.",
+   "thesis": "TLI 200 WMA flip $143 → W3 $184; Danny supports $139/$129, res $149. Buy 100 + sell 1x Oct16 $145c.",
    "expected_roc": 0.016115441331367178,
    "expected_roc_note": "credit/cash to Oct16 expiry (not annualized)",
    "lane": "paper",
@@ -12092,8 +12092,8 @@
    "capital_at_risk": 14191.0,
    "invalidation": "daily close under $68.4",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 single-feed Danny at stated zone.",
-   "thesis": "Danny vol hole $68.4\u2013$73.5; early bottoming if $68.4 holds. Buy 200 + sell 2x Oct16 $71c.",
+   "confidence_reason": "Medium — single-feed Danny at stated zone.",
+   "thesis": "Danny vol hole $68.4–$73.5; early bottoming if $68.4 holds. Buy 200 + sell 2x Oct16 $71c.",
    "expected_roc": 0.014304841096469593,
    "expected_roc_note": "credit/cash to Oct16 expiry (not annualized)",
    "lane": "paper",
@@ -12158,7 +12158,7 @@
    "capital_at_risk": 9379.5,
    "invalidation": "daily close under $30.60",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI named hold/support.",
+   "confidence_reason": "Medium — TLI named hold/support.",
    "thesis": "TLI hold above 50 WMA $30.60; HH >$37 confirms. Buy 300 + sell 3x Oct16 $31.5c.",
    "expected_roc": 0.01599232368463138,
    "expected_roc_note": "credit/cash to Oct16 expiry (not annualized)",
@@ -12220,7 +12220,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $93",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI BUY reiterate; roll 600 leftover SE (100 from 2026-09-18-AM-SE + 500 from 2026-10-05-noon-SE).",
+   "confidence_reason": "Medium — TLI BUY reiterate; roll 600 leftover SE (100 from 2026-09-18-AM-SE + 500 from 2026-10-05-noon-SE).",
    "thesis": "Roll leftover: sell 6x Oct16 $98c on leftover shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12286,7 +12286,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $30",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI hold >$30; roll leftover.",
+   "confidence_reason": "Medium — TLI hold >$30; roll leftover.",
    "thesis": "Roll leftover: sell 1x Oct16 $32c on leftover shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12350,7 +12350,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close back under 0.618 Fib / $50",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI Mon reaffirm add on 0.618 Fib hold (Fri under-$55 out reassessed after TLI strength note); roll leftover.",
+   "confidence_reason": "Medium — TLI Mon reaffirm add on 0.618 Fib hold (Fri under-$55 out reassessed after TLI strength note); roll leftover.",
    "thesis": "Roll leftover: sell 1x Oct16 $55c on leftover shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12413,7 +12413,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $104",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 Roll leftover HOOD; RH mid bid 1.89 ask 1.93.",
+   "confidence_reason": "Medium — Roll leftover HOOD; RH mid bid 1.89 ask 1.93.",
    "thesis": "Roll leftover: sell 1x Oct16 $110c on leftover shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12479,7 +12479,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "leave TLI silver buy thesis",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 Roll 1000 leftover SLV; RH mid bid 0.58 ask 0.59.",
+   "confidence_reason": "Medium — Roll 1000 leftover SLV; RH mid bid 0.58 ask 0.59.",
    "thesis": "Roll leftover: sell 10x Oct16 $55c on leftover shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12545,7 +12545,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $215 (TLI 50 WMA)",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 Roll leftover GNRC; RH mid bid 3.90 ask 5.10 (wide).",
+   "confidence_reason": "Medium — Roll leftover GNRC; RH mid bid 3.90 ask 5.10 (wide).",
    "thesis": "Roll leftover: sell 1x Oct16 $220c on leftover shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12609,7 +12609,7 @@
    "capital_at_risk": 26897.5,
    "invalidation": "daily close under $37",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI TOP10 single-feed at named support (0.887 Fib $37); out-if within ~4% of entry.",
+   "confidence_reason": "Medium — TLI TOP10 single-feed at named support (0.887 Fib $37); out-if within ~4% of entry.",
    "thesis": "TLI: NVO holding 0.887 Fib $37; break >$38.91 targets $45 (breakout / 50 WMA); W3 $65. Buy 700 + sell 7x Oct16 $38.5c.",
    "expected_roc": 0.01236174365647365,
    "expected_roc_note": "credit/cash to Oct16 expiry (not annualized)",
@@ -12671,7 +12671,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $43 (Danny key support)",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 Danny key support $43 intact; roll leftover.",
+   "confidence_reason": "Medium — Danny key support $43 intact; roll leftover.",
    "thesis": "Roll leftover: sell 1x Oct16 $46c on leftover LMND shares.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12736,8 +12736,8 @@
    "capital_at_risk": 38250.0,
    "invalidation": "daily close under $360 (bottom of TLI Buy Zone)",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI TOP10 single-feed; Buy Zone $360\u2013$382 and 'holding $382 is a suitable buy entry'. Stock ~$388 is above the zone, so CSP at the zone top instead of buying stock (lesson: lower half or CSP). Out $360 is ~6% under strike.",
-   "thesis": "TLI: UNH Q3 beat + FY guide raise; add in Buy Zone $360\u2013$382; Wave 3 target $630. Sell 1x Oct23 $382.5 put; if assigned, net basis ~$377.25 (inside the zone).",
+   "confidence_reason": "Medium — TLI TOP10 single-feed; Buy Zone $360–$382 and 'holding $382 is a suitable buy entry'. Stock ~$388 is above the zone, so CSP at the zone top instead of buying stock (lesson: lower half or CSP). Out $360 is ~6% under strike.",
+   "thesis": "TLI: UNH Q3 beat + FY guide raise; add in Buy Zone $360–$382; Wave 3 target $630. Sell 1x Oct23 $382.5 put; if assigned, net basis ~$377.25 (inside the zone).",
    "expected_roc": 0.013725490196078431,
    "expected_roc_note": "credit/cash secured to Oct23 expiry (not annualized)",
    "lane": "paper",
@@ -12799,8 +12799,8 @@
    "capital_at_risk": 35000.0,
    "invalidation": "daily close under $325 (~7% under strike / below Danny accumulate zone)",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 Danny Tier 3 formal buy order $350\u2013$356 single-feed; stock mid ~$350.56 in lower half of range. CSP at zone bottom instead of chasing stock. Out $325 is ~7% under strike.",
-   "thesis": "Danny Tier 3 (Oct14): continue accumulating GOOGL $350\u2013$356. Sell 1x Oct23 $350 put; if assigned, net basis ~$343.80 inside/near the zone.",
+   "confidence_reason": "Medium — Danny Tier 3 formal buy order $350–$356 single-feed; stock mid ~$350.56 in lower half of range. CSP at zone bottom instead of chasing stock. Out $325 is ~7% under strike.",
+   "thesis": "Danny Tier 3 (Oct14): continue accumulating GOOGL $350–$356. Sell 1x Oct23 $350 put; if assigned, net basis ~$343.80 inside/near the zone.",
    "expected_roc": 0.017714285714285714,
    "expected_roc_note": "credit/cash secured to Oct23 expiry (not annualized)",
    "lane": "paper",
@@ -12810,9 +12810,9 @@
     "Danny Trades"
    ],
    "paper_status": "leftover_shares",
-   "paper_pnl": -2661.0,
-   "live_stock": 317.19,
-   "live_stock_source": "robinhood equity mid=317.19 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": -2691.0,
+   "live_stock": 316.89,
+   "live_stock_source": "robinhood last_trade_price=316.89 (cash close) bid=317.1 ask=317.49 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
    "live_option_mid": 0.0,
    "live_option_bid": null,
@@ -12820,8 +12820,8 @@
    "live_option_last": null,
    "live_option_symbol": "O:GOOGL261023P00350000",
    "option_instrument_id": "ce5b8a63-4c4d-4229-ad6d-5b8a8de228cb",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-15T07:25:00-07:00",
    "fill_source": "RH option bid",
    "flags": [
@@ -12830,12 +12830,13 @@
     "EXPIRY Oct23: ITM at 2026-10-23T07:27:00-07:00 (mid 322.945 vs $350.0 put); settle Mon Oct26 AM on Fri close",
     "ASSIGNED Oct23: Fri RH close 320.21 < $350 strike; 100 sh at $350, net cost 343.8 (credit 6.2 kept); capital $35,000 already reserved; stock MTM from 2026-10-26 at RH mid 320.095; rules=v0.6-beta",
     "HOLD DAY 2 Oct26: HOLD DAY 2 (paper hold rule, v0.6-beta): Fri Oct23 close 320.21 is 1.47% under the $325.0 out, above the $315.25 cut line (3% under); market gate F&G 25.82 live / 20.98 Fri close < 30 (SPY WoW -0.43%, QQQ WoW -0.76%; not both -1%); no stock-specific bad news (pre-earnings only). Cut on a daily close < $315.25, at day 5 (Thu Oct29), on stock-specific bad news, or if the market gate fails. Earnings 2026-10-28 PM. No averaging down. Assigned 100 sh net cost 343.8; sell weekly calls at/above 343.8 (Oct30 $345c sold today).",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=319.855; option_mark=0.0"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=319.855; option_mark=0.0",
+    "OTM CC leftover shares OPEN; MTM mark=316.89; RH Oct26 cash-close last"
    ],
-   "stock_path_pnl": -3281.0,
+   "stock_path_pnl": -3311.0,
    "option_path_pnl": 620.0,
-   "paper_roc_pct": -0.06841428571428572,
-   "paper_acct_pct": -0.009578,
+   "paper_roc_pct": -0.07688571428571428,
+   "paper_acct_pct": -0.010764,
    "ticket_return_pct": 0.017714285714285714,
    "hold_status": {
     "hold_day": 2,
@@ -12887,7 +12888,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $93",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 roll 600 leftover SE at/above blended cost (~$97.7); Extreme Fear tape; strike at cost.",
+   "confidence_reason": "Medium — roll 600 leftover SE at/above blended cost (~$97.7); Extreme Fear tape; strike at cost.",
    "thesis": "Roll leftover SE CC at/above cost; RH bid-side.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -12927,7 +12928,7 @@
    "live_option_last": 0.195,
    "exit_price": 0.01,
    "exit_at": "2026-10-20T07:25:00-07:00",
-   "exit_note": "no bid; RH adjusted mark \u2014 6x Oct23 $98c bought back at RH adjusted_mark_price $0.01 (bid 0 / ask 1.55 stub / mark 0.775) @ 2026-10-20 07:25 PT"
+   "exit_note": "no bid; RH adjusted mark — 6x Oct23 $98c bought back at RH adjusted_mark_price $0.01 (bid 0 / ask 1.55 stub / mark 0.775) @ 2026-10-20 07:25 PT"
   },
   {
    "id": "2026-10-19-AM-LMND-roll",
@@ -12954,7 +12955,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $43 (Danny key support)",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 roll leftover LMND at/above cost $45.60.",
+   "confidence_reason": "Medium — roll leftover LMND at/above cost $45.60.",
    "thesis": "Roll leftover LMND CC at/above cost; RH bid-side.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -13024,7 +13025,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $68.4",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 roll leftover NFLX at/above cost $70.96 after Oct16 $71c expired OTM.",
+   "confidence_reason": "Medium — roll leftover NFLX at/above cost $70.96 after Oct16 $71c expired OTM.",
    "thesis": "Roll leftover NFLX CC at/above cost; RH bid-side.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -13093,7 +13094,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "leave TLI silver buy thesis",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 roll leftover SLV at/above cost $55.06 ($55.5c).",
+   "confidence_reason": "Medium — roll leftover SLV at/above cost $55.06 ($55.5c).",
    "thesis": "Roll leftover SLV CC at/above cost; RH bid-side.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -13163,7 +13164,7 @@
    "capital_at_risk": 0.0,
    "invalidation": "daily close under $41 (leave buy zone)",
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 MKC no weeklies; roll Nov20 $50c at/above cost $48.43.",
+   "confidence_reason": "Medium — MKC no weeklies; roll Nov20 $50c at/above cost $48.43.",
    "thesis": "Roll leftover MKC CC at/above cost; RH bid-side.",
    "expected_roc": null,
    "expected_roc_note": "roll capital_at_risk=0; credit only; share capital on parent leftover",
@@ -13174,17 +13175,17 @@
     "TLI"
    ],
    "paper_status": "open",
-   "paper_pnl": -52.5,
-   "live_stock": 47.92,
-   "live_stock_source": "robinhood equity mid=47.92 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": -62.5,
+   "live_stock": 47.99,
+   "live_stock_source": "robinhood last_trade_price=47.99 (cash close) bid=47.62 ask=48.49 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 0.875,
+   "live_option_mid": 0.975,
    "live_option_bid": 0.8,
-   "live_option_ask": 0.95,
+   "live_option_ask": 1.15,
    "live_option_symbol": "O:MKC261120C00050000",
    "option_instrument_id": "e7bf65cd-2bab-46c8-99be-fbc3758d758d",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-19T07:28:00-07:00",
    "fill_source": "RH option bid",
    "flags": [
@@ -13194,12 +13195,13 @@
     "CC roll MTM Oct21 close: option path only; RH close last=46.34; option_mid=0.55",
     "CC roll MTM Oct22 close: option path only; RH close last=48.7; option_mid=1.325",
     "CC roll MTM Oct23 close: option path only; RH close last=48.13; option_mid=1.1",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=48.17; option_mark=1.025"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=48.17; option_mark=1.025",
+    "CC roll MTM Oct26 close: option path only; RH close last=47.99; option_mid=0.975"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": -52.5,
+   "option_path_pnl": -62.5,
    "paper_roc_pct": null,
-   "paper_acct_pct": -0.00027,
+   "paper_acct_pct": -0.00025,
    "ticket_return_pct": null,
    "parent_id": "2026-09-28-AM-MKC",
    "rules_version": "v0.5-beta",
@@ -13232,7 +13234,7 @@
    "invalidation": "daily close under $90 (0.78 Fib)",
    "out_level": 90.0,
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 TLI 'still in the buy zone\u2026 very attractive buy right now' (0.78 Fib $90 held, now above 0.618 Fib $97); $95 strike in zone lower half, ~4.2% under $99.14; out $90 is 5.3% under strike. Oct23 $95p bid 0.06 (0.06%) \u2192 Oct30. Earnings Tue Oct27 AM inside window.",
+   "confidence_reason": "Medium — TLI 'still in the buy zone… very attractive buy right now' (0.78 Fib $90 held, now above 0.618 Fib $97); $95 strike in zone lower half, ~4.2% under $99.14; out $90 is 5.3% under strike. Oct23 $95p bid 0.06 (0.06%) → Oct30. Earnings Tue Oct27 AM inside window.",
    "thesis": "TLI UPS buy zone (0.618 Fib $97 / 0.78 Fib $90; 50WMA $103 next, tgt $112/$130). Sell Oct30 $95 puts; if assigned, basis ~$93.44 inside zone.",
    "expected_roc": 0.016421052631578947,
    "expected_roc_note": "credit/cash secured to 2026-10-30 expiry (not annualized)",
@@ -13244,31 +13246,31 @@
     "TLI"
    ],
    "paper_status": "open",
-   "paper_pnl": 78.0,
-   "live_stock": 100.13,
-   "live_stock_source": "robinhood equity mid=100.13 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": 97.0,
+   "live_stock": 100.24,
+   "live_stock_source": "robinhood last_trade_price=100.24 (cash close) bid=100.16 ask=100.25 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 1.17,
-   "live_option_bid": 1.1,
-   "live_option_ask": 1.24,
+   "live_option_mid": 1.075,
+   "live_option_bid": 1.05,
+   "live_option_ask": 1.1,
    "live_option_mark_at_fill": 1.685,
    "live_option_last": null,
    "live_option_delta": -0.239835,
    "live_option_symbol": "O:UPS261030P00095000",
    "option_instrument_id": "72c505f3-ef1e-46fe-b7b2-2d7b64a8ced8",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-20T07:30:00-07:00",
    "fill_source": "RH option bid",
    "earnings_in_window": "2026-10-27 AM (verified)",
    "flags": [
     "AM Oct20 paper fill; RH bid 1.56 @ 2026-10-20T07:30:00-07:00; F&G ~26 (Fear) staged entry; rules=v0.5-beta",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=100.775; option_mark=0.995"
+    "RH live MTM Oct26 cash close CSP; equity_last=100.24; option_mid=1.075"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": 78.0,
-   "paper_roc_pct": 0.005947368421052632,
-   "paper_acct_pct": 0.000452,
+   "option_path_pnl": 97.0,
+   "paper_roc_pct": 0.005105263157894737,
+   "paper_acct_pct": 0.000388,
    "ticket_return_pct": 0.016421052631578947
   },
   {
@@ -13294,10 +13296,10 @@
    "credit_or_debit": 400.0,
    "credit_or_debit_side": "credit",
    "capital_at_risk": 25000.0,
-   "invalidation": "daily close under $255.22 (Danny invalidation) \u2192 close the put if this happens before assignment",
+   "invalidation": "daily close under $255.22 (Danny invalidation) → close the put if this happens before assignment",
    "out_level": 255.22,
    "confidence": "Medium",
-   "confidence_reason": "Medium \u2014 Danny bullish red candle (close >$263.72 expands uptrend; invalidation close <$255.22). $250 strike ~5.3% under $264.1 and below invalidation. Mon close $262.45 not yet >$263.72 (live ~$264.1). Oct23 $250p bid 0.30 (0.12%) \u2192 Oct30. Earnings Thu Oct29 PM inside window.",
+   "confidence_reason": "Medium — Danny bullish red candle (close >$263.72 expands uptrend; invalidation close <$255.22). $250 strike ~5.3% under $264.1 and below invalidation. Mon close $262.45 not yet >$263.72 (live ~$264.1). Oct23 $250p bid 0.30 (0.12%) → Oct30. Earnings Thu Oct29 PM inside window.",
    "thesis": "Danny AMZN new bullish red candle. Sell 1x Oct30 $250 put; if assigned, basis ~$246. Close put on daily close < $255.22 before assignment.",
    "expected_roc": 0.016,
    "expected_roc_note": "credit/cash secured to 2026-10-30 expiry (not annualized)",
@@ -13309,20 +13311,20 @@
     "Danny Trades"
    ],
    "paper_status": "open",
-   "paper_pnl": -620.0,
-   "live_stock": 248.355,
-   "live_stock_source": "robinhood equity mid=248.355 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": -590.0,
+   "live_stock": 249.01,
+   "live_stock_source": "robinhood last_trade_price=249.01 (cash close) bid=249.01 ask=249.05 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 10.2,
-   "live_option_bid": 10.15,
-   "live_option_ask": 10.25,
+   "live_option_mid": 9.9,
+   "live_option_bid": 9.8,
+   "live_option_ask": 10.0,
    "live_option_mark_at_fill": 4.125,
    "live_option_last": null,
    "live_option_delta": -0.507425,
    "live_option_symbol": "O:AMZN261030P00250000",
    "option_instrument_id": "636c5347-acf1-46d7-9ccc-4e4f9b833636",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-20T07:30:00-07:00",
    "fill_source": "RH option bid",
    "earnings_in_window": "2026-10-29 PM (verified)",
@@ -13330,12 +13332,12 @@
     "AM Oct20 paper fill; RH bid 4.0 @ 2026-10-20T07:30:00-07:00; F&G ~26 (Fear) staged entry; rules=v0.5-beta",
     "HOLD DAY 1 Oct23: Thu Oct22 close 250.38 is 1.90% under out 255.22 (<3%), F&G 20.09<30 -> HOLD DAY 1 (paper hold rule): keep Oct30 $250 put (no buyback). Cut (buy back at RH ask) on a close >5% under $255.22 (< $242.46), at day 5 (Thu Oct29), or on stock-specific bad news. Earnings Thu Oct29 PM = day 5. rules=v0.5-beta",
     "HOLD DAY 2 Oct26: HOLD DAY 2 (paper hold rule, v0.6-beta): Fri Oct23 close 248.0 is 2.83% under the $255.22 out, above the $247.56 cut line (3% under); market gate F&G 25.82 live / 20.98 Fri close < 30 (SPY WoW -0.43%, QQQ WoW -0.76%; not both -1%); no stock-specific bad news (pre-earnings only). Cut on a daily close < $247.56, at day 5 (Thu Oct29), on stock-specific bad news, or if the market gate fails. Earnings 2026-10-29 PM. No averaging down. Keep Oct30 $250 put; cut = buy back at RH ask.",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=249.69; option_mark=9.5"
+    "RH live MTM Oct26 cash close CSP; equity_last=249.01; option_mid=9.9"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": -620.0,
-   "paper_roc_pct": -0.022,
-   "paper_acct_pct": -0.0022,
+   "option_path_pnl": -590.0,
+   "paper_roc_pct": -0.0236,
+   "paper_acct_pct": -0.00236,
    "ticket_return_pct": 0.016,
    "hold_status": {
     "hold_day": 2,
@@ -13380,7 +13382,7 @@
    "invalidation": "daily close under $36",
    "out_level": 36.0,
    "confidence": "Low",
-   "confidence_reason": "Low \u2014 exploratory momentum-cluster name; TLI would double at 200 WMA ~$34, Chartradamus wants $39 hold. $38 strike ~9.7% under $42.12; out $36 is 5.3% under strike. Oct23 $38p bid 0.31 = 0.82% (\u22650.8%) so weekly used.",
+   "confidence_reason": "Low — exploratory momentum-cluster name; TLI would double at 200 WMA ~$34, Chartradamus wants $39 hold. $38 strike ~9.7% under $42.12; out $36 is 5.3% under strike. Oct23 $38p bid 0.31 = 0.82% (≥0.8%) so weekly used.",
    "thesis": "TLI ASTS add plan (200 WMA ~$34; 'generational under $60') + Chartradamus $39 hold. Small Oct23 $38 put below $39 support.",
    "expected_roc": 0.008157894736842105,
    "expected_roc_note": "credit/cash secured to 2026-10-23 expiry (not annualized)",
@@ -13462,31 +13464,31 @@
     "Danny Trades"
    ],
    "paper_status": "open",
-   "paper_pnl": 72.0,
-   "live_stock": 39.895,
-   "live_stock_source": "robinhood equity mid=39.895 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": 70.5,
+   "live_stock": 39.43,
+   "live_stock_source": "robinhood last_trade_price=39.43 (cash close) bid=39.43 ask=39.47 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 0.08,
+   "live_option_mid": 0.085,
    "live_option_bid": 0.07,
-   "live_option_ask": 0.09,
+   "live_option_ask": 0.1,
    "live_option_mark_at_fill": 0.39,
    "live_option_last": null,
    "live_option_delta": -0.041701,
    "live_option_symbol": "O:ASTS261030P00033000",
    "option_instrument_id": "8382825e-893c-488b-927b-93c1b534e283",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-22T12:21:00-07:00",
    "fill_source": "RH option bid",
    "earnings_in_window": null,
    "flags": [
     "Noon Oct22 paper fill; RH bid 0.32 @ 2026-10-22T12:21:00-07:00; F&G ~25 (Fear); cluster after fill ~9% of book (cap 35%); rules=v0.5-beta",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=39.18; option_mark=0.135"
+    "RH live MTM Oct26 cash close CSP; equity_last=39.43; option_mid=0.085"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": 72.0,
-   "paper_roc_pct": 0.005606060606060606,
-   "paper_acct_pct": 0.000222,
+   "option_path_pnl": 70.5,
+   "paper_roc_pct": 0.007121212121212121,
+   "paper_acct_pct": 0.000282,
    "ticket_return_pct": 0.009696969696969697
   },
   {
@@ -13526,32 +13528,34 @@
     "Danny"
    ],
    "paper_status": "open",
-   "paper_pnl": 1.0,
-   "live_stock": 317.19,
-   "live_stock_source": "robinhood equity mid=317.19 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": -6.5,
+   "live_stock": 316.89,
+   "live_stock_source": "robinhood last_trade_price=316.89 (cash close) bid=317.1 ask=317.49 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 1.77,
-   "live_option_bid": 1.75,
-   "live_option_ask": 1.79,
+   "live_option_mid": 1.845,
+   "live_option_bid": 1.8,
+   "live_option_ask": 1.89,
    "live_option_mark_at_fill": 1.825,
    "live_option_delta": 0.146309,
    "live_option_symbol": "O:GOOGL261030C00345000",
    "option_instrument_id": "5938f0a0-6dd2-401c-a57c-7b82e73f865e",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-26T07:26:00-07:00",
    "fill_source": "RH option bid",
    "flags": [
     "AM Oct26 paper roll; RH bid 1.78 @ 2026-10-26T07:26:00-07:00; rules=v0.6-beta",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=319.855; option_mark=1.775"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=319.855; option_mark=1.775",
+    "CC roll MTM Oct26 close: option path only; RH close last=316.89; option_mid=1.845"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": 1.0,
+   "option_path_pnl": -6.5,
    "paper_roc_pct": null,
-   "paper_acct_pct": 2e-06,
+   "paper_acct_pct": -2.6e-05,
    "ticket_return_pct": null,
    "parent_id": "2026-10-15-AM-GOOGL-CSP",
-   "rules_version": "v0.6-beta"
+   "rules_version": "v0.6-beta",
+   "live_option_last": null
   },
   {
    "id": "2026-10-26-AM-LMND-roll",
@@ -13590,32 +13594,34 @@
     "Danny"
    ],
    "paper_status": "open",
-   "paper_pnl": -20.0,
-   "live_stock": 44.75,
-   "live_stock_source": "robinhood equity mid=44.75 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": -25.0,
+   "live_stock": 45.06,
+   "live_stock_source": "robinhood last_trade_price=45.06 (cash close) bid=44.66 ask=46.3 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 0.7,
+   "live_option_mid": 0.75,
    "live_option_bid": 0.6,
-   "live_option_ask": 0.8,
+   "live_option_ask": 0.9,
    "live_option_mark_at_fill": 0.6,
    "live_option_delta": 0.356732,
    "live_option_symbol": "O:LMND261030C00046000",
    "option_instrument_id": "1b59fe73-3d26-40f8-a9c7-20ddc2ed83d4",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-26T07:26:00-07:00",
    "fill_source": "RH option bid",
    "flags": [
     "AM Oct26 paper roll; RH bid 0.5 @ 2026-10-26T07:26:00-07:00; rules=v0.6-beta",
-    "RH live MTM Oct26 AM 07:32 PT; equity_mid=44.11; option_mark=0.6"
+    "RH live MTM Oct26 AM 07:32 PT; equity_mid=44.11; option_mark=0.6",
+    "CC roll MTM Oct26 close: option path only; RH close last=45.06; option_mid=0.75"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": -20.0,
+   "option_path_pnl": -25.0,
    "paper_roc_pct": null,
-   "paper_acct_pct": -4e-05,
+   "paper_acct_pct": -0.0001,
    "ticket_return_pct": null,
    "parent_id": "2026-10-01-AM-LMND",
-   "rules_version": "v0.6-beta"
+   "rules_version": "v0.6-beta",
+   "live_option_last": null
   },
   {
    "id": "2026-10-26-AM-UNH-CSP",
@@ -13655,31 +13661,32 @@
     "TLI"
    ],
    "paper_status": "open",
-   "paper_pnl": -32.5,
-   "live_stock": 409.125,
-   "live_stock_source": "robinhood equity mid=409.125 asof=2026-10-26T12:18:00-07:00",
+   "paper_pnl": -32.0,
+   "live_stock": 410.71,
+   "live_stock_source": "robinhood last_trade_price=410.71 (cash close) bid=408.66 ask=411.2 asof=2026-10-26T13:26:30-07:00",
    "quote_quality": "robinhood_live",
-   "live_option_mid": 0.825,
-   "live_option_bid": 0.71,
-   "live_option_ask": 0.94,
+   "live_option_mid": 0.82,
+   "live_option_bid": 0.76,
+   "live_option_ask": 0.88,
    "live_option_mark_at_fill": 0.545,
    "live_option_last": null,
    "live_option_delta": -0.055036,
    "live_option_symbol": "O:UNH261120P00360000",
    "option_instrument_id": "978fd42d-2d3c-4141-a3fc-f9d5a37fe3eb",
-   "price_asof": "2026-10-26T12:18:00-07:00",
-   "mtm_asof": "2026-10-26T12:18:00-07:00",
+   "price_asof": "2026-10-26T13:26:30-07:00",
+   "mtm_asof": "2026-10-26T13:26:30-07:00",
    "entry_at": "2026-10-26T07:32:00-07:00",
    "fill_source": "RH option bid",
    "earnings_in_window": false,
    "flags": [
-    "AM Oct26 paper fill; RH bid 0.5 @ 2026-10-26T07:32:00-07:00; F&G 25.8; rules=v0.6-beta; not LIVE GATE (collateral > 1/3 sleeve)"
+    "AM Oct26 paper fill; RH bid 0.5 @ 2026-10-26T07:32:00-07:00; F&G 25.8; rules=v0.6-beta; not LIVE GATE (collateral > 1/3 sleeve)",
+    "RH live MTM Oct26 cash close CSP; equity_last=410.71; option_mid=0.82"
    ],
    "stock_path_pnl": 0.0,
-   "option_path_pnl": -32.5,
+   "option_path_pnl": -32.0,
    "ticket_return_pct": 0.001388888888888889,
-   "paper_roc_pct": -0.000125,
-   "paper_acct_pct": -1.8e-05
+   "paper_roc_pct": -0.0008888888888888889,
+   "paper_acct_pct": -0.000128
   }
  ]
 }
