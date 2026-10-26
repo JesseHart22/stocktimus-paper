@@ -36,7 +36,7 @@
     if (v == null || Number.isNaN(v)) return "—";
     const n = Number(v);
     if (!Number.isFinite(n)) return "—";
-    // Tracker rates are fractions. 2.86 is a 286% ROC, not 2.86%.
+    // Tracker rates are fractions. 0.0704 is 7.04%, not 0.07%.
     const p = n * 100;
     const sign = p > 0 ? "+" : p < 0 ? "−" : "";
     return sign + Math.abs(p).toFixed(2) + "%";
@@ -219,16 +219,6 @@
     return weeks(data).find((w) => ymd(w.week_ending) === friday) || null;
   }
 
-  function weekReturnVsCapital(w) {
-    if (!w) return null;
-    const vs = num(w.week_return_pct_vs_capital);
-    return vs != null ? vs : num(w.week_return_pct);
-  }
-
-  function weekReturnVsProgram(w) {
-    if (!w) return null;
-    return num(w.week_return_pct_vs_program);
-  }
 
   const INCOME_ONLY = "income only (excl. assignment)";
 
@@ -252,16 +242,30 @@
     return direct != null ? direct : num(w.total_week_pnl);
   }
 
-  function weekIncomeReturnVsCapital(w) {
+  // Return on Program, Income only. Cost basis = Income ÷ program cost basis.
+  // Start value = Income ÷ account value (net of margin) at the start of the week; null = no snapshot (n/a).
+  function weekRopCost(w) {
     if (!w) return null;
-    const direct = num(w.income_return_pct_vs_capital);
-    return direct != null ? direct : weekReturnVsCapital(w);
+    const direct = num(w.return_on_program_cost_basis);
+    return direct != null ? direct : num(w.income_return_pct_vs_program);
   }
 
-  function weekIncomeReturnVsProgram(w) {
-    if (!w) return null;
-    const direct = num(w.income_return_pct_vs_program);
-    return direct != null ? direct : weekReturnVsProgram(w);
+  function weekRopStart(w) {
+    return w ? num(w.return_on_program_start_value) : null;
+  }
+
+  function pctOrNa(v) {
+    return v == null ? "n/a" : pct(v);
+  }
+
+  function moneyOrNa(v) {
+    return v == null ? "n/a" : money(v);
+  }
+
+  function startSourceText(w) {
+    const src = w && w.start_value_source;
+    if (!src || typeof src !== "object") return "No Fidelity positions snapshot from the prior Friday through Monday";
+    return "Fidelity positions CSV · " + String(src.snapshot_downloaded || src.snapshot_date || "");
   }
 
   function pickFresh(obj, key, legacyKey) {
@@ -373,13 +377,12 @@
     const coveredSub = (coveredSh == null ? "—" : shares(coveredSh) + " shares") +
       " · cost basis on open CC shares";
     const board = dashboard(data);
-    const rocCovered = pickFresh(board, "income_roc_vs_covered", "roc_vs_covered");
-    const rocProgram = pickFresh(board, "income_roc_vs_program", "roc_vs_program");
-    const rocActive = pickFresh(board, "income_roc_vs_active", "roc_vs_active");
+    const ropCost = board ? num(board.return_on_program_cost_basis) : null;
+    const ropCostAvg = board ? num(board.avg_weekly_return_on_program_cost_basis) : null;
+    const ropStart = board ? num(board.return_on_program_start_value) : null;
+    const ropStartAvg = board ? num(board.avg_weekly_return_on_program_start_value) : null;
+    const startCovered = board ? num(board.start_value_weeks_covered) : null;
     const avgIncome = pickFresh(board, "avg_weekly_income_only", "avg_weekly_income");
-    const avgIncomeRet = pickFresh(board, "avg_weekly_income_return_pct", "avg_weekly_roc");
-    const avgRocCovered = pickFresh(board, "avg_weekly_income_roc_vs_covered", "avg_weekly_roc_vs_covered");
-    const avgRocProgram = pickFresh(board, "avg_weekly_income_roc_vs_program", "avg_weekly_roc_vs_program");
     const incomePick = pickFresh(board, "income_total", "net_premium_daytrades_dividends");
     const incomeTotal = incomePick.value != null ? incomePick.value : sumNum(fileWeeks, weekIncome);
     const assignPick = board ? num(board.total_assignment_pnl) : null;
@@ -395,19 +398,20 @@
       return doneTxt && picked && picked.value != null ? base + " · " + doneTxt : base;
     }
     const weekCount = fileWeeks.length ? fileWeeks.length + " weeks in file" : "No weeks in the file";
-    return '<section class="js-roc" aria-label="Return">' +
-      stat("js-roc-covered", "Return on capital", pct(rocCovered.value), rateSub(rocCovered, "ROC vs Covered"), pnlClass(rocCovered.value)) +
-      stat("js-roc-program", "Return on program", pct(rocProgram.value), rateSub(rocProgram, "ROC vs Program"), pnlClass(rocProgram.value)) +
+    const doneCount = done != null ? String(done) : "—";
+    const costSub = "Avg weekly " + pct(ropCostAvg) + " · " + (doneTxt || "completed weeks") + " · Income ÷ program cost basis";
+    const startSub = "Avg weekly " + pctOrNa(ropStartAvg) + " · " +
+      (startCovered != null ? String(startCovered) + " of " + doneCount + " completed weeks" : "completed weeks") +
+      " · Income ÷ account value at week start";
+    return '<section class="js-roc" aria-label="Return on program">' +
+      stat("js-rop-cost", "Return on program · cost basis", pct(ropCost), ropCost == null ? "Not in file" : costSub, pnlClass(ropCost)) +
+      stat("js-rop-start", "Return on program · start-of-week value", pctOrNa(ropStart), ropStart == null ? "Not in file" : startSub, pnlClass(ropStart)) +
       "</section>" +
       '<section class="js-strip" aria-label="Program">' +
       stat("js-income", "Income total", money(incomeTotal), incomePick.fresh || incomeTotal != null ? INCOME_ONLY : "Not in file", pnlClass(incomeTotal)) +
       stat("js-assignment", "Assignment P&L total", money(assignTotal), "Booked in the called-away week", pnlClass(assignTotal)) +
       stat("js-overall", "Overall total", money(overallTotal), "Income + assignment · " + weekCount, pnlClass(overallTotal)) +
       stat("js-avg-income", "Avg weekly income", money(avgIncome.value), avgSub(avgIncome), pnlClass(avgIncome.value)) +
-      stat("js-avg-income-ret", "Avg weekly income return", pct(avgIncomeRet.value), avgSub(avgIncomeRet), pnlClass(avgIncomeRet.value)) +
-      stat("js-avg-roc-covered", "Avg ROC vs covered", pct(avgRocCovered.value), avgSub(avgRocCovered), pnlClass(avgRocCovered.value)) +
-      stat("js-avg-roc-program", "Avg ROC vs program", pct(avgRocProgram.value), avgSub(avgRocProgram), pnlClass(avgRocProgram.value)) +
-      stat("js-roc-active", "Return on active", pct(rocActive.value), rateSub(rocActive, "ROC vs active"), pnlClass(rocActive.value)) +
       stat("js-program", "Program capital", money(program), "Sum of position program capital") +
       stat("js-covered", "Covered", money(covered), coveredSub) +
       stat("js-uncovered", "Uncovered", money(uncovered), "Program capital minus covered cost") +
@@ -449,9 +453,10 @@
           td(escapeHtml(money(num(w.premium_allocated))), true) +
           td(escapeHtml(money(num(w.fees_allocated))), true) +
           td(escapeHtml(money(num(w.net_income))), true) +
-          td(escapeHtml(money(num(w.capital_deployed))), true) +
           td(escapeHtml(money(income)), true) +
-          td(escapeHtml(pct(weekIncomeReturnVsCapital(w))), true) +
+          td(escapeHtml(moneyOrNa(num(w.start_of_week_value))), true, ' title="' + escapeHtml(startSourceText(w)) + '"') +
+          td(escapeHtml(pctOrNa(weekRopStart(w))), true) +
+          td(escapeHtml(pct(weekRopCost(w))), true) +
           td(escapeHtml(money(assign)), true) +
           td(escapeHtml(money(overall)), true) +
           td(escapeHtml(money(cumIncome)), true) +
@@ -460,19 +465,20 @@
           td(escapeHtml(w.trade_count == null ? "—" : String(w.trade_count)), true) +
           "</tr>";
       }).join("")
-      : '<tr class="js-empty-row"><td colspan="13">No weeks in the file.</td></tr>';
+      : '<tr class="js-empty-row"><td colspan="14">No weeks in the file.</td></tr>';
     return '<section class="js-panel" id="js-weekly-panel" aria-label="Weekly summary">' +
       "<h2>Weekly summary</h2>" +
-      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Income return % is that income ÷ capital deployed. Assignment P&L is booked in the called-away week. Overall is income plus assignment.</p>' +
+      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Return on program (start value) is that income ÷ the account value net of margin at the start of the week, from the Fidelity positions file closest to the prior Friday close (Friday through Monday of the week); n/a means no file in that window. Return on program (cost basis) is that income ÷ program cost basis. Assignment P&L is booked in the called-away week. Overall is income plus assignment.</p>' +
       '<div class="js-wrap"><table class="js-table"><thead>' +
         ths([
           { t: "Week ending" },
           { t: "Premium allocated", num: true },
           { t: "Fees", num: true },
           { t: "Net income", num: true },
-          { t: "Capital deployed", num: true },
           { t: "Income", num: true },
-          { t: "Income return %", num: true },
+          { t: "Start value", num: true },
+          { t: "RoP (start value)", num: true },
+          { t: "RoP (cost basis)", num: true },
           { t: "Assignment P&L", num: true },
           { t: "Overall", num: true },
           { t: "Cum. income", num: true },
@@ -511,14 +517,13 @@
     const prem = row ? num(row.premium_allocated) : derivedPrem;
     const fees = row ? num(row.fees_allocated) : derivedFees;
     const net = row ? num(row.net_income) : (prem != null && fees != null ? prem - fees : null);
-    const capital = row ? num(row.capital_deployed) : null;
+    const startVal = row ? num(row.start_of_week_value) : null;
     const assign = row ? num(row.assignment_pnl) : null;
     const income = row ? weekIncome(row) : net;
     const overall = row ? weekOverall(row) : income;
-    const incomeRet = weekIncomeReturnVsCapital(row);
-    const incomeRetProg = weekIncomeReturnVsProgram(row);
+    const ropStartWk = weekRopStart(row);
+    const ropCostWk = weekRopCost(row);
     const incomeFresh = row && num(row.income_total) != null;
-    const incomeRetFresh = row && num(row.income_return_pct_vs_capital) != null;
     const buttons = list.map((key) => {
       const on = key === friday ? " on" : "";
       return '<button type="button" class="js-week' + on + '" data-week="' + escapeHtml(key) + '">' +
@@ -563,12 +568,12 @@
       '<div class="js-kpis" id="js-week-kpis">' +
         stat("js-kpi-premium", "Premium allocated", money(prem), row ? "From weeks" : "Sum of allocations") +
         stat("js-kpi-fees", "Fees allocated", money(fees), row ? "From weeks" : "Sum of allocations") +
-        stat("js-kpi-capital", "Capital deployed", money(capital), row ? "From weeks" : "Not in allocations") +
+        stat("js-kpi-start", "Start-of-week value", moneyOrNa(startVal), row ? startSourceText(row) : "Not in weeks") +
         stat("js-kpi-income", "Income", money(income), row ? (incomeFresh ? INCOME_ONLY : "From weeks") : "Premium minus fees", pnlClass(income)) +
-        stat("js-kpi-income-ret", "Income return %", pct(incomeRet), row ? (incomeRetFresh ? INCOME_ONLY : "From weeks") : "Not in weeks", pnlClass(incomeRet)) +
+        stat("js-kpi-rop-start", "Return on program (start value)", pctOrNa(ropStartWk), row ? (ropStartWk != null ? "Income ÷ start-of-week value" : "No snapshot for this week") : "Not in weeks", pnlClass(ropStartWk)) +
         stat("js-kpi-assign", "Assignment P&L", money(assign), row ? "From weeks" : "Not in allocations", pnlClass(assign)) +
         stat("js-kpi-overall", "Overall", money(overall), row ? "Income + assignment" : "Income", pnlClass(overall)) +
-        stat("js-kpi-ret-program", "Income return % (vs program)", pct(incomeRetProg), row ? (num(row.income_return_pct_vs_program) != null ? INCOME_ONLY : "From weeks") : "Not in weeks", pnlClass(incomeRetProg)) +
+        stat("js-kpi-rop-cost", "Return on program (cost basis)", pct(ropCostWk), row ? "Income ÷ program cost basis" : "Not in weeks", pnlClass(ropCostWk)) +
       "</div>" +
       "<h3>Allocations</h3>" +
       '<div class="js-wrap"><table class="js-table"><thead>' +
