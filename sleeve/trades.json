@@ -5,17 +5,18 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-10-23T15:56:00-07:00",
+  "as_of": "2026-10-26T10:00:00-07:00",
   "sleeve_budget_usd": 25000,
-  "notes": "Afternoon refresh Oct 23 PT (RH get_portfolio ~3:56 PM PT, after close). No new fills or orders since the Oct 16 PM refresh (last fill: ZETA Oct-23 32P STO 0.95 on 10/15 ~7:07 AM PT). Open: LMND 100 (44.92 after-hours last), SPGI 6 (448.52 after-hours last), ZETA -1 Oct-23 32P expired OTM today (ZETA closed 34.00 vs 32 strike); RH shows pending_expiration 1, adjusted mark 0.01. $94.95 net premium to book in week 10/23 once RH posts the expiration; $3,200 collateral releases then. Cash $16,399.20; buying power $13,199.20 (put collateral still held); total $23,581.32 (-$27.67 vs Oct 23 AM $23,608.99, marks only). Deployed equities $6,963.68; week 10/09 CC net $456.68 locked; week 10/16 closed with $0 realized income; week 10/23 realized $0 pending ZETA expiry posting. Realized equity P&L -$2,188.70 (Oct 13 exits, tracked separately). Marks = RH live last trade (after-hours) / option adjusted mark, ~3:56 PM PT.",
+  "notes": "Morning refresh Oct 26 PT (RH get_portfolio ~10:00 AM PT, regular session). ZETA Oct-23 32P expired OTM 10/23: $94.95 net booked into week 10/23; $3,200 collateral released (no option positions left). New 10/26 Compounder fills (agent-initiated, ~8:39-8:40 AM PT): BUY 1 ASML @ $1,608.30; SELL 3 SPGI @ $450.5701 (trim 3 of 6, realized +$188.34, fees $0.03). Open GTC: BUY 2 BRK.B limit $532 ($1,064 reserved). Open: LMND 100 (44.31), SPGI 3 (449.645), ASML 1 (1,597.195). Cash $16,142.58; buying power $15,078.58 (BRK.B order reserve held); total $23,519.48 (-$61.84 vs Oct 23 PM $23,581.32; cash/equity swap from fills plus marks). Deployed equities $7,408.64. Option income: week 10/09 CC net $456.68; week 10/16 $0; week 10/23 $94.95 (ZETA CSP); week 10/30 $0 so far. Realized equity P&L -$2,000.36 (Oct 13 exits + 10/26 SPGI trim; tracked separately). Marks = robinhood/live last trade ~10:00 AM PT.",
   "portfolio": {
-    "total_value": 23581.32,
-    "equity_value": 7183.12,
-    "options_value": -1.0,
-    "cash": 16399.2,
-    "buying_power": 13199.2,
-    "as_of": "2026-10-23T15:56:00-07:00",
-    "source": "user-Robinhood.get_portfolio (afternoon refresh)"
+    "total_value": 23519.48,
+    "equity_value": 7376.9,
+    "options_value": 0.0,
+    "cash": 16142.58,
+    "buying_power": 15078.58,
+    "as_of": "2026-10-26T10:00:00-07:00",
+    "source": "user-Robinhood.get_portfolio (morning refresh)",
+    "marks_source": "robinhood/live"
   },
   "open_positions": {
     "equity": [
@@ -25,54 +26,49 @@
         "avg_cost": 46.37,
         "side": "long",
         "deployed_usd": 4637.0,
-        "last": 44.92,
-        "market_value": 4492.0,
-        "unrealized_pnl": -145.0,
+        "last": 44.31,
+        "market_value": 4431.0,
+        "unrealized_pnl": -206.0,
         "desk_bucket": "stocktimus",
         "structure": "stock",
-        "status": "open"
+        "status": "open",
+        "mark_source": "robinhood/live"
       },
       {
         "symbol": "SPGI",
-        "quantity": 6,
+        "quantity": 3,
         "avg_cost": 387.78,
         "side": "long",
-        "deployed_usd": 2326.68,
-        "last": 448.52,
-        "market_value": 2691.12,
-        "unrealized_pnl": 364.44,
+        "deployed_usd": 1163.34,
+        "last": 449.645,
+        "market_value": 1348.93,
+        "unrealized_pnl": 185.59,
         "desk_bucket": "compounder",
         "structure": "stock",
         "status": "open",
-        "hard_invalidation": "close under 340"
+        "hard_invalidation": "daily close < 425",
+        "target": 475.0,
+        "mark_source": "robinhood/live"
+      },
+      {
+        "symbol": "ASML",
+        "quantity": 1,
+        "avg_cost": 1608.3,
+        "side": "long",
+        "deployed_usd": 1608.3,
+        "last": 1597.195,
+        "market_value": 1597.19,
+        "unrealized_pnl": -11.11,
+        "desk_bucket": "compounder",
+        "structure": "stock",
+        "status": "open",
+        "target": 1720.0,
+        "hard_invalidation": "daily close < 1520",
+        "opened_at": "2026-10-26T15:39:37.639Z",
+        "mark_source": "robinhood/live"
       }
     ],
-    "options": [
-      {
-        "symbol": "ZETA",
-        "side": "short",
-        "structure": "csp",
-        "option_type": "put",
-        "contracts": 1,
-        "strike": 32.0,
-        "expiry": "2026-10-23",
-        "option_id": "d22f1af1-6fb4-401f-bd84-9eaf71b2827a",
-        "avg_credit": 0.95,
-        "credit_usd": 95.0,
-        "fees": 0.05,
-        "credit_net_usd": 94.95,
-        "mark": 0.01,
-        "market_value": -1.0,
-        "unrealized_pnl": 94.0,
-        "underlying_last": 34.0,
-        "collateral_usd": 3200.0,
-        "desk_bucket": "stocktimus",
-        "ticket_id": "stocktimus-zeta-oct23-32p",
-        "status": "open",
-        "opened_at": "2026-10-15T14:07:48.318351Z",
-        "hard_invalidation": "daily close < 31.50"
-      }
-    ]
+    "options": []
   },
   "fills": [
     {
@@ -596,7 +592,7 @@
       "notional_usd": 95.0,
       "fees": 0.05,
       "collateral_usd": 3200.0,
-      "deployed_usd": 3200.0,
+      "deployed_usd": 0,
       "desk_bucket": "stocktimus",
       "lane": "sleeve",
       "live_gate": "pass",
@@ -620,17 +616,131 @@
         ]
       },
       "status": "filled",
-      "open_closed": "open",
+      "open_closed": "closed",
       "out_if": "daily close < $31.50",
       "note": "Out if ZETA daily close < $31.50. Fees inferred from cash delta (review est $0.04).",
-      "realized_pnl_usd": null,
+      "realized_pnl_usd": 94.95,
       "created_at": "2026-10-15T14:07:48.291351Z",
       "filled_at": "2026-10-15T14:07:48.483Z",
       "date": "2026-10-15",
-      "position_effect": "open"
+      "position_effect": "open",
+      "expired_at": "2026-10-23"
+    },
+    {
+      "asset_class": "equity",
+      "structure": "stock",
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "desk_bucket": "compounder",
+      "lane": "sleeve",
+      "live_gate": "pass",
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "regular_hours",
+      "time_in_force": "gfd",
+      "status": "filled",
+      "date": "2026-10-26",
+      "fill_id": "6adf7439-d334-4e50-a834-b60199e57e12",
+      "order_id": "6adf7439-8362-4314-8b6d-4c87fb5f4055",
+      "symbol": "ASML",
+      "side": "buy",
+      "quantity": 1,
+      "limit_price": 1608.3,
+      "fill_price": 1608.3,
+      "credit_debit": "debit",
+      "premium_per_share": null,
+      "notional_usd": 1608.3,
+      "fees": 0.0,
+      "deployed_usd": 1608.3,
+      "ticket_id": "compounder-asml-oct26",
+      "walk": {
+        "start_limit": 1608.3,
+        "steps": [
+          1608.3
+        ],
+        "fill": 1608.3,
+        "cap": 1610.0
+      },
+      "open_closed": "open",
+      "realized_pnl_usd": null,
+      "target": 1720.0,
+      "out_if": "daily close < $1,520",
+      "note": "Target $1,720; out on daily close < $1,520.",
+      "created_at": "2026-10-26T15:39:37.423799Z",
+      "filled_at": "2026-10-26T15:39:37.639Z"
+    },
+    {
+      "asset_class": "equity",
+      "structure": "stock",
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "desk_bucket": "compounder",
+      "lane": "sleeve",
+      "live_gate": "pass",
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "regular_hours",
+      "time_in_force": "gfd",
+      "status": "filled",
+      "date": "2026-10-26",
+      "fill_id": "6adf7454-1031-4d4f-98fe-79979fc1087c",
+      "order_id": "6adf7454-a67d-45c5-932a-b097c0f663ac",
+      "symbol": "SPGI",
+      "side": "sell",
+      "quantity": 3,
+      "limit_price": 450.55,
+      "fill_price": 450.5701,
+      "credit_debit": "credit",
+      "premium_per_share": null,
+      "notional_usd": 1351.71,
+      "fees": 0.03,
+      "deployed_usd": 0,
+      "ticket_id": "compounder-spgi-trim-oct26",
+      "walk": {
+        "start_limit": 450.65,
+        "steps": [
+          450.65,
+          450.55
+        ],
+        "fill": 450.5701,
+        "floor": 445.0,
+        "cancelled_order_ids": [
+          "6adf7437-2b0f-4a87-9479-500f72dee413"
+        ]
+      },
+      "open_closed": "partial_close",
+      "realized_pnl_usd": 188.34,
+      "note": "Trimmed 3 of 6 vs cost 387.78. Remaining 3 sh: target $475, out on daily close < $425.",
+      "created_at": "2026-10-26T15:40:04.549185Z",
+      "filled_at": "2026-10-26T15:40:04.636Z"
     }
   ],
-  "orders_open": [],
+  "orders_open": [
+    {
+      "order_id": "6adf743a-8b33-4dc0-bba6-be2d3f7a0988",
+      "symbol": "BRK.B",
+      "side": "buy",
+      "quantity": 2,
+      "type": "limit",
+      "limit_price": 532.0,
+      "time_in_force": "gtc",
+      "state": "confirmed",
+      "reserved_usd": 1064.0,
+      "desk_bucket": "compounder",
+      "lane": "sleeve",
+      "ticket_id": "compounder-brkb-pullback-oct26",
+      "entry_zone": "520-532",
+      "target": 560.0,
+      "out_if": "daily close < $505",
+      "cancel_if_unfilled_by": "2026-11-03 close",
+      "time_exit": "exit by 2026-11-05 close if not at target (earnings ~Nov 6)",
+      "placed_at": "2026-10-26T15:39:38.99386Z"
+    }
+  ],
   "realized_trades": [
     {
       "fill_id": "6ace851b-c23c-4c83-add6-8b365db7ba7c",
@@ -694,6 +804,27 @@
       "closed_date": "2026-10-13",
       "closed_at": "2026-10-13T19:22:32.868Z",
       "notes": "Full position exit, agent-initiated limit sell (RH placed_agent=agentic). Cost = sum of ledger buy fills."
+    },
+    {
+      "fill_id": "6adf7454-1031-4d4f-98fe-79979fc1087c",
+      "order_id": "6adf7454-a67d-45c5-932a-b097c0f663ac",
+      "symbol": "SPGI",
+      "side": "sell",
+      "quantity": 3,
+      "avg_cost": 387.78,
+      "cost_basis_usd": 1163.34,
+      "exit_price": 450.5701,
+      "proceeds_usd": 1351.71,
+      "fees": 0.03,
+      "realized_pnl_usd": 188.34,
+      "desk_bucket": "compounder",
+      "ticket_ids": [
+        "compounder-spgi-trim-oct26"
+      ],
+      "status": "partial_close",
+      "closed_date": "2026-10-26",
+      "closed_at": "2026-10-26T15:40:04.636Z",
+      "notes": "Trim 3 of 6; 3 sh remain."
     }
   ],
   "rules": {
@@ -706,21 +837,22 @@
     "realized_equity_pnl": "Stock exits (not CC/dividend/scalp/assignment) are tracked in realized_trades[] and income.realized_equity_pnl / weeks[].realized_equity_pnl; they are NOT folded into combined_income or total_week_pnl."
   },
   "income": {
-    "cc_premium_gross": 457.0,
-    "cc_fees": 0.32,
-    "cc_premium_net": 456.68,
+    "cc_premium_gross": 552.0,
+    "cc_fees": 0.37,
+    "cc_premium_net": 551.63,
     "dividends": 0,
     "scalps_daytrades_net": 0,
     "assignment_pnl": 0,
-    "combined_income": 456.68,
-    "open_premium_net": 94.95,
-    "capital_deployed": 6963.68,
-    "roc_vs_deployed": 0.0655803,
-    "roc_vs_budget": 0.0182672,
-    "realized_equity_pnl": -2188.7,
-    "csp_collateral_usd": 3200.0
+    "combined_income": 551.63,
+    "open_premium_net": 0,
+    "capital_deployed": 7408.64,
+    "roc_vs_deployed": 0.0744577,
+    "roc_vs_budget": 0.0220652,
+    "realized_equity_pnl": -2000.36,
+    "csp_collateral_usd": 0,
+    "csp_premium_net": 94.95
   },
-  "current_week_ending": "2026-10-23",
+  "current_week_ending": "2026-10-30",
   "weeks": [
     {
       "week_ending": "2026-10-09",
@@ -760,10 +892,28 @@
     },
     {
       "week_ending": "2026-10-23",
+      "premium_allocated": 95.0,
+      "fees_allocated": 0.05,
+      "net_income": 94.95,
+      "capital_deployed": 6963.68,
+      "dividends": 0,
+      "scalps_daytrades_pnl": 0,
+      "daytrade_pnl": 0,
+      "assignment_pnl": 0,
+      "total_week_pnl": 94.95,
+      "week_return_pct": 0.013635,
+      "week_return_pct_vs_capital": 0.013635,
+      "week_return_pct_vs_program": 0.003798,
+      "trade_count": 1,
+      "called_away_flags": 0,
+      "realized_equity_pnl": 0
+    },
+    {
+      "week_ending": "2026-10-30",
       "premium_allocated": 0,
       "fees_allocated": 0,
       "net_income": 0,
-      "capital_deployed": 6963.68,
+      "capital_deployed": 7408.64,
       "dividends": 0,
       "scalps_daytrades_pnl": 0,
       "daytrade_pnl": 0,
@@ -772,10 +922,9 @@
       "week_return_pct": 0,
       "week_return_pct_vs_capital": 0,
       "week_return_pct_vs_program": 0,
-      "trade_count": 0,
+      "trade_count": 2,
       "called_away_flags": 0,
-      "realized_equity_pnl": 0,
-      "open_premium_net": 94.95
+      "realized_equity_pnl": 188.34
     }
   ],
   "weekly_summary": [
@@ -817,10 +966,28 @@
     },
     {
       "week_ending": "2026-10-23",
+      "premium_allocated": 95.0,
+      "fees_allocated": 0.05,
+      "net_income": 94.95,
+      "capital_deployed": 6963.68,
+      "dividends": 0,
+      "scalps_daytrades_pnl": 0,
+      "daytrade_pnl": 0,
+      "assignment_pnl": 0,
+      "total_week_pnl": 94.95,
+      "week_return_pct": 0.013635,
+      "week_return_pct_vs_capital": 0.013635,
+      "week_return_pct_vs_program": 0.003798,
+      "trade_count": 1,
+      "called_away_flags": 0,
+      "realized_equity_pnl": 0
+    },
+    {
+      "week_ending": "2026-10-30",
       "premium_allocated": 0,
       "fees_allocated": 0,
       "net_income": 0,
-      "capital_deployed": 6963.68,
+      "capital_deployed": 7408.64,
       "dividends": 0,
       "scalps_daytrades_pnl": 0,
       "daytrade_pnl": 0,
@@ -829,10 +996,9 @@
       "week_return_pct": 0,
       "week_return_pct_vs_capital": 0,
       "week_return_pct_vs_program": 0,
-      "trade_count": 0,
+      "trade_count": 2,
       "called_away_flags": 0,
-      "realized_equity_pnl": 0,
-      "open_premium_net": 94.95
+      "realized_equity_pnl": 188.34
     }
   ],
   "cc_trades": [
@@ -940,6 +1106,32 @@
       "rh_status": "expired",
       "underlying_close": 2.52,
       "moneyness_at_close": "OTM"
+    },
+    {
+      "trade_id": "SL-CSP-005",
+      "symbol": "ZETA",
+      "structure": "csp",
+      "desk_bucket": "stocktimus",
+      "shares": 0,
+      "contracts": 1,
+      "strike": 32.0,
+      "expiry": "2026-10-23",
+      "cc_sell_date": "2026-10-15",
+      "premium_gross": 95.0,
+      "fees": 0.05,
+      "premium_net": 94.95,
+      "capital_invested": 3200.0,
+      "weekly_roc_pct": 0.02967188,
+      "called_away": "Expired",
+      "assignment_pnl": 0,
+      "option_id": "d22f1af1-6fb4-401f-bd84-9eaf71b2827a",
+      "fill_ids": [
+        "6ad0de34-86f7-4d3c-bf39-4986c88fca07"
+      ],
+      "rh_status": "expired",
+      "underlying_close": 34.0,
+      "moneyness_at_close": "OTM",
+      "notes": "Cash-secured put; collateral $3,200 released (RH BP restored)."
     }
   ],
   "dividends": [],
@@ -957,7 +1149,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-10-23T15:56:00-07:00"
+    "refreshed_at": "2026-10-26T10:00:00-07:00"
   },
   "schema_fields": {
     "fills[]": [
@@ -1075,5 +1267,36 @@
       "desk_bucket",
       "notes"
     ]
-  }
+  },
+  "closed_positions": [
+    {
+      "symbol": "ZETA",
+      "side": "short",
+      "structure": "csp",
+      "option_type": "put",
+      "contracts": 1,
+      "strike": 32.0,
+      "expiry": "2026-10-23",
+      "option_id": "d22f1af1-6fb4-401f-bd84-9eaf71b2827a",
+      "avg_credit": 0.95,
+      "credit_usd": 95.0,
+      "fees": 0.05,
+      "credit_net_usd": 94.95,
+      "mark": 0.01,
+      "market_value": 0,
+      "unrealized_pnl": 94.0,
+      "underlying_last": 33.81,
+      "collateral_usd": 0,
+      "desk_bucket": "stocktimus",
+      "ticket_id": "stocktimus-zeta-oct23-32p",
+      "status": "expired_worthless",
+      "opened_at": "2026-10-15T14:07:48.318351Z",
+      "hard_invalidation": "daily close < 31.50",
+      "open_closed": "closed",
+      "closed_at": "2026-10-23",
+      "realized_pnl_usd": 94.95,
+      "collateral_released": true,
+      "rh_status": "expired"
+    }
+  ]
 }
