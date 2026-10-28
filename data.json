@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-10-28T07:28:00-07:00",
-  "account": 233782.72,
-  "weekly_target": 3506.74,
+  "as_of": "2026-10-28T12:14:00-07:00",
+  "account": 233776.22,
+  "weekly_target": 3506.64,
   "starting_account": 250000.0,
   "source": "stocktimus-paper",
   "marks_source": "robinhood",
   "quote_quality": "robinhood_live",
-  "note": "Wed Oct28 AM (v0.6-beta): hold gate failed at Tue close (F&G closed 33.6 >= 30; SPY +1.28%, QQQ +2.39% WoW). GOOGL (Tue close 320.58 < 325 out) cut: 100 sh sold at RH bid and Oct30 $345c bought back at ask; AMZN (253.10 < 255.22 out) Oct30 $250p bought to close at RH ask. All other outs held on Tue closes. Open lots re-marked from RH ~07:24 PT. New paper CSPs (RH bid ~07:28 PT, staged ahead of FOMC): +NFLX 2026-11-06 $60.0p @ 0.52 (Medium); +UBER 2026-10-30 $64.0p @ 0.36 (Medium); +HOOD 2026-11-06 $80.0p @ 0.49 (Low); +RKLB 2026-11-06 $54.0p @ 1.15 (Low). Free cash 18.9% of book; cluster 10.0%. Lane=paper. No live. Not advice.",
-  "max_per_trade": 58445.68,
+  "note": "Wed Oct28 AM (v0.6-beta): hold gate failed at Tue close (F&G closed 33.6 >= 30; SPY +1.28%, QQQ +2.39% WoW). GOOGL (Tue close 320.58 < 325 out) cut: 100 sh sold at RH bid and Oct30 $345c bought back at ask; AMZN (253.10 < 255.22 out) Oct30 $250p bought to close at RH ask. All other outs held on Tue closes. Open lots re-marked from RH ~07:24 PT. New paper CSPs (RH bid ~07:28 PT, staged ahead of FOMC): +NFLX 2026-11-06 $60.0p @ 0.52 (Medium); +UBER 2026-10-30 $64.0p @ 0.36 (Medium); +HOOD 2026-11-06 $80.0p @ 0.49 (Low); +RKLB 2026-11-06 $54.0p @ 1.15 (Low). AM CSPs NFLX/UBER/HOOD/RKLB; midday CSP (RH bid 12:14 PT, post-FOMC): +OSCR 2026-11-06 $27.0p @ 0.56 (Low). Free cash 17.8% of book; cluster 10.0%. Lane=paper. No live. Not advice.",
+  "max_per_trade": 58444.06,
   "summary": {
     "account_pct": -0.06,
     "by_confidence": {
@@ -24,9 +24,9 @@
         "wins": 73
       },
       "Low": {
-        "hit": 0.5714285714285714,
-        "n": 7,
-        "sum_pnl": -21.0,
+        "hit": 0.5,
+        "n": 8,
+        "sum_pnl": -27.5,
         "wins": 4
       }
     },
@@ -62,9 +62,9 @@
         "wins": 19
       },
       "TLI": {
-        "hit": 0.5932203389830508,
-        "n": 59,
-        "sum_pnl": -10057.78,
+        "hit": 0.5833333333333334,
+        "n": 60,
+        "sum_pnl": -10064.28,
         "wins": 35
       },
       "TLI+Danny": {
@@ -82,9 +82,9 @@
     },
     "by_structure": {
       "CSP": {
-        "hit": 0.5625,
-        "n": 16,
-        "sum_pnl": 836.0,
+        "hit": 0.5294117647058824,
+        "n": 17,
+        "sum_pnl": 829.5,
         "wins": 9
       },
       "long call": {
@@ -104,14 +104,14 @@
     "hit_rate": 0.6386554621848739,
     "invalidated": 12,
     "leftover_shares": 3,
-    "open": 14,
+    "open": 15,
     "out": 27,
-    "paper_pnl": -16217.28,
+    "paper_pnl": -16223.78,
     "paper_roc": null,
     "resolved": 119,
     "wins": 76,
-    "deployed_capital": 189557.0,
-    "free_cash": 44225.72
+    "deployed_capital": 192257.0,
+    "free_cash": 41519.22
   },
   "trades": [
     {
@@ -14104,6 +14104,70 @@
       "ticket_return_pct": 0.021296296296296296,
       "paper_roc_pct": -0.0008333333333333334,
       "paper_acct_pct": -1.8e-05
+    },
+    {
+      "id": "2026-10-28-noon-OSCR-CSP",
+      "csv_id": null,
+      "source_group": "chat",
+      "date_proposed": "2026-10-28",
+      "session": "noon",
+      "date_opened": "2026-10-28",
+      "date_closed": null,
+      "taken": "proposed",
+      "ticker": "OSCR",
+      "creator": "TLI",
+      "structure": "CSP",
+      "strike": 27.0,
+      "expiry": "2026-11-06",
+      "right": "put",
+      "dte": 9,
+      "contracts": 1,
+      "shares": null,
+      "spot_at_idea": 30.45,
+      "premium_per_share": 0.56,
+      "credit_or_debit": 56.0,
+      "credit_or_debit_side": "credit",
+      "capital_at_risk": 2700.0,
+      "invalidation": "daily close under $27 (at the strike; TLI: losing $30 wedge support opens Wave 2 toward $25)",
+      "out_level": 27.0,
+      "confidence": "Low",
+      "confidence_reason": "Low: TLI 'happy to add' at $30 rising-wedge support, but a loss of $30 targets $25; earnings Nov 5 BMO inside the Nov 6 expiry; strike 11.3% OTM (clears the 8% earnings rule) but the out is 11% from the stock, so Low; 1 lot.",
+      "thesis": "TLI Announcements Oct 28 ~11:15 AM PT: OSCR testing rising-wedge support $30; if lost, Wave 2 drop to $25; TLI would add here. Put well under support; Oct 30 weekly book too wide (bids 0.02-0.03).",
+      "expected_roc": 0.02074074074074074,
+      "expected_roc_note": "credit/cash secured to 2026-11-06 expiry (not annualized)",
+      "lane": "paper",
+      "rules_version": "v0.6-beta",
+      "notes": "Sell 1x OSCR 2026-11-06 $27.0 put, credit RH bid 0.56 = $56.0 @ 12:14 PT (bid 0.56/ask 0.69/mark 0.625, delta -0.2068). Stock mid 30.45. option_id verified via get_option_instruments. Lane=paper. No orders. No LIVE GATE: Low, earnings inside expiry.",
+      "new_vs_carry": "new",
+      "sources": [
+        "TLI"
+      ],
+      "paper_status": "open",
+      "paper_pnl": -6.5,
+      "live_stock": 30.45,
+      "live_stock_source": "robinhood equity mid=30.45 asof=2026-10-28T12:14:00-07:00 (fill)",
+      "quote_quality": "robinhood_live",
+      "live_option_mid": 0.625,
+      "live_option_bid": 0.56,
+      "live_option_ask": 0.69,
+      "live_option_mark_at_fill": 0.625,
+      "live_option_last": null,
+      "live_option_delta": -0.2068,
+      "live_option_symbol": "O:OSCR261106P00027000",
+      "option_instrument_id": "1ff2decf-118c-419e-ac7e-b5bf5a961d6a",
+      "price_asof": "2026-10-28T12:14:00-07:00",
+      "mtm_asof": "2026-10-28T12:14:00-07:00",
+      "entry_at": "2026-10-28T12:14:00-07:00",
+      "fill_source": "RH option bid",
+      "earnings_in_window": true,
+      "flags": [
+        "Midday Oct28 paper fill; RH bid 0.56 @ 2026-10-28T12:14:00-07:00; F&G 34.9; rules=v0.6-beta"
+      ],
+      "stock_path_pnl": 0.0,
+      "option_path_pnl": -6.5,
+      "ticket_return_pct": 0.02074074074074074,
+      "paper_roc_pct": -0.0024074074074074076,
+      "paper_acct_pct": -2.6e-05
     }
   ]
 }
