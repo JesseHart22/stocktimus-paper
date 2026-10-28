@@ -1393,9 +1393,31 @@
     return { day, title: parts.join(" \u00b7 ") };
   }
 
+  // Status pill is only for an active hold. Closed when date_closed is set,
+  // paper_status is not an open status (OPEN set; a blank status stays open,
+  // same as bucket()), or hold_status.outcome is already set.
+  function holdEnded(t) {
+    const raw = t && t.raw;
+    if (!raw || typeof raw !== "object") return false;
+    if (str(raw.date_closed)) return true;
+    const ps = str(raw.paper_status).toLowerCase();
+    if (ps && !OPEN.has(ps)) return true;
+    const h = raw.hold_status;
+    if (h && typeof h === "object" && str(h.outcome)) return true;
+    return false;
+  }
+
+  function holdTitle(t) {
+    const info = holdInfo(t);
+    if (!info) return "";
+    const outcome = str(t && t.raw && t.raw.hold_status && t.raw.hold_status.outcome);
+    if (holdEnded(t) && outcome) return "Hold ended: " + outcome + " \u00b7 " + info.title;
+    return info.title;
+  }
+
   function holdPill(t) {
     const h = holdInfo(t);
-    if (!h) return "";
+    if (!h || holdEnded(t)) return "";
     return ' <span class="pill hold" title="' + escapeHtml(h.title) +
       '" style="color:var(--amber);background:var(--amber-bg);border-color:rgba(232,180,76,.22);margin-left:4px">Hold day ' +
       escapeHtml(h.day) + "</span>";
@@ -1546,7 +1568,7 @@
       '<div class="dl">' +
         cell("Date", fmtDate(t.date)) +
         cell("Status", t.status || "—") +
-        (holdInfo(t) ? cell("Hold", holdInfo(t).title) : "") +
+        (holdInfo(t) ? cell("Hold", holdTitle(t)) : "") +
         (state.desk === "stocktimus" ? cell("Rules", t.rules_label || "—") : "") +
         cell("Confidence", t.confidence || "—") +
         cell("Why", t.confidence_reason || "—") +
