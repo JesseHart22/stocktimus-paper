@@ -2,6 +2,12 @@
 
 Each trade is tagged with the rules version in effect on its entry date. Versions before v0.5 were reconstructed from desk notes on 2026-10-19.
 
+## v0.7 beta (effective 2026-11-02)
+Why: Oct 26-30 self-score. The paper book fell about 1.4% on the week, and the SLV leftover stock lot (about a fifth of the book at risk) lost more than the whole book did. Stock lots have carried the weekly loss three weeks running (SE, GOOGL, SLV), while every CSP and call that resolved this week was green.
+- No single stock lot, leftover lots included, may carry more than ~10% of the book in capital at risk. Above that, trim toward the cap at the next brief while the name is at or above its out; a lot over the cap is Low until trimmed.
+- An ETF or proxy lot standing in for a creator's thesis on another asset (SLV for silver) follows the same cap and gets its numeric out on the proxy, not the underlying.
+- Unchanged: v0.6 CSP strike/out rules, hold rule, LIVE GATE, cluster exclusions.
+
 ## v0.6 beta (effective 2026-10-26)
 Why: Oct 19-23 self-score. The paper book fell about 4.6% on the week. The SE cut, the SLV leftover, and two Danny mega-cap CSPs (GOOGL, AMZN) did most of the damage. Small OTM CSPs (UNH, UPS, ASTS) and the call rolls all came in green.
 - A CSP's daily-close out must sit at or below its strike. If the source's invalidation sits above the strike, choose a lower strike or label it Low. (AMZN's $250 put had a $255.22 out, so it behaved like long stock.)
