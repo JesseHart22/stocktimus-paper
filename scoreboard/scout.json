@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-10-26T08:16:00-07:00",
+  "as_of": "2026-10-30T08:20:00-07:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -48,10 +48,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "long",
-      "stars": 10,
+      "stars": 11,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Oct 14: \"long bonds\" = ★8 (same open call, not a new graded row). Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (Bull Case for equities Q4 post, x.com/dampedspring/status/2111452487144055044) = ★9; same-day reply \"multiple leg trade in zb futures options for this alpha trade\" folded into ★9, not extra. Oct 15 call overwrite is not a close; position stays net long/open. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end. Oct 21 2:35pm ET: \"I'm long bonds but just renting for alpha. For beta they are a better balance\" (x.com/dampedspring/status/2112975980205940949) = ★10 (same open call). Tactical-exit watch: Oct 22 10:09am ET \"The No Pain trade. Bonds have almost made their move\" (x.com/dampedspring/status/2113271521397379487), same-thread \"I'll be shorting into it\" near ZB 108-07 (conditional, not a new call); Oct 23 6:05am ET reply \"Tactically I am selling into the rally\" (x.com/dampedspring/status/2113572570117161140). Not a stated flip to short; no stars added for these. Decide close vs. open at Oct month-end grading."
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Oct 14: \"long bonds\" = ★8 (same open call, not a new graded row). Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (Bull Case for equities Q4 post, x.com/dampedspring/status/2111452487144055044) = ★9; same-day reply \"multiple leg trade in zb futures options for this alpha trade\" folded into ★9, not extra. Oct 15 call overwrite is not a close; position stays net long/open. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end. Oct 21 2:35pm ET: \"I'm long bonds but just renting for alpha. For beta they are a better balance\" (x.com/dampedspring/status/2112975980205940949) = ★10 (same open call). Tactical-exit watch: Oct 22 10:09am ET \"The No Pain trade. Bonds have almost made their move\" (x.com/dampedspring/status/2113271521397379487), same-thread \"I'll be shorting into it\" near ZB 108-07 (conditional, not a new call); Oct 23 6:05am ET reply \"Tactically I am selling into the rally\" (x.com/dampedspring/status/2113572570117161140). Not a stated flip to short; no stars added for these. Decide close vs. open at Oct month-end grading. Oct 30 9:50am ET: \"Now what? Still in this long bonds short stocks trade. Bonds may have done most of their job. Maybe one last squeeze.\" (x.com/dampedspring/status/2116165912390938690) = ★11 (same open call); Oct 29 9:04pm ET \"Bonds are the best tm\" quote folded in, not extra. Oct 29 4:34pm ET \"Sold my STIR long just now into the spike\" is a separate front-end position, not this call."
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -60,10 +60,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "short",
-      "stars": 5,
+      "stars": 6,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Oct 14: \"short stocks\" = ★3 restatement of short equities (same open call, not a new graded row). Oct 16 1:05pm ET reply: \"As of 10/1 I went pretty big short equities ... I am bearish\" (x.com/dampedspring/status/2111141462616457465) = ★4; same-day \"6% outperformance of $TLT vs $SPY\" brag folded in, not extra. Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★5; same-day \"I agree. I am bearish.\" reply folded in. Still open. Proxies SPY,QQQ,IWM. Under 14d."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Oct 14: \"short stocks\" = ★3 restatement of short equities (same open call, not a new graded row). Oct 16 1:05pm ET reply: \"As of 10/1 I went pretty big short equities ... I am bearish\" (x.com/dampedspring/status/2111141462616457465) = ★4; same-day \"6% outperformance of $TLT vs $SPY\" brag folded in, not extra. Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★5; same-day \"I agree. I am bearish.\" reply folded in. Still open. Proxies SPY,QQQ,IWM. Under 14d. Oct 30 9:50am ET: \"Still in this long bonds short stocks trade\" (x.com/dampedspring/status/2116165912390938690) = ★6 (same open call)."
     },
     {
       "id": "ds-jpy-2026-09-29",
