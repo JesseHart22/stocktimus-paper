@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-10-26T08:20:00-07:00",
+  "as_of": "2026-11-01T09:30:00-08:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -150,324 +150,351 @@
       "handle": "Zerosumgame33",
       "ticker": "CLMT",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 4,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "New 7-day window (≥7d after Sep 17). First Sep 24 diesel-ban chirp; +4 through Sep 26 hang-tight / base-oil. Not graded."
+      "note": "New 7-day window (≥7d after Sep 17). First Sep 24 diesel-ban chirp; +4 through Sep 26 hang-tight / base-oil. Graded RH (Nov 1 rerate): entry CLMT 53.85 (2026-09-24 close) → end 49.65 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.077994
     },
     {
       "id": "zs-eose-2026-09-23",
       "handle": "Zerosumgame33",
       "ticker": "EOSE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 2,
       "called_at": "2026-09-23",
       "example": false,
-      "note": "Short: back to $1 / sell the L / Cerberus exit thesis after NYSERDA miss. Not graded."
+      "note": "Short: back to $1 / sell the L / Cerberus exit thesis after NYSERDA miss. Graded RH (Nov 1 rerate): entry EOSE 3.58 (2026-09-23 close) → end 1.89 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": 0.472067
     },
     {
       "id": "sd-nbis-2026-09-22",
       "handle": "Sandeman52",
       "ticker": "NBIS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 13,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "New window after Sep 11. ARR poll / PT / undervalued / customer-capacity narrative through Sep 28. Not graded."
+      "note": "New window after Sep 11. ARR poll / PT / undervalued / customer-capacity narrative through Sep 28. Graded RH (Nov 1 rerate): entry NBIS 236.12 (2026-09-22 close) → end 154.14 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.347196
     },
     {
       "id": "sd-ionq-2026-09-23",
       "handle": "Sandeman52",
       "ticker": "IONQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-23",
       "example": false,
-      "note": "Jan 2028 $65 calls should start to come alive. Not graded."
+      "note": "Jan 2028 $65 calls should start to come alive. Graded RH (Nov 1 rerate): entry IONQ 42.54 (2026-09-23 close) → end 30.04 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.293841
     },
     {
       "id": "sd-meta-2026-09-23",
       "handle": "Sandeman52",
       "ticker": "META",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-23",
       "example": false,
-      "note": "Go $META (quoted Zuck/AI narrative). Not graded."
+      "note": "Go $META (quoted Zuck/AI narrative). Graded RH (Nov 1 rerate): entry META 744.10 (2026-09-23 close) → end 614.99 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.173512
     },
     {
       "id": "ls-csiq-2026-09-24",
       "handle": "LucasSacerdote_",
       "ticker": "CSIQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Too cheap… adding; US-China / midterms hedge. No share price. Not graded."
+      "note": "Too cheap… adding; US-China / midterms hedge. No share price. Graded RH (Nov 1 rerate): entry CSIQ 10.95 (2026-09-24 close) → end 9.26 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.154338
     },
     {
       "id": "ls-lode-2026-09-21",
       "handle": "LucasSacerdote_",
       "ticker": "LODE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 3,
       "called_at": "2026-09-21",
       "example": false,
-      "note": "R/R better / SSOF / 24-7 recycling ramp. Not graded."
+      "note": "R/R better / SSOF / 24-7 recycling ramp. Graded RH (Nov 1 rerate): entry LODE 2.62 (2026-09-21 close) → end 1.41 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.461832
     },
     {
       "id": "ls-eose-2026-09-22",
       "handle": "LucasSacerdote_",
       "ticker": "EOSE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "Indensity white-paper / progress; still long vs ZS short. Not graded."
+      "note": "Indensity white-paper / progress; still long vs ZS short. Graded RH (Nov 1 rerate): entry EOSE 4.06 (2026-09-22 close) → end 1.89 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.534483
     },
     {
       "id": "ct-qqq-2026-09-22",
       "handle": "Chartradamus",
       "ticker": "QQQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 1,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "Stretched; rubber-band lower; grabbed puts. Not graded."
+      "note": "Stretched; rubber-band lower; grabbed puts. Graded RH (Nov 1 rerate): entry QQQ 747.46 (2026-09-22 close) → end 690.49 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": 0.076218
     },
     {
       "id": "zs-clmt-2026-10-02",
       "handle": "Zerosumgame33",
       "ticker": "CLMT",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 8,
       "called_at": "2026-10-02",
       "example": false,
-      "note": "New 7-day window (Oct 2–8 PT). First: shorts covering / base oil bonanza. +8 CLMT longs Oct 6–8 (API licensing, diesel margins, fair value $100+, 'doubles next year'). Not graded."
+      "note": "New 7-day window (Oct 2–8 PT). First: shorts covering / base oil bonanza. +8 CLMT longs Oct 6–8 (API licensing, diesel margins, fair value $100+, 'doubles next year'). Graded RH (Nov 1 rerate): entry CLMT 55.28 (2026-10-02 close) → end 49.65 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.101845
     },
     {
       "id": "zs-inv-2026-10-06",
       "handle": "Zerosumgame33",
       "ticker": "INV",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 6,
       "called_at": "2026-10-06",
       "example": false,
-      "note": "Short: $60M ATM = forced seller, 'FREE MONEY on the short side'. +6 bearish INV posts Oct 7–9 (ATM math, regret no puts, WTI loan covenant). Not graded."
+      "note": "Short: $60M ATM = forced seller, 'FREE MONEY on the short side'. +6 bearish INV posts Oct 7–9 (ATM math, regret no puts, WTI loan covenant). Graded RH (Nov 1 rerate): entry INV 0.5662 (2026-10-06 close) → end 0.3198 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": 0.435182
     },
     {
       "id": "zs-eose-2026-10-08",
       "handle": "Zerosumgame33",
       "ticker": "EOSE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 1,
       "called_at": "2026-10-08",
       "example": false,
-      "note": "New window (≥7d after Sep 23). 'Fully diluted equity worth < $1'. +1 Oct 9 Cerberus Dec lockup 'nail in the coffin'. Not graded."
+      "note": "New window (≥7d after Sep 23). 'Fully diluted equity worth < $1'. +1 Oct 9 Cerberus Dec lockup 'nail in the coffin'. Graded RH (Nov 1 rerate): entry EOSE 2.765 (2026-10-08 close) → end 1.89 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": 0.316456
     },
     {
       "id": "sm-nbis-2026-10-04",
       "handle": "Sandeman52",
       "ticker": "NBIS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 12,
       "called_at": "2026-10-04",
       "example": false,
-      "note": "New window (≥7d after Sep 22). First 'no big whoop'. +12 NBIS longs Oct 5–11 PT (43 bullish updates, ARR math, 'green face ripper', bought 3x lev Oct 10). Not graded."
+      "note": "New window (≥7d after Sep 22). First 'no big whoop'. +12 NBIS longs Oct 5–11 PT (43 bullish updates, ARR math, 'green face ripper', bought 3x lev Oct 10). Graded RH (Nov 1 rerate): entry NBIS 242.81 (2026-10-02 close; called weekend, entry last session on/before) → end 154.14 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.365183
     },
     {
       "id": "ls-csiq-2026-10-06",
       "handle": "LucasSacerdote_",
       "ticker": "CSIQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 4,
       "called_at": "2026-10-06",
       "example": false,
-      "note": "New window (≥7d after Sep 24). OX2 NSW BESS supply. +4 through Oct 12 (Victoria BESS, weekly buy #1, 0.25x book). Not graded."
+      "note": "New window (≥7d after Sep 24). OX2 NSW BESS supply. +4 through Oct 12 (Victoria BESS, weekly buy #1, 0.25x book). Graded RH (Nov 1 rerate): entry CSIQ 11.54 (2026-10-06 close) → end 9.26 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.197574
     },
     {
       "id": "ls-lode-2026-10-08",
       "handle": "LucasSacerdote_",
       "ticker": "LODE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-10-08",
       "example": false,
-      "note": "Weekly buys list (sized #3). New window (≥7d after Sep 21). Not graded."
+      "note": "Weekly buys list (sized #3). New window (≥7d after Sep 21). Graded RH (Nov 1 rerate): entry LODE 2.21 (2026-10-08 close) → end 1.41 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.361991
     },
     {
       "id": "ls-eose-2026-10-08",
       "handle": "LucasSacerdote_",
       "ticker": "EOSE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-10-08",
       "example": false,
-      "note": "Weekly buys list (sized #4). New window (≥7d after Sep 22). Not graded."
+      "note": "Weekly buys list (sized #4). New window (≥7d after Sep 22). Graded RH (Nov 1 rerate): entry EOSE 2.765 (2026-10-08 close) → end 1.89 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.316456
     },
     {
       "id": "ls-agro-2026-10-08",
       "handle": "LucasSacerdote_",
       "ticker": "AGRO",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-10-08",
       "example": false,
-      "note": "Weekly buys list (sized #6). Not graded."
+      "note": "Weekly buys list (sized #6). Graded RH (Nov 1 rerate): entry AGRO 10.46 (2026-10-08 close) → end 9.69 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.073614
     },
     {
       "id": "ct-cls-2026-10-16",
       "handle": "Chartradamus",
       "ticker": "CLS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 1,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "'Starting a position in each of $CLS $NBIS', keen into CLS earnings (~Oct 26); short-term trade, no strike/zone. (CLS also on Oct 14 shortlist, not counted.) Ref RH close CLS 303.81 (2026-10-16). Not graded. +1 Oct 22 PT (Oct 26 refresh): CLS/COHR 'preferred asymmetric, long-term opportunities', floor 'non-existent'."
+      "note": "'Starting a position in each of $CLS $NBIS', keen into CLS earnings (~Oct 26); short-term trade, no strike/zone. (CLS also on Oct 14 shortlist, not counted.) Ref RH close CLS 303.81 (2026-10-16). +1 Oct 22 PT (Oct 26 refresh): CLS/COHR 'preferred asymmetric, long-term opportunities', floor 'non-existent'. Graded RH (Nov 1 rerate): entry CLS 303.81 (2026-10-16 close) → end 265.53 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.126
     },
     {
       "id": "ct-nbis-2026-10-16",
       "handle": "Chartradamus",
       "ticker": "NBIS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "Same post as CLS: starting NBIS position, short-term trade, no strike/zone. ALIGNMENT w/ Sandeman NBIS long. Momentum cluster — never LIVE GATE. Ref RH close NBIS 165.47 (2026-10-16). Not graded."
+      "note": "Same post as CLS: starting NBIS position, short-term trade, no strike/zone. ALIGNMENT w/ Sandeman NBIS long. Momentum cluster — never LIVE GATE. Ref RH close NBIS 165.47 (2026-10-16). Graded RH (Nov 1 rerate): entry NBIS 165.47 (2026-10-16 close) → end 154.14 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.068472
     },
     {
       "id": "ct-qqq-2026-10-16",
       "handle": "Chartradamus",
       "ticker": "QQQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 1,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "5 red days; relief Mon/Tue; very small starter in QQQ calls for next week. +1 same-day reply: $715 strike, 0.5% of account. Opposite direction to ct-qqq-2026-09-22 (short). Ref RH close QQQ 709.80 (2026-10-16). Not graded."
+      "note": "5 red days; relief Mon/Tue; very small starter in QQQ calls for next week. +1 same-day reply: $715 strike, 0.5% of account. Opposite direction to ct-qqq-2026-09-22 (short). Ref RH close QQQ 709.80 (2026-10-16). Graded RH (Nov 1 rerate): entry QQQ 709.80 (2026-10-16 close) → end 690.49 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.027205
     },
     {
       "id": "ct-iwm-2026-10-14",
       "handle": "Chartradamus",
       "ticker": "IWM",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 1,
       "called_at": "2026-10-14",
       "example": false,
-      "note": "IWM 🔴: B-wave snapback possible but horrible on higher timeframe; August major top playing out. +1 Oct 15 (snapback came; assumes temporary, additional leg lower). Ref RH close IWM 271.37 (2026-10-14). Not graded."
+      "note": "IWM 🔴: B-wave snapback possible but horrible on higher timeframe; August major top playing out. +1 Oct 15 (snapback came; assumes temporary, additional leg lower). Ref RH close IWM 271.37 (2026-10-14). Graded RH (Nov 1 rerate): entry IWM 271.37 (2026-10-14 close) → end 279.33 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": -0.029333
     },
     {
       "id": "ct-spx-2026-10-14",
       "handle": "Chartradamus",
       "ticker": "SPX",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 2,
       "called_at": "2026-10-14",
       "example": false,
-      "note": "Monitoring $7620; lost daily 20MA/21EMA, 'sign of pain to come'. +2 Oct 18 PT: sell into strength, $7730/$7790 cap upside; 'more pain to come' on higher timeframe if bulls fail. Call-time SPX mark not frozen (index; left blank). Not graded."
+      "note": "Monitoring $7620; lost daily 20MA/21EMA, 'sign of pain to come'. +2 Oct 18 PT: sell into strength, $7730/$7790 cap upside; 'more pain to come' on higher timeframe if bulls fail. Call-time SPX mark not frozen (index; left blank). Graded RH SPX index (Nov 1 rerate): entry SPX 7718.94 (2026-10-14 close) → end 7580.07 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": 0.017991
     },
     {
       "id": "zs-clmt-2026-10-16",
       "handle": "Zerosumgame33",
       "ticker": "CLMT",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 5,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "New 7-day window (≥7d after Oct 2). First in pull: '$100+ in 1H 27' if base-oil crack ~$5/gal holds + debt paydown. +5: deleveraging cadence, Shell Pearl GTL watch, debt-redemption schedule, '~all of my capital' in CLMT (Oct 16), fundamentals+technicals (Oct 17). Target only, no buy zone. Ref RH close CLMT 57.75 (2026-10-16). ZS pull capped at 25 posts (covers Oct 16 05:03 PT→Oct 19); Oct 12–15 posts not read. Watch-only. Not graded."
+      "note": "New 7-day window (≥7d after Oct 2). First in pull: '$100+ in 1H 27' if base-oil crack ~$5/gal holds + debt paydown. +5: deleveraging cadence, Shell Pearl GTL watch, debt-redemption schedule, '~all of my capital' in CLMT (Oct 16), fundamentals+technicals (Oct 17). Target only, no buy zone. Ref RH close CLMT 57.75 (2026-10-16). ZS pull capped at 25 posts (covers Oct 16 05:03 PT→Oct 19); Oct 12–15 posts not read. Watch-only. Graded RH (Nov 1 rerate): entry CLMT 57.75 (2026-10-16 close) → end 49.65 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.14026
     },
     {
       "id": "zs-eose-2026-10-16",
       "handle": "Zerosumgame33",
       "ticker": "EOSE",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "short",
       "stars": 2,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "New window (≥7d after Oct 8). '$1 going to sub $1'. +2: 'Its a zero' (Oct 16), Q3 pre-release negative gross margin / low-end guide (Oct 19). Ref RH close EOSE 1.82 (2026-10-16). ZS pull capped at 25 posts (covers Oct 16 05:03 PT→Oct 19); Oct 12–15 posts not read. Watch-only. Not graded."
+      "note": "New window (≥7d after Oct 8). '$1 going to sub $1'. +2: 'Its a zero' (Oct 16), Q3 pre-release negative gross margin / low-end guide (Oct 19). Ref RH close EOSE 1.82 (2026-10-16). ZS pull capped at 25 posts (covers Oct 16 05:03 PT→Oct 19); Oct 12–15 posts not read. Watch-only. Graded RH (Nov 1 rerate): entry EOSE 1.82 (2026-10-16 close) → end 1.89 (2026-10-30 close, Oct month-end). Short: signed = −(end/entry − 1).",
+      "signed_return": -0.038462
     },
     {
       "id": "ls-csiq-2026-10-13",
       "handle": "LucasSacerdote_",
       "ticker": "CSIQ",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 9,
       "called_at": "2026-10-13",
       "example": false,
-      "note": "New window (≥7d after Oct 6). 'CSIQ is my biggest position'. +6: TAN volume/'CSIQ watch out' (Oct 13), fundamentals never stronger, UBS PT $16 note, analyst track record (Oct 14), Recurrent sale SOTP ~$10/sh + mfg '+$40/sh', US mfg platform (Oct 17). Targets only, no buy zone. Ref RH close CSIQ 11.21 (2026-10-13). Lucas pull starts Oct 13 07:56 PT. Watch-only. Not graded. +3 Oct 19 PT (Oct 26 refresh): FSLR lawsuit 'Bullish $CSIQ', MS ~$1/W value creation 'deep into extreme value', $64b private transition funds 'very bullish for $CSIQ' (Recurrent sale)."
+      "note": "New window (≥7d after Oct 6). 'CSIQ is my biggest position'. +6: TAN volume/'CSIQ watch out' (Oct 13), fundamentals never stronger, UBS PT $16 note, analyst track record (Oct 14), Recurrent sale SOTP ~$10/sh + mfg '+$40/sh', US mfg platform (Oct 17). Targets only, no buy zone. Ref RH close CSIQ 11.21 (2026-10-13). Lucas pull starts Oct 13 07:56 PT. Watch-only. +3 Oct 19 PT (Oct 26 refresh): FSLR lawsuit 'Bullish $CSIQ', MS ~$1/W value creation 'deep into extreme value', $64b private transition funds 'very bullish for $CSIQ' (Recurrent sale). Graded RH (Nov 1 rerate): entry CSIQ 11.21 (2026-10-13 close) → end 9.26 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.173952
     },
     {
       "id": "ls-tan-2026-10-13",
       "handle": "LucasSacerdote_",
       "ticker": "TAN",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 1,
       "called_at": "2026-10-13",
       "example": false,
-      "note": "'I like the trade going into midterms' (TAN ~3-4x avg volume). +1 same day: expect a bid before election day. No zone. Ref RH close TAN 44.38 (2026-10-13). Watch-only. Not graded."
+      "note": "'I like the trade going into midterms' (TAN ~3-4x avg volume). +1 same day: expect a bid before election day. No zone. Ref RH close TAN 44.38 (2026-10-13). Watch-only. Graded RH (Nov 1 rerate): entry TAN 44.38 (2026-10-13 close) → end 40.20 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.094187
     },
     {
       "id": "sd-nbis-2026-10-16",
       "handle": "Sandeman52",
       "ticker": "NBIS",
       "kind": "trade",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 4,
       "called_at": "2026-10-16",
       "example": false,
-      "note": "New window (≥7d after Oct 4). First in pull: director-buy confirm post. +3: 'good read for NBIS holders' (Oct 16), weak hands 'flushed' (Oct 17), 'Nothing has changed' (Oct 17). Ref RH close NBIS 165.47 (2026-10-16). Sandeman pull capped at 25 (covers Oct 16 10:12 PT→Oct 19); Oct 12–16 AM not read. Sandeman demoted. Not graded. +1 Oct 22 PT (Oct 26 refresh): 'Already bought NBIS and bought back covered calls I sold.'"
+      "note": "New window (≥7d after Oct 4). First in pull: director-buy confirm post. +3: 'good read for NBIS holders' (Oct 16), weak hands 'flushed' (Oct 17), 'Nothing has changed' (Oct 17). Ref RH close NBIS 165.47 (2026-10-16). Sandeman pull capped at 25 (covers Oct 16 10:12 PT→Oct 19); Oct 12–16 AM not read. Sandeman demoted. +1 Oct 22 PT (Oct 26 refresh): 'Already bought NBIS and bought back covered calls I sold.' Graded RH (Nov 1 rerate): entry NBIS 165.47 (2026-10-16 close) → end 154.14 (2026-10-30 close, Oct month-end).",
+      "signed_return": -0.068472
     },
     {
       "id": "zs-clmt-2026-10-24",
