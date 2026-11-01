@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-10-30T08:20:00-07:00",
+  "as_of": "2026-11-01T09:05:57-08:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -12,7 +12,7 @@
       "stars": 1,
       "called_at": "2026-09-08",
       "example": false,
-      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Still open through 2026-10-01. Age-eligible (≥14d) but open themes stay out of rank average until closed. MTM equal-weight TLT/IEF/TLH short Sep8→Sep30 close ≈ +4.33% (info only). Proxies TLT,IEF,TLH."
+      "note": "UST rates at ~20y highs from fiscal-trust, not inflation. Sep 10 follow-up = 1 star. Still open through 2026-10-01. Age-eligible (≥14d) but open themes stay out of rank average until closed. MTM equal-weight TLT/IEF/TLH short Sep8→Sep30 close ≈ +4.33% (info only). Proxies TLT,IEF,TLH. Nov 1 rerate: still open (no close/supersede posted); stays out of rank average. MTM short equal-weight TLT/IEF/TLH Sep8→Oct30 close ≈ +0.45% (info only; RH daily closes)."
     },
     {
       "id": "ds-tlt-2026-09-17",
@@ -39,7 +39,8 @@
       "called_at": "2026-09-22",
       "closed_at": "2026-09-24",
       "example": false,
-      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d — not graded."
+      "note": "Higher-for-longer / short-TLT central case. Superseded 2026-09-24 by long ZB delta. Under 14d at Oct 1 rerate. Graded 2026-11-01 monthly rerate: short equal-weight TLT/IEF/TLH Sep22 close→Sep24 close (TLT 81.75→79.42, IEF 91.16→89.69, TLH 95.81→93.34); signed_return +0.0235 (+2.35%). Robinhood daily closes (paper-site feed).",
+      "signed_return": 0.0235
     },
     {
       "id": "ds-tlt-2026-09-24",
@@ -51,7 +52,7 @@
       "stars": 11,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Oct 14: \"long bonds\" = ★8 (same open call, not a new graded row). Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (Bull Case for equities Q4 post, x.com/dampedspring/status/2111452487144055044) = ★9; same-day reply \"multiple leg trade in zb futures options for this alpha trade\" folded into ★9, not extra. Oct 15 call overwrite is not a close; position stays net long/open. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end. Oct 21 2:35pm ET: \"I'm long bonds but just renting for alpha. For beta they are a better balance\" (x.com/dampedspring/status/2112975980205940949) = ★10 (same open call). Tactical-exit watch: Oct 22 10:09am ET \"The No Pain trade. Bonds have almost made their move\" (x.com/dampedspring/status/2113271521397379487), same-thread \"I'll be shorting into it\" near ZB 108-07 (conditional, not a new call); Oct 23 6:05am ET reply \"Tactically I am selling into the rally\" (x.com/dampedspring/status/2113572570117161140). Not a stated flip to short; no stars added for these. Decide close vs. open at Oct month-end grading. Oct 30 9:50am ET: \"Now what? Still in this long bonds short stocks trade. Bonds may have done most of their job. Maybe one last squeeze.\" (x.com/dampedspring/status/2116165912390938690) = ★11 (same open call); Oct 29 9:04pm ET \"Bonds are the best tm\" quote folded in, not extra. Oct 29 4:34pm ET \"Sold my STIR long just now into the spike\" is a separate front-end position, not this call."
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Oct 14: \"long bonds\" = ★8 (same open call, not a new graded row). Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (Bull Case for equities Q4 post, x.com/dampedspring/status/2111452487144055044) = ★9; same-day reply \"multiple leg trade in zb futures options for this alpha trade\" folded into ★9, not extra. Oct 15 call overwrite is not a close; position stays net long/open. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end. Oct 21 2:35pm ET: \"I'm long bonds but just renting for alpha. For beta they are a better balance\" (x.com/dampedspring/status/2112975980205940949) = ★10 (same open call). Tactical-exit watch: Oct 22 10:09am ET \"The No Pain trade. Bonds have almost made their move\" (x.com/dampedspring/status/2113271521397379487), same-thread \"I'll be shorting into it\" near ZB 108-07 (conditional, not a new call); Oct 23 6:05am ET reply \"Tactically I am selling into the rally\" (x.com/dampedspring/status/2113572570117161140). Not a stated flip to short; no stars added for these. Decide close vs. open at Oct month-end grading. Oct 30 9:50am ET: \"Now what? Still in this long bonds short stocks trade. Bonds may have done most of their job. Maybe one last squeeze.\" (x.com/dampedspring/status/2116165912390938690) = ★11 (same open call); Oct 29 9:04pm ET \"Bonds are the best tm\" quote folded in, not extra. Oct 29 4:34pm ET \"Sold my STIR long just now into the spike\" is a separate front-end position, not this call. Nov 1 rerate decision: stays OPEN — Oct 30 post says \"Still in this long bonds short stocks trade\"; Oct 22–23 selling-into-rally lines were tactical, no stated exit. Out of rank average. MTM long equal-weight TLT/IEF/TLH Sep24→Oct30 close ≈ +2.76% (info only; RH daily closes)."
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -63,7 +64,7 @@
       "stars": 6,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Oct 14: \"short stocks\" = ★3 restatement of short equities (same open call, not a new graded row). Oct 16 1:05pm ET reply: \"As of 10/1 I went pretty big short equities ... I am bearish\" (x.com/dampedspring/status/2111141462616457465) = ★4; same-day \"6% outperformance of $TLT vs $SPY\" brag folded in, not extra. Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★5; same-day \"I agree. I am bearish.\" reply folded in. Still open. Proxies SPY,QQQ,IWM. Under 14d. Oct 30 9:50am ET: \"Still in this long bonds short stocks trade\" (x.com/dampedspring/status/2116165912390938690) = ★6 (same open call)."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Oct 14: \"short stocks\" = ★3 restatement of short equities (same open call, not a new graded row). Oct 16 1:05pm ET reply: \"As of 10/1 I went pretty big short equities ... I am bearish\" (x.com/dampedspring/status/2111141462616457465) = ★4; same-day \"6% outperformance of $TLT vs $SPY\" brag folded in, not extra. Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★5; same-day \"I agree. I am bearish.\" reply folded in. Still open. Proxies SPY,QQQ,IWM. Under 14d. Oct 30 9:50am ET: \"Still in this long bonds short stocks trade\" (x.com/dampedspring/status/2116165912390938690) = ★6 (same open call). Nov 1 rerate: still open (restated Oct 30); out of rank average. MTM short equal-weight SPY/QQQ/IWM Sep22→Oct30 close ≈ +4.22% (info only; RH daily closes)."
     },
     {
       "id": "ds-jpy-2026-09-29",
@@ -75,7 +76,7 @@
       "stars": 0,
       "called_at": "2026-09-29",
       "example": false,
-      "note": "Sep 29 LaRoche: slight long JPY. Proxy FXY frozen ~58.18 as of ~8:20am PT 2026-09-29. Slight sizing — not a graded trade. Under 14d."
+      "note": "Sep 29 LaRoche: slight long JPY. Proxy FXY frozen ~58.18 as of ~8:20am PT 2026-09-29. Slight sizing — not a graded trade. Under 14d. Nov 1 rerate: open, slight sizing, not a graded trade. FXY Oct30 close 58.19 vs 58.18 frozen (info only)."
     },
     {
       "id": "ds-ltpz-2026-10-01",
@@ -87,7 +88,7 @@
       "stars": 0,
       "called_at": "2026-10-01",
       "example": false,
-      "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close (Fri theme log)."
+      "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close (Fri theme log). Nov 1 rerate: open (paired with open TLT allocate); out of rank average. MTM long LTPZ Oct1→Oct30 close ≈ +5.44% (info only; RH daily closes)."
     },
     {
       "id": "jam-spy-2026-10-02",
@@ -99,7 +100,7 @@
       "stars": 1,
       "called_at": "2026-10-02",
       "example": false,
-      "note": "Oct 2 1:48pm ET: short US equities. Oct 14 repeat = ★1 (same open call, not a new graded row). Proxies frozen at entry: SPY 769.20, QQQ 749.07. Open/ungraded; grade at October 2026 month-end."
+      "note": "Oct 2 1:48pm ET: short US equities. Oct 14 repeat = ★1 (same open call, not a new graded row). Proxies frozen at entry: SPY 769.20, QQQ 749.07. Open/ungraded; grade at October 2026 month-end. Nov 1 rerate: no close posted, so stays open and out of rank average (Scout open-theme rule). MTM short equal-weight SPY/QQQ vs frozen entry → Oct30 close ≈ +4.79% (info only; RH daily closes)."
     },
     {
       "id": "jc-siri-2026-10-09",
@@ -111,7 +112,7 @@
       "stars": 0,
       "called_at": "2026-10-09",
       "example": false,
-      "note": "Oct 9 ~2:00pm PT thread with Eagle Point Capital: \"$SIRI seems very cheap at 6.5x FCF, a 15% free cash flow yield\"; satellite capex wind-down boosts FCF, deleveraging nearly done, buybacks ramping, 4.1% dividend, spare 2.3 GHz S-band spectrum, YouTube audio ad deal, 11% short interest. Source x.com/jam_croissant/status/2108663820428202167. Under 14d."
+      "note": "Oct 9 ~2:00pm PT thread with Eagle Point Capital: \"$SIRI seems very cheap at 6.5x FCF, a 15% free cash flow yield\"; satellite capex wind-down boosts FCF, deleveraging nearly done, buybacks ramping, 4.1% dividend, spare 2.3 GHz S-band spectrum, YouTube audio ad deal, 11% short interest. Source x.com/jam_croissant/status/2108663820428202167. Under 14d. Nov 1 rerate: age-eligible (22d) but open; no exit posted, so out of rank average. MTM long SIRI Oct9 close 26.51→Oct30 close 29.01 ≈ +9.43% (info only; RH daily closes)."
     },
     {
       "id": "ds-btc-2026-10-26",
@@ -123,7 +124,7 @@
       "stars": 0,
       "called_at": "2026-10-26",
       "example": false,
-      "note": "Oct 26 10:00am ET: \"Increased my bid back up to 69,420 from 42,069\" with own meme image captioned \"WHEN ANDY BUYS 1% OF HIS AUM IN BTC AT 69,420\" (x.com/dampedspring/status/2114718932980334641). Resting buy zone: BTC 69,420, ~1% AUM. Bid, not a confirmed fill; proxy (IBIT/BTC spot) not frozen. Buy zone logged for owning desk: Compounder (default; no desk has a crypto lane, CoS to confirm). Under 14d."
+      "note": "Oct 26 10:00am ET: \"Increased my bid back up to 69,420 from 42,069\" with own meme image captioned \"WHEN ANDY BUYS 1% OF HIS AUM IN BTC AT 69,420\" (x.com/dampedspring/status/2114718932980334641). Resting buy zone: BTC 69,420, ~1% AUM. Bid, not a confirmed fill; proxy (IBIT/BTC spot) not frozen. Buy zone logged for owning desk: Compounder (default; no desk has a crypto lane, CoS to confirm). Under 14d. Nov 1 rerate: under 14d (called Oct 26) — waits."
     },
     {
       "id": "ds-gld-2026-10-26",
@@ -135,7 +136,7 @@
       "stars": 0,
       "called_at": "2026-10-26",
       "example": false,
-      "note": "Oct 26 10:11am ET own reply to @fejau_inc (\"curious why?\" about his BTC bid): \"For similar reasons to why I want to buy more gold at $3500.\" (x.com/dampedspring/status/2114721572506230919). Resting buy zone: gold $3,500/oz (\"more\" implies existing long). Conditional add, not a fill; proxies GLD,IAU,GC not frozen. Buy zone logged for owning desk: Compounder. Under 14d."
+      "note": "Oct 26 10:11am ET own reply to @fejau_inc (\"curious why?\" about his BTC bid): \"For similar reasons to why I want to buy more gold at $3500.\" (x.com/dampedspring/status/2114721572506230919). Resting buy zone: gold $3,500/oz (\"more\" implies existing long). Conditional add, not a fill; proxies GLD,IAU,GC not frozen. Buy zone logged for owning desk: Compounder. Under 14d. Nov 1 rerate: under 14d (called Oct 26) — waits."
     }
   ]
 }
