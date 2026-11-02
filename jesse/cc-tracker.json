@@ -1,7 +1,7 @@
 {
   "desk": "jesse",
   "title": "Covered Call Income",
-  "as_of": "2026-10-30T12:04:55-07:00",
+  "as_of": "2026-11-02T08:11:04-08:00",
   "source": "fidelity_positions_csv + covered-call-income-tracker.xlsx",
   "theme": "clay_sage",
   "rules": {
@@ -21,12 +21,12 @@
       "shares": 1000.0,
       "cost_per_share": 61.65,
       "cost_basis": 61650.0,
-      "last": 39.43,
-      "market_value": 39430.0,
-      "open_cc_shares": 500.0,
-      "covered_capital": 30825.0,
-      "uncovered_shares": 500.0,
-      "uncovered_capital": 30825.0,
+      "last": 38.9896,
+      "market_value": 38989.6,
+      "open_cc_shares": 0.0,
+      "covered_capital": 0.0,
+      "uncovered_shares": 1000.0,
+      "uncovered_capital": 61650.0,
       "program_status": "In program",
       "program_capital": 61650.0
     },
@@ -35,12 +35,12 @@
       "shares": 200.0,
       "cost_per_share": 111.56,
       "cost_basis": 22312.0,
-      "last": 97.715,
-      "market_value": 19543.0,
-      "open_cc_shares": 200.0,
-      "covered_capital": 22312.0,
-      "uncovered_shares": 0.0,
-      "uncovered_capital": 0.0,
+      "last": 103.72,
+      "market_value": 20744.0,
+      "open_cc_shares": 0.0,
+      "covered_capital": 0.0,
+      "uncovered_shares": 200.0,
+      "uncovered_capital": 22312.0,
       "program_status": "In program",
       "program_capital": 22312.0
     },
@@ -49,8 +49,8 @@
       "shares": 500.0,
       "cost_per_share": 56.5,
       "cost_basis": 28250.0,
-      "last": 48.93,
-      "market_value": 24465.0,
+      "last": 49.232,
+      "market_value": 24616.0,
       "open_cc_shares": 100.0,
       "covered_capital": 5650.0,
       "uncovered_shares": 400.0,
@@ -63,12 +63,12 @@
       "shares": 2000.0,
       "cost_per_share": 12.26,
       "cost_basis": 24520.0,
-      "last": 7.375,
-      "market_value": 14750.0,
-      "open_cc_shares": 2000.0,
-      "covered_capital": 24520.0,
-      "uncovered_shares": 0.0,
-      "uncovered_capital": 0.0,
+      "last": 7.475,
+      "market_value": 14950.0,
+      "open_cc_shares": 0.0,
+      "covered_capital": 0.0,
+      "uncovered_shares": 2000.0,
+      "uncovered_capital": 24520.0,
       "program_status": "In program",
       "program_capital": 24520.0
     },
@@ -77,8 +77,8 @@
       "shares": 1.0,
       "cost_per_share": 3.67,
       "cost_basis": 3.67,
-      "last": 1.82,
-      "market_value": 1.82,
+      "last": 1.895,
+      "market_value": 1.895,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 1.0,
@@ -91,8 +91,8 @@
       "shares": 2500.0,
       "cost_per_share": 0.42,
       "cost_basis": 1050.0,
-      "last": 0.299,
-      "market_value": 747.5,
+      "last": 0.3198,
+      "market_value": 799.5,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 2500.0,
@@ -105,8 +105,8 @@
       "shares": 1000.0,
       "cost_per_share": 17.75,
       "cost_basis": 17750.0,
-      "last": 12.74,
-      "market_value": 12740.0,
+      "last": 13.25,
+      "market_value": 13250.0,
       "open_cc_shares": 1000.0,
       "covered_capital": 17750.0,
       "uncovered_shares": 0.0,
@@ -115,26 +115,12 @@
       "program_capital": 17750.0
     },
     {
-      "ticker": "NKE",
-      "shares": 900.0,
-      "cost_per_share": 35.73,
-      "cost_basis": 32157.0,
-      "last": 38.735,
-      "market_value": 34861.5,
-      "open_cc_shares": 900.0,
-      "covered_capital": 32157.0,
-      "uncovered_shares": 0.0,
-      "uncovered_capital": 0.0,
-      "program_status": "In program",
-      "program_capital": 32157.0
-    },
-    {
       "ticker": "ONDS",
       "shares": 2000.0,
       "cost_per_share": 7.86,
       "cost_basis": 15720.0,
-      "last": 6.235,
-      "market_value": 12470.0,
+      "last": 6.295,
+      "market_value": 12590.0,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 2000.0,
@@ -147,8 +133,8 @@
       "shares": 8000.0,
       "cost_per_share": 1.264375,
       "cost_basis": 10115.0,
-      "last": 0.6337,
-      "market_value": 5069.6,
+      "last": 0.6233,
+      "market_value": 4986.4,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 8000.0,
@@ -161,8 +147,8 @@
       "shares": 5.0,
       "cost_per_share": 228.3,
       "cost_basis": 1141.5,
-      "last": 395.05,
-      "market_value": 1975.25,
+      "last": 412.43,
+      "market_value": 2062.15,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 5.0,
@@ -175,8 +161,8 @@
       "shares": 1200.0,
       "cost_per_share": 21.9,
       "cost_basis": 26280.0,
-      "last": 9.95,
-      "market_value": 11940.0,
+      "last": 9.93,
+      "market_value": 11916.0,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 1200.0,
@@ -189,8 +175,8 @@
       "shares": 500.0,
       "cost_per_share": 19.31,
       "cost_basis": 9655.0,
-      "last": 15.73,
-      "market_value": 7865.0,
+      "last": 15.035,
+      "market_value": 7517.5,
       "open_cc_shares": 0.0,
       "covered_capital": 0.0,
       "uncovered_shares": 500.0,
@@ -226,7 +212,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": null,
-      "active_capital_$": 0.0
+      "active_capital_$": 61650.0
     },
     {
       "trade_id": "CC-002",
@@ -254,7 +240,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": null,
-      "active_capital_$": 0.0
+      "active_capital_$": 11375.0
     },
     {
       "trade_id": "CC-003",
@@ -338,7 +324,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": null,
-      "active_capital_$": 0.0
+      "active_capital_$": 11984.0
     },
     {
       "trade_id": "CC-006",
@@ -506,7 +492,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Added from portfolio positions (not in this week activity CSV). Premium = Fidelity short-option cost basis (credit; fees likely netted).  Portfolio NKE avg cost $36.33 (1000 sh). | Sell date set to 2026-09-22 (this week per Jesse). Premium allocated to expiration week(s), not sell week. | Fees estimated from Jesse STO schedule ($0.35/ct commission + ~$0.015/ct ORF) = $0.36 on 1 ct; gross backed out so net stays portfolio credit $65.64.",
-      "active_capital_$": 0.0
+      "active_capital_$": 3633.0
     },
     {
       "trade_id": "CC-011",
@@ -534,7 +520,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Added from portfolio positions (not in this week activity CSV). Premium = Fidelity short-option cost basis (credit; fees likely netted).  Portfolio NKE avg cost $36.33 (1000 sh). | Sell date set to 2026-09-22 (this week per Jesse). Premium allocated to expiration week(s), not sell week. | Fees estimated from Jesse STO schedule ($0.35/ct commission + ~$0.015/ct ORF) = $1.82 on 5 ct; gross backed out so net stays portfolio credit $448.18. | Fidelity activity 10/12: NKE Oct9 $39 EXPIRED as of 2026-10-09; shares kept per 10/12 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 18165.0
     },
     {
       "trade_id": "CC-012",
@@ -562,7 +548,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Added from portfolio positions (not in this week activity CSV). Premium = Fidelity short-option cost basis (credit; fees likely netted).  Portfolio NKE avg cost $36.33 (1000 sh). | Sell date set to 2026-09-22 (this week per Jesse). Premium allocated to expiration week(s), not sell week. | Fees estimated from Jesse STO schedule ($0.35/ct commission + ~$0.015/ct ORF) = $1.46 on 4 ct; gross backed out so net stays portfolio credit $318.55. | Fidelity activity 10/19: NKE Oct16 $40 \u00d74 EXPIRED as of 2026-10-16; shares kept per 10/19 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 14532.0
     },
     {
       "trade_id": "CC-013",
@@ -590,7 +576,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Confirmed activity 2026-09-28: STO \u221210 ASTS Oct2 $62 @1.90; net $1,896.33 (comm $3.50 + fees $0.17). Same-day BTO@1.80 / STC@1.85 daytrade logged separately as OD-001 \u2014 not netted into this CC.",
-      "active_capital_$": 0.0
+      "active_capital_$": 61650.0
     },
     {
       "trade_id": "CC-014",
@@ -618,7 +604,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Confirmed activity 2026-09-28: STO \u22121 NKE Oct2 $36.50 @1.42; net $141.64 (comm $0.35 + fees $0.01).",
-      "active_capital_$": 0.0
+      "active_capital_$": 3633.0
     },
     {
       "trade_id": "CC-015",
@@ -842,7 +828,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-06: STO \u221210 ASTS Oct9 $62 @1.50; gross $1500, comm $3.50, fees $0.17, net $1496.33. | Fidelity activity 10/12: ASTS Oct9 $62 EXPIRED as of 2026-10-09; shares kept per 10/12 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 61650.0
     },
     {
       "trade_id": "CC-019",
@@ -898,7 +884,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-05: STO \u22121 BABA Oct9 $114 @0.88; gross $88, comm $0.35, fees $0.01, net $87.64. Stock px at sale = Oct 5 positions Last 108.785 (CSV 9:48a ET). | Fidelity activity 10/12: BABA Oct9 $114 EXPIRED as of 2026-10-09; shares kept per 10/12 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 11375.0
     },
     {
       "trade_id": "CC-021",
@@ -1010,7 +996,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-14: STO \u22121 BABA Oct16 $114 @0.75; gross $75, comm $0.35, fees $0.01, net $74.64. Stock px at sale not in CSVs (blank). | Fidelity activity 10/19: BABA Oct16 $114 \u00d71 EXPIRED as of 2026-10-16; shares kept per 10/19 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 11375.0
     },
     {
       "trade_id": "CC-024",
@@ -1094,7 +1080,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Positions 2026-10-15 12:31p ET first sighting: STO \u22125 NKE Oct16 $37.50 @0.30; gross $150, comm $1.75, fees $0.07, net $148.18 (matches positions Cost basis total). No activity CSV this drop. Cost = positions avg $35.94. Stock px at sale \u2248 positions Last $37.425. | Fidelity activity 10/19: NKE Oct16 $37.50 \u00d75 EXPIRED as of 2026-10-16; shares kept per 10/19 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 17970.0
     },
     {
       "trade_id": "DIV-005",
@@ -1150,7 +1136,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-19: STO \u22122 BABA Oct23 $112 @0.90; gross $180, comm $0.70, fees $0.03, net $179.27 (matches positions Cost basis total). Same day BOUGHT 100 BABA @ $109.38 (\u2212$10,937.50) \u2192 200 sh. Cost = 10/19 positions avg $111.56 (CB total $22,312.50; lots 9/21 @ $113.75 + 10/19 @ $109.38), purchase date mixed (blank). Stock px at sale \u2248 10/19 positions Last $108.86 (1:48p ET). | Fidelity activity 10/26: BABA Oct23 $112 \u00d72 EXPIRED as of 2026-10-23; 200 BABA kept per 10/26 positions.",
-      "active_capital_$": 0.0
+      "active_capital_$": 22312.0
     },
     {
       "trade_id": "CC-028",
@@ -1178,7 +1164,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-20: STO \u22129 NKE Oct23 $38 @0.45; gross $405, comm $3.15, fees $0.12, net $401.73. Bought back 10/23 @0.03 (-$27.12): BTC 9 @0.03 = $27.00 + $0.12 fee. NETTED per Jesse 2026-10-26: Premium (gross) = $405 \u2212 $27 = $378, Fees = $0.12 + $0.12 = $0.24, Commission $3.15 \u2192 net $374.61. No closed/bought-back status in workbook (Open/Yes/Expired) \u2192 Expired = option gone, 900 NKE kept. Rolled same day into CC-030. Cost = 10/26 positions avg $35.73. Stock px at sale not in CSVs (blank).",
-      "active_capital_$": 0.0
+      "active_capital_$": 32157.0
     },
     {
       "trade_id": "CC-029",
@@ -1205,7 +1191,7 @@
       "called_away_date": null,
       "assign_p&l___share": null,
       "assign_p&l_total": null,
-      "notes": "Activity 2026-10-20: STO \u22121 CLMT Nov20 $60 @3.00; gross $300, comm $0.35, fees $0.01, net $299.64 (matches 10/26 positions Cost basis total). Covers 100 of 500 CLMT. Cost = positions avg $56.50. Stock px at sale not in CSVs (blank). Still open on 10/26 positions (Last $1.40).",
+      "notes": "Activity 2026-10-20: STO \u22121 CLMT Nov20 $60 @3.00; gross $300, comm $0.35, fees $0.01, net $299.64 (matches 10/26 positions Cost basis total). Covers 100 of 500 CLMT. Cost = positions avg $56.50. Stock px at sale not in CSVs (blank). Still open on 11/02 positions (Last $1.00).",
       "active_capital_$": 5650.0
     },
     {
@@ -1234,7 +1220,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-23: STO \u22129 NKE Oct23 $37.50 @0.25; gross $225, comm $3.15, fees $0.12, net $221.73 (0DTE roll after CC-028 BTC). EXPIRED as of 2026-10-23 (activity 10/26); 900 NKE kept. Cost = 10/26 positions avg $35.73. Stock px at sale not in CSVs (blank).",
-      "active_capital_$": 0.0
+      "active_capital_$": 32157.0
     },
     {
       "trade_id": "CC-031",
@@ -1262,7 +1248,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-23: STO \u221210 ASTS Oct23 $40 @0.09; gross $90, comm $2.42, fees $0.13, net $87.45 (0DTE). EXPIRED as of 2026-10-23 (activity 10/26); 1000 ASTS kept. Stock px at sale not in CSVs (blank).",
-      "active_capital_$": 0.0
+      "active_capital_$": 61650.0
     },
     {
       "trade_id": "DIV-006",
@@ -1318,7 +1304,7 @@
       "assign_p&l___share": null,
       "assign_p&l_total": null,
       "notes": "Activity 2026-10-26: STO \u22125 ASTS Oct30 $40.50 @1.70; gross $850, comm $1.75, fees $0.09, net $848.16 (matches 10/28 positions Cost basis total). Covers 500 of 1000 ASTS (other 500 = CC-033). Cost = positions avg $61.65. Stock px at sale not in CSVs (blank). Bought back 2026-10-30 (activity CSV dl 10/30): BTC 5 @0.06 = $30.00, commission blank ($0), fees $0.07 \u2192 \u2212$30.07. NETTED per CC-028 precedent: Premium (gross) = $850 \u2212 $30 = $820, Commission $1.75, Fees $0.09 + $0.07 = $0.16 \u2192 net $818.09 (= $848.16 \u2212 $30.07). Status Expired = option gone (workbook has no closed/bought-back status: Open/Yes/Expired); 500 ASTS kept. Closed in week ending 2026-10-30.",
-      "active_capital_$": 0.0
+      "active_capital_$": 30825.0
     },
     {
       "trade_id": "CC-033",
@@ -1341,11 +1327,11 @@
       "weekly_allocation": 223.18,
       "trade_roc_pct": 0.00724,
       "weekly_roc_pct": 0.00724,
-      "called_away": "Open",
+      "called_away": "Expired",
       "called_away_date": null,
       "assign_p&l___share": null,
       "assign_p&l_total": null,
-      "notes": "Activity 2026-10-27: STO \u22125 ASTS Oct30 $44 @0.45; gross $225, comm $1.75, fees $0.07, net $223.18 (matches 10/28 positions). Covers the other 500 of 1000 ASTS. Stock px at sale not in CSVs (blank). Open (Last $0.41).",
+      "notes": "Activity 2026-10-27: STO \u22125 ASTS Oct30 $44 @0.45; gross $225, comm $1.75, fees $0.07, net $223.18 (matches 10/28 positions). Covers the other 500 of 1000 ASTS. Stock px at sale not in CSVs (blank). Open (Last $0.41). EXPIRED as of 2026-10-30 (activity CSV dl 11/02); ASTS 1000 kept (11/02 positions). No assignment P&L.",
       "active_capital_$": 30825.0
     },
     {
@@ -1369,11 +1355,11 @@
       "weekly_allocation": 169.27,
       "trade_roc_pct": 0.007587,
       "weekly_roc_pct": 0.007587,
-      "called_away": "Open",
+      "called_away": "Expired",
       "called_away_date": null,
       "assign_p&l___share": null,
       "assign_p&l_total": null,
-      "notes": "Activity 2026-10-27: STO \u22122 BABA Oct30 $102 @0.85; gross $170, comm $0.70, fees $0.03, net $169.27 (matches 10/28 positions). Covers 200 BABA. Strike $102 < cost $111.56 \u2192 if called away, assignment P&L \u2212$1,912. Stock px at sale not in CSVs (blank). Open (Last $0.73).",
+      "notes": "Activity 2026-10-27: STO \u22122 BABA Oct30 $102 @0.85; gross $170, comm $0.70, fees $0.03, net $169.27 (matches 10/28 positions). Covers 200 BABA. Strike $102 < cost $111.56 \u2192 if called away, assignment P&L \u2212$1,912. Stock px at sale not in CSVs (blank). Open (Last $0.73). EXPIRED as of 2026-10-30 (activity CSV dl 11/02); BABA 200 kept (11/02 positions). No assignment P&L.",
       "active_capital_$": 22312.0
     },
     {
@@ -1397,12 +1383,12 @@
       "weekly_allocation": 446.73,
       "trade_roc_pct": 0.013892,
       "weekly_roc_pct": 0.013892,
-      "called_away": "Open",
-      "called_away_date": null,
-      "assign_p&l___share": null,
-      "assign_p&l_total": null,
-      "notes": "Activity 2026-10-28: STO \u22129 NKE Oct30 $37.50 @0.50; gross $450, comm $3.15, fees $0.12, net $446.73 (matches 10/28 positions). Covers 900 NKE. Cost = positions avg $35.73. Stock px at sale not in CSVs (blank). Open (Last $0.47).",
-      "active_capital_$": 32157.0
+      "called_away": "Yes",
+      "called_away_date": "2026-10-30",
+      "assign_p&l___share": 1.77,
+      "assign_p&l_total": 1593.0,
+      "notes": "Activity 2026-10-28: STO \u22129 NKE Oct30 $37.50 @0.50; gross $450, comm $3.15, fees $0.12, net $446.73 (matches 10/28 positions). Covers 900 NKE. Cost = positions avg $35.73. Stock px at sale not in CSVs (blank). ASSIGNED as of 2026-10-30 (activity CSV dl 11/02): 900 NKE called away @ $37.50, proceeds $33,749.30 after $0.70 fee (settled 11/02). Assignment P&L = ($37.50 \u2212 $35.73) \u00d7 900 = +$1,593.00, booked in week ending 2026-10-30 (the $0.70 fee is not in the Assign P&L formula, same as CC-024). NKE 900 \u2192 0 on 11/02 positions.",
+      "active_capital_$": 0.0
     },
     {
       "trade_id": "CC-036",
@@ -1429,7 +1415,7 @@
       "called_away_date": null,
       "assign_p&l___share": null,
       "assign_p&l_total": null,
-      "notes": "Activity 2026-10-29 (confirmed, activity CSV dl 10/30): STO \u221210 MSTY Nov20 $15 @0.20; gross $200, comm $3.50, fees $0.13, net $196.37 (matches positions Cost basis total). First seen on 10/29 positions 11:23a ET (booked then as gross = net, date assumed; corrected 2026-10-30). Covers 1000 MSTY. Cost = positions avg $17.75. Strike $15 < cost $17.75 \u2192 if called away, assignment P&L \u2212$2,750. Stock px at sale not in CSVs (blank). Open on 10/30 positions (Last $0.10).",
+      "notes": "Activity 2026-10-29 (confirmed, activity CSV dl 10/30): STO \u221210 MSTY Nov20 $15 @0.20; gross $200, comm $3.50, fees $0.13, net $196.37 (matches positions Cost basis total). First seen on 10/29 positions 11:23a ET (booked then as gross = net, date assumed; corrected 2026-10-30). Covers 1000 MSTY. Cost = positions avg $17.75. Strike $15 < cost $17.75 \u2192 if called away, assignment P&L \u2212$2,750. Stock px at sale not in CSVs (blank). Open on 11/02 positions (Last $0.10; MSTY $13.25).",
       "active_capital_$": 17750.0
     },
     {
@@ -1453,11 +1439,11 @@
       "weekly_allocation": 135.96,
       "trade_roc_pct": 0.005545,
       "weekly_roc_pct": 0.005545,
-      "called_away": "Open",
+      "called_away": "Expired",
       "called_away_date": null,
       "assign_p&l___share": null,
       "assign_p&l_total": null,
-      "notes": "Activity 2026-10-29: STO \u221220 CLSK Oct30 $9 @0.07; gross $140, comm $3.77, fees $0.27, net $135.96 (matches 10/30 positions Cost basis total). Covers 2000 CLSK (In program). Cost = positions avg $12.26. Strike $9 < cost $12.26 \u2192 if called away, assignment P&L \u2212$6,520. Stock px at sale not in CSVs (blank). Open on 10/30 positions 3:00p ET (Last $0.01; CLSK $7.375).",
+      "notes": "Activity 2026-10-29: STO \u221220 CLSK Oct30 $9 @0.07; gross $140, comm $3.77, fees $0.27, net $135.96 (matches 10/30 positions Cost basis total). Covers 2000 CLSK (In program). Cost = positions avg $12.26. Strike $9 < cost $12.26 \u2192 if called away, assignment P&L \u2212$6,520. Stock px at sale not in CSVs (blank). Open on 10/30 positions 3:00p ET (Last $0.01; CLSK $7.375). EXPIRED as of 2026-10-30 (activity CSV dl 11/02); CLSK 2000 kept (11/02 positions). No assignment P&L.",
       "active_capital_$": 24520.0
     }
   ],
@@ -2186,7 +2172,7 @@
       "allocated_fees": 1.82,
       "capital_invested": 30825.0,
       "weekly_roc_pct": 0.00724,
-      "called_away": "Open",
+      "called_away": "Expired",
       "source_row": 42,
       "expiration": "2026-10-30"
     },
@@ -2199,7 +2185,7 @@
       "allocated_fees": 0.73,
       "capital_invested": 22312.0,
       "weekly_roc_pct": 0.007587,
-      "called_away": "Open",
+      "called_away": "Expired",
       "source_row": 43,
       "expiration": "2026-10-30"
     },
@@ -2212,7 +2198,7 @@
       "allocated_fees": 3.27,
       "capital_invested": 32157.0,
       "weekly_roc_pct": 0.013892,
-      "called_away": "Open",
+      "called_away": "Yes",
       "source_row": 44,
       "expiration": "2026-10-30"
     },
@@ -2277,7 +2263,7 @@
       "allocated_fees": 4.04,
       "capital_invested": 24520.0,
       "weekly_roc_pct": 0.005545,
-      "called_away": "Open",
+      "called_away": "Expired",
       "source_row": 46,
       "expiration": "2026-10-30"
     }
@@ -2300,8 +2286,8 @@
       "cumulative_overall": 6782.658333,
       "trade_count": 13,
       "called_away_flags": 12,
-      "return_on_program_cost_basis": 0.026918,
-      "income_return_pct_vs_program": 0.026918,
+      "return_on_program_cost_basis": 0.031096,
+      "income_return_pct_vs_program": 0.031096,
       "start_of_week_value": 234662.92,
       "return_on_program_start_value": 0.027455,
       "start_value_status": "ok \u2014 no second CSV to cross-check",
@@ -2413,8 +2399,8 @@
       "cumulative_overall": 10313.016667,
       "trade_count": 12,
       "called_away_flags": 8,
-      "return_on_program_cost_basis": 0.01475,
-      "income_return_pct_vs_program": 0.01475,
+      "return_on_program_cost_basis": 0.017039,
+      "income_return_pct_vs_program": 0.017039,
       "start_of_week_value": 237892.0,
       "return_on_program_start_value": 0.01484,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV bf6ebfe8",
@@ -2522,8 +2508,8 @@
       "cumulative_overall": 11815.075,
       "trade_count": 10,
       "called_away_flags": 9,
-      "return_on_program_cost_basis": 0.013901,
-      "income_return_pct_vs_program": 0.013901,
+      "return_on_program_cost_basis": 0.016058,
+      "income_return_pct_vs_program": 0.016058,
       "start_of_week_value": 230551.0,
       "return_on_program_start_value": 0.014431,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV 40d00486",
@@ -2627,8 +2613,8 @@
       "cumulative_overall": 13489.34,
       "trade_count": 9,
       "called_away_flags": 8,
-      "return_on_program_cost_basis": 0.006452,
-      "income_return_pct_vs_program": 0.006452,
+      "return_on_program_cost_basis": 0.007453,
+      "income_return_pct_vs_program": 0.007453,
       "start_of_week_value": 211080.96,
       "return_on_program_start_value": 0.007316,
       "start_value_status": "ok \u2014 no second CSV to cross-check",
@@ -2751,8 +2737,8 @@
       "cumulative_overall": 14579.428,
       "trade_count": 6,
       "called_away_flags": 4,
-      "return_on_program_cost_basis": 0.004554,
-      "income_return_pct_vs_program": 0.004554,
+      "return_on_program_cost_basis": 0.005261,
+      "income_return_pct_vs_program": 0.005261,
       "start_of_week_value": 185971.0,
       "return_on_program_start_value": 0.005862,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
@@ -2850,16 +2836,16 @@
       "daytrade_pnl": 0.0,
       "dividends": 0.0,
       "income_total": 1902.2505,
-      "assignment_pnl": 0.0,
-      "overall_total": 1902.2505,
-      "total_week_pnl": 1902.2505,
+      "assignment_pnl": 1593.0,
+      "overall_total": 3495.2505,
+      "total_week_pnl": 3495.2505,
       "cumulative_income": 17836.6785,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16481.6785,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18074.6785,
       "trade_count": 7,
-      "called_away_flags": 1,
-      "return_on_program_cost_basis": 0.007948,
-      "income_return_pct_vs_program": 0.007948,
+      "called_away_flags": 5,
+      "return_on_program_cost_basis": 0.009181,
+      "income_return_pct_vs_program": 0.009181,
       "start_of_week_value": 181649.5,
       "return_on_program_start_value": 0.010472,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
@@ -2961,20 +2947,90 @@
       "overall_total": 109.0205,
       "total_week_pnl": 109.0205,
       "cumulative_income": 17945.699,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16590.699,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18183.699,
       "trade_count": 2,
       "called_away_flags": 0,
-      "return_on_program_cost_basis": 0.000455,
-      "income_return_pct_vs_program": 0.000455,
-      "start_of_week_value": null,
-      "return_on_program_start_value": null,
-      "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null,
-      "start_value_holdings": null,
-      "start_value_monday_open": null,
-      "start_value_added_buys": null,
-      "start_value_buys": null
+      "return_on_program_cost_basis": 0.000526,
+      "income_return_pct_vs_program": 0.000526,
+      "start_of_week_value": 148765.8,
+      "return_on_program_start_value": 0.000733,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV 585a04f2",
+      "start_value_source": {
+        "monday": "2026-11-02",
+        "program_symbols": 9,
+        "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET",
+        "base_positions_csv": "01M672Y7Y397A8NB8XG5YPC41P.csv (74a520b5, dl Oct-30-2026 3:00 p.m ET)",
+        "adjustments": "NKE -900 (NKE $37.50 calls assigned as of Fri 10/30 (9 x 100 sh); activity 2ede72db). Fri 10/30 3:00 PM ET positions + 10/30 NKE assignment (ASTS $44 / BABA $102 / CLSK $9 calls expired, no share change); activity CSV dl 11/02 has no stock buys or sells on 11/02. Matches the Mon 11/2 11:07 AM ET positions exactly. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5. SAME-WEEK BUYS ADDED: none."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 41.11,
+          "value": 41110.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 200.0,
+          "open_price": 102.0,
+          "value": 20400.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "CLMT",
+          "shares": 500.0,
+          "open_price": 49.02,
+          "value": 24510.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 2000.0,
+          "open_price": 7.82,
+          "value": 15640.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "GLXY",
+          "shares": 500.0,
+          "open_price": 16.03,
+          "value": 8015.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "INV",
+          "shares": 2500.0,
+          "open_price": 0.33,
+          "value": 825.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 13.03,
+          "value": 13030.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 6.3899,
+          "value": 12779.8,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 10.38,
+          "value": 12456.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        }
+      ],
+      "start_value_monday_open": 148765.8,
+      "start_value_added_buys": 0.0,
+      "start_value_buys": []
     },
     {
       "week_ending": "2026-11-13",
@@ -2989,12 +3045,12 @@
       "overall_total": 109.0205,
       "total_week_pnl": 109.0205,
       "cumulative_income": 18054.7195,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16699.7195,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18292.7195,
       "trade_count": 2,
       "called_away_flags": 0,
-      "return_on_program_cost_basis": 0.000455,
-      "income_return_pct_vs_program": 0.000455,
+      "return_on_program_cost_basis": 0.000526,
+      "income_return_pct_vs_program": 0.000526,
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
@@ -3017,12 +3073,12 @@
       "overall_total": 109.0205,
       "total_week_pnl": 109.0205,
       "cumulative_income": 18163.74,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16808.74,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18401.74,
       "trade_count": 2,
       "called_away_flags": 0,
-      "return_on_program_cost_basis": 0.000455,
-      "income_return_pct_vs_program": 0.000455,
+      "return_on_program_cost_basis": 0.000526,
+      "income_return_pct_vs_program": 0.000526,
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
@@ -3034,36 +3090,36 @@
     }
   ],
   "dashboard": {
-    "covered_capital": 133214.0,
-    "uncovered_capital": 106130.0,
+    "covered_capital": 23400.0,
+    "uncovered_capital": 183787.0,
     "eose_capital": 3.67,
-    "program_capital": 239344.0,
-    "idle_pct": 0.44342,
+    "program_capital": 207187.0,
+    "idle_pct": 0.887059,
     "total_net_premium": 16762.13,
     "commission_fees": 111.15,
-    "open_cc_count": 6,
-    "expired_count": 25,
-    "called_away_count": 6,
-    "total_assignment_pnl": -1355.0,
-    "assignment_gains": 925.0,
+    "open_cc_count": 2,
+    "expired_count": 28,
+    "called_away_count": 7,
+    "total_assignment_pnl": 238.0,
+    "assignment_gains": 2518.0,
     "assignment_losses": -2280.0,
     "daytrade_pnl": 62.82,
     "dividends": 1338.79,
     "income_total": 18163.74,
-    "overall_total": 16808.74,
+    "overall_total": 18401.74,
     "net_premium_daytrades_dividends": 18163.74,
-    "combined_income": 16808.74,
-    "avg_weekly_income_only": 3186.8856,
-    "avg_weekly_income": 2915.8856,
-    "avg_weekly_assignment_pnl": -271.0,
-    "avg_weekly_overall": 2915.8856,
-    "completed_weeks": 5,
-    "return_on_program_cost_basis": 0.07589,
-    "avg_weekly_return_on_program_cost_basis": 0.013315,
-    "return_on_program_start_value": 0.069904,
-    "avg_weekly_return_on_program_start_value": 0.013981,
-    "start_value_weeks_covered": 5,
-    "current_week_start_value": 181649.5
+    "combined_income": 18401.74,
+    "avg_weekly_income_only": 2972.77975,
+    "avg_weekly_income": 3012.446417,
+    "avg_weekly_assignment_pnl": 39.666667,
+    "avg_weekly_overall": 3012.446417,
+    "completed_weeks": 6,
+    "return_on_program_cost_basis": 0.087668,
+    "avg_weekly_return_on_program_cost_basis": 0.014348,
+    "return_on_program_start_value": 0.080376,
+    "avg_weekly_return_on_program_start_value": 0.013396,
+    "start_value_weeks_covered": 6,
+    "current_week_start_value": 148765.8
   },
   "weekly_summary": [
     {
@@ -3083,8 +3139,8 @@
       "cumulative_overall": 6782.658333,
       "trade_count": 13,
       "called_away_flags": 12,
-      "return_on_program_cost_basis": 0.026918,
-      "income_return_pct_vs_program": 0.026918,
+      "return_on_program_cost_basis": 0.031096,
+      "income_return_pct_vs_program": 0.031096,
       "start_of_week_value": 234662.92,
       "return_on_program_start_value": 0.027455,
       "start_value_status": "ok \u2014 no second CSV to cross-check",
@@ -3196,8 +3252,8 @@
       "cumulative_overall": 10313.016667,
       "trade_count": 12,
       "called_away_flags": 8,
-      "return_on_program_cost_basis": 0.01475,
-      "income_return_pct_vs_program": 0.01475,
+      "return_on_program_cost_basis": 0.017039,
+      "income_return_pct_vs_program": 0.017039,
       "start_of_week_value": 237892.0,
       "return_on_program_start_value": 0.01484,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV bf6ebfe8",
@@ -3305,8 +3361,8 @@
       "cumulative_overall": 11815.075,
       "trade_count": 10,
       "called_away_flags": 9,
-      "return_on_program_cost_basis": 0.013901,
-      "income_return_pct_vs_program": 0.013901,
+      "return_on_program_cost_basis": 0.016058,
+      "income_return_pct_vs_program": 0.016058,
       "start_of_week_value": 230551.0,
       "return_on_program_start_value": 0.014431,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV 40d00486",
@@ -3410,8 +3466,8 @@
       "cumulative_overall": 13489.34,
       "trade_count": 9,
       "called_away_flags": 8,
-      "return_on_program_cost_basis": 0.006452,
-      "income_return_pct_vs_program": 0.006452,
+      "return_on_program_cost_basis": 0.007453,
+      "income_return_pct_vs_program": 0.007453,
       "start_of_week_value": 211080.96,
       "return_on_program_start_value": 0.007316,
       "start_value_status": "ok \u2014 no second CSV to cross-check",
@@ -3534,8 +3590,8 @@
       "cumulative_overall": 14579.428,
       "trade_count": 6,
       "called_away_flags": 4,
-      "return_on_program_cost_basis": 0.004554,
-      "income_return_pct_vs_program": 0.004554,
+      "return_on_program_cost_basis": 0.005261,
+      "income_return_pct_vs_program": 0.005261,
       "start_of_week_value": 185971.0,
       "return_on_program_start_value": 0.005862,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
@@ -3633,16 +3689,16 @@
       "daytrade_pnl": 0.0,
       "dividends": 0.0,
       "income_total": 1902.2505,
-      "assignment_pnl": 0.0,
-      "overall_total": 1902.2505,
-      "total_week_pnl": 1902.2505,
+      "assignment_pnl": 1593.0,
+      "overall_total": 3495.2505,
+      "total_week_pnl": 3495.2505,
       "cumulative_income": 17836.6785,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16481.6785,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18074.6785,
       "trade_count": 7,
-      "called_away_flags": 1,
-      "return_on_program_cost_basis": 0.007948,
-      "income_return_pct_vs_program": 0.007948,
+      "called_away_flags": 5,
+      "return_on_program_cost_basis": 0.009181,
+      "income_return_pct_vs_program": 0.009181,
       "start_of_week_value": 181649.5,
       "return_on_program_start_value": 0.010472,
       "start_value_status": "ok \u2014 cross-checked vs positions CSV d843c1a4",
@@ -3744,20 +3800,90 @@
       "overall_total": 109.0205,
       "total_week_pnl": 109.0205,
       "cumulative_income": 17945.699,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16590.699,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18183.699,
       "trade_count": 2,
       "called_away_flags": 0,
-      "return_on_program_cost_basis": 0.000455,
-      "income_return_pct_vs_program": 0.000455,
-      "start_of_week_value": null,
-      "return_on_program_start_value": null,
-      "start_value_status": "n/a \u2014 week not started",
-      "start_value_source": null,
-      "start_value_holdings": null,
-      "start_value_monday_open": null,
-      "start_value_added_buys": null,
-      "start_value_buys": null
+      "return_on_program_cost_basis": 0.000526,
+      "income_return_pct_vs_program": 0.000526,
+      "start_of_week_value": 148765.8,
+      "return_on_program_start_value": 0.000733,
+      "start_value_status": "ok \u2014 cross-checked vs positions CSV 585a04f2",
+      "start_value_source": {
+        "monday": "2026-11-02",
+        "program_symbols": 9,
+        "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET",
+        "base_positions_csv": "01M672Y7Y397A8NB8XG5YPC41P.csv (74a520b5, dl Oct-30-2026 3:00 p.m ET)",
+        "adjustments": "NKE -900 (NKE $37.50 calls assigned as of Fri 10/30 (9 x 100 sh); activity 2ede72db). Fri 10/30 3:00 PM ET positions + 10/30 NKE assignment (ASTS $44 / BABA $102 / CLSK $9 calls expired, no share change); activity CSV dl 11/02 has no stock buys or sells on 11/02. Matches the Mon 11/2 11:07 AM ET positions exactly. Excluded (not program): EOSE 1, SLNH 8,000, TSLA 5. SAME-WEEK BUYS ADDED: none."
+      },
+      "start_value_holdings": [
+        {
+          "symbol": "ASTS",
+          "shares": 1000.0,
+          "open_price": 41.11,
+          "value": 41110.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "BABA",
+          "shares": 200.0,
+          "open_price": 102.0,
+          "value": 20400.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "CLMT",
+          "shares": 500.0,
+          "open_price": 49.02,
+          "value": 24510.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "CLSK",
+          "shares": 2000.0,
+          "open_price": 7.82,
+          "value": 15640.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "GLXY",
+          "shares": 500.0,
+          "open_price": 16.03,
+          "value": 8015.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "INV",
+          "shares": 2500.0,
+          "open_price": 0.33,
+          "value": 825.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "MSTY",
+          "shares": 1000.0,
+          "open_price": 13.03,
+          "value": 13030.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "ONDS",
+          "shares": 2000.0,
+          "open_price": 6.3899,
+          "value": 12779.8,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        },
+        {
+          "symbol": "WYFI",
+          "shares": 1200.0,
+          "open_price": 10.38,
+          "value": 12456.0,
+          "price_source": "robinhood_historical 1-min open 2026-11-02 09:30 ET"
+        }
+      ],
+      "start_value_monday_open": 148765.8,
+      "start_value_added_buys": 0.0,
+      "start_value_buys": []
     },
     {
       "week_ending": "2026-11-13",
@@ -3772,12 +3898,12 @@
       "overall_total": 109.0205,
       "total_week_pnl": 109.0205,
       "cumulative_income": 18054.7195,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16699.7195,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18292.7195,
       "trade_count": 2,
       "called_away_flags": 0,
-      "return_on_program_cost_basis": 0.000455,
-      "income_return_pct_vs_program": 0.000455,
+      "return_on_program_cost_basis": 0.000526,
+      "income_return_pct_vs_program": 0.000526,
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
@@ -3800,12 +3926,12 @@
       "overall_total": 109.0205,
       "total_week_pnl": 109.0205,
       "cumulative_income": 18163.74,
-      "cumulative_assignment_pnl": -1355.0,
-      "cumulative_overall": 16808.74,
+      "cumulative_assignment_pnl": 238.0,
+      "cumulative_overall": 18401.74,
       "trade_count": 2,
       "called_away_flags": 0,
-      "return_on_program_cost_basis": 0.000455,
-      "income_return_pct_vs_program": 0.000455,
+      "return_on_program_cost_basis": 0.000526,
+      "income_return_pct_vs_program": 0.000526,
       "start_of_week_value": null,
       "return_on_program_start_value": null,
       "start_value_status": "n/a \u2014 week not started",
@@ -3816,8 +3942,8 @@
       "start_value_buys": null
     }
   ],
-  "current_week_ending": "2026-10-30",
-  "last_completed_week_ending": "2026-10-23",
+  "current_week_ending": "2026-11-06",
+  "last_completed_week_ending": "2026-10-30",
   "open_ccs": [
     {
       "trade_id": "CC-029",
@@ -3832,42 +3958,6 @@
       "cost_basis___share": 56.5
     },
     {
-      "trade_id": "CC-033",
-      "ticker": "ASTS",
-      "shares": 500.0,
-      "strike": 44.0,
-      "expiration": "2026-10-30",
-      "cc_sell_date": "2026-10-27",
-      "option_symbol": "-ASTS261030C44",
-      "premium_(net)": 223.18,
-      "capital_invested": 30825.0,
-      "cost_basis___share": 61.65
-    },
-    {
-      "trade_id": "CC-034",
-      "ticker": "BABA",
-      "shares": 200.0,
-      "strike": 102.0,
-      "expiration": "2026-10-30",
-      "cc_sell_date": "2026-10-27",
-      "option_symbol": "-BABA261030C102",
-      "premium_(net)": 169.27,
-      "capital_invested": 22312.0,
-      "cost_basis___share": 111.56
-    },
-    {
-      "trade_id": "CC-035",
-      "ticker": "NKE",
-      "shares": 900.0,
-      "strike": 37.5,
-      "expiration": "2026-10-30",
-      "cc_sell_date": "2026-10-28",
-      "option_symbol": "-NKE261030C37.5",
-      "premium_(net)": 446.73,
-      "capital_invested": 32157.0,
-      "cost_basis___share": 35.73
-    },
-    {
       "trade_id": "CC-036",
       "ticker": "MSTY",
       "shares": 1000.0,
@@ -3878,18 +3968,6 @@
       "premium_(net)": 196.37,
       "capital_invested": 17750.0,
       "cost_basis___share": 17.75
-    },
-    {
-      "trade_id": "CC-037",
-      "ticker": "CLSK",
-      "shares": 2000.0,
-      "strike": 9.0,
-      "expiration": "2026-10-30",
-      "cc_sell_date": "2026-10-29",
-      "option_symbol": "-CLSK261030C9",
-      "premium_(net)": 135.96,
-      "capital_invested": 24520.0,
-      "cost_basis___share": 12.26
     }
   ],
   "dividends": [
