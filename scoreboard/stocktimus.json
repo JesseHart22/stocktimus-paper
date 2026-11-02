@@ -1,6 +1,6 @@
 {
   "desk": "stocktimus",
-  "as_of": "2026-11-01T09:30:00-08:00",
+  "as_of": "2026-11-02T08:30:00-08:00",
   "calls": [
     {
       "id": "zs-clmt-2026-09-10",
@@ -503,10 +503,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 1,
+      "stars": 15,
       "called_at": "2026-10-24",
       "example": false,
-      "note": "New 7-day window (≥7d after Oct 16). First: '$CLMT 👀 Calumet raises solvent prices 5c/lb eff 10/30 ≈ ~$50M incremental annual cash flow'. +1 Oct 24 '$49 $CLMT' (buying the dip). Not starred (no ticker named): ~7 Oct 24–25 CLMT/MRL thesis-defense replies (12–15x levered FCF, 'variant perception' = $5 base-oil crack + $3.50 RD index for 9–12 mo, MRL not for sale under $6b, '$58 to $49 routine pullback'). No buy zone. Ref RH close CLMT 49.305 (2026-10-23). ZS pull capped at 25 (covers Oct 24 10:51 PT→Oct 25); Oct 19–24 AM not read. Watch-only. Not graded."
+      "note": "New 7-day window (≥7d after Oct 16). First: '$CLMT 👀 Calumet raises solvent prices 5c/lb eff 10/30 ≈ ~$50M incremental annual cash flow'. +1 Oct 24 '$49 $CLMT' (buying the dip). Not starred (no ticker named): ~7 Oct 24–25 CLMT/MRL thesis-defense replies (12–15x levered FCF, 'variant perception' = $5 base-oil crack + $3.50 RD index for 9–12 mo, MRL not for sale under $6b, '$58 to $49 routine pullback'). No buy zone. Ref RH close CLMT 49.305 (2026-10-23). ZS pull capped at 25 (covers Oct 24 10:51 PT→Oct 25); Oct 19–24 AM not read. Watch-only. Not graded. +14 Oct 26–30 PT (Nov 2 refresh): '$CLMT @ $52 … 4.8x levered FCF' (Oct 26), 'Sell CLMT @ $100' (Oct 26), 'HODL. $100 by 1H 27' + shorts-wrong base-oil cracks (Oct 27), Nov 6 Q3 re-pricing, 'until I get my $100 CLMT', '$CLMT @ $49 not priced' (Oct 28), 'Very long $CLMT', decouple $CRAK, 'MRL wins', 'Q3 = $450M', 'To Valhalla' (Oct 29), '$CLMT +1%' scorekeeping, SAF/base-oil rotation (Oct 30). Not starred: '$CLMT 😂' (Oct 26), '$CLMT $DINO base oils' (Oct 28), '$CLMT shareholders only' (Oct 30) — direction unclear."
     },
     {
       "id": "zs-wulf-2026-10-25",
@@ -551,10 +551,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 1,
       "called_at": "2026-10-22",
       "example": false,
-      "note": "Same post as CLS +1: 'two of my preferred asymmetric, long-term opportunities'; valuation stretched to 'extremely fair' but floor 'non-existent', no reversal signal yet. Long-term, no zone. (Oct 25 R/R shortlist CLS/BE/GLW/COHR/CRDO not counted.) Ref RH close COHR 207.82 (2026-10-22). Not graded."
+      "note": "Same post as CLS +1: 'two of my preferred asymmetric, long-term opportunities'; valuation stretched to 'extremely fair' but floor 'non-existent', no reversal signal yet. Long-term, no zone. (Oct 25 R/R shortlist CLS/BE/GLW/COHR/CRDO not counted.) Ref RH close COHR 207.82 (2026-10-22). Not graded. +1 Oct 28 PT (Nov 2 refresh): AAOI post 'I much prefer $COHR over $AAOI' (x.com/Chartradamus/status/2115539869401539014). Oct 28 reply asking about $COHR vs $LITE not starred (question)."
     },
     {
       "id": "ct-qqq-2026-10-25",
@@ -590,7 +590,7 @@
       "stars": 0,
       "called_at": "2026-10-25",
       "example": false,
-      "note": "'Nothing has changed': bottomed in the $730–$750 zone called in July; question is holding the late-July local low. Quotes Jul 17 LT Wave 5 PT $1530+. Level $730–$750 (already held). Ref RH close MU 877.55 (2026-10-23). Not graded."
+      "note": "'Nothing has changed': bottomed in the $730–$750 zone called in July; question is holding the late-July local low. Quotes Jul 17 LT Wave 5 PT $1530+. Level $730–$750 (already held). Ref RH close MU 877.55 (2026-10-23). Not graded. Zone check Nov 2 refresh: UNTOUCHED — RH last 868.97 at ~08:18 PT; lowest RH daily low since call 861.59 (2026-10-30), well above $750 top. No new MU posts Oct 26–Nov 2."
     },
     {
       "id": "ls-csiq-2026-10-21",
@@ -599,10 +599,10 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 2,
+      "stars": 4,
       "called_at": "2026-10-21",
       "example": false,
-      "note": "New window (≥7d after Oct 13). '$CSIQ Tegus interview' (Apex Clean Energy praise on COD execution). +2: '$EOSE $CSIQ' Megapack-demand quote (Oct 22), '$CSIQ $TAN' oil-elevated renewables incentive (Oct 23). No zone. Ref RH close CSIQ 9.83 (2026-10-21). Watch-only. Not graded."
+      "note": "New window (≥7d after Oct 13). '$CSIQ Tegus interview' (Apex Clean Energy praise on COD execution). +2: '$EOSE $CSIQ' Megapack-demand quote (Oct 22), '$CSIQ $TAN' oil-elevated renewables incentive (Oct 23). No zone. Ref RH close CSIQ 9.83 (2026-10-21). Watch-only. Not graded. +2 Oct 26 PT (Nov 2 refresh): 'Something is brewing inside Canadian Solar $CSIQ' (CEO title change), '$CSIQ patent IP is iron clad' reply. Window closed Oct 27; Oct 28+ CSIQ longs → ls-csiq-2026-10-28."
     },
     {
       "id": "ls-tan-2026-10-23",
@@ -635,10 +635,82 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 3,
+      "stars": 4,
       "called_at": "2026-10-25",
       "example": false,
-      "note": "New window (≥7d after Oct 16). First: '$NBIS the winners will absorb the demand the losers can't deliver' (vs Musk neocloud financing warning). +3 Oct 25 PT: '…ahem…$NBIS' ($3.5B Citi facility = S tier), '$NBIS should pump tomorrow', 'if you are worried about $NBIS' model $25B 2027 exit ARR. Ref RH close NBIS 158.74 (2026-10-23). Sandeman pull capped at 25 (covers Oct 22 11:56 PT→Oct 26); Oct 19–22 AM not read. Sandeman demoted. Momentum cluster. Not graded."
+      "note": "New window (≥7d after Oct 16). First: '$NBIS the winners will absorb the demand the losers can't deliver' (vs Musk neocloud financing warning). +3 Oct 25 PT: '…ahem…$NBIS' ($3.5B Citi facility = S tier), '$NBIS should pump tomorrow', 'if you are worried about $NBIS' model $25B 2027 exit ARR. Ref RH close NBIS 158.74 (2026-10-23). Sandeman pull capped at 25 (covers Oct 22 11:56 PT→Oct 26); Oct 19–22 AM not read. Sandeman demoted. Momentum cluster. Not graded. +1 Oct 27 PT (Nov 2 refresh): 'truth bombs from someone working directly for $NBIS', FUD = shut down social media (x.com/Sandeman52/status/2115027835509162054). Sandeman then on Disney trip; no NBIS posts Oct 28–Nov 2."
+    },
+    {
+      "id": "ct-cls-2026-10-26",
+      "handle": "Chartradamus",
+      "ticker": "CLS",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 3,
+      "called_at": "2026-10-26",
+      "example": false,
+      "note": "New window (≥7d after ct-cls-2026-10-16 long). 'Made my initial entry off lows here ahead of its earnings. A long-term position I am willing to DCA into' quoting his own '$CLS 🟡 Earnings Watch' (x.com/Chartradamus/status/2114806278539313532, Oct 26 12:48 PT). Flips the Oct 25 bear read (ct-cls-2026-10-25 short, left as is). +3: '$CLS chugging along… most confident investment since $MU at $100' (Oct 28), 'not invest in any position aside from $CLS' (Oct 29), 'holding firm on my $CLS' (Oct 30). Not starred (no ticker named): Oct 26 ER 'easy money' quote + 'low could very well be in' reply, Oct 30 'intend to average into regardless'. No zone. Ref RH close CLS 246.65 (2026-10-26). Not graded."
+    },
+    {
+      "id": "ct-intc-2026-10-28",
+      "handle": "Chartradamus",
+      "ticker": "INTC",
+      "kind": "zone",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-10-28",
+      "example": false,
+      "note": "'$INTC … a solid swing opportunity is building up here', Wave 5 PT $180+. 'No position myself. I'd prefer it in the $70s' (x.com/Chartradamus/status/2115531009089569018, Oct 28 11:47 PT). Zone recorded as $70–$80 (his '$70s'), target $180+. Oct 29 reply '$60s would be a wonderful place to start building' if thesis intact post-ER: conditional, no ticker named, not starred. Ref RH close INTC 95.53 (2026-10-28). Zone check Nov 2 refresh: NOT FILLED — Oct 30 post-ER gap from 92.07 close to RH high 68.77 / low 63.20, so price never traded in the $70s (top not touched); RH last 63.01 at ~08:18 PT, below the zone. Momentum cluster — never LIVE GATE. Not graded."
+    },
+    {
+      "id": "ct-googl-2026-10-28",
+      "handle": "Chartradamus",
+      "ticker": "GOOGL",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 0,
+      "called_at": "2026-10-28",
+      "example": false,
+      "note": "'$GOOG $GOOGL' double-miss post: Wave 3 Major Top in May, now in Wave 4; breakdown from Log UT Channel; 'downside momentum may become very vicious … in the weeks to come'; possible support 1.618 Log Fib + Weekly 100MA ($265); 'I would not touch this stock for the time being' (x.com/Chartradamus/status/2115547767330513249, Oct 28 12:54 PT). Bearish/avoid, support level $265 only, no zone. Ref RH close GOOGL 324.89 (2026-10-28). Not graded."
+    },
+    {
+      "id": "zs-eose-2026-10-26",
+      "handle": "Zerosumgame33",
+      "ticker": "EOSE",
+      "kind": "trade",
+      "status": "open",
+      "direction": "short",
+      "stars": 1,
+      "called_at": "2026-10-26",
+      "example": false,
+      "note": "New window (≥7d after zs-eose-2026-10-16). 'Sell CLMT @ $100, rotate into .72 EOSE and never trade again' (x.com/Zerosumgame33/status/2114849147467804913, Oct 26 15:38 PT) — implied EOSE target ~$0.72. +1 Oct 30 '$CLMT +1% $EOSE -5% Who is keeping score?'. Not starred (no ticker in his text): Oct 26 'They need to raise equity in early 2027' reply on EOSE guidance cut; Nov 1 'The stock is a zero. Pre packaged bankruptcy' reply in an $EOSE thread. Target ~$0.72, no zone. Ref RH close EOSE 1.62 (2026-10-26). Opposes Lucas EOSE long. Watch-only. Not graded."
+    },
+    {
+      "id": "zs-clmt-2026-11-02",
+      "handle": "Zerosumgame33",
+      "ticker": "CLMT",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 2,
+      "called_at": "2026-11-02",
+      "example": false,
+      "note": "New 7-day window (≥7d after zs-clmt-2026-10-24). First: '$CLMT 👀 take note when Korean group 3 base oil swing supply … is saying supply short in 27' (x.com/Zerosumgame33/status/2117244798201409919, Nov 2 05:17 PT). +2 Nov 2: '$CLMT event path I'm watching closely with all my $$$' (Shell Pearl GTL / Hormuz), '$CLMT $FUBPY' Fuchs CEO 'not enough base oil supply'. Not counted: Nov 1 '$CLMT oops 😬' quoting Russian refinery strike (direction not stated). No zone. Ref RH last CLMT 48.985 at ~08:18 PT Nov 2 (prev close 49.65 on 10-30); grade entry = 2026-11-02 close at rerate. Watch-only. Not graded."
+    },
+    {
+      "id": "ls-csiq-2026-10-28",
+      "handle": "LucasSacerdote_",
+      "ticker": "CSIQ",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 5,
+      "called_at": "2026-10-28",
+      "example": false,
+      "note": "New window (≥7d after ls-csiq-2026-10-21). '$CSIQ Under-appreciated how high US solar prices have gotten … Dallas factory ~$4.6B revenue + $1B tax credits while the equity trades at $650M' (x.com/LucasSacerdote_/status/2115516074527731907, Oct 28 10:48 PT). +5: VPPA/C&I storage 'big growth driver' (Oct 28), Recurrent 800MWh France sale (Oct 29), Brookfield storage buyer reply (Oct 30), '2.8GWh delivered in Canada' (Oct 30), 'Nice articles on BESS's growth $CSIQ $FLNC $EOSE' (Nov 2). Targets/valuation only, no zone. Ref RH close CSIQ 9.59 (2026-10-28). Watch-only. Not graded."
     }
   ]
 }
