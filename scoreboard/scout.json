@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-11-01T09:05:57-08:00",
+  "as_of": "2026-11-02T08:17:08-08:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -124,7 +124,7 @@
       "stars": 0,
       "called_at": "2026-10-26",
       "example": false,
-      "note": "Oct 26 10:00am ET: \"Increased my bid back up to 69,420 from 42,069\" with own meme image captioned \"WHEN ANDY BUYS 1% OF HIS AUM IN BTC AT 69,420\" (x.com/dampedspring/status/2114718932980334641). Resting buy zone: BTC 69,420, ~1% AUM. Bid, not a confirmed fill; proxy (IBIT/BTC spot) not frozen. Buy zone logged for owning desk: Compounder (default; no desk has a crypto lane, CoS to confirm). Under 14d. Nov 1 rerate: under 14d (called Oct 26) — waits."
+      "note": "Oct 26 10:00am ET: \"Increased my bid back up to 69,420 from 42,069\" with own meme image captioned \"WHEN ANDY BUYS 1% OF HIS AUM IN BTC AT 69,420\" (x.com/dampedspring/status/2114718932980334641). Resting buy zone: BTC 69,420, ~1% AUM. Bid, not a confirmed fill; proxy (IBIT/BTC spot) not frozen. Buy zone logged for owning desk: Compounder (default; no desk has a crypto lane, CoS to confirm). Under 14d. Nov 1 rerate: under 14d (called Oct 26) — waits. Nov 2 zone check: RH BTC-USD mark 77,335.80 at ~8:16am PT, above the 69,420 bid — zone untouched. Oct 30 3:10pm PT reply \"The funny thing is if that was true I would own some Bitcoin\" is not a restatement of the bid; no star."
     },
     {
       "id": "ds-gld-2026-10-26",
@@ -133,10 +133,22 @@
       "kind": "trade",
       "status": "open",
       "direction": "long",
-      "stars": 0,
+      "stars": 1,
       "called_at": "2026-10-26",
       "example": false,
-      "note": "Oct 26 10:11am ET own reply to @fejau_inc (\"curious why?\" about his BTC bid): \"For similar reasons to why I want to buy more gold at $3500.\" (x.com/dampedspring/status/2114721572506230919). Resting buy zone: gold $3,500/oz (\"more\" implies existing long). Conditional add, not a fill; proxies GLD,IAU,GC not frozen. Buy zone logged for owning desk: Compounder. Under 14d. Nov 1 rerate: under 14d (called Oct 26) — waits."
+      "note": "Oct 26 10:11am ET own reply to @fejau_inc (\"curious why?\" about his BTC bid): \"For similar reasons to why I want to buy more gold at $3500.\" (x.com/dampedspring/status/2114721572506230919). Resting buy zone: gold $3,500/oz (\"more\" implies existing long). Conditional add, not a fill; proxies GLD,IAU,GC not frozen. Buy zone logged for owning desk: Compounder. Under 14d. Nov 1 rerate: under 14d (called Oct 26) — waits. Oct 30 3:16pm PT own reply to \"Andy is it safe to buy more gold now?\": \"3500 bid.  Unless QRA cuts duration issuance.  Then buy buy buy\" (x.com/dampedspring/status/2116293186226209068) = ★1 (same open buy zone, restated; not a fill). Nov 2 zone check: RH GLD 363.03 at ~8:16am PT (Oct 30 close 355.78), implying gold well above $3,500 — zone untouched."
+    },
+    {
+      "id": "ds-purr-2026-11-02",
+      "handle": "dampedspring",
+      "ticker": "PURR",
+      "kind": "trade",
+      "status": "open",
+      "direction": "long",
+      "stars": 0,
+      "called_at": "2026-11-02",
+      "example": false,
+      "note": "Nov 2 6:40am PT (9:40am ET, regular session) own post (quoting his Oct 30 PURR post): \"I am a buyer of $PURR for a degen lunch money trade at 9 ish.\" Same post also says \"Fwiw the ICE News was good news.\" (x.com/dampedspring/status/2117265584131862648). Resting buy zone: PURR ~9, small \"degen lunch money\" size. Bid, not a confirmed fill. Entry reference (RH, not a fill): quote 10.455 at ~8:16am PT Nov 2; 5-min bar containing the post closed 10.515; Oct 30 close 11.01. Session low so far ~10.43 — zone untouched. Context, not separate rows: Oct 30 10:42am PT he wrote he would \"suggest maybe shorting it on a rip\" (x.com/dampedspring/status/2116224257567125821, conditional) and at 11:25am PT \"I made it clear I don't have one yet\" (no position). Buy zone logged for owning desk: Moonshot (high-upside lottery-size; Hyperliquid-linked equity, so CoS to confirm vs Compounder crypto lane). Under 14d."
     }
   ]
 }
