@@ -5,17 +5,17 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-11-02T16:00:00-08:00",
+  "as_of": "2026-11-03T09:58:00-08:00",
   "sleeve_budget_usd": 25000,
-  "notes": "PM refresh Nov 2 PT (RH get_portfolio ~4:00 PM PT). New agent-initiated fills ~12:54-12:55 PM PT unwound the HIMS book: BTC 2x HIMS Nov 6 $27C @ 0.50 ($100), SELL 200 HIMS @ 25.3318 ($5,066.36, -$451.35 vs 27.588 cost), BTC 1x HIMS Nov 6 $27P @ 2.26 ($226, -$134.09 net vs 0.92 credit; $2,700 collateral released). Earlier today ~8:22-8:33 AM PT: SELL 2 V @ 425.23 (+$44.38), SELL 3 SPGI @ 476.18 (+$265.17), BUY 200 HIMS + STO 2x $27C @ 1.37. SL-CC-009 net premium $173.83; week 11/06 option income $39.74. Open: ASML 1 (1,537.73); Nov 6 short puts NVO 37P / PFE 29P at 0.25 / 0.16 (RH mark). $6,600 CSP collateral held. Cash $21,596.67; buying power $14,996.67; total $23,093.40 (-$370.22 vs Nov 2 AM $23,463.62). Capital deployed $1,608.30. Realized option income: week 10/09 $456.68; 10/16 $0; 10/23 $94.95; 10/30 $0; 11/06 $39.74. Realized equity P&L -2,493.25 (tracked separately). Marks = robinhood/live.",
+  "notes": "AM refresh Nov 3 PT (RH get_portfolio ~9:58 AM PT). No new fills since Nov 2 PM. Open: ASML 1 (1,559.20); Nov 6 short puts NVO 37P 0.26 / PFE 29P 0.09 (RH mark); $6,600 CSP collateral held. Cash $21,596.67; buying power $14,996.67; total $23,120.87 (+$27.47 vs Nov 2 PM $23,093.40). Capital deployed $1,608.30. Reclassified per Jesse rule 2026-11-03: the Nov 2 HIMS 200-share same-day round trip (-$451.35) is a daytrade, now in scalps/daytrades income for week 11/06 instead of realized equity P&L. Week 11/06: option net $39.74 + daytrade -$451.35 = $-411.61. Combined income $140.02. Realized equity P&L -2,041.90 (tracked separately). Marks = robinhood/live.",
   "portfolio": {
-    "total_value": 23093.4,
-    "equity_value": 1537.73,
-    "options_value": -41.0,
+    "total_value": 23120.87,
+    "equity_value": 1559.2,
+    "options_value": -35.0,
     "cash": 21596.67,
     "buying_power": 14996.67,
-    "as_of": "2026-11-02T16:00:00-08:00",
-    "source": "user-Robinhood.get_portfolio (PM refresh)",
+    "as_of": "2026-11-03T09:58:00-08:00",
+    "source": "user-Robinhood.get_portfolio (AM refresh)",
     "marks_source": "robinhood/live"
   },
   "open_positions": {
@@ -26,9 +26,9 @@
         "avg_cost": 1608.3,
         "side": "long",
         "deployed_usd": 1608.3,
-        "last": 1537.73,
-        "market_value": 1537.73,
-        "unrealized_pnl": -70.57,
+        "last": 1559.2,
+        "market_value": 1559.2,
+        "unrealized_pnl": -49.1,
         "desk_bucket": "compounder",
         "structure": "stock",
         "status": "open",
@@ -52,10 +52,10 @@
         "credit_usd": 65.0,
         "fees": 0.05,
         "credit_net_usd": 64.95,
-        "mark": 0.25,
-        "market_value": -25.0,
-        "unrealized_pnl": 40.0,
-        "underlying_last": 40.4,
+        "mark": 0.26,
+        "market_value": -26.0,
+        "unrealized_pnl": 39.0,
+        "underlying_last": 40.35,
         "collateral_usd": 3700.0,
         "desk_bucket": "unattributed",
         "ticket_id": null,
@@ -77,10 +77,10 @@
         "credit_usd": 42.0,
         "fees": 0.05,
         "credit_net_usd": 41.95,
-        "mark": 0.16,
-        "market_value": -16.0,
-        "unrealized_pnl": 26.0,
-        "underlying_last": 31.0645,
+        "mark": 0.09,
+        "market_value": -9.0,
+        "unrealized_pnl": 33.0,
+        "underlying_last": 30.43,
         "collateral_usd": 2900.0,
         "desk_bucket": "unattributed",
         "ticket_id": null,
@@ -1443,7 +1443,8 @@
       "status": "closed",
       "closed_date": "2026-11-02",
       "closed_at": "2026-11-02T20:54:54.495Z",
-      "notes": "Buy-write unwound same day: 200 HIMS sold @ 25.3318 after BTC of 2x $27C @ 0.50."
+      "notes": "Buy-write unwound same day: 200 HIMS sold @ 25.3318 after BTC of 2x $27C @ 0.50. Classified daytrade (same-day round trip, Jesse rule 2026-11-03): counted in scalps/daytrades income, not realized equity P&L.",
+      "classification": "daytrade"
     }
   ],
   "rules": {
@@ -1460,14 +1461,14 @@
     "cc_fees": 0.63,
     "cc_premium_net": 591.37,
     "dividends": 0,
-    "scalps_daytrades_net": 0,
+    "scalps_daytrades_net": -451.35,
     "assignment_pnl": 0,
-    "combined_income": 591.37,
+    "combined_income": 140.02,
     "open_premium_net": 106.9,
     "capital_deployed": 1608.3,
-    "roc_vs_deployed": 0.3676988,
-    "roc_vs_budget": 0.0236548,
-    "realized_equity_pnl": -2493.25,
+    "roc_vs_deployed": 0.0870609,
+    "roc_vs_budget": 0.0056008,
+    "realized_equity_pnl": -2041.9,
     "csp_collateral_usd": 6600.0,
     "csp_premium_net": -39.14
   },
@@ -1552,16 +1553,16 @@
       "net_income": 39.74,
       "capital_deployed": 1608.3,
       "dividends": 0,
-      "scalps_daytrades_pnl": 0,
-      "daytrade_pnl": 0,
+      "scalps_daytrades_pnl": -451.35,
+      "daytrade_pnl": -451.35,
       "assignment_pnl": 0,
-      "total_week_pnl": 39.74,
-      "week_return_pct": 0.0247093,
-      "week_return_pct_vs_capital": 0.0247093,
-      "week_return_pct_vs_program": 0.0015896,
+      "total_week_pnl": -411.61,
+      "week_return_pct": -0.2559286,
+      "week_return_pct_vs_capital": -0.2559286,
+      "week_return_pct_vs_program": -0.0164644,
       "trade_count": 7,
       "called_away_flags": 0,
-      "realized_equity_pnl": -141.8
+      "realized_equity_pnl": 309.55
     }
   ],
   "weekly_summary": [
@@ -1644,16 +1645,16 @@
       "net_income": 39.74,
       "capital_deployed": 1608.3,
       "dividends": 0,
-      "scalps_daytrades_pnl": 0,
-      "daytrade_pnl": 0,
+      "scalps_daytrades_pnl": -451.35,
+      "daytrade_pnl": -451.35,
       "assignment_pnl": 0,
-      "total_week_pnl": 39.74,
-      "week_return_pct": 0.0247093,
-      "week_return_pct_vs_capital": 0.0247093,
-      "week_return_pct_vs_program": 0.0015896,
+      "total_week_pnl": -411.61,
+      "week_return_pct": -0.2559286,
+      "week_return_pct_vs_capital": -0.2559286,
+      "week_return_pct_vs_program": -0.0164644,
       "trade_count": 7,
       "called_away_flags": 0,
-      "realized_equity_pnl": -141.8
+      "realized_equity_pnl": 309.55
     }
   ],
   "cc_trades": [
@@ -1888,13 +1889,40 @@
         "6ae8f89e-b8e2-4369-b731-76cc6ce341bb"
       ],
       "rh_status": "closed",
-      "notes": "Buy-write 200 HIMS @ 27.588 + STO 2x Nov 6 $27C @ 1.37; closed same day ~12:54 PM PT: BTC 2x @ 0.50, sold 200 sh @ 25.3318 (stock -$451.35 in realized equity). Net premium 274-100-0.17 fees = $173.83, booked week 11/06.",
+      "notes": "Buy-write 200 HIMS @ 27.588 + STO 2x Nov 6 $27C @ 1.37; closed same day ~12:54 PM PT: BTC 2x @ 0.50, sold 200 sh @ 25.3318 (stock -$451.35 booked as daytrade SL-DT-001). Net premium 274-100-0.17 fees = $173.83, booked week 11/06.",
       "underlying_close": 25.3318,
       "moneyness_at_close": "OTM"
     }
   ],
   "dividends": [],
-  "scalps": [],
+  "scalps": [
+    {
+      "trade_id": "SL-DT-001",
+      "type": "daytrade",
+      "symbol": "HIMS",
+      "asset_class": "equity",
+      "quantity": 200,
+      "open_date": "2026-11-02",
+      "close_date": "2026-11-02",
+      "week_ending": "2026-11-06",
+      "trade_date": "2026-11-02",
+      "option_symbol": null,
+      "gross": -451.24,
+      "net_pnl": -451.35,
+      "entry_price": 27.588,
+      "exit_price": 25.3318,
+      "cost_basis_usd": 5517.6,
+      "proceeds_usd": 5066.36,
+      "fees": 0.11,
+      "realized_pnl_usd": -451.35,
+      "fill_ids": [
+        "6ae8babb-fc87-4d0e-a5c0-bc039e2679b4",
+        "6ae8f89e-b8e2-4369-b731-76cc6ce341bb"
+      ],
+      "desk_bucket": "unattributed",
+      "notes": "Buy-write stock leg bought ~8:33 AM PT and fully sold ~12:54 PM PT Nov 2; same-day round trip = daytrade."
+    }
+  ],
   "assignments": [],
   "reconcile": {
     "method": "broker_is_source_of_truth",
@@ -1908,7 +1936,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-11-02T16:00:00-08:00"
+    "refreshed_at": "2026-11-03T09:58:00-08:00"
   },
   "schema_fields": {
     "fills[]": [
@@ -2117,6 +2145,34 @@
       "rh_status": "closed",
       "close_debit_usd": 100.0,
       "close_fees": 0.08
+    }
+  ],
+  "daytrades": [
+    {
+      "trade_id": "SL-DT-001",
+      "type": "daytrade",
+      "symbol": "HIMS",
+      "asset_class": "equity",
+      "quantity": 200,
+      "open_date": "2026-11-02",
+      "close_date": "2026-11-02",
+      "week_ending": "2026-11-06",
+      "trade_date": "2026-11-02",
+      "option_symbol": null,
+      "gross": -451.24,
+      "net_pnl": -451.35,
+      "entry_price": 27.588,
+      "exit_price": 25.3318,
+      "cost_basis_usd": 5517.6,
+      "proceeds_usd": 5066.36,
+      "fees": 0.11,
+      "realized_pnl_usd": -451.35,
+      "fill_ids": [
+        "6ae8babb-fc87-4d0e-a5c0-bc039e2679b4",
+        "6ae8f89e-b8e2-4369-b731-76cc6ce341bb"
+      ],
+      "desk_bucket": "unattributed",
+      "notes": "Buy-write stock leg bought ~8:33 AM PT and fully sold ~12:54 PM PT Nov 2; same-day round trip = daytrade."
     }
   ]
 }
