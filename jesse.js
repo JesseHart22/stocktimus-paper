@@ -391,6 +391,8 @@
     const incomeTotal = incomePick.value != null ? incomePick.value : sumNum(fileWeeks, weekIncome);
     const assignPick = board ? num(board.total_assignment_pnl) : null;
     const assignTotal = assignPick != null ? assignPick : sumNum(fileWeeks, (w) => num(w.assignment_pnl));
+    const stockSalePick = board ? num(board.stock_sale_pnl_total) : null;
+    const stockSaleTotal = stockSalePick != null ? stockSalePick : sumNum(fileWeeks, (w) => num(w.stock_sale_pnl));
     const overallPick = pickFresh(board, "overall_total", "combined_income");
     const overallTotal = overallPick.value != null
       ? overallPick.value
@@ -414,6 +416,7 @@
       '<section class="js-strip" aria-label="Program">' +
       stat("js-income", "Income total", money(incomeTotal), incomePick.fresh || incomeTotal != null ? INCOME_ONLY : "Not in file", pnlClass(incomeTotal)) +
       stat("js-assignment", "Assignment P&L total", money(assignTotal), "Booked in the called-away week", pnlClass(assignTotal)) +
+      stat("js-stock-sale", "Stock sales (outside income)", money(stockSaleTotal), "Outright program stock sales · not in Overall", pnlClass(stockSaleTotal)) +
       stat("js-overall", "Overall total", money(overallTotal), "Income + assignment · " + weekCount, pnlClass(overallTotal)) +
       stat("js-avg-income", "Avg weekly income", money(avgIncome.value), avgSub(avgIncome), pnlClass(avgIncome.value)) +
       stat("js-program", "Program capital", money(program), "Sum of position program capital") +
@@ -436,21 +439,26 @@
     const rows = summaryWeeks(data);
     let runIncome = 0;
     let runAssign = 0;
+    let runStockSale = 0;
     let runOverall = 0;
     let seenIncome = false;
     let seenAssign = false;
+    let seenStockSale = false;
     let seenOverall = false;
     const body = rows.length
       ? rows.map((w) => {
         const friday = ymd(w.week_ending);
         const income = weekIncome(w);
         const assign = num(w.assignment_pnl);
+        const stockSale = num(w.stock_sale_pnl);
         const overall = weekOverall(w);
         if (income != null) { runIncome += income; seenIncome = true; }
         if (assign != null) { runAssign += assign; seenAssign = true; }
+        if (stockSale != null) { runStockSale += stockSale; seenStockSale = true; }
         if (overall != null) { runOverall += overall; seenOverall = true; }
         const cumIncome = num(w.cumulative_income) != null ? num(w.cumulative_income) : (seenIncome ? runIncome : null);
         const cumAssign = num(w.cumulative_assignment_pnl) != null ? num(w.cumulative_assignment_pnl) : (seenAssign ? runAssign : null);
+        const cumStockSale = num(w.cumulative_stock_sale_pnl) != null ? num(w.cumulative_stock_sale_pnl) : (seenStockSale ? runStockSale : null);
         const cumOverall = num(w.cumulative_overall) != null ? num(w.cumulative_overall) : (seenOverall ? runOverall : null);
         return "<tr data-week=\"" + escapeHtml(friday) + "\">" +
           td(escapeHtml(fmtDay(friday))) +
@@ -462,17 +470,19 @@
           td(escapeHtml(pctOrNa(weekRopStart(w))), true) +
           td(escapeHtml(pct(weekRopCost(w))), true) +
           td(escapeHtml(money(assign)), true) +
+          td(escapeHtml(money(stockSale)), true) +
           td(escapeHtml(money(overall)), true) +
           td(escapeHtml(money(cumIncome)), true) +
           td(escapeHtml(money(cumAssign)), true) +
+          td(escapeHtml(money(cumStockSale)), true) +
           td(escapeHtml(money(cumOverall)), true) +
           td(escapeHtml(w.trade_count == null ? "—" : String(w.trade_count)), true) +
           "</tr>";
       }).join("")
-      : '<tr class="js-empty-row"><td colspan="14">No weeks in the file.</td></tr>';
+      : '<tr class="js-empty-row"><td colspan="16">No weeks in the file.</td></tr>';
     return '<section class="js-panel" id="js-weekly-panel" aria-label="Weekly summary">' +
       "<h2>Weekly summary</h2>" +
-      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment. Return on program (start value) is that income ÷ the Monday-open value plus same-week buys at cost: program stock held at the Monday open, priced at Robinhood’s Monday opening prices, plus program stock bought later that week at what it cost (shares sold mid-week are not subtracted; margin, cash, non-program stock and options excluded); n/a means the Monday holdings could not be rebuilt. Return on program (cost basis) is that income ÷ program cost basis. Assignment P&L is booked in the called-away week. Overall is income plus assignment.</p>' +
+      '<p class="js-note">Every Friday on the Excel Weekly Summary. Income is covered-call net, day trades, and dividends, excluding assignment and stock sales. Return on program (start value) is that income ÷ the Monday-open value plus same-week buys at cost: program stock held at the Monday open, priced at Robinhood’s Monday opening prices, plus program stock bought later that week at what it cost (shares sold mid-week are not subtracted; margin, cash, non-program stock and options excluded); n/a means the Monday holdings could not be rebuilt. Return on program (cost basis) is that income ÷ program cost basis. Assignment P&L is booked in the called-away week. Stock sales (outside income) are outright program stock sales booked in the sale week and are not in Overall. Overall is income plus assignment.</p>' +
       '<div class="js-wrap"><table class="js-table"><thead>' +
         ths([
           { t: "Week ending" },
@@ -484,9 +494,11 @@
           { t: "RoP (start value)", num: true },
           { t: "RoP (cost basis)", num: true },
           { t: "Assignment P&L", num: true },
+          { t: "Stock sales (outside income)", num: true },
           { t: "Overall", num: true },
           { t: "Cum. income", num: true },
           { t: "Cum. assignment", num: true },
+          { t: "Cum. stock sales", num: true },
           { t: "Cum. overall", num: true },
           { t: "Trades", num: true },
         ]) +
@@ -523,6 +535,7 @@
     const net = row ? num(row.net_income) : (prem != null && fees != null ? prem - fees : null);
     const startVal = row ? num(row.start_of_week_value) : null;
     const assign = row ? num(row.assignment_pnl) : null;
+    const stockSale = row ? num(row.stock_sale_pnl) : null;
     const income = row ? weekIncome(row) : net;
     const overall = row ? weekOverall(row) : income;
     const ropStartWk = weekRopStart(row);
@@ -576,6 +589,7 @@
         stat("js-kpi-income", "Income", money(income), row ? (incomeFresh ? INCOME_ONLY : "From weeks") : "Premium minus fees", pnlClass(income)) +
         stat("js-kpi-rop-start", "Return on program (start value)", pctOrNa(ropStartWk), row ? (ropStartWk != null ? "Income ÷ Monday-open value plus same-week buys at cost" : "Monday holdings not available") : "Not in weeks", pnlClass(ropStartWk)) +
         stat("js-kpi-assign", "Assignment P&L", money(assign), row ? "From weeks" : "Not in allocations", pnlClass(assign)) +
+        stat("js-kpi-stock-sale", "Stock sales (outside income)", money(stockSale), row ? "From weeks" : "Not in weeks", pnlClass(stockSale)) +
         stat("js-kpi-overall", "Overall", money(overall), row ? "Income + assignment" : "Income", pnlClass(overall)) +
         stat("js-kpi-rop-cost", "Return on program (cost basis)", pct(ropCostWk), row ? "Income ÷ program cost basis" : "Not in weeks", pnlClass(ropCostWk)) +
       "</div>" +
