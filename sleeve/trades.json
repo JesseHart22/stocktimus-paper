@@ -5,39 +5,21 @@
     "account_number_masked": "\u2022\u2022\u2022\u20225198",
     "venue": "robinhood_agentic"
   },
-  "as_of": "2026-11-04T09:56:00-08:00",
+  "as_of": "2026-11-04T16:05:00-08:00",
   "sleeve_budget_usd": 25000,
-  "notes": "AM refresh Nov 4 PT (RH get_portfolio ~9:55 AM PT). New fill: STO 1x NFLX Nov 13 $60P @ 0.10 (~7:35 AM PT, +$9.95 net, $6,000 collateral). Open: ASML 1 (1,506.88); short puts NVO Nov 6 37P 0.02, PFE Nov 6 29P 0.04, NFLX Nov 13 60P 0.10 (RH marks); $12,600 CSP collateral held. Cash $21,606.62; buying power $9,006.62; total $23,097.50 (-$28.40 vs Nov 3 PM $23,125.90). Capital deployed $1,608.30. Nov 2 HIMS 200-share same-day round trip (-$451.35) counted as a daytrade per Jesse rule 2026-11-03. Week 11/06: option net $39.74 + daytrade -$451.35 = -$411.61. Combined income $140.02. Open premium (books at expiry) $116.85. Realized equity P&L -2,041.90 (tracked separately). Marks = robinhood/live.",
+  "notes": "PM refresh Nov 4 PT (RH get_portfolio ~4:03 PM PT). New fill: SELL 1 ASML @ 1491.46 (~12:48 PM PT, agent-initiated, fee 0.04) \u2014 full exit vs cost 1,608.30, realized -$116.88 (held since Oct 26, so realized equity P&L, not income). Open: no equity; short puts NVO Nov 6 37P 0.09, PFE Nov 6 29P 0.01, NFLX Nov 13 60P 0.09 (RH marks); $12,600 CSP collateral held. Cash $23,098.04; buying power $10,498.04; total $23,079.04 (-$18.46 vs AM $23,097.50). Capital deployed $0 (no open equity; return vs deployed shown as 0 \u2014 undefined). Nov 2 HIMS 200-share same-day round trip (-$451.35) counted as a daytrade per Jesse rule 2026-11-03. Week 11/06: option net $39.74 + daytrade -$451.35 = -$411.61 (week capital deployed kept at $1,608.30 = ASML held during week). Combined income $140.02. Open premium (books at expiry) $116.85. Realized equity P&L -2,158.78 (tracked separately). Marks = robinhood/live.",
   "portfolio": {
-    "total_value": 23097.5,
-    "equity_value": 1506.88,
-    "options_value": -16.0,
-    "cash": 21606.62,
-    "buying_power": 9006.62,
-    "as_of": "2026-11-04T09:56:00-08:00",
-    "source": "user-Robinhood.get_portfolio (AM refresh)",
+    "total_value": 23079.04,
+    "equity_value": 0.0,
+    "options_value": -19.0,
+    "cash": 23098.04,
+    "buying_power": 10498.04,
+    "as_of": "2026-11-04T16:05:00-08:00",
+    "source": "user-Robinhood.get_portfolio (PM refresh)",
     "marks_source": "robinhood/live"
   },
   "open_positions": {
-    "equity": [
-      {
-        "symbol": "ASML",
-        "quantity": 1,
-        "avg_cost": 1608.3,
-        "side": "long",
-        "deployed_usd": 1608.3,
-        "last": 1506.88,
-        "market_value": 1506.88,
-        "unrealized_pnl": -101.42,
-        "desk_bucket": "compounder",
-        "structure": "stock",
-        "status": "open",
-        "target": 1720.0,
-        "hard_invalidation": "daily close < 1520",
-        "opened_at": "2026-10-26T15:39:37.639Z",
-        "mark_source": "robinhood/live"
-      }
-    ],
+    "equity": [],
     "options": [
       {
         "symbol": "NVO",
@@ -52,10 +34,10 @@
         "credit_usd": 65.0,
         "fees": 0.05,
         "credit_net_usd": 64.95,
-        "mark": 0.02,
-        "market_value": -2.0,
-        "unrealized_pnl": 63.0,
-        "underlying_last": 42.975,
+        "mark": 0.09,
+        "market_value": -9.0,
+        "unrealized_pnl": 56.0,
+        "underlying_last": 42.175,
         "collateral_usd": 3700.0,
         "desk_bucket": "unattributed",
         "ticket_id": null,
@@ -77,10 +59,10 @@
         "credit_usd": 42.0,
         "fees": 0.05,
         "credit_net_usd": 41.95,
-        "mark": 0.04,
-        "market_value": -4.0,
-        "unrealized_pnl": 38.0,
-        "underlying_last": 30.63,
+        "mark": 0.01,
+        "market_value": -1.0,
+        "unrealized_pnl": 41.0,
+        "underlying_last": 30.79,
         "collateral_usd": 2900.0,
         "desk_bucket": "unattributed",
         "ticket_id": null,
@@ -102,10 +84,10 @@
         "credit_usd": 10.0,
         "fees": 0.05,
         "credit_net_usd": 9.95,
-        "mark": 0.1,
-        "market_value": -10.0,
-        "unrealized_pnl": 0.0,
-        "underlying_last": 66.205,
+        "mark": 0.09,
+        "market_value": -9.0,
+        "unrealized_pnl": 1.0,
+        "underlying_last": 66.39,
         "collateral_usd": 6000.0,
         "desk_bucket": "unattributed",
         "ticket_id": null,
@@ -709,8 +691,8 @@
         "fill": 1608.3,
         "cap": 1610.0
       },
-      "open_closed": "open",
-      "realized_pnl_usd": null,
+      "open_closed": "closed",
+      "realized_pnl_usd": -116.88,
       "target": 1720.0,
       "out_if": "daily close < $1,520",
       "note": "Target $1,720; out on daily close < $1,520.",
@@ -1339,6 +1321,42 @@
       "option_id": "55a31489-5c1b-4825-9878-0d239ea59f72",
       "position_effect": "open",
       "note": "STO 1x NFLX Nov 13 $60P ~7:35 AM PT (agent-initiated); $6,000 collateral held. Fee inferred from cash delta (+9.95)."
+    },
+    {
+      "fill_id": "6aeb9a0b-af13-45da-82a8-dd93b9a7507a",
+      "order_id": "6aeb9a09-5037-42ef-9c3a-6d4154785bb9",
+      "asset_class": "equity",
+      "symbol": "ASML",
+      "side": "sell",
+      "structure": "stock",
+      "quantity": 1,
+      "contracts": null,
+      "strike": null,
+      "expiry": null,
+      "option_type": null,
+      "limit_price": 1491.46,
+      "fill_price": 1491.46,
+      "credit_debit": "credit",
+      "premium_per_share": null,
+      "notional_usd": 1491.46,
+      "fees": 0.04,
+      "deployed_usd": 0,
+      "desk_bucket": "compounder",
+      "lane": "sleeve",
+      "live_gate": null,
+      "ticket_id": "compounder-asml-oct26",
+      "placed_agent": "agentic",
+      "order_type": "limit",
+      "market_hours": "regular_hours",
+      "walk": null,
+      "status": "filled",
+      "open_closed": "closed",
+      "realized_pnl_usd": -116.88,
+      "created_at": "2026-11-04T20:48:09.661526Z",
+      "filled_at": "2026-11-04T20:48:11.279Z",
+      "time_in_force": "gfd",
+      "date": "2026-11-04",
+      "note": "Full exit of 1 sh vs cost 1608.30 ~12:48 PM PT (agent-initiated); out_if daily close < $1,520 (ASML closed 1496.72)."
     }
   ],
   "orders_open": [],
@@ -1507,6 +1525,27 @@
       "closed_at": "2026-11-02T20:54:54.495Z",
       "notes": "Buy-write unwound same day: 200 HIMS sold @ 25.3318 after BTC of 2x $27C @ 0.50. Classified daytrade (same-day round trip, Jesse rule 2026-11-03): counted in scalps/daytrades income, not realized equity P&L.",
       "classification": "daytrade"
+    },
+    {
+      "fill_id": "6aeb9a0b-af13-45da-82a8-dd93b9a7507a",
+      "order_id": "6aeb9a09-5037-42ef-9c3a-6d4154785bb9",
+      "symbol": "ASML",
+      "side": "sell",
+      "quantity": 1,
+      "avg_cost": 1608.3,
+      "cost_basis_usd": 1608.3,
+      "exit_price": 1491.46,
+      "proceeds_usd": 1491.46,
+      "fees": 0.04,
+      "realized_pnl_usd": -116.88,
+      "desk_bucket": "compounder",
+      "ticket_ids": [
+        "compounder-asml-oct26"
+      ],
+      "status": "closed",
+      "closed_date": "2026-11-04",
+      "closed_at": "2026-11-04T20:48:11.279Z",
+      "notes": "Full exit, agent-initiated limit sell ~12:48 PM PT (held since Oct 26; not a daytrade). Hard invalidation was daily close < $1,520."
     }
   ],
   "rules": {
@@ -1527,10 +1566,10 @@
     "assignment_pnl": 0,
     "combined_income": 140.02,
     "open_premium_net": 116.85,
-    "capital_deployed": 1608.3,
-    "roc_vs_deployed": 0.0870609,
+    "capital_deployed": 0.0,
+    "roc_vs_deployed": 0.0,
     "roc_vs_budget": 0.0056008,
-    "realized_equity_pnl": -2041.9,
+    "realized_equity_pnl": -2158.78,
     "csp_collateral_usd": 12600.0,
     "csp_premium_net": -39.14
   },
@@ -1622,9 +1661,9 @@
       "week_return_pct": -0.2559286,
       "week_return_pct_vs_capital": -0.2559286,
       "week_return_pct_vs_program": -0.0164644,
-      "trade_count": 7,
+      "trade_count": 8,
       "called_away_flags": 0,
-      "realized_equity_pnl": 309.55
+      "realized_equity_pnl": 192.67
     }
   ],
   "weekly_summary": [
@@ -1714,9 +1753,9 @@
       "week_return_pct": -0.2559286,
       "week_return_pct_vs_capital": -0.2559286,
       "week_return_pct_vs_program": -0.0164644,
-      "trade_count": 7,
+      "trade_count": 8,
       "called_away_flags": 0,
-      "realized_equity_pnl": 309.55
+      "realized_equity_pnl": 192.67
     }
   ],
   "cc_trades": [
@@ -2022,7 +2061,7 @@
     "realized_pnl": "user-Robinhood.get_pnl_trade_history span=all",
     "open_book_rule": "open = sum(fills) net of closes/assignments; must match get_*_positions",
     "update_cadence": "after every Sleeve fill; Paperwright may poll this file",
-    "refreshed_at": "2026-11-04T09:56:00-08:00"
+    "refreshed_at": "2026-11-04T16:05:00-08:00"
   },
   "schema_fields": {
     "fills[]": [
