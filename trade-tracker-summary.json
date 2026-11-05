@@ -1995,6 +1995,20 @@
       "lane": "paper"
     },
     {
+      "id": "2026-10-01-AM-LMND",
+      "ticker": "LMND",
+      "creator": "Danny",
+      "structure": "stock+CC",
+      "confidence": "Medium",
+      "paper_status": "leftover_shares",
+      "paper_pnl": -238.5,
+      "paper_roc_pct": -0.05230836714552034,
+      "capital_at_risk": 4559.5,
+      "strike": 48.0,
+      "expiry": "2026-10-09",
+      "lane": "paper"
+    },
+    {
       "id": "2026-10-13-AM-LMND-roll",
       "ticker": "LMND",
       "creator": "Danny",
