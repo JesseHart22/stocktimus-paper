@@ -1,7 +1,7 @@
 {
   "desk": "jesse",
   "title": "Covered Call Income",
-  "as_of": "2026-11-05T07:56:39-08:00",
+  "as_of": "2026-11-05T08:08:24-08:00",
   "source": "fidelity_positions_csv + covered-call-income-tracker.xlsx",
   "theme": "clay_sage",
   "rules": {
@@ -1529,6 +1529,34 @@
       "assign_p&l_total": null,
       "notes": "Activity 2026-11-03: STO \u221210 ASTS Nov6 $40 @0.80; gross $800, comm $3.50, fees $0.15, net $796.35 (matches 11/05 positions Cost basis total). Covers 1000 ASTS (In program). Cost = positions avg $61.65. Strike $40 < cost $61.65 \u2192 if called away, assignment P&L \u2212$21,650. Stock px at sale not in CSVs (blank). Open on 11/05 positions (Last $0.02; ASTS $29.475).",
       "active_capital_$": 61650.0
+    },
+    {
+      "trade_id": "SS-001",
+      "income_type": "Stock_Sale",
+      "ticker": "BABA",
+      "shares": 200.0,
+      "stock_purchase_date": null,
+      "cost_basis___share": 111.56,
+      "capital_invested": 22312.0,
+      "cc_sell_date": "2026-11-03",
+      "stock_price_at_cc_sale": 100.76,
+      "expiration": "2026-11-03",
+      "strike": null,
+      "option_symbol": null,
+      "premium_(gross)": -2160.42,
+      "commission": 0.0,
+      "fees": 0.0,
+      "premium_(net)": -2160.42,
+      "weeks": 1.0,
+      "weekly_allocation": -2160.42,
+      "trade_roc_pct": -0.096828,
+      "weekly_roc_pct": -0.096828,
+      "called_away": null,
+      "called_away_date": null,
+      "assign_p&l___share": null,
+      "assign_p&l_total": null,
+      "notes": "Outright sale 2026-11-03 (not assignment, not same-day): SOLD 200 BABA @ $100.76, proceeds $20,151.58 (fee $0.42), cost $111.56 \u00d7 200 = $22,312.00, realized P&L \u2212$2,160.42. Booked as Stock_Sale in week ending 2026-11-06. Outside Income / Assignment / Overall (Jesse 2026-11-05).",
+      "active_capital_$": 0.0
     }
   ],
   "allocations": [
@@ -2503,7 +2531,9 @@
           "cost": 15720.0,
           "source": "Fidelity activity buy 2026-09-23 (cost = |Amount|; activity b7aaecf3)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-02",
@@ -2612,7 +2642,9 @@
           "cost": 600.0,
           "source": "Fidelity activity buy 2026-09-29 (cost = |Amount|; activity a2d0792f)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-09",
@@ -2717,7 +2749,9 @@
       ],
       "start_value_monday_open": 230551.0,
       "start_value_added_buys": 0.0,
-      "start_value_buys": []
+      "start_value_buys": [],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-16",
@@ -2841,7 +2875,9 @@
           "cost": 13987.96,
           "source": "Fidelity activity buy 2026-10-12 (cost = |Amount|; activity 5e9d21f5)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-23",
@@ -2948,7 +2984,9 @@
           "cost": 10937.5,
           "source": "Fidelity activity buy 2026-10-19 (cost = |Amount|; activity dd11fda5)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-30",
@@ -3055,7 +3093,9 @@
           "cost": 9655.0,
           "source": "Fidelity activity buy 2026-10-29 (cost = |Amount|; activity 7d35ade9)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-11-06",
@@ -3153,7 +3193,9 @@
       ],
       "start_value_monday_open": 148765.8,
       "start_value_added_buys": 0.0,
-      "start_value_buys": []
+      "start_value_buys": [],
+      "stock_sale_pnl": -2160.42,
+      "cumulative_stock_sale_pnl": -2160.42
     },
     {
       "week_ending": "2026-11-13",
@@ -3181,7 +3223,9 @@
       "start_value_holdings": null,
       "start_value_monday_open": null,
       "start_value_added_buys": null,
-      "start_value_buys": null
+      "start_value_buys": null,
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": -2160.42
     },
     {
       "week_ending": "2026-11-20",
@@ -3209,7 +3253,9 @@
       "start_value_holdings": null,
       "start_value_monday_open": null,
       "start_value_added_buys": null,
-      "start_value_buys": null
+      "start_value_buys": null,
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": -2160.42
     }
   ],
   "dashboard": {
@@ -3242,7 +3288,8 @@
     "return_on_program_start_value": 0.080376,
     "avg_weekly_return_on_program_start_value": 0.013396,
     "start_value_weeks_covered": 6,
-    "current_week_start_value": 148765.8
+    "current_week_start_value": 148765.8,
+    "stock_sale_pnl_total": -2160.42
   },
   "weekly_summary": [
     {
@@ -3356,7 +3403,9 @@
           "cost": 15720.0,
           "source": "Fidelity activity buy 2026-09-23 (cost = |Amount|; activity b7aaecf3)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-02",
@@ -3465,7 +3514,9 @@
           "cost": 600.0,
           "source": "Fidelity activity buy 2026-09-29 (cost = |Amount|; activity a2d0792f)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-09",
@@ -3570,7 +3621,9 @@
       ],
       "start_value_monday_open": 230551.0,
       "start_value_added_buys": 0.0,
-      "start_value_buys": []
+      "start_value_buys": [],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-16",
@@ -3694,7 +3747,9 @@
           "cost": 13987.96,
           "source": "Fidelity activity buy 2026-10-12 (cost = |Amount|; activity 5e9d21f5)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-23",
@@ -3801,7 +3856,9 @@
           "cost": 10937.5,
           "source": "Fidelity activity buy 2026-10-19 (cost = |Amount|; activity dd11fda5)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-10-30",
@@ -3908,7 +3965,9 @@
           "cost": 9655.0,
           "source": "Fidelity activity buy 2026-10-29 (cost = |Amount|; activity 7d35ade9)"
         }
-      ]
+      ],
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": 0.0
     },
     {
       "week_ending": "2026-11-06",
@@ -4006,7 +4065,9 @@
       ],
       "start_value_monday_open": 148765.8,
       "start_value_added_buys": 0.0,
-      "start_value_buys": []
+      "start_value_buys": [],
+      "stock_sale_pnl": -2160.42,
+      "cumulative_stock_sale_pnl": -2160.42
     },
     {
       "week_ending": "2026-11-13",
@@ -4034,7 +4095,9 @@
       "start_value_holdings": null,
       "start_value_monday_open": null,
       "start_value_added_buys": null,
-      "start_value_buys": null
+      "start_value_buys": null,
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": -2160.42
     },
     {
       "week_ending": "2026-11-20",
@@ -4062,7 +4125,9 @@
       "start_value_holdings": null,
       "start_value_monday_open": null,
       "start_value_added_buys": null,
-      "start_value_buys": null
+      "start_value_buys": null,
+      "stock_sale_pnl": 0.0,
+      "cumulative_stock_sale_pnl": -2160.42
     }
   ],
   "current_week_ending": "2026-11-06",
@@ -4195,6 +4260,19 @@
       "fees": 0.21,
       "net_pnl": 20.13,
       "notes": "Oct-2 CLSK Oct2 $13.5 scalp only (no Covered_Call row): BTO 8 @0.07 (\u2212$57.62) / STC 8 @0.10 ($77.75). Gross $24 \u2212 comm $3.66 \u2212 fees $0.21 = net $20.13."
+    }
+  ],
+  "stock_sales": [
+    {
+      "trade_id": "SS-001",
+      "ticker": "BABA",
+      "sale_date": "2026-11-03",
+      "shares": 200.0,
+      "sale_price": 100.76,
+      "cost_basis_per_share": 111.56,
+      "capital_invested": 22312.0,
+      "realized_pnl": -2160.42,
+      "notes": "Outright sale 2026-11-03 (not assignment, not same-day): SOLD 200 BABA @ $100.76, proceeds $20,151.58 (fee $0.42), cost $111.56 \u00d7 200 = $22,312.00, realized P&L \u2212$2,160.42. Booked as Stock_Sale in week ending 2026-11-06. Outside Income / Assignment / Overall (Jesse 2026-11-05)."
     }
   ]
 }
