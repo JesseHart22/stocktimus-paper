@@ -1,6 +1,6 @@
 {
   "desk": "scout",
-  "as_of": "2026-11-02T08:17:08-08:00",
+  "as_of": "2026-11-06T08:18:00-08:00",
   "calls": [
     {
       "id": "cm-tlt-2026-09-08",
@@ -47,12 +47,13 @@
       "handle": "dampedspring",
       "ticker": "TLT",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 11,
       "called_at": "2026-09-24",
       "example": false,
-      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4 (same call). Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6 (same open call, not a new graded row); flagged $119B 3s/10s/30s supply over the next 3 days. Oct 8: \"Yes. I am long tsys\" (own reply) = ★7; also noted $6B Treasury buyback fully subscribed. Oct 14: \"long bonds\" = ★8 (same open call, not a new graded row). Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (Bull Case for equities Q4 post, x.com/dampedspring/status/2111452487144055044) = ★9; same-day reply \"multiple leg trade in zb futures options for this alpha trade\" folded into ★9, not extra. Oct 15 call overwrite is not a close; position stays net long/open. Proxies TLT,IEF,TLH,ZB. Under 14d until Oct 8; grade at Oct month-end. Oct 21 2:35pm ET: \"I'm long bonds but just renting for alpha. For beta they are a better balance\" (x.com/dampedspring/status/2112975980205940949) = ★10 (same open call). Tactical-exit watch: Oct 22 10:09am ET \"The No Pain trade. Bonds have almost made their move\" (x.com/dampedspring/status/2113271521397379487), same-thread \"I'll be shorting into it\" near ZB 108-07 (conditional, not a new call); Oct 23 6:05am ET reply \"Tactically I am selling into the rally\" (x.com/dampedspring/status/2113572570117161140). Not a stated flip to short; no stars added for these. Decide close vs. open at Oct month-end grading. Oct 30 9:50am ET: \"Now what? Still in this long bonds short stocks trade. Bonds may have done most of their job. Maybe one last squeeze.\" (x.com/dampedspring/status/2116165912390938690) = ★11 (same open call); Oct 29 9:04pm ET \"Bonds are the best tm\" quote folded in, not extra. Oct 29 4:34pm ET \"Sold my STIR long just now into the spike\" is a separate front-end position, not this call. Nov 1 rerate decision: stays OPEN — Oct 30 post says \"Still in this long bonds short stocks trade\"; Oct 22–23 selling-into-rally lines were tactical, no stated exit. Out of rank average. MTM long equal-weight TLT/IEF/TLH Sep24→Oct30 close ≈ +2.76% (info only; RH daily closes)."
+      "note": "Sep 24: long ZB delta via OTM 1/2 put spreads. Sep 25 Max long ZB 3% AUM = ★2. Sep 26 ZB IV/skew sell put spreads buy call = ★3. Sep 29 LaRoche: still max-long long bonds = ★4. Oct 1: sell ~10% equities, buy 10% TLT + 10% LTPZ with ~10% leverage = ★5. Oct 6: \"Max long bonds at the moment\" = ★6. Oct 8: \"Yes. I am long tsys\" = ★7. Oct 14: \"long bonds\" = ★8. Oct 17: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★9. Oct 21: \"I'm long bonds but just renting for alpha\" (x.com/dampedspring/status/2112975980205940949) = ★10. Oct 30: \"Still in this long bonds short stocks trade\" (x.com/dampedspring/status/2116165912390938690) = ★11. CLOSED 2026-11-05: Nov 5 7:13am ET \"Out of max long bond position. Flat bonds for DS alpha.\" (x.com/dampedspring/status/2118240275512352993); same-day follow-up \"Closed out the max long bond portion of this trade last night at 109 ish on ZB. Long bonds short stocks is an 2x anti growth bet. Still short stocks ... until I double my short stocks exposure which is what's next.\" (x.com/dampedspring/status/2118309309373133226). Explicit exit — flat bonds, NOT flipped short (no new short-bonds graded row). Nov 5 later: \"Bonds are boring at current levels\" (x.com/dampedspring/status/2118434570895044943). Proxies TLT,IEF,TLH,ZB. signed_return deferred to Nov monthly rerate (Scout does not invent P&L on close).",
+      "closed_at": "2026-11-05"
     },
     {
       "id": "ds-spy-2026-09-22",
@@ -61,10 +62,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "short",
-      "stars": 6,
+      "stars": 8,
       "called_at": "2026-09-22",
       "example": false,
-      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1 restatement. Oct 8: SPY down 60bp realizing 10 vol vs TLT -7% in 5 weeks; \"trying to mook it ... (Not short enough)\" = ★2 restatement of short equities. Oct 14: \"short stocks\" = ★3 restatement of short equities (same open call, not a new graded row). Oct 16 1:05pm ET reply: \"As of 10/1 I went pretty big short equities ... I am bearish\" (x.com/dampedspring/status/2111141462616457465) = ★4; same-day \"6% outperformance of $TLT vs $SPY\" brag folded in, not extra. Oct 17 9:41am ET: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★5; same-day \"I agree. I am bearish.\" reply folded in. Still open. Proxies SPY,QQQ,IWM. Under 14d. Oct 30 9:50am ET: \"Still in this long bonds short stocks trade\" (x.com/dampedspring/status/2116165912390938690) = ★6 (same open call). Nov 1 rerate: still open (restated Oct 30); out of rank average. MTM short equal-weight SPY/QQQ/IWM Sep22→Oct30 close ≈ +4.22% (info only; RH daily closes)."
+      "note": "SPX earnings epic bubble; soft long into 9/30 then max short via Nov puts. Sep 29 LaRoche: still short equities (~75% of max risk) = ★1. Oct 8: \"trying to mook it ... (Not short enough)\" = ★2. Oct 14: \"short stocks\" = ★3. Oct 16: \"As of 10/1 I went pretty big short equities ... I am bearish\" (x.com/dampedspring/status/2111141462616457465) = ★4. Oct 17: \"I am short equities and long bonds at the moment\" (x.com/dampedspring/status/2111452487144055044) = ★5. Oct 30: \"Still in this long bonds short stocks trade\" (x.com/dampedspring/status/2116165912390938690) = ★6. Nov 4 2:55am ET: \"Covering some of my short here on ES still quite short.\" (x.com/dampedspring/status/2117812990179475633) = ★7. Nov 5: \"Still very short\" / \"taking a little more profit. Half as short as I was\" / \"Despite being extremely bearish every ticket today bought back some of my short. Need room to sell the bounce\" / \"This selloff isn't over.\" (x.com/dampedspring/status/2118361923049640421 ; x.com/dampedspring/status/2118377435507167543 ; x.com/dampedspring/status/2118459270681493952 ; x.com/dampedspring/status/2118468903441485953) = ★8 (same-day restatements folded). Also plans to \"double my short stocks exposure which is what's next\" (x.com/dampedspring/status/2118309309373133226) — same open call, not a new graded row. Proxies SPY,QQQ,IWM. Still open; out of rank average."
     },
     {
       "id": "ds-jpy-2026-09-29",
@@ -83,12 +84,13 @@
       "handle": "dampedspring",
       "ticker": "LTPZ",
       "kind": "theme",
-      "status": "open",
+      "status": "closed",
       "direction": "long",
       "stars": 0,
       "called_at": "2026-10-01",
       "example": false,
-      "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close (Fri theme log). Nov 1 rerate: open (paired with open TLT allocate); out of rank average. MTM long LTPZ Oct1→Oct30 close ≈ +5.44% (info only; RH daily closes)."
+      "note": "Oct 1: if 100% stocks, sell ~10% equities buy 10% LTPZ (TIPS) + 10% TLT with ~10% leverage; case for bonds improving. Paired with TLT allocate. Proxy LTPZ ~$45.06 Oct 1 close. CLOSED 2026-11-05 with paired max-long-bonds exit: dampedspring \"Out of max long bond position. Flat bonds for DS alpha.\" (x.com/dampedspring/status/2118240275512352993) and \"Closed out the max long bond portion of this trade last night at 109 ish on ZB\" (x.com/dampedspring/status/2118309309373133226). Flat bonds covers TIPS allocate. signed_return deferred to Nov monthly rerate.",
+      "closed_at": "2026-11-05"
     },
     {
       "id": "jam-spy-2026-10-02",
@@ -97,10 +99,10 @@
       "kind": "theme",
       "status": "open",
       "direction": "short",
-      "stars": 1,
+      "stars": 3,
       "called_at": "2026-10-02",
       "example": false,
-      "note": "Oct 2 1:48pm ET: short US equities. Oct 14 repeat = ★1 (same open call, not a new graded row). Proxies frozen at entry: SPY 769.20, QQQ 749.07. Open/ungraded; grade at October 2026 month-end. Nov 1 rerate: no close posted, so stays open and out of rank average (Scout open-theme rule). MTM short equal-weight SPY/QQQ vs frozen entry → Oct30 close ≈ +4.79% (info only; RH daily closes)."
+      "note": "Oct 2 1:48pm ET: short US equities. Oct 14 repeat = ★1. Nov 3: \"Remember, the preferred window for the short is January Opex.\" (x.com/jam_croissant/status/2117687892877381919) = ★2 (same open short call). Nov 5: \"The Trump/Fed put is now likely lower… The left tail is likely fatter.\" (x.com/jam_croissant/status/2118176904670830766) = ★3 (same open call; post-midterm blue-wave put threshold higher). Proxies SPY,QQQ. Still open; out of rank average."
     },
     {
       "id": "jc-siri-2026-10-09",
@@ -148,7 +150,7 @@
       "stars": 0,
       "called_at": "2026-11-02",
       "example": false,
-      "note": "Nov 2 6:40am PT (9:40am ET, regular session) own post (quoting his Oct 30 PURR post): \"I am a buyer of $PURR for a degen lunch money trade at 9 ish.\" Same post also says \"Fwiw the ICE News was good news.\" (x.com/dampedspring/status/2117265584131862648). Resting buy zone: PURR ~9, small \"degen lunch money\" size. Bid, not a confirmed fill. Entry reference (RH, not a fill): quote 10.455 at ~8:16am PT Nov 2; 5-min bar containing the post closed 10.515; Oct 30 close 11.01. Session low so far ~10.43 — zone untouched. Context, not separate rows: Oct 30 10:42am PT he wrote he would \"suggest maybe shorting it on a rip\" (x.com/dampedspring/status/2116224257567125821, conditional) and at 11:25am PT \"I made it clear I don't have one yet\" (no position). Buy zone logged for owning desk: Moonshot (high-upside lottery-size; Hyperliquid-linked equity, so CoS to confirm vs Compounder crypto lane). Under 14d."
+      "note": "Nov 2 6:40am PT own post: \"I am a buyer of $PURR for a degen lunch money trade at 9 ish.\" (x.com/dampedspring/status/2117265584131862648). Resting buy zone: PURR ~9, small degen size. Nov 5 6:32am PT: \"Out on my bid.\" quoting that PURR post (x.com/dampedspring/status/2118350691924123758) — bid reported filled; position still open long (lottery-size). Also: \"Scroll through your feed and look at who was Pumping Hype at 95 and $PURR at 12 and reset your follows.\" Under 14d. No star (fill confirmation, not a same-direction pump)."
     }
   ]
 }
