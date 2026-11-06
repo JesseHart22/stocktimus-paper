@@ -1,53 +1,41 @@
 {
-  "as_of": "2026-11-06T07:38:00-08:00",
-  "account": 229264.7,
-  "weekly_target": 3438.97,
+  "as_of": "2026-11-06T13:24:46-08:00",
+  "account": 229245.22,
+  "weekly_target": 3438.68,
   "starting_account": 250000.0,
   "source": "stocktimus-paper",
   "marks_source": "robinhood",
   "quote_quality": "robinhood_live",
-  "note": "Fri Nov06 AM (v0.7-beta): RH live MTM. CUTS on Thu closes: ASTS Nov6 $33p x3 @2.52; NVDA Nov6 $190p x2 @1.35; PLTR Nov13 $162.5p @5.90; LMND shares @40.07 + Nov6 $46c @0.15. HOLD day 1 HOOD Nov6 $80p (close 78.39, 2.0% under $80; gate ON). New paper CSPs (07:38 PT): ZETA Nov13 $25p x1 @0.52 (Medium, TLI zone bottom; earnings Nov9); UPS Nov20 $100p x1 @0.40 (Medium, staged under Extreme Fear). ASTS BUY $30 / GOOGL / KHC skipped. Free cash 40.4% of book; cluster 3.5%. Lane=paper. No live. Not advice.",
-  "max_per_trade": 57316.18,
+  "note": "Fri Nov06 cash-close MTM (RH regular-session last trade + RH option closing NBBO mid; adjusted mark where bid=0). marks_source=robinhood, quote_quality=robinhood_live. Lane=paper. No live. Not advice.",
+  "max_per_trade": 57311.31,
   "summary": {
     "account_pct": -0.08,
     "by_confidence": {
-      "Medium": {
-        "hit": 0.6416666666666667,
-        "n": 120,
-        "sum_pnl": -17372.28,
-        "wins": 77
-      },
-      "Low": {
-        "hit": 0.5,
-        "n": 8,
-        "sum_pnl": -1560.0,
-        "wins": 4
-      },
       "High": {
         "hit": 0.5,
         "n": 6,
         "sum_pnl": -1553.5,
         "wins": 3
+      },
+      "Medium": {
+        "hit": 0.6201550387596899,
+        "n": 129,
+        "sum_pnl": -17746.28,
+        "wins": 80
+      },
+      "Low": {
+        "hit": 0.6,
+        "n": 10,
+        "sum_pnl": -1455.0,
+        "wins": 6
       }
     },
     "by_creator": {
-      "Stocktimus": {
-        "hit": 0.7307692307692307,
-        "n": 26,
-        "sum_pnl": 245.5,
-        "wins": 19
-      },
-      "TLI": {
-        "hit": 0.6666666666666666,
-        "n": 57,
-        "sum_pnl": -12557.28,
-        "wins": 38
-      },
-      "TLI+Danny": {
-        "hit": 0.5,
-        "n": 10,
-        "sum_pnl": -1652.5,
-        "wins": 5
+      "Danny": {
+        "hit": 0.5625,
+        "n": 32,
+        "sum_pnl": -6367.5,
+        "wins": 18
       },
       "Danny+TLI": {
         "hit": 0.25,
@@ -61,17 +49,29 @@
         "sum_pnl": 16.0,
         "wins": 1
       },
-      "Danny": {
-        "hit": 0.5483870967741935,
-        "n": 31,
-        "sum_pnl": -6416.5,
-        "wins": 17
-      },
       "Rabbit's Cave": {
         "hit": 0.0,
         "n": 1,
         "sum_pnl": -20.0,
         "wins": 0
+      },
+      "Stocktimus": {
+        "hit": 0.7307692307692307,
+        "n": 26,
+        "sum_pnl": 245.5,
+        "wins": 19
+      },
+      "TLI": {
+        "hit": 0.6268656716417911,
+        "n": 67,
+        "sum_pnl": -12875.28,
+        "wins": 42
+      },
+      "TLI+Danny": {
+        "hit": 0.5,
+        "n": 10,
+        "sum_pnl": -1652.5,
+        "wins": 5
       },
       "The Long Investor": {
         "hit": 0.75,
@@ -81,37 +81,37 @@
       }
     },
     "by_structure": {
-      "stock+CC": {
-        "hit": 0.6454545454545455,
-        "n": 110,
-        "sum_pnl": -19451.28,
-        "wins": 71
-      },
       "CSP": {
-        "hit": 0.6666666666666666,
-        "n": 18,
-        "sum_pnl": -874.0,
-        "wins": 12
+        "hit": 0.5925925925925926,
+        "n": 27,
+        "sum_pnl": -1204.5,
+        "wins": 16
       },
       "long call": {
         "hit": 0.16666666666666666,
         "n": 6,
         "sum_pnl": -160.5,
         "wins": 1
+      },
+      "stock+CC": {
+        "hit": 0.6428571428571429,
+        "n": 112,
+        "sum_pnl": -19389.78,
+        "wins": 72
       }
     },
     "expired": 84,
     "hit_rate": 0.6268656716417911,
     "invalidated": 12,
     "leftover_shares": 1,
-    "open": 10,
-    "out": 38,
-    "paper_pnl": -20735.3,
+    "open": 11,
+    "out": 35,
+    "paper_pnl": -20754.78,
     "paper_roc": null,
     "resolved": 134,
     "wins": 84,
     "deployed_capital": 136642.5,
-    "free_cash": 92622.2
+    "free_cash": 92602.72
   },
   "trades": [
     {
@@ -10300,11 +10300,11 @@
       "source_group": "emailed",
       "new_vs_carry": "new",
       "paper_status": "leftover_shares",
-      "paper_pnl": 108.0,
-      "paper_roc_pct": 0.022302529685080022,
-      "paper_acct_pct": 0.000432,
-      "live_stock": 48.505,
-      "live_stock_source": "robinhood equity mid=48.505 (Fri Nov06 AM)",
+      "paper_pnl": 101.5,
+      "paper_roc_pct": 0.02096024780588539,
+      "paper_acct_pct": 0.000406,
+      "live_stock": 48.44,
+      "live_stock_source": "robinhood last_trade_price=48.44 (cash close) bid=47.75 ask=49.2 asof=2026-11-06T13:24:46-08:00",
       "live_option_mid": 0.0,
       "live_option_bid": null,
       "live_option_ask": null,
@@ -10312,21 +10312,21 @@
       "live_option_symbol": null,
       "cboe_stock": null,
       "quote_quality": "robinhood_live",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "first_invalidation_date": null,
       "daily_closes_completed": 0,
       "flags": [
         "AM paper fill Sep28; option mid from Robinhood mark (CBOE 429)",
         "EXPIRY Oct16 OTM leftover; close=46.35 strike=50.0; credit kept; shares OPEN",
-        "OTM CC leftover shares OPEN; MTM mark=50.06; RH Nov05 cash-close last",
-        "RH live MTM Nov06 AM; equity_mid=48.505; option_mark=0.0; Thu close 50.06 vs out 41.0"
+        "RH live MTM Nov06 AM; equity_mid=48.505; option_mark=0.0; Thu close 50.06 vs out 41.0",
+        "OTM CC leftover shares OPEN; MTM mark=48.44; RH Nov06 cash-close last"
       ],
       "sources": {
         "proxy": "/workspace/briefs/2026-09-28-am-fill-quotes.json"
       },
       "yahoo_quote_v7": null,
-      "stock_path_pnl": 8.0,
+      "stock_path_pnl": 1.5,
       "option_path_pnl": 100.0,
       "max_close_since": null,
       "min_close_since": null,
@@ -13221,17 +13221,17 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": -55.0,
-      "live_stock": 48.505,
-      "live_stock_source": "robinhood equity mid=48.505 (Fri Nov06 AM)",
+      "paper_pnl": -40.0,
+      "live_stock": 48.44,
+      "live_stock_source": "robinhood last_trade_price=48.44 (cash close) bid=47.75 ask=49.2 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 0.9,
-      "live_option_bid": 0.7,
-      "live_option_ask": 1.1,
+      "live_option_mid": 0.75,
+      "live_option_bid": 0.6,
+      "live_option_ask": 0.9,
       "live_option_symbol": "O:MKC261120C00050000",
       "option_instrument_id": "e7bf65cd-2bab-46c8-99be-fbc3758d758d",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-10-19T07:28:00-07:00",
       "fill_source": "RH option bid",
       "flags": [
@@ -13250,16 +13250,17 @@
         "CC roll MTM Nov03 close: option path only; RH close last=47.88; option_mid=0.7",
         "CC roll MTM Nov04 close: option path only; RH close last=50.49; option_mid=1.825",
         "CC roll MTM Nov05 close: option path only; RH close last=50.06; option_mid=1.65",
-        "RH live MTM Nov06 AM; equity_mid=48.505; option_mark=0.9; Thu close 50.06 vs out 41.0"
+        "RH live MTM Nov06 AM; equity_mid=48.505; option_mark=0.9; Thu close 50.06 vs out 41.0",
+        "CC roll MTM Nov06 close: option path only; RH close last=48.44; option_mid=0.75"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": -55.0,
+      "option_path_pnl": -40.0,
       "paper_roc_pct": null,
-      "paper_acct_pct": -0.00022,
+      "paper_acct_pct": -0.00016,
       "ticket_return_pct": null,
       "parent_id": "2026-09-28-AM-MKC",
       "rules_version": "v0.5-beta",
-      "live_option_last": 1.65,
+      "live_option_last": 0.75,
       "live_option_delta": 0.372494
     },
     {
@@ -13749,32 +13750,32 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": -96.5,
-      "live_stock": 395.17,
-      "live_stock_source": "robinhood equity mid=395.17 (Fri Nov06 AM)",
+      "paper_pnl": -126.0,
+      "live_stock": 394.12,
+      "live_stock_source": "robinhood last_trade_price=394.12 (cash close) bid=392.5 ask=393.44 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 1.465,
-      "live_option_bid": 1.4,
-      "live_option_ask": 1.53,
+      "live_option_mid": 1.76,
+      "live_option_bid": 1.72,
+      "live_option_ask": 1.8,
       "live_option_mark_at_fill": 0.545,
-      "live_option_last": 2.51,
+      "live_option_last": 1.76,
       "live_option_delta": -0.100154,
       "live_option_symbol": "O:UNH261120P00360000",
       "option_instrument_id": "978fd42d-2d3c-4141-a3fc-f9d5a37fe3eb",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-10-26T07:32:00-07:00",
       "fill_source": "RH option bid",
       "earnings_in_window": false,
       "flags": [
         "AM Oct26 paper fill; RH bid 0.5 @ 2026-10-26T07:32:00-07:00; F&G 25.8; rules=v0.6-beta; not LIVE GATE (collateral > 1/3 sleeve)",
-        "RH live MTM Nov06 AM; equity_mid=395.17; option_mark=1.465; Thu close 395.72 vs out 355.0"
+        "RH live MTM Nov06 cash close CSP; equity_last=394.12; option_mid=1.76"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": -96.5,
+      "option_path_pnl": -126.0,
       "ticket_return_pct": 0.001388888888888889,
-      "paper_roc_pct": -0.0026805555555555554,
-      "paper_acct_pct": -0.000386
+      "paper_roc_pct": -0.0035,
+      "paper_acct_pct": -0.000504
     },
     {
       "id": "2026-10-27-AM-SLV-roll",
@@ -13887,32 +13888,32 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": -185.0,
-      "live_stock": 179.305,
-      "live_stock_source": "robinhood equity mid=179.305 (Fri Nov06 AM)",
+      "paper_pnl": -267.5,
+      "live_stock": 176.81,
+      "live_stock_source": "robinhood last_trade_price=176.81 (cash close) bid=176.78 ask=180.1 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 2.7,
-      "live_option_bid": 1.7,
-      "live_option_ask": 3.7,
+      "live_option_mid": 3.525,
+      "live_option_bid": 2.35,
+      "live_option_ask": 4.7,
       "live_option_mark_at_fill": 1.65,
-      "live_option_last": 5.25,
+      "live_option_last": 3.525,
       "live_option_delta": -0.186957,
       "live_option_symbol": "O:GNRC261120P00160000",
       "option_instrument_id": "f199010e-08b2-4b55-8714-2f8e200c4521",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-10-27T07:36:00-07:00",
       "fill_source": "RH option bid",
       "earnings_in_window": false,
       "flags": [
         "AM Oct27 paper fill; RH bid 0.85 @ 2026-10-27T07:36:00-07:00; F&G 31.3; rules=v0.6-beta",
-        "RH live MTM Nov06 AM; equity_mid=179.305; option_mark=2.7; Thu close 172.33 vs out 155.0"
+        "RH live MTM Nov06 cash close CSP; equity_last=176.81; option_mid=3.525"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": -185.0,
+      "option_path_pnl": -267.5,
       "ticket_return_pct": 0.0053125,
-      "paper_roc_pct": -0.0115625,
-      "paper_acct_pct": -0.00074
+      "paper_roc_pct": -0.01671875,
+      "paper_acct_pct": -0.00107
     },
     {
       "id": "2026-10-28-AM-NFLX-CSP",
@@ -14089,36 +14090,37 @@
         "Danny"
       ],
       "paper_status": "open",
-      "paper_pnl": -43.5,
-      "live_stock": 80.165,
-      "live_stock_source": "robinhood equity mid=80.165 asof=2026-11-06T07:22:00-08:00",
+      "paper_pnl": 49.0,
+      "live_stock": 80.9,
+      "live_stock_source": "robinhood last_trade_price=80.9 (cash close) bid=80.92 ask=81.0 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 0.925,
-      "live_option_bid": 0.91,
-      "live_option_ask": 0.94,
+      "live_option_mid": 0.0,
+      "live_option_bid": 0.0,
+      "live_option_ask": 0.01,
       "live_option_mark_at_fill": 0.495,
-      "live_option_last": 2.74,
+      "live_option_last": 0.005,
       "live_option_delta": -0.471903,
       "live_option_symbol": "O:HOOD261106P00080000",
       "option_instrument_id": "bb57a725-66c6-490e-bc71-db6f73571770",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-10-28T07:28:00-07:00",
       "fill_source": "RH option bid",
       "earnings_in_window": false,
       "flags": [
         "AM Oct28 paper fill; RH bid 0.49 @ 2026-10-28T07:28:00-07:00; F&G 34.1; rules=v0.6-beta",
         "WATCH THE CLOSE Nov05 (v0.7-beta): live 78.23 is 2.21% under the $80 out, but the out is a daily close; Wed close 87.41 was above it. No action at the AM; a Thu close under $80 is a new out cross.",
-        "RH live MTM Nov05 cash close CSP; equity_last=78.415; option_mid=2.74",
         "OUT TRIGGER: Nov05 close 78.415 < out 80.0 (daily close under $80 (bottom of Danny's $80-85 uptrend support; at the strike)); status unchanged pending desk exit decision",
-        "OUT CHECK Nov05 close: 78.415 < out 80.0 (NEW cross); desk decision owned by Stocktimus",
-        "HOLD DAY 1 (paper hold rule, v0.7-beta): Thu Nov05 close 78.39 is 2.01% under the $80 out (<3%); market gate ON (SPY -2.03% / QQQ -4.31% WTD; F&G live 24). Cut on a daily close < $76.0, at day 5 (Wed Nov12), on stock-specific bad news, or if the gate fails. Nov6 $80p stays short into today's expiry (live 80.165). No averaging down."
+        "HOLD DAY 1 (paper hold rule, v0.7-beta): Thu Nov05 close 78.39 is 2.01% under the $80 out (<3%); market gate ON (SPY -2.03% / QQQ -4.31% WTD; F&G live 24). Cut on a daily close < $76.0, at day 5 (Wed Nov12), on stock-specific bad news, or if the gate fails. Nov6 $80p stays short into today's expiry (live 80.165). No averaging down.",
+        "EXPIRES 2026-11-06: cash close 80.9 vs strike 80.0 -> OTM; marked at intrinsic 0.0; status left open pending next settlement run",
+        "RH live MTM Nov06 cash close CSP; equity_last=80.9; option_mid=0.0",
+        "OUT CHECK Nov06 close: 80.9 back above out 80.0 (prev close 78.39); prior OUT TRIGGER kept for history; desk decision owned by Stocktimus"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": -43.5,
+      "option_path_pnl": 49.0,
       "ticket_return_pct": 0.006125,
-      "paper_roc_pct": -0.0054375,
-      "paper_acct_pct": -0.000174,
+      "paper_roc_pct": 0.006125,
+      "paper_acct_pct": 0.000196,
       "hold_status": {
         "hold_day": 1,
         "hold_start": "2026-11-06",
@@ -14266,11 +14268,11 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": 55.5,
-      "live_stock": 31.685,
-      "live_stock_source": "robinhood equity mid=31.685 (Fri Nov06 AM)",
+      "paper_pnl": 56.0,
+      "live_stock": 30.635,
+      "live_stock_source": "robinhood last_trade_price=30.635 (cash close) bid=30.5 ask=30.74 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 0.005,
+      "live_option_mid": 0.0,
       "live_option_bid": 0.0,
       "live_option_ask": 0.01,
       "live_option_mark_at_fill": 0.625,
@@ -14278,21 +14280,22 @@
       "live_option_delta": -0.012559,
       "live_option_symbol": "O:OSCR261106P00027000",
       "option_instrument_id": "1ff2decf-118c-419e-ac7e-b5bf5a961d6a",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-10-28T12:14:00-07:00",
       "fill_source": "RH option bid",
       "earnings_in_window": true,
       "flags": [
         "Midday Oct28 paper fill; RH bid 0.56 @ 2026-10-28T12:14:00-07:00; F&G 34.9; rules=v0.6-beta",
-        "RH live MTM Nov06 AM; equity_mid=31.685; option_mark=0.005; Thu close 33.18 vs out 27.0",
-        "EXPIRY WATCH Nov06: OSCR live 31.685 > $27 strike; Nov6 $27p mark 0.005 \u2014 expect OTM expiry if close holds."
+        "EXPIRY WATCH Nov06: OSCR live 31.685 > $27 strike; Nov6 $27p mark 0.005 \u2014 expect OTM expiry if close holds.",
+        "EXPIRES 2026-11-06: cash close 30.635 vs strike 27.0 -> OTM; marked at intrinsic 0.0; status left open pending next settlement run",
+        "RH live MTM Nov06 cash close CSP; equity_last=30.635; option_mid=0.0"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": 55.5,
+      "option_path_pnl": 56.0,
       "ticket_return_pct": 0.02074074074074074,
-      "paper_roc_pct": 0.020555555555555556,
-      "paper_acct_pct": 0.000222
+      "paper_roc_pct": 0.02074074074074074,
+      "paper_acct_pct": 0.000224
     },
     {
       "id": "2026-10-29-AM-ONDS-CSP",
@@ -14688,32 +14691,32 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": -38.0,
-      "live_stock": 64.085,
-      "live_stock_source": "robinhood equity mid=64.085 (Fri Nov06 AM)",
+      "paper_pnl": -58.0,
+      "live_stock": 63.39,
+      "live_stock_source": "robinhood last_trade_price=63.39 (cash close) bid=63.4 ask=63.47 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 0.195,
-      "live_option_bid": 0.19,
-      "live_option_ask": 0.2,
+      "live_option_mid": 0.245,
+      "live_option_bid": 0.24,
+      "live_option_ask": 0.25,
       "live_option_mark_at_fill": 0.105,
-      "live_option_last": 0.18,
+      "live_option_last": 0.245,
       "live_option_delta": -0.11152,
       "live_option_symbol": "O:NFLX261113P00060000",
       "option_instrument_id": "55a31489-5c1b-4825-9878-0d239ea59f72",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-11-04T07:32:00-08:00",
       "fill_source": "RH option bid",
       "earnings_in_window": false,
       "flags": [
         "Wed Nov04 AM paper fill; 0.1 @ 2026-11-04T07:32:00-08:00; stock 65.985; F&G live 28.86; rules=v0.7-beta",
-        "RH live MTM Nov06 AM; equity_mid=64.085; option_mark=0.195; Thu close 65.56 vs out 60.0"
+        "RH live MTM Nov06 cash close CSP; equity_last=63.39; option_mid=0.245"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": -38.0,
+      "option_path_pnl": -58.0,
       "ticket_return_pct": 0.0016666666666666668,
-      "paper_roc_pct": -0.0015833333333333333,
-      "paper_acct_pct": -0.000152
+      "paper_roc_pct": -0.002416666666666667,
+      "paper_acct_pct": -0.000232
     },
     {
       "id": "2026-11-04-AM-UBER-CSP",
@@ -14753,32 +14756,32 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": -20.0,
-      "live_stock": 69.705,
-      "live_stock_source": "robinhood equity mid=69.705 (Fri Nov06 AM)",
+      "paper_pnl": -30.0,
+      "live_stock": 68.59,
+      "live_stock_source": "robinhood last_trade_price=68.59 (cash close) bid=68.5 ask=68.7 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 0.17,
-      "live_option_bid": 0.15,
-      "live_option_ask": 0.19,
+      "live_option_mid": 0.195,
+      "live_option_bid": 0.17,
+      "live_option_ask": 0.22,
       "live_option_mark_at_fill": 0.14,
-      "live_option_last": 0.355,
+      "live_option_last": 0.195,
       "live_option_delta": -0.081155,
       "live_option_symbol": "O:UBER261113P00064000",
       "option_instrument_id": "6f840ed9-0c48-4b29-ae51-4f68264eafb1",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-11-04T07:32:00-08:00",
       "fill_source": "RH option price-walk",
       "earnings_in_window": false,
       "flags": [
         "Wed Nov04 AM paper fill; 0.12 @ 2026-11-04T07:32:00-08:00; stock 71.29; F&G live 28.86; rules=v0.7-beta",
-        "RH live MTM Nov06 AM; equity_mid=69.705; option_mark=0.17; Thu close 68.78 vs out 64.0"
+        "RH live MTM Nov06 cash close CSP; equity_last=68.59; option_mid=0.195"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": -20.0,
+      "option_path_pnl": -30.0,
       "ticket_return_pct": 0.001875,
-      "paper_roc_pct": -0.00078125,
-      "paper_acct_pct": -8e-05
+      "paper_roc_pct": -0.001171875,
+      "paper_acct_pct": -0.00012
     },
     {
       "id": "2026-11-04-AM-PLTR-CSP",
@@ -14890,32 +14893,32 @@
         "TLI"
       ],
       "paper_status": "open",
-      "paper_pnl": 25.0,
-      "live_stock": 74.97,
-      "live_stock_source": "robinhood equity mid=74.97 (Fri Nov06 AM)",
+      "paper_pnl": 32.5,
+      "live_stock": 75.74,
+      "live_stock_source": "robinhood last_trade_price=75.74 (cash close) bid=75.5 ask=75.9 asof=2026-11-06T13:24:46-08:00",
       "quote_quality": "robinhood_live",
-      "live_option_mid": 2.75,
-      "live_option_bid": 2.45,
-      "live_option_ask": 3.05,
+      "live_option_mid": 2.675,
+      "live_option_bid": 2.4,
+      "live_option_ask": 2.95,
       "live_option_mark_at_fill": 3.065,
-      "live_option_last": 2.965,
+      "live_option_last": 2.675,
       "live_option_delta": -0.307698,
       "live_option_symbol": "O:SE261113P00070000",
       "option_instrument_id": "1bf083ab-9ba7-4635-b779-1fffa67ed86f",
-      "price_asof": "2026-11-06T07:22:00-08:00",
-      "mtm_asof": "2026-11-06T07:22:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-11-05T07:34:00-08:00",
       "fill_source": "RH option price-walk",
       "earnings_in_window": true,
       "flags": [
         "Thu Nov05 AM paper fill; 3.0 @ 2026-11-05T07:34:00-08:00; stock 74.055; F&G live 25.39; rules=v0.7-beta",
-        "RH live MTM Nov06 AM; equity_mid=74.97; option_mark=2.75; Thu close 75.63 vs out 70.0"
+        "RH live MTM Nov06 cash close CSP; equity_last=75.74; option_mid=2.675"
       ],
       "stock_path_pnl": 0.0,
-      "option_path_pnl": 25.0,
+      "option_path_pnl": 32.5,
       "ticket_return_pct": 0.04285714285714286,
-      "paper_roc_pct": 0.0035714285714285713,
-      "paper_acct_pct": 0.0001
+      "paper_roc_pct": 0.004642857142857143,
+      "paper_acct_pct": 0.00013
     },
     {
       "id": "2026-11-06-AM-ZETA-CSP",
@@ -14955,30 +14958,32 @@
       "notes": "Sell 1x ZETA 2026-11-13 $25 put, credit 0.52 @ 07:38 PT (price-walk: book 0.48/0.63 (~27% of mid); fill at RH high_fill_rate_sell_price 0.521; RH bid 0.48/ask 0.63/mark 0.555, delta -0.163432; RH quote 2026-11-06T15:38:06.751485609Z). Stock mid 29.635 (bid 29.6/ask 29.67). option_id verified via get_option_instruments. Lane=paper. No orders.",
       "option_instrument_id": "954555e6-aa50-4bb1-b5df-e1f55839a99b",
       "live_option_symbol": "O:ZETA261113P00025000",
-      "price_asof": "2026-11-06T07:38:00-08:00",
-      "mtm_asof": "2026-11-06T07:38:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-11-06T07:38:00-08:00",
       "fill_source": "RH option price-walk",
-      "live_stock": 29.635,
-      "live_option_mid": 0.555,
-      "live_option_bid": 0.48,
-      "live_option_ask": 0.63,
+      "live_stock": 31.025,
+      "live_option_mid": 0.355,
+      "live_option_bid": 0.24,
+      "live_option_ask": 0.47,
       "live_option_delta": -0.163432,
       "live_option_mark_at_fill": 0.52,
       "stock_path_pnl": 0.0,
-      "option_path_pnl": 0.0,
-      "paper_pnl": 0.0,
+      "option_path_pnl": 16.5,
+      "paper_pnl": 16.5,
       "paper_status": "open",
       "quote_quality": "robinhood_live",
-      "live_stock_source": "robinhood equity mid=29.635 asof=2026-11-06T07:38:00-08:00",
+      "live_stock_source": "robinhood last_trade_price=31.025 (cash close) bid=30.97 ask=31.18 asof=2026-11-06T13:24:46-08:00",
       "rules_version": "v0.7-beta",
       "new_vs_carry": "new",
       "flags": [
-        "Fri Nov06 AM paper fill; 0.52 @ 2026-11-06T07:38:00-08:00; stock 29.635; F&G live ~24 extreme fear; rules=v0.7-beta"
+        "Fri Nov06 AM paper fill; 0.52 @ 2026-11-06T07:38:00-08:00; stock 29.635; F&G live ~24 extreme fear; rules=v0.7-beta",
+        "RH live MTM Nov06 cash close CSP; equity_last=31.025; option_mid=0.355"
       ],
       "earnings_in_window": "ZETA Q? Nov 9 AMC",
-      "paper_roc_pct": 0.0,
-      "paper_acct_pct": 0.0
+      "paper_roc_pct": 0.0066,
+      "paper_acct_pct": 6.6e-05,
+      "live_option_last": 0.355
     },
     {
       "id": "2026-11-06-AM-UPS-CSP",
@@ -15018,30 +15023,32 @@
       "notes": "Sell 1x UPS 2026-11-20 $100 put, credit 0.4 @ 07:38 PT (price-walk: book 0.36/0.54; fill near RH high_fill_rate_sell_price 0.404; RH bid 0.36/ask 0.54/mark 0.45, delta -0.108249; RH quote 2026-11-06T15:38:05.603498298Z). Stock mid 109.46 (bid 109.42/ask 109.47). option_id verified via get_option_instruments. Lane=paper. No orders.",
       "option_instrument_id": "04652aca-4191-4e58-aef4-040d8f87478a",
       "live_option_symbol": "O:UPS261120P00100000",
-      "price_asof": "2026-11-06T07:38:00-08:00",
-      "mtm_asof": "2026-11-06T07:38:00-08:00",
+      "price_asof": "2026-11-06T13:24:46-08:00",
+      "mtm_asof": "2026-11-06T13:24:46-08:00",
       "entry_at": "2026-11-06T07:38:00-08:00",
       "fill_source": "RH option price-walk",
-      "live_stock": 109.46,
-      "live_option_mid": 0.45,
+      "live_stock": 108.293,
+      "live_option_mid": 0.43,
       "live_option_bid": 0.36,
-      "live_option_ask": 0.54,
+      "live_option_ask": 0.5,
       "live_option_delta": -0.108249,
       "live_option_mark_at_fill": 0.4,
       "stock_path_pnl": 0.0,
-      "option_path_pnl": 0.0,
-      "paper_pnl": 0.0,
+      "option_path_pnl": -3.0,
+      "paper_pnl": -3.0,
       "paper_status": "open",
       "quote_quality": "robinhood_live",
-      "live_stock_source": "robinhood equity mid=109.46 asof=2026-11-06T07:38:00-08:00",
+      "live_stock_source": "robinhood last_trade_price=108.293 (cash close) bid=108.3 ask=108.92 asof=2026-11-06T13:24:46-08:00",
       "rules_version": "v0.7-beta",
       "new_vs_carry": "new",
       "flags": [
-        "Fri Nov06 AM paper fill; 0.4 @ 2026-11-06T07:38:00-08:00; stock 109.46; F&G live ~24 extreme fear; rules=v0.7-beta"
+        "Fri Nov06 AM paper fill; 0.4 @ 2026-11-06T07:38:00-08:00; stock 109.46; F&G live ~24 extreme fear; rules=v0.7-beta",
+        "RH live MTM Nov06 cash close CSP; equity_last=108.293; option_mid=0.43"
       ],
       "earnings_in_window": null,
-      "paper_roc_pct": 0.0,
-      "paper_acct_pct": 0.0
+      "paper_roc_pct": -0.0003,
+      "paper_acct_pct": -1.2e-05,
+      "live_option_last": 0.43
     }
   ]
 }
